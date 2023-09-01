@@ -1,0 +1,72 @@
+@setvar! owner 0
+if name = "Thessaly" or name = "Ballsby Jiglin" or name = "Paper Dragon"
+    @setvar! owner 1
+endif
+
+if skill 'Chivalry' > 80
+    while not findtype 30528 ground 2091 -1 1
+        say '[SacredJourney'
+        waitforgump 1482653814 500
+        gumpresponse 4 1482653814
+        overhead 'Waiting for gate'
+        wait 1000
+    endwhile
+    dclicktype 30528 ground 2091 -1 1
+    waitforgump 3899019871
+    gumpresponse 2
+elseif skill 'Magery' > 50
+    @setvar! pass 0
+    removelist 'runebookList'
+    createlist 'runebookList'
+    if findtypelist 'runebookList' runebook backpack
+        foreach 'myBook' in 'runebookList'
+            overhead 'myBook'
+            getlabel myBook desc
+            if 'Home' in desc
+                while pass = 0
+                    hotkey 'Recall'
+                    wft 5000
+                    target myBook
+                    wait 500
+                    overhead 'Looking for innkeeper'
+                    clearignore
+                    createlist 'npcs'
+                    clearlist 'npcs'
+                    if findtypelist 'npcs' 400 ground any 1 18
+                        foreach npc in 'npcs'
+                            getlabel npc desc
+                            if "innkeeper" in desc
+                                overhead 'Innkeeper found'
+                                @setvar! pass 1
+                            else
+                                @ignore npc
+                            endif
+                        endfor
+                    endif
+                endwhile
+                break
+            endif
+        endfor
+    else
+        overhead 'Runebook missing'
+        stop
+    endif
+    if pass = 0
+        overhead "Runebook named 'Home' missing"
+        stop
+    endif
+endif
+
+wait 500
+say 'Escort me to my room please'
+waitforgump 2393832411
+
+if owner = 0
+    gumpresponse 5
+    waitforgump 2393832411
+    gumpresponse 100
+elseif owner = 1
+    gumpresponse 4
+endif
+
+stop

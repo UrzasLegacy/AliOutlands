@@ -1,0 +1,1447 @@
+# Kings Faire Auto Bot  by Jaseowns
+# UO Outlands
+############
+# Work in progress.. el oh el
+# youtube.com/jaseowns/live
+# v0.0.7
+##########
+# 0x8939 Arlen Archery Contest
+# 0x893C Tiernan Bell Striker
+# 0x8955 Ronan Log Cutter
+# 0x895D ?? Whack a muck
+# 0x8945 Patience Dunk Tank
+# 0x896E Creighton Balloon Pop
+# 0x894E Ursula Ladder Golf
+# 0x893A Isabeau Axe Toss
+# 0x8964 Christoph Produce Pitch
+# 0x8982 Brazil Plucky Musician
+@setvar! producepitch 0x8964
+@setvar! pluckymusician 0x8982
+@setvar! axetoss 0x893A
+@setvar! archeryContest 0x8939
+@setvar! bellstriker 0x893C
+@setvar! logCutter 0x8955
+@setvar! whackamuck 0x895D
+@setvar! dunktank 0x8945
+@setvar! statuecarving 0x8979
+@setvar! balloonpop 0x896E
+@setvar! laddergolf 0x894E
+@setvar! overheadMessageTimerCd 2000
+settimer overheadMessageTimer overheadMessageTimerCd
+clearsysmsg 
+gumpclose 2258988405
+
+@setvar! sayFunnyStuffTimerCd 1500
+settimer sayFunnyStuffTimer sayFunnyStuffTimerCd
+
+
+while not dead
+    if findtype "balloon" backpack as item
+        dclick item
+    endif
+
+    @setvar! gameVendorId archeryContest
+
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        gumpresponse 2 2258988405
+        wait 200
+        @setvar! playingGame 1
+        if ingump "have 0 plays remaining" 2258988405
+            overhead "We are done with archery for today.. lets try another game!" 88
+            @setvar! playingGame 0
+        elseif insysmsg "You are too far away to participate in this event."
+            overhead "Move closer to the contest guy" 34
+            wait 500
+            replay
+        elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+            settimer waitingInLineTimer 0
+            @setvar! playingGame 0
+            while find gameVendorId ground -1 -1 4
+                if timer overheadMessageTimer >= overheadMessageTimerCd
+                    overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                    settimer overheadMessageTimer 0
+                endif
+                if paralyzed or findbuff "hinder"
+                    @setvar! playingGame 1
+                    break
+                endif
+                wait 50
+            endwhile
+        elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+            overhead "We need to go buy tickets!" 287
+            wait 2000
+        endif
+    endif
+
+    ##############
+    ### Bell Striker Event
+    ######### 
+    @setvar! gameVendorId bellstriker
+    @setvar! gameStartX 6433
+    @setvar! gameStartY 3073
+    @setvar! gameEndX 6436
+    @setvar! gameEndY 3073
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+                overhead "We are done with bell striker for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+                    wait 500
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+
+
+    ##############
+    ### Log Cutter Event
+    #########
+    @setvar! gameVendorId logCutter
+    @setvar! gameStartX 6420
+    @setvar! gameStartY 3070
+    @setvar! gameEndX 6419
+    @setvar! gameEndY 3076
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+                overhead "We are done with log cutting for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+                    wait 500
+
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Whack-a-muck
+    #########
+    @setvar! gameVendorId whackamuck
+    @setvar! gameStartX 6490
+    @setvar! gameStartY 3004
+    @setvar! gameEndX 6480
+    @setvar! gameEndY 3006
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+                overhead "We are done with whack-a-muck for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+                    wait 500
+                
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Dunk Tank
+    #########
+    @setvar! gameVendorId dunktank
+    @setvar! gameStartX 6439
+    @setvar! gameStartY 3060
+    @setvar! gameEndX 6440
+    @setvar! gameEndY 3058
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+                overhead "We are done with dunk tank for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the dunk tank contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Statue Carving
+    #########
+    @setvar! gameVendorId statuecarving
+    @setvar! gameStartX 6417
+    @setvar! gameStartY 3056
+    @setvar! gameEndX 6424
+    @setvar! gameEndY 3056
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+                overhead "We are done with statue carving for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                   
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    
+    
+    ##############
+    ### Balloon Pop
+    #########
+    @setvar! gameVendorId balloonpop
+    @setvar! gameStartX 6420
+    @setvar! gameStartY 3088
+    @setvar! gameEndX 6418
+    @setvar! gameEndY 3083
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+                overhead "We are done with balloon pop for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                    
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    
+    ##############
+    ### Ladder Golf
+    #########
+    @setvar! gameVendorId laddergolf
+    @setvar! gameStartX 6435
+    @setvar! gameStartY 3087
+    @setvar! gameEndX 6438
+    @setvar! gameEndY 3088
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+                overhead "We are done with ladder golf for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                    
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+
+    ##############
+    ### Axe Toss
+    #########
+    @setvar! gameVendorId axetoss
+    @setvar! gameStartX 6434
+    @setvar! gameStartY 3099
+    @setvar! gameEndX 6436
+    @setvar! gameEndY 3099
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+                overhead "We are done with axe throw for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                    
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    
+    ##############
+    ### Produce Pitch
+    #########
+    @setvar! gameVendorId producepitch
+    @setvar! gameStartX 6419
+    @setvar! gameStartY 3109
+    @setvar! gameEndX 6419
+    @setvar! gameEndY 3110
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with produce pitch for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+           settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+      
+                    wait 500
+                   
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+
+    ##############
+    ### Plucky Musician
+    #########
+    @setvar! gameVendorId pluckymusician
+    @setvar! gameStartX 6405
+    @setvar! gameStartY 3126
+    @setvar! gameEndX 6413
+    @setvar! gameEndY 3122
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with produce pitch for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+                  
+                    wait 500
+                  
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Apple Bobbing
+    #########
+    @setvar! gameVendorId 0x8986
+    @setvar! gameStartX 6433
+    @setvar! gameStartY 3126
+    @setvar! gameEndX 6438
+    @setvar! gameEndY 3124
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with apple bobbing for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                   
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    
+    ##############
+    ### Eating Contest
+    #########
+    @setvar! gameVendorId 0x8958
+    @setvar! gameStartX 6433
+    @setvar! gameStartY 3138
+    @setvar! gameEndX 6436
+    @setvar! gameEndY 3142
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with eating contest for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                   
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Packmaster
+    #########
+    @setvar! gameVendorId 0x897C
+    @setvar! gameStartX 6447
+    @setvar! gameStartY 3130
+    @setvar! gameEndX 6446
+    @setvar! gameEndY 3139
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with packmaster for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                   
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Quartermaster
+    #########
+    @setvar! gameVendorId 0x898A
+    @setvar! gameStartX 6483
+    @setvar! gameStartY 3154
+    @setvar! gameEndX 6491
+    @setvar! gameEndY 3159
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with quartermaster for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+                   
+                    wait 500
+                  
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Alchemissed
+    #########
+    @setvar! gameVendorId 0x8985
+    @setvar! gameStartX 6507
+    @setvar! gameStartY 3143
+    @setvar! gameEndX 6518
+    @setvar! gameEndY 3145
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with alchhemissed for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+                   
+                    wait 500
+                  
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Rage Cage
+    #########
+    @setvar! gameVendorId 0x898B
+    @setvar! gameStartX 6543
+    @setvar! gameStartY 3137
+    @setvar! gameEndX 6542
+    @setvar! gameEndY 3142
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with rage cage for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                  
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Skeet Shooting
+    #########
+    @setvar! gameVendorId 0x897D
+    @setvar! gameStartX 6523
+    @setvar! gameStartY 3102
+    @setvar! gameEndX 6528
+    @setvar! gameEndY 3106
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with skeet shootin for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                    
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    
+    ##############
+    ### Derby
+    #########
+    @setvar! gameVendorId 0x8960
+    @setvar! gameStartX 6512
+    @setvar! gameStartY 3021
+    @setvar! gameEndX 9493
+    @setvar! gameEndY 3022
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with derby for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+                    
+                    wait 500
+                    
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Caravan Pusher
+    #########
+    @setvar! gameVendorId 0x897E
+    @setvar! gameStartX 6511
+    @setvar! gameStartY 3118
+    @setvar! gameEndX 6518
+    @setvar! gameEndY 3115
+     
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with carvan pushin for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+            settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                   
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Boxing Match
+    #########
+    @setvar! gameVendorId 0x893D
+    @setvar! gameStartX 6455
+    @setvar! gameStartY 3086
+    @setvar! gameStartX_other 6455
+    @setvar! gameStartY_other 3081
+    @setvar! gameEndX 6461
+    @setvar! gameEndY 3086
+    @setvar! gameEndX_other 6461
+    @setvar! gameEndY_other 3079
+      
+    
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with carvan pushin for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY or position gameStartX_other gameStartY_other
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+           settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY or position gameStartX_other gameStartY_other
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                  
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY or position gameEndX_other gameEndY_other
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    ##############
+    ### Joust
+    #########
+    @setvar! gameVendorId 0x894A
+    @setvar! gameStartX 6468
+    @setvar! gameStartY 3065
+    @setvar! gameStartX_other 6455
+    @setvar! gameStartY_other 3081
+    @setvar! gameEndX 6469
+    @setvar! gameEndY 3056
+    @setvar! gameEndX_other 6468
+    @setvar! gameEndY_other 3056
+      
+    
+    if find gameVendorId ground -1 -1 4 as james
+        while not gumpexists 2258988405
+            menu james 1
+            waitforgump 2258988405 5000
+        endwhile
+        if ingump "have 0 plays remaining" 2258988405
+            if timer overheadMessageTimer >= overheadMessageTimerCd
+            overhead "We are done with joustin for today.. lets try another game!" 77
+                settimer overheadMessageTimer 0
+            endif
+            gumpclose 2258988405
+        else
+            gumpresponse 2 2258988405
+            wait 200
+            if insysmsg "You are too far away to participate in this event."
+                overhead "Move closer to the contest guy" 34
+                wait 500
+            elseif insysmsg "You join the queue to participate" or insysmsg "You are already queued"
+                settimer waitingInLineTimer 0
+                while find gameVendorId ground -1 -1 4
+                    if timer overheadMessageTimer >= overheadMessageTimerCd
+                        overhead "Wait in queue, stand by... {{waitingInLineTimer}}" 34
+                        settimer overheadMessageTimer 0
+                    endif
+                    if position gameStartX gameStartY
+                        break
+                    endif
+                    wait 50
+                endwhile
+            elseif insysmsg "You do not have enough tickets in your bank box to participate in this event."
+                overhead "We need to go buy tickets!" 287
+                wait 2000
+            endif
+        endif
+        if position gameStartX gameStartY or position gameStartX_other gameStartY_other
+            while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                wait 50
+            endwhile
+           settimer sayFunnyStuffTimer 0
+            while position gameStartX gameStartY or position gameStartX_other gameStartY_other
+                if timer sayFunnyStuffTimer >= sayFunnyStuffTimerCd
+
+                    wait 500
+                   
+                    settimer sayFunnyStuffTimer 0
+                endif
+            endwhile
+            if position gameEndX gameEndY or position gameEndX_other gameEndY_other
+                while timer sayFunnyStuffTimer < sayFunnyStuffTimerCd
+                    wait 50
+                endwhile
+            endif
+        endif
+    endif
+    
+    if findtype "balloon" backpack as item
+        dclick item
+    endif
+    
+    if insysmsg "You are no longer queued"
+        overhead "We dropped out of the queue" 34
+        gumpclose 2258988405
+    endif
+
+    wait 500
+endwhile
+
