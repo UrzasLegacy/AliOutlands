@@ -38,6 +38,7 @@ elseif skill 'Magery' > 50
                             if "innkeeper" in desc
                                 overhead 'Innkeeper found'
                                 @setvar! pass 1
+                                break
                             else
                                 @ignore npc
                             endif
