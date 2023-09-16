@@ -1,0 +1,45 @@
+@clearignore
+removelist 'chestList'
+createlist 'chestList'
+
+if findtypelist 'chestList' "3648|3649|3650|3651" ground any -1 18
+    foreach chest in 'chestList'
+        getlabel chest desc
+        if 'locked' in desc
+        else
+            @ignore chest
+        endif
+     endfor
+endif
+
+if findtype '3648|3649|3650|3651' ground any -1 2 as chest
+    getlabel chest chestLabel
+    overhead "{{chestLabel}}: 2 tiles away" 1159
+elseif findtype '3648|3649|3650|3651' ground any -1 4 as chest
+    getlabel chest chestLabel
+    overhead "{{chestLabel}}: 4 tiles away" 1159
+elseif findtype '3648|3649|3650|3651' ground any -1 6 as chest
+    getlabel chest chestLabel
+    overhead "{{chestLabel}}: 6 tiles away" 1159
+elseif findtype '3648|3649|3650|3651' ground any -1 8 as chest
+    getlabel chest chestLabel
+    overhead "{{chestLabel}}: 8 tiles away" 1159
+elseif findtype '3648|3649|3650|3651' ground any -1 10 as chest
+    getlabel chest chestLabel
+    overhead "{{chestLabel}}: 10 tiles away" 1159
+elseif findtype '3648|3649|3650|3651' ground any -1 12 as chest
+    getlabel chest chestLabel
+    overhead "{{chestLabel}}: 12 tiles away" 1159
+elseif findtype '3648|3649|3650|3651' ground any -1 14 as chest
+    getlabel chest chestLabel
+    overhead "{{chestLabel}}: 14 tiles away" 1159
+elseif findtype '3648|3649|3650|3651' ground any -1 16 as chest
+    getlabel chest chestLabel
+    overhead "{{chestLabel}}: 16 tiles away" 1159
+elseif findtype '3648|3649|3650|3651' ground any -1 18 as chest
+    getlabel chest chestLabel
+    overhead "{{chestLabel}}: 18 tiles away" 1159
+else
+    overhead "No locked chests nearby" 1159
+endif
+@clearignore

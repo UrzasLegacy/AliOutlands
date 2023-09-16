@@ -10,26 +10,27 @@ import webbrowser
 import os
 import glob
 import pyautogui
+import math
 
 core_prices = { #exact string MATTERS
     "Blood Aspect Core": 4000,
-    "Holy Aspect Core": 4000,
-    "Earth Aspect Core": 4000,
+    "Holy Aspect Core": 3000,
+    "Earth Aspect Core": 3000,
     "War Aspect Core": 3000,
     "Death Aspect Core": 4000,
-    "Water Aspect Core": 6000,
+    "Water Aspect Core": 8000,
     "Gadget Aspect Core": 4000,
-    "Shadow Aspect Core": 7000,
-    "Void Aspect Core": 10000,
+    "Shadow Aspect Core": 10000,
+    "Void Aspect Core": 13000,
     "Fire Aspect Core": 10000,
-    "Discipline Aspect Core": 7000,
-    "Lyric Aspect Core": 10000,
-    "Poison Aspect Core": 25000,
-    "Eldritch Aspect Core": 26000,
-    "Fortune Aspect Core": 30000,
-    "Command Aspect Core": 38000,
-    "Artisan Aspect Core": 38000,
-    "Air Aspect Core": 38000,
+    "Discipline Aspect Core": 8000,
+    "Lyric Aspect Core": 13000,
+    "Poison Aspect Core": 30000,
+    "Eldritch Aspect Core": 32000,
+    "Fortune Aspect Core": 40000,
+    "Command Aspect Core": 95000,
+    "Artisan Aspect Core": 50000,
+    "Air Aspect Core": 39000,
     "Harvest Aspect Core": 130000,
 }
 
@@ -48,10 +49,10 @@ extract_prices = { #exact string MATTERS
     "Poison Aspect Extract": 8000,
     "Eldritch Aspect Extract": 8000,
     "Fortune Aspect Extract": 5000,
-    "Command Aspect Extract": 8000,
+    "Command Aspect Extract": 9000,
     "Artisan Aspect Extract": 5000,
     "Air Aspect Extract": 7000,
-    "Harvest Aspect Extract": 11000,
+    "Harvest Aspect Extract": 12000,
 }
 
 distil_prices = { #exact string MATTERS
@@ -73,7 +74,7 @@ distil_prices = { #exact string MATTERS
     "Command Aspect Distillation": 8000,
     "Artisan Aspect Distillation": 5000,
     "Air Aspect Distillation": 7000,
-    "Harvest Aspect Distillation": 11000,
+    "Harvest Aspect Distillation": 12000,
 }
 
 map_prices = { #exact string MATTERS
@@ -96,23 +97,23 @@ map_prices = { #exact string MATTERS
 }
 scroll_prices = { #exact string MATTERS
     "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 25000, #alchemy skill mastery scroll : 3 (used to increase a player's skill cap for a skill by 1)
-    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
-    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
     "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 23000,
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 22000,
     "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
     "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 17000,
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 19000,
     "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
@@ -122,25 +123,25 @@ scroll_prices = { #exact string MATTERS
     "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 33000,
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 35000,
     "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
 }
 
 link_prices = { #exact chain type string MATTERS
     "Melee Accuracy": [110000,650000,2800000], #Melee Accuracy/Defense
     "Melee Defense": [110000,650000,2800000], #Melee Accuracy/Defense
     "Melee Accuracy/Defense": [110000,650000,2800000],
-    "Melee Special Chance/Special Damage": [90000,710000,2800000],
-    "Melee Special Chance": [90000,710000,2800000], #Melee Special Chance/Special Damage
-    "Melee Swing Speed": [140000,700000,2800000],
+    "Melee Special Chance/Special Damage": [80000,710000,2800000],
+    "Melee Special Chance": [80000,710000,2800000], #Melee Special Chance/Special Damage
+    "Melee Swing Speed": [130000,700000,2800000],
     "Melee Damage": [70000,500000,2300000], #Melee Damage/Ignore Armor Chance
     "Melee Ignore Armor Chance": [70000,500000,2300000], #Melee Damage/Ignore Armor Chance
     "Melee Damage/Ignore Armor Chance": [70000,500000,2300000],
-    "Melee Aspect Effect Modifier": [100000,725000,2700000],
+    "Melee Aspect Effect Modifier": [80000,700000,2700000],
     "Melee Aspect Effect Chance": [130000,700000,2800000],
     "Spell Damage": [70000,500000,2300000], #Spell Damage/Ignore Resist Chance
     "Spell Damage When No Followers": [70000,500000,2300000],
@@ -152,34 +153,34 @@ link_prices = { #exact chain type string MATTERS
     "Meditation Rate": [70000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance
     "Spell Disrupt Avoid Chance": [70000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance, Spell Damage When No Followers
     "Meditation Rate/Disrupt Avoid Chance": [70000,500000,2300000], #Spell Damage When No Followers
-    "Spell Aspect Effect Modifier": [90000,600000,2500000],
+    "Spell Aspect Effect Modifier": [80000,600000,2500000],
     "Spell Aspect Special Chance": [125000,750000,2500000],
-    "Damage to Beastial Creatures": [90000,625000,2500000], #Nusero Damage
-    "Damage to Construct Creatures": [90000,625000,2500000], #Mausoleum Damage
-    "Damage to Daemonic Creatures": [90000,625000,2500000], #Inferno Damage
-    "Damage to Elemental Creatures": [90000,625000,2500000], #Mount Petram Damage
-    "Damage to Humanoid Creatures": [90000,625000,2500000], #Aegis Keep Damage
-    "Damage to Monstrous Creatures": [90000,625000,2500000], #Cavernam Damage
-    "Damage to Nature Creatures": [90000,625000,2500000], #Darkmire Temple Damage
-    "Damage to Undead Creatures": [90000,625000,2500000], #Ossuary Damage
-    "Nusero Damage": [90000,625000,2500000],
-    "Mausoleum Damage": [90000,625000,2500000],
-    "Inferno Damage": [90000,625000,2500000],
-    "Mount Petram Damage": [90000,625000,2500000],
-    "Aegis Keep Damage": [90000,625000,2500000],
-    "Cavernam Damage": [90000,625000,2500000],
-    "Darkmire Temple Damage": [90000,625000,2500000],
-    "Ossuary Damage": [90000,625000,2500000,1111111111],
-    "Pulma Damage": [90000,625000,2500000],
-    "Shadowspire Cathedral Damage": [90000,625000,2500000],
-    "Wilderness Damage": [90000,625000,2500000],
+    "Damage to Beastial Creatures": [80000,625000,2500000], #Nusero Damage
+    "Damage to Construct Creatures": [80000,625000,2500000], #Mausoleum Damage
+    "Damage to Daemonic Creatures": [80000,625000,2500000], #Inferno Damage
+    "Damage to Elemental Creatures": [80000,625000,2500000], #Mount Petram Damage
+    "Damage to Humanoid Creatures": [80000,625000,2500000], #Aegis Keep Damage
+    "Damage to Monstrous Creatures": [80000,625000,2500000], #Cavernam Damage
+    "Damage to Nature Creatures": [80000,625000,2500000], #Darkmire Temple Damage
+    "Damage to Undead Creatures": [80000,625000,2500000], #Ossuary Damage
+    "Nusero Damage": [80000,625000,2500000],
+    "Mausoleum Damage": [80000,625000,2500000],
+    "Inferno Damage": [80000,625000,2500000],
+    "Mount Petram Damage": [80000,625000,2500000],
+    "Aegis Keep Damage": [80000,625000,2500000],
+    "Cavernam Damage": [80000,625000,2500000],
+    "Darkmire Temple Damage": [80000,625000,2500000],
+    "Ossuary Damage": [80000,625000,2500000,1111111111],
+    "Pulma Damage": [80000,625000,2500000],
+    "Shadowspire Cathedral Damage": [80000,625000,2500000],
+    "Wilderness Damage": [80000,625000,2500000],
     "Follower Damage": [150000,750000,2800000],
-    "Damage to Barded Creatures": [130000,650000,2800000],
-    "Damage to Poisoned Creatures": [130000,650000,2800000],
+    "Damage to Barded Creatures": [120000,650000,2800000],
+    "Damage to Poisoned Creatures": [120000,650000,2800000],
     "Poison Damage/Resist Ignore": [70000,500000,2300000],
-    "Backstab Damage": [120000,600000,2500000],
+    "Backstab Damage": [110000,600000,2500000],
     "Trap Damage": [130000,700000,2800000],
-    "Damage to Bosses": [90000,600000,2600000],
+    "Damage to Bosses": [80000,600000,2600000],
     "Damage on Ships": [135000,650000,2600000],
     "Ship Cannon Damage": [135000,650000,2600000],
     "Damage to Creatures Above 66% HP": [70000,500000,2300000], #Damage Dealt By Player
@@ -204,13 +205,13 @@ link_prices = { #exact chain type string MATTERS
     "Effective Barding Skill": [120000,650000,2800000], #Bard Reset/Break Ignore Chance
     "Chivalry Skill": [70000,500000,2300000], 
     "Necromancy Skill": [140000,750000,2800000], #Follower Damage, Follower Damage Resistance
-    "Barding Effect Durations": [90000,650000,2600000], #Bard Reset/Break Ignore Chance
-    "Bard Reset/Break Ignore Chance": [90000,650000,2600000],
+    "Barding Effect Durations": [80000,650000,2600000], #Bard Reset/Break Ignore Chance
+    "Bard Reset/Break Ignore Chance": [80000,650000,2600000],
     "Spirit Speak/Inscription": [140000,750000,2800000], #Follower Damage, Follower Damage Resistance
-    "Chance on Stealth For 5 Extra Steps": [150000,750000,2800000],
+    "Chance on Stealth For 5 Extra Steps": [130000,720000,2700000],
     "Gold/Doubloon Drop Increase": [70000,500000,2300000],
     "Special/Rare Loot Chance": [70000,500000,2300000],
-    "reforging tool": [85000,190000,350000],
+    "reforging tool": [85000,180000,350000],
 }
 
 misc_prices = { #exact string matters
@@ -219,21 +220,22 @@ misc_prices = { #exact string matters
     "an ankh token":10000,
     "prevalia coins [blessed]":18000, #prevalia coins : 5 [blessed]
     "a random spell hue deed": 17000,
-    "research guide (25 uses remaining)":17000,
-    "research materials (double-click to research)": 31000,
+    "research guide (25 uses remaining)":15000,
+    "research materials (double-click to research)": 32000,
     "mastercrafting diagram": 15000,
     "aspect kit": 22000,
     "a skill mastery orb (used to increase a player's total skill cap by 1)": 15000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
-    "an arcane scroll": 900,
+    "an arcane scroll": 1000,
     "arcane essence": 30,
     "plant chemicals": 2000,
     "iron ingot commodity (5,000 total)": 80000,
-    "board commodity (5,000 total)": 65000,
-    "leather commodity (5,000 total)": 9000,
+    "board commodity (5,000 total)": 70000,
+    "leather commodity (5,000 total)": 9500,
     "a message in a bottle": 17000, 
-    "pristine lumber": 33000, 
-    "immaculate stone": 33000, 
-    "an emote deed": 250000,
+    "pristine lumber": 32000, 
+    "immaculate stone": 32000,
+    "an emote deed": 200000,
+    "a battle commendation (double-click to consume and receive reward item)": 10000,
 }
 
 def scrape_wide_page(item, prices_obj):
@@ -254,6 +256,8 @@ def scrape_wide_page(item, prices_obj):
     if soup:
         # Find the table with the specific id
         table = soup.find('table', id="item-search-results")
+        if not table:
+            return
         # Extract all rows from the table body
         out_data = []
         rows = table.tbody.find_all('tr')
@@ -302,64 +306,112 @@ def scrape_wide_page(item, prices_obj):
         for tuple in out_data:
             append_to_tree(*tuple)
         if search_sortmode.get() == 2 and len(out_data):
-            sort_column("Ratio", False, sort_floats_key)
+            sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
     #print(f'end: {time.time() - start_time}')
     sleep_time = 0.3 - elapsed_time
     if sleep_time > 0:
         time.sleep(sleep_time)
 
 def scrape_vendor_updates():
-    urls = {
-        "https://outlandmalls.com/vendors/1793084": ("S Terran Clearing"),
-        "https://outlandmalls.com/vendors/89435": "N Prev Clearing SW",
-        "https://outlandmalls.com/vendors/3878051": "N Prev Clearing W",
-        "https://outlandmalls.com/vendors/4056785": "N Prev Clearing N",
-        "https://outlandmalls.com/vendors/348328": "N Prev Clearing E",
-        "https://outlandmalls.com/vendors/1548555": "S Cambria Gate",
-        "https://outlandmalls.com/vendors/2038646": "SS & CORES ALL GOODS Outland Malls",
-        "https://outlandmalls.com/vendors/40369": "West of SSC w190",
-        "https://outlandmalls.com/vendors/1548555": "S Cambria Gate",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
-        "aaaaa": "aaaaa",
+    my_locations = {
+        #"location name": (x,y),
+        "S Terran Clearing": (927,1471),
+        "Minotaur Island": (3967,1736),
+        "N Prev Clearing SW": (1560,1438),
+        "N Prev Clearing S": (1589,1430),
+        "N Prev Clearing W": (1555,1404),
+        "N Prev Clearing N": (1576,1389),
+        "N Prev Clearing E": (1629,1421),
+        "S Cambria Gate": (1709,3182),
+        "West of SSC": (3267,689),
+        "NE Outpost Close": (3387,377),
+        "NE Outpost Far": (3398,178),
+        "S of Anchor's Rest": (3757,740),
+        "S Prevalia Xroad": (1546,1751),
+        "N Prevalia Sandbar": (1657,1320),
+        "Khal": (2002,1795),
+        "Mine": (4008,477),
+        "AR0": (3947,504),
+        "AR1": (3961,559),
+        "AR2": (3961,477),
+        "AR3": (4002,554),
+        "AR4": (4020,515),
+        "AR5": (4050,540),
+        "AR6": (4050,508),
+        "AR7": (4055,463),
+        "SW Prevalia Clearing SE": (1547,1653),
+        "SW Prevalia Clearing NE": (1544,1623),
+        "SW Prevalia Clearing SW": (1510,1657),
+        "Minotaur Island E": (4067,1766),
+        "Andaria Gate": (2315,639),
+        "South of Pulma": (1748,1055),
+        "Western Camp Island": (3495,1467),
+        "TRT":(1756,2341),
     }
     start_time = time.time()  # Record the current time
-    status_var.set(f"Scanning Locations")
-    for url, location in urls.items():
-        misc_start_time = time.time()  # Record the current time
-        headers = {
+    headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         }
-        response = requests.get(url, headers=headers)
-        if response.status_code != 200:
-            print(f"Failed to retrieve the webpage: {url}. Status code: {response.status_code}")
+    url = "https://outlandmalls.com/vendors/"
+    response = requests.get(url, headers=headers)
+    if response.status_code != 200:
+        print(f"Failed to retrieve the webpage: {url}. Status code: {response.status_code}")
+        status_var.set('Vendor Page Failed')
+        return
+    status_var.set(f"Scanning Locations")
+    soup = BeautifulSoup(response.content, 'lxml')
+    if not soup:
+        status_var.set('Vendor Page Soup Failed')
+        return
+    table = soup.find_all('table')[1]
+    rows = table.tbody.find_all('tr')
+    loc_hash_set = set() #used to filter out duplicate locations
+    found_locations = []
+    for row in rows:
+        cells = row.find_all('td')
+        vendor_name_cell = cells[1]
+        update_time_cell = cells[2]
+        location_cell = cells[3]
+        update_time_string = update_time_cell.text
+        location_string = location_cell.text
+        vendor_name_string = vendor_name_cell.text
+        if location_string in loc_hash_set:
             continue
-        soup = BeautifulSoup(response.content, 'lxml')
-        if soup:
-            table = soup.find('table', style="display: block; border: none;")
-            # Extract all rows from the table body
-            theaders = table.thead.find_all('th')
-            scan_time = ' '.join(theaders[0].text.split()[2:])
-            if not is_time_recent(scan_time,7200):
-                print(f"{location}: {scan_time}") 
-        misc_elapsed_time = time.time() - misc_start_time
-        sleep_time = 0.5 - misc_elapsed_time
-        if sleep_time > 0:
-            time.sleep(sleep_time)
+        loc_hash_set.add(location_string)
+        found_locations.append((update_time_string,location_string.split(', '),vendor_name_string))
+    out_arr = []
+    for location_name, dict_loc in my_locations.items():
+        x1, y1 = map(int,dict_loc)
+        closest = None
+        min_distance = 20
+        min_time = 1000000
+        for update_time, list_loc,vendor_name in found_locations:
+            x2, y2 = map(int,list_loc)
+            distance = get_distance(x1,y1,x2,y2)
+            if distance > min_distance:
+                continue
+            # if not is_time_recent(update_time,min_time):
+            #     continue
+            sec_since_scan = get_seconds_from_string(update_time)
+            if not sec_since_scan:
+                sec_since_scan = 1000000
+            #print(f"{vendor_name}: {update_time}")
+            if sec_since_scan < min_time:
+                min_time = sec_since_scan
+                closest = (update_time,x2,y2,vendor_name)
+        scan_time_string = closest[0] if closest else 'Not Scanned'
+        scan_x = closest[1] if closest else '0'
+        scan_y = closest[2] if closest else '0'
+        scan_name = closest[3] if closest else 'No Name!'
+        out_arr.append((location_name,scan_time_string,min_time,scan_x,scan_y,scan_name))
+        #print(f"{location_name}: {scan_time_string}")
+    out_arr.sort(key=lambda x:x[2],reverse=True)
+    new_window = tk.Toplevel(root)
+    new_window.title("Results")
+    for locName,scanString,minTime,x,y,name in out_arr:
+        result = f"{locName}: {scanString}: {x},{y}"
+        label = tk.Label(new_window, text=result, anchor="w", justify=tk.LEFT)
+        label.pack(fill=tk.X)
     elapsed_time = round(time.time() - start_time,2)
     print(f"end: {elapsed_time}")
 
@@ -396,10 +448,16 @@ def append_to_tree(text1='',text2='',text3='',text4='',text5='',text6='',text7='
 def is_time_recent(time_string,seconds_threshold=300):
     if search_timeframe.get() == 2:
         return True
-    parse = str(time_string)
     threshold_parse = int(seconds_threshold)
+    time_seconds = get_seconds_from_string(time_string)
+    if not time_seconds:
+        time_seconds = 1000000
+    return time_seconds <= threshold_parse
+
+def get_seconds_from_string(time_string):
+    parse = str(time_string)
     time_seconds = 0
-    if 'second' in parse:
+    if 'second ago' in parse or 'seconds ago' in parse:
         if 'about' in parse:
             time_seconds += 1
         else:
@@ -407,7 +465,7 @@ def is_time_recent(time_string,seconds_threshold=300):
             seconds = int(split[0])
             if seconds:
                 time_seconds += seconds
-    elif 'minute' in parse:
+    elif 'minute ago' in parse or 'minutes ago' in parse:
         if 'about' in parse:
             time_seconds += 59 #about a minute
         else:
@@ -415,7 +473,7 @@ def is_time_recent(time_string,seconds_threshold=300):
             minutes = int(split[0])
             if minutes:
                 time_seconds += minutes * 60
-    elif 'hour' in parse:
+    elif 'hour ago' in parse or 'hours ago' in parse:
         if 'about' in parse:
             time_seconds += 3540 #about an hour
         else:
@@ -423,9 +481,14 @@ def is_time_recent(time_string,seconds_threshold=300):
             hours = int(split[0])
             if hours:
                 time_seconds += hours * 3600
+    elif 'day ago' in parse or 'days ago' in parse:
+        time_seconds = 1000000 #about an hour
     else:
         return False
-    return time_seconds <= threshold_parse
+    return time_seconds
+
+def get_distance(x1, y1, x2, y2):
+    return round(math.sqrt((x2 - x1)**2 + (y2 - y1)**2))
 
 def send_to_discord(content):
     webhook_url = "https://discord.com/api/webhooks/1145494637180633240/AR6iXN2MfdTOsldgTUcCSu_d6sCScan2vdp8zb0LwovDlB4DNq7nLcN-N_AnMHwVlIhp"
@@ -463,6 +526,7 @@ def on_treeview_click(event):
         webbrowser.open(url)
 
 def sort_floats_key(item):
+    #print('sort_floats_key')
     val = item[0]  # The value from the tuple
     if val == '':
         return 1000.0
@@ -494,6 +558,63 @@ def sort_column(col, reverse, key=None):
     for index, (val, k) in enumerate(l):
         tree.move(k, '', index)
     tree.heading(col, command=lambda _col=col: sort_column(_col, not reverse, key))
+
+def sort_column_tuple(col,secondary_col,reverse, key=None):
+    l = [(tree.set(k, col), tree.set(k, secondary_col), k) for k in tree.get_children("")]
+    l.sort(key=lambda x: (key(x)[0] if key else x[0], key(x)[1] if key else x[1]), reverse=reverse)
+    for index, (_, _, k) in enumerate(l):
+        tree.move(k, '', index)
+    tree.heading(col, command=lambda _col=col,_secondary_col = secondary_col: sort_column_tuple(_col, _secondary_col, not reverse, key))
+
+def sort_key_tuple(item):
+    primary_val, secondary_val = item[0], item[1]  # Extract the values from the tuple
+    #print(f"primary_val:{primary_val}, secondary_val:{secondary_val}")
+    primary_key = 1000.0
+    secondary_key = 1000.0
+    # Handling the primary value 
+    try:
+        if len(primary_val) == 0:
+            print('primary: no length')
+            pass
+        else:
+            try:
+                result = get_seconds_from_string(primary_val)
+                if result:
+                    primary_key = float(result)
+                else:
+                    primary_key = float(primary_val)
+                    if primary_key > 1000.0:
+                        print(f'Vendor name convertable to float {primary_val}:{primary_key}')
+                        raise Exception('Vendor name convertable to float')
+                    #print(primary_key)
+            except Exception as e:
+                #print(f"Couldn't parse seconds from string: {e}")
+                primary_key = primary_val.lower()
+    except Exception as e:
+        print(f"Unexpected error for primary column: {e}")
+    # Handling the secondary value
+    try:
+        if len(secondary_val) == 0:
+            print('secondary: no length')
+            pass
+        else:
+            try:
+                result = get_seconds_from_string(secondary_val)
+                if result:
+                    primary_key = float(result)
+                else:
+                    secondary_key = float(secondary_val)
+                    if secondary_key > 1000.0:
+                        print(f'Vendor name convertable to float {secondary_val}:{secondary_key}')
+                        raise Exception('Vendor name convertable to float')
+                    #print(primary_key)
+            except Exception as e:
+                #print(f"Couldn't parse seconds from string: {e}")
+                secondary_key = secondary_val.lower()
+    except Exception as e:
+        print(f"Unexpected error for secondary column: {e}")
+    #print(f"primary_key:{primary_key}, secondary_key:{secondary_key}")
+    return (primary_key, secondary_key)  # Return a tuple for multi-level sorting
 
 def step_scraping():
     steps = [
@@ -535,6 +656,8 @@ def step_scraping():
             if soup:
                 # Find the table with the specific id
                 table = soup.find('table', id="item-search-results")
+                if not table:
+                    continue
                 # Extract all rows from the table body
                 rows = table.tbody.find_all('tr')
                 out_data = []
@@ -563,7 +686,7 @@ def step_scraping():
                 for tuple in out_data:
                     append_to_tree(*tuple)
                 if search_sortmode.get() == 2 and len(out_data):
-                    sort_column("Ratio", False, sort_floats_key)
+                    sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
             misc_elapsed_time = time.time() - misc_start_time
             #print(f"end: {misc_elapsed_time}")
             sleep_time = 0.5 - misc_elapsed_time
@@ -586,7 +709,6 @@ def reset_generator():
     scraping_generator = step_scraping()
 
 def get_most_recent_log():
-    print('get_most_recent_log')
     folder_path = "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\Client\\JournalLogs\\"
     files = [f for f in glob.glob(os.path.join(folder_path, '*.txt')) if os.path.isfile(f)]
     sorted_files = sorted(files, key=os.path.getmtime, reverse=True)
@@ -597,7 +719,7 @@ def get_most_recent_log():
     except Exception as e:
         print(f"1! Unexpected error when accessing {folder_path}: {str(e)}")
         latest_file = False
-    print('latest: ' + latest_file)
+    #print('latest: ' + latest_file)
     return latest_file
 
 def is_inaccessible(file_path):
@@ -611,7 +733,6 @@ def is_inaccessible(file_path):
 
 # Initialize an empty dictionary to store the results
 def parse_log_to_object():
-    print('parse_log_to_object')
     vendors = {}
     current_vendor = None
     latest_log = get_most_recent_log()
@@ -692,8 +813,6 @@ def search_self_parse_obj(parse_obj):
         if bool:
             self_parse_prices.update(prices)
     #self_parse_prices = {**core_prices, **extract_prices, **distil_prices, **map_prices, **scroll_prices, **link_prices, **misc_prices}
-    #start_time = time.time()  # Record the current time
-    #elapsed_time = time.time() - start_time  # Calculate the elapsed time
     vendors = parse_obj[0]
     latest_log = parse_obj[1]
     file_info = latest_log.split('\\')[-1].split('_') #2023_09_02_17_07_16_journal.txt
@@ -738,7 +857,7 @@ def search_self_parse_obj(parse_obj):
     for tuple in out_data:
         append_to_tree(*tuple)
     if search_sortmode.get() == 2 and len(out_data):
-        sort_column("Ratio", False, sort_floats_key)
+        sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
 
 def ParseMostRecentJournalLog():
     clear_tree()
@@ -752,6 +871,19 @@ def ParseMostRecentJournalLog():
         return
     search_self_parse_obj(obj)
 
+def PostJournalLog():
+    url = 'https://outlandmalls.com/uploads'
+    headers = {'Authorization': '9ec321b8-6c45-4869-aa01-c15cfc7d38be'}
+    data = {'tz': 'America/New_York'}
+    file_path = get_most_recent_log()
+    if not file_path:
+        status_var.set('POST failed')
+        return
+    with open(file_path, 'rb') as f:
+        files = {'file': (file_path, f)}
+        response = requests.post(url, headers=headers, files=files, data=data)
+        status_var.set("POST succeeded")
+
 def clear_tree():
     # Clear the Treeview
     for row in tree.get_children():
@@ -760,7 +892,7 @@ def clear_tree():
 root = tk.Tk()
 root.title("Ali's Outland Malls Scraper")
 root.geometry("1000x700")  # Initial size
-root.minsize(920, 350)  # Minimum size
+root.minsize(920, 450)  # Minimum size
 #root.maxsize(900, 700)  # Maximum size
 root.bind("<Return>", ScrapeOutlandMall)
 root.grid_columnconfigure(0, weight=10)
@@ -776,21 +908,22 @@ tree_frame.grid_columnconfigure(0, weight=10)
 tree_frame.grid_columnconfigure(1, weight=0)
 tree_frame.grid_rowconfigure(0, weight=1)
 tree_frame.grid_rowconfigure(1, weight=0)
-# Create the Treeview with two columns f"{time_string}",f"{location_string}",f"{location_link}",f"{format_url}",f"{vendor_serial}"))
+
+# Create the Treeview with several columns
 tree = ttk.Treeview(tree_frame, columns=("Item", "Price","Ratio","#","Vendor","Location","Time"),show='headings')
-tree.heading("Item", text="Item")
+tree.heading("Item", text="Item", command=lambda _col="Item",_col2 ="Ratio": sort_column_tuple(_col, _col2, False, sort_key_tuple))
 tree.heading("Price", text="Price")
-tree.heading("Ratio", text="Ratio", command=lambda _col="Ratio": sort_column(_col, False, sort_floats_key))
+tree.heading("Ratio", text="%", command=lambda _col="Ratio",_col2 ="Item": sort_column_tuple(_col, _col2, False, sort_key_tuple))
 tree.heading("#", text="#")
-tree.heading("Vendor", text="Vendor")
-tree.heading("Location", text="Location")
-tree.heading("Time", text="Time", command=lambda _col="Time": sort_column(_col, False, sort_timestring_key))
-tree.column("Item", width=250)
+tree.heading("Vendor", text="Vendor", command=lambda _col="Vendor",_col2 ="Item": sort_column_tuple(_col, _col2, False, sort_key_tuple))
+tree.heading("Location", text="Location", command=lambda _col="Location",_col2 ="Vendor": sort_column_tuple(_col, _col2, False, sort_key_tuple))
+tree.heading("Time", text="Time", command=lambda _col="Time",_col2 ="Ratio": sort_column_tuple(_col, _col2, False, sort_key_tuple))
+tree.column("Item", width=300)
 tree.column("Price", width=100)
-tree.column("Ratio", width=40)
-tree.column("#", width=30)
-tree.column("Vendor", width=150)
-tree.column("Location", width=80)
+tree.column("Ratio", width=25)
+tree.column("#", width=15)
+tree.column("Vendor", width=125)
+tree.column("Location", width=60)
 tree.column("Time", width=100)
 tree.configure(height=20)
 tree.grid(row=0, column=0,sticky='nsew')
@@ -801,7 +934,7 @@ tree.tag_configure("low", background="#00FF00")
 tree.tag_configure("base", background="#00BFFF")
 tree.bind("<Button-1>", on_treeview_click)
 
-# Create a Scrollbar and associate it with the Text widget
+# Create a Scrollbar and associate it with the Tree widget
 scrollbar = tk.Scrollbar(tree_frame,orient='vertical', command=tree.yview)
 scrollbar.grid(row=0, column=1, sticky='ns')
 tree.config(yscrollcommand=scrollbar.set)
@@ -860,6 +993,9 @@ radio_frame.grid_rowconfigure(3, weight=1)
 radio_frame.grid_rowconfigure(4, weight=1)
 radio_frame.grid_rowconfigure(5, weight=1)
 radio_frame.grid_rowconfigure(6, weight=1)
+radio_frame.grid_rowconfigure(7, weight=1)
+radio_frame.grid_rowconfigure(8, weight=1)
+radio_frame.grid_rowconfigure(9, weight=1)
 search_timeframe = tk.IntVar()
 search_timeframe.set(1)
 search_pricedepth = tk.IntVar()
@@ -867,25 +1003,31 @@ search_pricedepth.set(1)
 search_sortmode = tk.IntVar()
 search_sortmode.set(2)
 label_timeframe = ttk.Label(radio_frame,text='Time Frame:')
-label_timeframe.grid(row=0,column=0,columnspan=2,pady=5)
+label_timeframe.grid(row=0,column=0,columnspan=2,pady=(5,0))
 radio1 = ttk.Radiobutton(radio_frame, text="Recent", variable=search_timeframe, value=1)
 radio1.grid(row=1, column=0,sticky='w')
 radio2 = ttk.Radiobutton(radio_frame, text="All Time", variable=search_timeframe, value=2)
 radio2.grid(row=1, column=1,sticky='w')
 label_pricedepth = ttk.Label(radio_frame,text='Price Depth:')
-label_pricedepth.grid(row=2,column=0,columnspan=2,pady=5)
+label_pricedepth.grid(row=2,column=0,columnspan=2,pady=(5,0))
 radio3 = ttk.Radiobutton(radio_frame, text="Show Deals", variable=search_pricedepth, value=1)
 radio3.grid(row=3, column=0,sticky='w')
 radio4 = ttk.Radiobutton(radio_frame, text="Show All", variable=search_pricedepth, value=2)
 radio4.grid(row=3, column=1,sticky='w')
 label_sortmode = ttk.Label(radio_frame,text='Sort Mode:')
-label_sortmode.grid(row=4,column=0,columnspan=2,pady=5)
+label_sortmode.grid(row=4,column=0,columnspan=2,pady=(5,0))
 radio5 = ttk.Radiobutton(radio_frame, text="Indexed", variable=search_sortmode, value=1)
 radio6 = ttk.Radiobutton(radio_frame, text="Best Ratio", variable=search_sortmode, value=2)
 radio5.grid(row=5, column=0,sticky='w')
 radio6.grid(row=5, column=1,sticky='w')
 btn_start = ttk.Button(radio_frame, text="Locations", command=scrape_vendor_updates)
-btn_start.grid(row=6, column=0, sticky='ew', padx=10, pady=10, columnspan=2)
+btn_start.grid(row=6, column=0, sticky='ew', padx=10, pady=(15,5), columnspan=2)
+btn_visit_web = ttk.Button(radio_frame, text="Open Website", command=lambda: webbrowser.open("https://outlandmalls.com/"))
+btn_visit_web.grid(row=7, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
+btn_post_journal = ttk.Button(radio_frame, text="Open Folder", command=lambda: os.system('explorer "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\\Client\\JournalLogs"'))
+btn_post_journal.grid(row=8, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
+btn_post_journal = ttk.Button(radio_frame, text="POST", command=PostJournalLog)
+btn_post_journal.grid(row=9, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
 
 def clicker():
     # Move the mouse to a specific location; coordinates x=100, y=100
@@ -895,7 +1037,7 @@ def clicker():
     pyautogui.click()
 
 # Create a frame for the buttons
-button_frame = tk.Frame(root,bg='blue')
+button_frame = tk.Frame(root)
 button_frame.grid(row=1, column=0,pady=10)
 button_frame.columnconfigure(0,weight=1)
 button_frame.columnconfigure(1,weight=1)

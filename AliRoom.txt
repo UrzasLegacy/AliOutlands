@@ -18,9 +18,9 @@ elseif skill 'Magery' > 50
     @setvar! pass 0
     removelist 'runebookList'
     createlist 'runebookList'
-    if findtypelist 'runebookList' runebook backpack
+    if findtypelist 'runebookList' "29103|8901" backpack
         foreach 'myBook' in 'runebookList'
-            overhead 'myBook'
+            #overhead 'myBook'
             getlabel myBook desc
             if 'Home' in desc
                 while pass = 0
@@ -50,6 +50,13 @@ elseif skill 'Magery' > 50
         endfor
     else
         overhead 'Runebook missing'
+        if findtype 3701 backpack as pack
+            dclick pack
+            wait 300
+        endif
+        if findtypelist 'runebookList' "29103|8901" backpack
+            loop
+        endif
         stop
     endif
     if pass = 0

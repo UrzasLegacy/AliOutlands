@@ -19,8 +19,6 @@ while not dead
         getlabel 'vendorID' 'vendorName'
         if inlist 'vendors' 'vendorID'
             # Close all vendor bags
-
-
              sysmsg "…OutlandMall End" 23
             stop
         else 

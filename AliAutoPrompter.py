@@ -1,0 +1,23 @@
+// AutoPrompt
+// Small tool to help with pricing several items at the same price or giving a
+// bunch of runes the same name. Set your prompt response, press play, and
+// it'll automatically answer any prompts with your response. Enter war mode
+// to stop the script.
+
+#Set your prompt here:
+
+    @setvar! response "30000"
+
+#Do not edit below
+if warmode
+    hotkey "Toggle War/Peace"
+endif
+overhead "Response: {{response}}" 1159
+while not dead
+    promptresponse response
+    wait 500
+    if warmode
+        hotkey "Toggle War/Peace"
+        stop
+    endif
+endwhile
