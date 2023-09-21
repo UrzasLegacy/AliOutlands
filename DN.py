@@ -50,7 +50,7 @@ nlp = spacy.load("en_core_web_sm")
 def is_meaningful(text):
     doc = nlp(text)
     meaningful_words = [token.text for token in doc if is_a_word(token.text)]
-    if len(meaningful_words) > 1:  # Arbitrary threshold
+    if len(meaningful_words) > 0:  # Arbitrary threshold
         #print('joined' + ':'.join(meaningful_words))
         return True
     return False
@@ -151,6 +151,9 @@ def filter_image_cv2(screenshot):
     text_contour = None
     text_contour_length = 1
     pass_check = False
+    # cv2.imshow('Image', image)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
     for contour in contours:
         area = cv2.contourArea(contour)
         x, y, w, h = cv2.boundingRect(contour)

@@ -1,16 +1,19 @@
-#foci/weapon oil/ammo bundle/chainlinks
-import requests
-from bs4 import BeautifulSoup
-import re
-from urllib.parse import quote_plus
-import time
-import tkinter as tk
-from tkinter import ttk
-import webbrowser
+#foci/weapon oil/ammo bundle
 import os
 import glob
-import pyautogui
 import math
+import requests
+import re
+import time
+import datetime
+import webbrowser
+import pyautogui
+import sqlite3
+import tkinter as tk
+from tkinter import ttk
+from bs4 import BeautifulSoup
+from contextlib import contextmanager
+from urllib.parse import quote_plus
 
 core_prices = { #exact string MATTERS
     "Blood Aspect Core": 4000,
@@ -215,18 +218,18 @@ link_prices = { #exact chain type string MATTERS
 }
 
 misc_prices = { #exact string matters
-    "exceedingly potent magic spellbook": 3500,
+    #"exceedingly potent magic spellbook": 3500,
     "supremely potent magic spellbook": 15000,
     "an ankh token":10000,
     "prevalia coins [blessed]":18000, #prevalia coins : 5 [blessed]
-    "a random spell hue deed": 17000,
-    "research guide (25 uses remaining)":15000,
+    #"a random spell hue deed": 17000,
+    #"research guide (25 uses remaining)":15000,
     "research materials (double-click to research)": 32000,
     "mastercrafting diagram": 15000,
-    "aspect kit": 22000,
+    #"aspect kit": 22000,
     "a skill mastery orb (used to increase a player's total skill cap by 1)": 15000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
     "an arcane scroll": 1000,
-    "arcane essence": 30,
+    "arcane essence": 35,
     "plant chemicals": 2000,
     "iron ingot commodity (5,000 total)": 80000,
     "board commodity (5,000 total)": 70000,
@@ -316,19 +319,28 @@ def scrape_vendor_updates():
     my_locations = {
         #"location name": (x,y),
         "S Terran Clearing": (927,1471),
+        "N Terran Clearing": (869,1381),
         "Minotaur Island": (3967,1736),
+        "Minotaur Island E": (4067,1766),
         "N Prev Clearing SW": (1560,1438),
         "N Prev Clearing S": (1589,1430),
         "N Prev Clearing W": (1555,1404),
         "N Prev Clearing N": (1576,1389),
         "N Prev Clearing E": (1629,1421),
+        "Prevalia Gate": (1475,1488),
+        "West of Prev Gate": (1425,1483),
         "S Cambria Gate": (1709,3182),
+        "SW Cambria Gate": (1669,3177),
+        "N Cambria Gate": (1706,3129),
+        "NW Cambria Gate": (1670,3138),
         "West of SSC": (3267,689),
         "NE Outpost Close": (3387,377),
         "NE Outpost Far": (3398,178),
         "S of Anchor's Rest": (3757,740),
+        "Far South of Anchor's Rest": (3715, 872),
         "S Prevalia Xroad": (1546,1751),
         "N Prevalia Sandbar": (1657,1320),
+        "Frost Forest": (3622,447),
         "Khal": (2002,1795),
         "Mine": (4008,477),
         "AR0": (3947,504),
@@ -337,16 +349,26 @@ def scrape_vendor_updates():
         "AR3": (4002,554),
         "AR4": (4020,515),
         "AR5": (4050,540),
-        "AR6": (4050,508),
+        "AR6": (4050,508), 
         "AR7": (4055,463),
         "SW Prevalia Clearing SE": (1547,1653),
         "SW Prevalia Clearing NE": (1544,1623),
         "SW Prevalia Clearing SW": (1510,1657),
-        "Minotaur Island E": (4067,1766),
-        "Andaria Gate": (2315,639),
+        "W Andaria Gate": (2315,639),
+        "N Andaria Gate": (2334,591),
         "South of Pulma": (1748,1055),
         "Western Camp Island": (3495,1467),
         "TRT":(1756,2341),
+        "South of TRT": (1779,2388),
+        "South of GH": (3981,854),
+        "SOF Island Mall": (3498,3748),
+        "NW Outpost Gate": (2940,563),
+        "NW Outpost Gate Far": (2982,500),
+        "N Outpost Gate": (2980,579),
+        "N Outpost Gate 2": (2975,547),
+        "N Outpost Gate 3": (3001,496),
+        "Cedar Island Mall":(3975,355),
+        "Cedar Island Center":(4025,305),
     }
     start_time = time.time()  # Record the current time
     headers = {
@@ -407,11 +429,16 @@ def scrape_vendor_updates():
         #print(f"{location_name}: {scan_time_string}")
     out_arr.sort(key=lambda x:x[2],reverse=True)
     new_window = tk.Toplevel(root)
+    new_window.wm_attributes("-topmost", 1)
     new_window.title("Results")
+    scrollbar = tk.Scrollbar(new_window, orient="vertical")
+    listbox = tk.Listbox(new_window, yscrollcommand=scrollbar.set, width=60, height=20)
+    scrollbar.config(command=listbox.yview)
+    scrollbar.pack(side="right", fill="y")
+    listbox.pack(side="left", fill="both", expand=True)
     for locName,scanString,minTime,x,y,name in out_arr:
         result = f"{locName}: {scanString}: {x},{y}"
-        label = tk.Label(new_window, text=result, anchor="w", justify=tk.LEFT)
-        label.pack(fill=tk.X)
+        listbox.insert(tk.END, result)
     elapsed_time = round(time.time() - start_time,2)
     print(f"end: {elapsed_time}")
 
@@ -437,7 +464,9 @@ def append_to_tree(text1='',text2='',text3='',text4='',text5='',text6='',text7='
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("med",))
         elif ratio <= 0.9:
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("low",))
-        elif ratio <= 1.0:
+        elif ratio < 1.0:
+            item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("verylow",))
+        elif ratio == 1.0:
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("base",))
         else:
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9))
@@ -515,15 +544,48 @@ def on_treeview_click(event):
             url = tree.item(row_id, "values")[7]
 
         value_to_copy_raw = tree.item(row_id, "values")[7]
-        number_match = re.search(r'\?(\d+)#', value_to_copy_raw)
-        number = number_match.group(1) if number_match else 0
+        number_match = re.search(r'\?(\d+)(?:\?(\d+))?#',value_to_copy_raw)
+        vendor_serial = number_match.group(1) if number_match else 0
+        item_serial = number_match.group(2) if number_match else 0
         # split = value_to_copy_raw.(', ')
         # value_to_copy = ">waypoint " + split[0] + " " + split[1]
         # Copy the value to the clipboard
         root.clipboard_clear()
-        root.clipboard_append(number)
+        root.clipboard_append(vendor_serial)
         root.update()
         webbrowser.open(url)
+
+def on_treeview_select():
+    item = tree.selection()[0]
+    row_values = tree.item(item,'values')
+    
+    snapshot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    description = row_values[0]
+    price_string = row_values[1] #80000.0/80000.0
+    left_side_price = price_string.split('/')[0]
+    price = int(float(left_side_price))
+    quantity = row_values[3] #80000.0/80000.0
+    value_to_copy_raw = row_values[7] #'https://www.exploreoutlands.com/?471890?1251126567#pos:869,1381,13'
+    number_match = re.search(r'\?(\d+)(?:\?(\d+))?#', value_to_copy_raw)
+    vendor_serial = number_match.group(1) if number_match else 0
+    id = number_match.group(2) if number_match else 0
+    # execute_query("INSERT INTO sales_history (snapshot_time, id, price, description, quantity) VALUES (?, ?, ?, ?, ?)",
+    #                        (snapshot_time, id, price, description, quantity))
+    print(f"You selected item: {snapshot_time}, {id}, {price}, {description}, {quantity}")
+
+def show_context_menu(event):
+    if tree.identify_region(event.x, event.y) == "heading":
+        return
+    row_id = tree.identify_row(event.y)
+    value_to_copy_raw = tree.item(row_id, "values")[7]
+    number_match = re.search(r'\?(\d+)(?:\?(\d+))?#', value_to_copy_raw)
+    item_id = number_match.group(1) if number_match else 0
+    vendor_serial = number_match.group(2) if number_match else 0
+    root.clipboard_clear()
+    root.clipboard_append(item_id)
+    root.update()
+    tree.selection_set(row_id)
+    context_menu.post(event.x_root, event.y_root)
 
 def sort_floats_key(item):
     #print('sort_floats_key')
@@ -583,7 +645,7 @@ def sort_key_tuple(item):
                     primary_key = float(result)
                 else:
                     primary_key = float(primary_val)
-                    if primary_key > 1000.0:
+                    if primary_key > 10000.0:
                         print(f'Vendor name convertable to float {primary_val}:{primary_key}')
                         raise Exception('Vendor name convertable to float')
                     #print(primary_key)
@@ -733,6 +795,7 @@ def is_inaccessible(file_path):
 
 # Initialize an empty dictionary to store the results
 def parse_log_to_object():
+    my_vendors = [4342004]
     vendors = {}
     current_vendor = None
     latest_log = get_most_recent_log()
@@ -748,20 +811,23 @@ def parse_log_to_object():
                 # if "[blessed]" in line:
                 #     line = line.replace(" [blessed]","")
                 #     print(line)
-                match = re.search(r'Price: (\d+) (.+?)(?: : (\d+)(.*))?$', line)
+                item_id = re.search(r'ID:(\d+) (.+?)(?: : (\d+)(.*))?$', line)
+                match = re.search(r'ID:(\d+) Price: (\d+) (.+?)(?: : (\d+)(.*))?$', line)
                 # If a match is found
                 #print(match.group())
                 if match:
-                    item_price = int(match.group(1))
-                    item_description = match.group(2)
+                    item_id = int(match.group(1))
+                    item_price = int(match.group(2))
+                    item_description = match.group(3)
                     #print(item_description)
-                    item_quantity = int(match.group(3)) if match.group(3) else 1
-                    item_suffix = match.group(4) if match.group(4) else ''
+                    item_quantity = int(match.group(4)) if match.group(4) else 1
+                    item_suffix = match.group(5) if match.group(5) else ''
                     if(item_suffix):
                         item_description += item_suffix
                     item_unitprice = round(item_price / item_quantity,1)
                     # If a match was found, return the matched number as an integer
                     item = {
+                        'id': item_id,
                         "price": item_unitprice,
                         "description": item_description,
                         "quantity": item_quantity,
@@ -774,7 +840,7 @@ def parse_log_to_object():
             elif "…vendorStart" in line:
                 # Extract the vendor ID and name
                 parts = line.split()
-                vendor_id = parts[4]
+                vendor_id = int(parts[4])
                 vendor_name = ' '.join(parts[5:])
                 date_string = parts[0][1:]
                 time_string = parts[1][:1]
@@ -786,6 +852,8 @@ def parse_log_to_object():
                 }
                 vendors[vendor_id] = current_vendor
             elif "…vendorEnd" in line:
+                if current_vendor['id'] in my_vendors:
+                    HandleMyVendor(current_vendor)
                 current_vendor = None
             elif "System: Current location is" in line:
                 match = re.search(r'Current location is \((\d+), (\d+)', line)
@@ -797,6 +865,13 @@ def parse_log_to_object():
             return vendors, latest_log
     return latest_log
     
+def HandleMyVendor(vendor_obj):
+    initialize_db()
+    items = vendor_obj['items']
+    update_snapshots(items)
+
+
+
 def search_self_parse_obj(parse_obj):
     corrupted_link_price_threshold = 200000
     bools = [
@@ -852,14 +927,14 @@ def search_self_parse_obj(parse_obj):
                 format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
                 location_link = "https://www.exploreoutlands.com/#pos:" + location_string
                 location_split = location_link.split('#')
-                formatted_location_link = f"{location_split[0]}?{vendor_id}#{location_split[1]}"
+                formatted_location_link = f"{location_split[0]}?{vendor_id}?{item['id']}#{location_split[1]}"
                 out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string[:-3]}",f"{out_string}",f"{formatted_location_link}",f"{format_url}"))
     for tuple in out_data:
         append_to_tree(*tuple)
     if search_sortmode.get() == 2 and len(out_data):
         sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
 
-def ParseMostRecentJournalLog():
+def ParseMostRecentJournalLog(event=''):
     clear_tree()
     obj = parse_log_to_object()
     if type(obj) is str:
@@ -870,8 +945,9 @@ def ParseMostRecentJournalLog():
         status_var.set(f"Invalid: {out_string}")
         return
     search_self_parse_obj(obj)
+    root.update()
 
-def PostJournalLog():
+def PostJournalLog(event=''):
     url = 'https://outlandmalls.com/uploads'
     headers = {'Authorization': '9ec321b8-6c45-4869-aa01-c15cfc7d38be'}
     data = {'tz': 'America/New_York'}
@@ -882,19 +958,311 @@ def PostJournalLog():
     with open(file_path, 'rb') as f:
         files = {'file': (file_path, f)}
         response = requests.post(url, headers=headers, files=files, data=data)
-        status_var.set("POST succeeded")
+        status_var.set(f"{response}")
 
 def clear_tree():
     # Clear the Treeview
     for row in tree.get_children():
         tree.delete(row)
 
+
+# def connect_db():
+#     return sqlite3.connect('inventory.db')
+@contextmanager
+def connect_db():
+    conn = sqlite3.connect('inventory.db')
+    try:
+        yield conn
+    finally:
+        conn.close()
+
+def execute_query(query, params=()):
+    with connect_db() as conn:
+        c = conn.cursor()
+        c.execute(query, params)
+        conn.commit()
+
+def fetch_query(query, params=()):
+    with connect_db() as conn:
+        c = conn.cursor()
+        c.execute(query, params)
+        return c.fetchall()
+
+# def fetch_query(query, params=()):
+#     conn = connect_db()
+#     c = conn.cursor()
+#     try:
+#         c.execute(query, params)
+#         result = c.fetchall()
+#     except Exception as e:
+#         print(f"An error occurred: {e}")
+#         result = []
+#     finally:
+#         c.close()
+#         conn.close()
+#     return result
+    
+def initialize_db():
+    if not os.path.exists('inventory.db'):
+        execute_query('''CREATE TABLE IF NOT EXISTS inventory_snapshots
+                    (snapshot_time TEXT, id TEXT PRIMARY KEY, price INTEGER, description TEXT, quantity INTEGER)''')
+
+        execute_query('''CREATE TABLE IF NOT EXISTS sales_history
+                    (snapshot_time TEXT, id TEXT PRIMARY KEY, price INTEGER, description TEXT, quantity INTEGER)''')
+        
+        print("Database and tables initialized.")
+
+        
+def take_snapshot(inventory_items):
+    inserted_rows = []
+    try:
+        with connect_db() as conn:
+            c = conn.cursor()
+            snapshot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            previous_snapshot = get_most_recent_inventory_snapshot()
+            previous_length = len(previous_snapshot)
+            if previous_length == 0 or (previous_length and not snapshots_are_identical(previous_snapshot,inventory_items)):
+                for item in inventory_items:
+                    c.execute("INSERT INTO inventory_snapshots (snapshot_time, id, price, description, quantity) VALUES (?, ?, ?, ?, ?)",
+                            (snapshot_time, item['id'], item['price'], item['description'], item['quantity']))
+                    
+                    last_row_id = c.lastrowid
+                    c.execute("SELECT * FROM inventory_snapshots WHERE rowid=?", (last_row_id,))
+                    inserted_row = c.fetchone()
+                    inserted_rows.append(inserted_row)
+                conn.commit()
+                return inserted_rows
+            else:
+                print('Previous snapshot is identical')
+                return previous_snapshot
+    except Exception as e:
+        print(f"Exception in take_snapshot: {e}")
+
+# Function to get the sales from the database
+def read_full_db():
+    try:
+        with connect_db() as conn:
+            c = conn.cursor()
+            c.execute("SELECT name FROM sqlite_master WHERE type='table';")
+            tables = c.fetchall()
+            table_names = [table[0] for table in tables]
+            print('-FULL DB-')
+            for table in table_names:
+                print(f"Fetching records from table: {table}")
+                c.execute(f"SELECT * FROM {table}")
+                rows = c.fetchall()
+                for row in rows:
+                    print(row)
+            print("-END DB-")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    
+# Function to get the sales from the database
+def read_db_total_sales():
+    try:
+        with connect_db() as conn:
+            c = conn.cursor()
+            c.execute("SELECT * FROM sales_history")
+            rows = c.fetchall()
+            columns = [desc[0] for desc in c.description]
+        print('-Sales Report-')
+        total_sales_window = tk.Toplevel(root)
+        total_sales_window.title("Sales Report")
+        scrollbar = tk.Scrollbar(total_sales_window, orient="vertical")
+        listbox = tk.Listbox(total_sales_window, yscrollcommand=scrollbar.set, width=60, height=20)
+        scrollbar.config(command=listbox.yview)
+        scrollbar.pack(side="right", fill="y")
+        listbox.pack(side="left", fill="both", expand=True)
+        total_revenue = 0
+        for row in rows:
+            row_dict = dict(zip(columns, row))
+            total_price = row_dict['price'] * row_dict['quantity']
+            total_revenue += total_price
+            result = f"{row_dict['snapshot_time']} ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
+            #result = f"{row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
+            
+            listbox.insert(tk.END, result)
+            print(result)
+        rev_string = f"Total Revenue: {total_revenue}"
+        listbox.insert(tk.END, rev_string)
+        print(f"{rev_string}\n-End Report-")
+        return rows
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+
+def read_db_recent_sales():
+    try:
+        with connect_db() as conn:
+            c = conn.cursor()
+            c.execute("SELECT MAX(snapshot_time) FROM sales_history")
+            entries = c.fetchall()
+            if len(entries) == 0:
+                print('No recent sales')
+            most_recent_time = entries[0][0]
+            c.execute("SELECT * FROM sales_history WHERE snapshot_time=?",(most_recent_time,))
+            rows = c.fetchall()
+            columns = [desc[0] for desc in c.description]
+        print('-Sales Report-')
+        sales_window = tk.Toplevel(root)
+        sales_window.title("Sales Report")
+        scrollbar = tk.Scrollbar(sales_window, orient="vertical")
+        listbox = tk.Listbox(sales_window, yscrollcommand=scrollbar.set, width=60, height=20)
+        scrollbar.config(command=listbox.yview)
+        scrollbar.pack(side="right", fill="y")
+        listbox.pack(side="left", fill="both", expand=True)
+        total_revenue = 0
+        for row in rows:
+            row_dict = dict(zip(columns, row))
+            total_price = row_dict['price'] * row_dict['quantity']
+            total_revenue += total_price
+            result = f"{row_dict['snapshot_time']} ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
+            #result = f"{row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
+            listbox.insert(tk.END, result)
+            print(result)
+        rev_string = f"Total Revenue: {total_revenue}"
+        listbox.insert(tk.END, rev_string)
+        print(f"{rev_string}\n-End Report-")
+        return rows
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+    
+# Function to get the most recent snapshot from the database
+def get_most_recent_inventory_snapshot():
+    try:
+        fetches = fetch_query("SELECT MAX(snapshot_time) FROM inventory_snapshots") #returns fetchall
+        if len(fetches):
+            most_recent_time = fetches[0][0]
+            return fetch_query("SELECT * FROM inventory_snapshots WHERE snapshot_time=?", (most_recent_time,))
+        return []
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+    
+def get_most_recent_sales_time():
+    try:
+        fetches = fetch_query("SELECT MAX(snapshot_time) FROM sales_history") #returns fetchall
+        if len(fetches):
+            most_recent_time = fetches[0][0]
+            return most_recent_time
+        return None
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
+
+def read_db_current_inventory():
+    try:
+        rows = get_most_recent_inventory_snapshot()
+        if not rows:
+            print("No inventory snapshot available.")
+            return []
+        snapshot_time = rows[0][0]
+        print(f'-Inventory Report- {snapshot_time}')
+        inventory_window = tk.Toplevel(root)
+        inventory_window.title("Inventory")
+        scrollbar = tk.Scrollbar(inventory_window, orient="vertical")
+        listbox = tk.Listbox(inventory_window, yscrollcommand=scrollbar.set, width=60, height=20)
+        scrollbar.config(command=listbox.yview)
+        scrollbar.pack(side="right", fill="y")
+        listbox.pack(side="left", fill="both", expand=True)
+        columns = ['snapshot_time', 'id', 'price', 'description', 'quantity']
+        for row in rows:
+            row_dict = dict(zip(columns, row))
+            total_price = row_dict['price'] * row_dict['quantity']
+            result = f"ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
+            listbox.insert(tk.END, result)
+            print(result)
+        print("-End Report-")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+    
+def delete_db():
+    conn = sqlite3.connect('inventory.db')
+    c = conn.cursor()
+    c.execute("DELETE FROM inventory_snapshots")
+    conn.commit()
+    conn.close()
+
+def simulate_snapshot(inventory_items):
+    sim_snap = []
+    for item in inventory_items:
+        sim_snap.append(tuple(item.values()))
+    return sim_snap[:-1]
+
+def snapshots_are_identical(snapshot, inventory_items):
+    truncated_snapshot = [t[1:] for t in snapshot]
+    simulated_snapshot = simulate_snapshot(inventory_items)
+    # Sort both snapshots by the 'id' field (assuming id is at index 0)
+    sorted_snap1 = sorted(truncated_snapshot, key=lambda x: x[0])
+    sorted_snap2 = sorted(simulated_snapshot, key=lambda x: x[0])
+
+    # If their lengths are different, they can't be identical
+    if len(sorted_snap1) != len(sorted_snap2):
+        print('same length')
+        return False
+    for item1, item2 in zip(sorted_snap1, sorted_snap2):
+        # Compare all fields except the timestamp (assuming timestamp is at index 0)
+        if item1 != item2:
+            print('item1:',item1)
+            print('item2:',item2)
+            return False
+    return True
+
+def update_snapshots(inventory_items):
+    snapshot1 = get_most_recent_inventory_snapshot()
+    if len(snapshot1) == 0:
+        take_snapshot(inventory_items)
+        return    
+    if snapshots_are_identical(snapshot1, inventory_items):
+        print("The snapshots are identical, no changes detected.")
+        return
+    snapshot2 = take_snapshot(inventory_items)
+
+    # Assuming that id is at index 1
+    snapshot1_dict = {item[1]: (item[2],item[3],item[4]) for item in snapshot1}
+    snapshot2_dict = {item[1]: (item[2],item[3],item[4]) for item in snapshot2}
+    snapshot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    sold_items = {}
+    for id, item_info in snapshot1_dict.items():
+        price1, description1, quantity1 = item_info
+        if id in snapshot2_dict:
+            price2, description2, quantity2 = snapshot2_dict[id]
+            sold_quantity = quantity1 - quantity2
+            if sold_quantity > 0:
+                sold_items[id] = (price1,description1,sold_quantity)
+        else:
+            # Handle the case where the item exists in the first snapshot but not the second
+            print(f"Item {id} exists in the first snapshot but not in the second. All {quantity1} units may have been sold or removed.")
+            sold_items[id] = item_info  # Or some other logic
+    for id, item_info in sold_items.items():
+        price, description, quantity = item_info
+        record_sale(snapshot_time,id,price,description,quantity)
+    return sold_items
+
+def record_sale(snapshot_time, id, price, description, quantity):
+    try:
+        # Check if the item ID already exists in sales_history
+        existing_records = fetch_query("SELECT * FROM sales_history WHERE id = ?", (id,))
+        # Insert a new sale record
+        if len(existing_records) == 0:
+            execute_query("INSERT INTO sales_history (snapshot_time, id, price, description, quantity) VALUES (?, ?, ?, ?, ?)",
+                    (snapshot_time, id, price, description, quantity))
+            total_price = price * quantity
+            print(f"Recorded sale: {quantity} of item {description} at {price} each, for a total price of {total_price}.")
+        else:
+            print(f"Item with ID {id} already exists in sales_history. Skipping insert.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
 root = tk.Tk()
 root.title("Ali's Outland Malls Scraper")
 root.geometry("1000x700")  # Initial size
 root.minsize(920, 450)  # Minimum size
 #root.maxsize(900, 700)  # Maximum size
-root.bind("<Return>", ScrapeOutlandMall)
+root.bind("<Return>", ParseMostRecentJournalLog)
+root.bind("<F1>", PostJournalLog)
 root.grid_columnconfigure(0, weight=10)
 root.grid_columnconfigure(1, weight=0)
 root.grid_columnconfigure(2, weight=0)
@@ -931,8 +1299,16 @@ tree.tag_configure("ultra", background="#FF0000")
 tree.tag_configure("high", background="#FFA500")
 tree.tag_configure("med", background="#FFD700")
 tree.tag_configure("low", background="#00FF00")
-tree.tag_configure("base", background="#00BFFF")
+tree.tag_configure("verylow", background="#00BFFF")
+tree.tag_configure("base", background="#ADD8E6")
 tree.bind("<Button-1>", on_treeview_click)
+
+# Create context menu
+context_menu = tk.Menu(root, tearoff=0)
+context_menu.add_command(label='Insert To Sales History', command=on_treeview_select)
+#context_menu.add_command(label='Option 2', command=lambda: print("Option 2 clicked"))
+# Bind right-click event
+tree.bind('<Button-3>', show_context_menu)
 
 # Create a Scrollbar and associate it with the Tree widget
 scrollbar = tk.Scrollbar(tree_frame,orient='vertical', command=tree.yview)
@@ -945,7 +1321,7 @@ config_frame.grid_rowconfigure(0, weight=1)
 config_frame.grid_rowconfigure(1, weight=1)
 config_frame.grid_columnconfigure(0, weight=1)
 
-# Define the checkboxes
+# Checkbox Panel
 checkbox_frame = tk.Frame(config_frame)#,bg='blue')
 checkbox_frame.grid(row=0, column=0)
 #checkbox_frame.grid_rowconfigure(0, weight=1)
@@ -981,7 +1357,7 @@ check_chainlinks_search.grid(row=5, column=0,sticky='w')
 check_misc_search = ttk.Checkbutton(checkbox_frame, text="Search Misc", variable=check_misc_var)
 check_misc_search.grid(row=6, column=0,sticky='w')
 
-# Define the radio buttons
+# Radio Panel
 radio_frame = tk.Frame(config_frame)#,bg='yellow')
 radio_frame.grid(row=1, column=0)
 radio_frame.grid_columnconfigure(0, weight=0)
@@ -996,6 +1372,8 @@ radio_frame.grid_rowconfigure(6, weight=1)
 radio_frame.grid_rowconfigure(7, weight=1)
 radio_frame.grid_rowconfigure(8, weight=1)
 radio_frame.grid_rowconfigure(9, weight=1)
+radio_frame.grid_rowconfigure(10, weight=1)
+radio_frame.grid_rowconfigure(11, weight=1)
 search_timeframe = tk.IntVar()
 search_timeframe.set(1)
 search_pricedepth = tk.IntVar()
@@ -1020,40 +1398,36 @@ radio5 = ttk.Radiobutton(radio_frame, text="Indexed", variable=search_sortmode, 
 radio6 = ttk.Radiobutton(radio_frame, text="Best Ratio", variable=search_sortmode, value=2)
 radio5.grid(row=5, column=0,sticky='w')
 radio6.grid(row=5, column=1,sticky='w')
-btn_start = ttk.Button(radio_frame, text="Locations", command=scrape_vendor_updates)
-btn_start.grid(row=6, column=0, sticky='ew', padx=10, pady=(15,5), columnspan=2)
+btn_locations = ttk.Button(radio_frame, text="Locations", command=scrape_vendor_updates)
+btn_locations.grid(row=6, column=0, sticky='ew', padx=10, pady=(15,5), columnspan=2)
 btn_visit_web = ttk.Button(radio_frame, text="Open Website", command=lambda: webbrowser.open("https://outlandmalls.com/"))
 btn_visit_web.grid(row=7, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
-btn_post_journal = ttk.Button(radio_frame, text="Open Folder", command=lambda: os.system('explorer "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\\Client\\JournalLogs"'))
-btn_post_journal.grid(row=8, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
+btn_open_folder = ttk.Button(radio_frame, text="Open Folder", command=lambda: os.system('explorer "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\\Client\\JournalLogs"'))
+btn_open_folder.grid(row=8, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
+btn_inventory = ttk.Button(radio_frame, text="Inventory", command=read_db_current_inventory)
+btn_inventory.grid(row=9, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
+btn_recent_sales = ttk.Button(radio_frame, text="Sales", command=read_db_recent_sales)
+btn_recent_sales.grid(row=10, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
 btn_post_journal = ttk.Button(radio_frame, text="POST", command=PostJournalLog)
-btn_post_journal.grid(row=9, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
+btn_post_journal.grid(row=11, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
 
-def clicker():
-    # Move the mouse to a specific location; coordinates x=100, y=100
-    pyautogui.moveTo(100, 100)
-
-    # Perform a mouse click
-    pyautogui.click()
-
-# Create a frame for the buttons
+# Floor Panel
 button_frame = tk.Frame(root)
 button_frame.grid(row=1, column=0,pady=10)
 button_frame.columnconfigure(0,weight=1)
 button_frame.columnconfigure(1,weight=1)
 btn_start = ttk.Button(button_frame, text="OutlandMalls", command=ScrapeOutlandMall)
-btn_start.grid(row=0, column=1, sticky='ew', padx=10)  # Pack to the left side of the button_frame
-
+btn_start.grid(row=0, column=1, sticky='ew', padx=10)
 btn_reset = ttk.Button(button_frame, text="Journal Log", command=ParseMostRecentJournalLog)
-btn_reset.grid(row=0, column=0, sticky='ew', padx=10)  # Pack to the left side of the button_frame, right next to btn_start
+btn_reset.grid(row=0, column=0, sticky='ew', padx=10)
 
+# Status Panel
 status_frame = tk.Frame(root)
 status_frame.grid(row=1, column=2,sticky='nesw')
 status_frame.grid_rowconfigure(0, weight=1)
 status_frame.grid_rowconfigure(1, weight=1)
 status_frame.grid_columnconfigure(0, weight=1)
 status_frame.grid_propagate(False)
-# Step 2: Create a Label widget tied to the StringVar
 status_label = tk.Label(status_frame, text='Status:')
 status_label.grid(row=0,column=0,pady=(3,0))
 status_var = tk.StringVar()

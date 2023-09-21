@@ -1,8 +1,18 @@
-import math
+rows = 4  # Number of rows
+cols = 3  # Number of columns
 
-def find_distance(x1, y1, x2, y2):
-    return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+# Create an empty grid
+grid = [['-' for _ in range(cols)] for _ in range(rows)]
 
-# Example usage:
-distance = find_distance(1, 2, 4, 6)
-print(f"The distance is {distance}")
+# Populate the grid using zero-based index, modulo, and floor division
+for i in range(rows * cols):
+    row_index = i // cols
+    col_index = i % cols
+    grid[row_index][col_index] = i
+
+# Print the grid
+for row in grid:
+    print(row)
+
+
+

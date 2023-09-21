@@ -1,36 +1,39 @@
-#foci/weapon oil/ammo bundle/chainlinks
-import requests
-from bs4 import BeautifulSoup
-import re
-from urllib.parse import quote_plus
-import time
-import tkinter as tk
-from tkinter import ttk
-import webbrowser
+#foci/weapon oil/ammo bundle
 import os
 import glob
-import pyautogui
 import math
+import requests
+import re
+import time
+import datetime
+import webbrowser
+import pyautogui
+import sqlite3
+import tkinter as tk
+from tkinter import ttk
+from bs4 import BeautifulSoup
+from contextlib import contextmanager
+from urllib.parse import quote_plus
 
 core_prices = { #exact string MATTERS
     "Blood Aspect Core": 4000,
-    "Holy Aspect Core": 4000,
-    "Earth Aspect Core": 4000,
+    "Holy Aspect Core": 3000,
+    "Earth Aspect Core": 3000,
     "War Aspect Core": 3000,
     "Death Aspect Core": 4000,
-    "Water Aspect Core": 6000,
+    "Water Aspect Core": 8000,
     "Gadget Aspect Core": 4000,
-    "Shadow Aspect Core": 7000,
-    "Void Aspect Core": 10000,
+    "Shadow Aspect Core": 10000,
+    "Void Aspect Core": 13000,
     "Fire Aspect Core": 10000,
-    "Discipline Aspect Core": 7000,
-    "Lyric Aspect Core": 10000,
-    "Poison Aspect Core": 25000,
-    "Eldritch Aspect Core": 26000,
-    "Fortune Aspect Core": 30000,
-    "Command Aspect Core": 38000,
-    "Artisan Aspect Core": 38000,
-    "Air Aspect Core": 38000,
+    "Discipline Aspect Core": 8000,
+    "Lyric Aspect Core": 13000,
+    "Poison Aspect Core": 30000,
+    "Eldritch Aspect Core": 32000,
+    "Fortune Aspect Core": 40000,
+    "Command Aspect Core": 95000,
+    "Artisan Aspect Core": 50000,
+    "Air Aspect Core": 39000,
     "Harvest Aspect Core": 130000,
 }
 
@@ -49,10 +52,10 @@ extract_prices = { #exact string MATTERS
     "Poison Aspect Extract": 8000,
     "Eldritch Aspect Extract": 8000,
     "Fortune Aspect Extract": 5000,
-    "Command Aspect Extract": 8000,
+    "Command Aspect Extract": 9000,
     "Artisan Aspect Extract": 5000,
     "Air Aspect Extract": 7000,
-    "Harvest Aspect Extract": 11000,
+    "Harvest Aspect Extract": 12000,
 }
 
 distil_prices = { #exact string MATTERS
@@ -74,7 +77,7 @@ distil_prices = { #exact string MATTERS
     "Command Aspect Distillation": 8000,
     "Artisan Aspect Distillation": 5000,
     "Air Aspect Distillation": 7000,
-    "Harvest Aspect Distillation": 11000,
+    "Harvest Aspect Distillation": 12000,
 }
 
 map_prices = { #exact string MATTERS
@@ -97,23 +100,23 @@ map_prices = { #exact string MATTERS
 }
 scroll_prices = { #exact string MATTERS
     "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 25000, #alchemy skill mastery scroll : 3 (used to increase a player's skill cap for a skill by 1)
-    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
-    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
     "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 23000,
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 22000,
     "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
     "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 17000,
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 19000,
     "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
@@ -123,25 +126,25 @@ scroll_prices = { #exact string MATTERS
     "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 33000,
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 35000,
     "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
 }
 
 link_prices = { #exact chain type string MATTERS
     "Melee Accuracy": [110000,650000,2800000], #Melee Accuracy/Defense
     "Melee Defense": [110000,650000,2800000], #Melee Accuracy/Defense
     "Melee Accuracy/Defense": [110000,650000,2800000],
-    "Melee Special Chance/Special Damage": [90000,710000,2800000],
-    "Melee Special Chance": [90000,710000,2800000], #Melee Special Chance/Special Damage
-    "Melee Swing Speed": [140000,700000,2800000],
+    "Melee Special Chance/Special Damage": [80000,710000,2800000],
+    "Melee Special Chance": [80000,710000,2800000], #Melee Special Chance/Special Damage
+    "Melee Swing Speed": [130000,700000,2800000],
     "Melee Damage": [70000,500000,2300000], #Melee Damage/Ignore Armor Chance
     "Melee Ignore Armor Chance": [70000,500000,2300000], #Melee Damage/Ignore Armor Chance
     "Melee Damage/Ignore Armor Chance": [70000,500000,2300000],
-    "Melee Aspect Effect Modifier": [100000,725000,2700000],
+    "Melee Aspect Effect Modifier": [80000,700000,2700000],
     "Melee Aspect Effect Chance": [130000,700000,2800000],
     "Spell Damage": [70000,500000,2300000], #Spell Damage/Ignore Resist Chance
     "Spell Damage When No Followers": [70000,500000,2300000],
@@ -153,34 +156,34 @@ link_prices = { #exact chain type string MATTERS
     "Meditation Rate": [70000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance
     "Spell Disrupt Avoid Chance": [70000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance, Spell Damage When No Followers
     "Meditation Rate/Disrupt Avoid Chance": [70000,500000,2300000], #Spell Damage When No Followers
-    "Spell Aspect Effect Modifier": [90000,600000,2500000],
+    "Spell Aspect Effect Modifier": [80000,600000,2500000],
     "Spell Aspect Special Chance": [125000,750000,2500000],
-    "Damage to Beastial Creatures": [90000,625000,2500000], #Nusero Damage
-    "Damage to Construct Creatures": [90000,625000,2500000], #Mausoleum Damage
-    "Damage to Daemonic Creatures": [90000,625000,2500000], #Inferno Damage
-    "Damage to Elemental Creatures": [90000,625000,2500000], #Mount Petram Damage
-    "Damage to Humanoid Creatures": [90000,625000,2500000], #Aegis Keep Damage
-    "Damage to Monstrous Creatures": [90000,625000,2500000], #Cavernam Damage
-    "Damage to Nature Creatures": [90000,625000,2500000], #Darkmire Temple Damage
-    "Damage to Undead Creatures": [90000,625000,2500000], #Ossuary Damage
-    "Nusero Damage": [90000,625000,2500000],
-    "Mausoleum Damage": [90000,625000,2500000],
-    "Inferno Damage": [90000,625000,2500000],
-    "Mount Petram Damage": [90000,625000,2500000],
-    "Aegis Keep Damage": [90000,625000,2500000],
-    "Cavernam Damage": [90000,625000,2500000],
-    "Darkmire Temple Damage": [90000,625000,2500000],
-    "Ossuary Damage": [90000,625000,2500000,1111111111],
-    "Pulma Damage": [90000,625000,2500000],
-    "Shadowspire Cathedral Damage": [90000,625000,2500000],
-    "Wilderness Damage": [90000,625000,2500000],
+    "Damage to Beastial Creatures": [80000,625000,2500000], #Nusero Damage
+    "Damage to Construct Creatures": [80000,625000,2500000], #Mausoleum Damage
+    "Damage to Daemonic Creatures": [80000,625000,2500000], #Inferno Damage
+    "Damage to Elemental Creatures": [80000,625000,2500000], #Mount Petram Damage
+    "Damage to Humanoid Creatures": [80000,625000,2500000], #Aegis Keep Damage
+    "Damage to Monstrous Creatures": [80000,625000,2500000], #Cavernam Damage
+    "Damage to Nature Creatures": [80000,625000,2500000], #Darkmire Temple Damage
+    "Damage to Undead Creatures": [80000,625000,2500000], #Ossuary Damage
+    "Nusero Damage": [80000,625000,2500000],
+    "Mausoleum Damage": [80000,625000,2500000],
+    "Inferno Damage": [80000,625000,2500000],
+    "Mount Petram Damage": [80000,625000,2500000],
+    "Aegis Keep Damage": [80000,625000,2500000],
+    "Cavernam Damage": [80000,625000,2500000],
+    "Darkmire Temple Damage": [80000,625000,2500000],
+    "Ossuary Damage": [80000,625000,2500000,1111111111],
+    "Pulma Damage": [80000,625000,2500000],
+    "Shadowspire Cathedral Damage": [80000,625000,2500000],
+    "Wilderness Damage": [80000,625000,2500000],
     "Follower Damage": [150000,750000,2800000],
-    "Damage to Barded Creatures": [130000,650000,2800000],
-    "Damage to Poisoned Creatures": [130000,650000,2800000],
+    "Damage to Barded Creatures": [120000,650000,2800000],
+    "Damage to Poisoned Creatures": [120000,650000,2800000],
     "Poison Damage/Resist Ignore": [70000,500000,2300000],
-    "Backstab Damage": [120000,600000,2500000],
+    "Backstab Damage": [110000,600000,2500000],
     "Trap Damage": [130000,700000,2800000],
-    "Damage to Bosses": [90000,600000,2600000],
+    "Damage to Bosses": [80000,600000,2600000],
     "Damage on Ships": [135000,650000,2600000],
     "Ship Cannon Damage": [135000,650000,2600000],
     "Damage to Creatures Above 66% HP": [70000,500000,2300000], #Damage Dealt By Player
@@ -205,13 +208,13 @@ link_prices = { #exact chain type string MATTERS
     "Effective Barding Skill": [120000,650000,2800000], #Bard Reset/Break Ignore Chance
     "Chivalry Skill": [70000,500000,2300000], 
     "Necromancy Skill": [140000,750000,2800000], #Follower Damage, Follower Damage Resistance
-    "Barding Effect Durations": [90000,650000,2600000], #Bard Reset/Break Ignore Chance
-    "Bard Reset/Break Ignore Chance": [90000,650000,2600000],
+    "Barding Effect Durations": [80000,650000,2600000], #Bard Reset/Break Ignore Chance
+    "Bard Reset/Break Ignore Chance": [80000,650000,2600000],
     "Spirit Speak/Inscription": [140000,750000,2800000], #Follower Damage, Follower Damage Resistance
-    "Chance on Stealth For 5 Extra Steps": [150000,750000,2800000],
+    "Chance on Stealth For 5 Extra Steps": [130000,720000,2700000],
     "Gold/Doubloon Drop Increase": [70000,500000,2300000],
     "Special/Rare Loot Chance": [70000,500000,2300000],
-    "reforging tool": [85000,190000,350000],
+    "reforging tool": [85000,180000,350000],
 }
 
 misc_prices = { #exact string matters
@@ -220,21 +223,21 @@ misc_prices = { #exact string matters
     "an ankh token":10000,
     "prevalia coins [blessed]":18000, #prevalia coins : 5 [blessed]
     "a random spell hue deed": 17000,
-    "research guide (25 uses remaining)":17000,
-    "research materials (double-click to research)": 31000,
+    "research guide (25 uses remaining)":15000,
+    "research materials (double-click to research)": 32000,
     "mastercrafting diagram": 15000,
     "aspect kit": 22000,
     "a skill mastery orb (used to increase a player's total skill cap by 1)": 15000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
-    "an arcane scroll": 900,
+    "an arcane scroll": 1000,
     "arcane essence": 30,
     "plant chemicals": 2000,
     "iron ingot commodity (5,000 total)": 80000,
-    "board commodity (5,000 total)": 65000,
-    "leather commodity (5,000 total)": 9000,
+    "board commodity (5,000 total)": 70000,
+    "leather commodity (5,000 total)": 9500,
     "a message in a bottle": 17000, 
-    "pristine lumber": 33000, 
-    "immaculate stone": 33000, 
-    "an emote deed": 250000,
+    "pristine lumber": 32000, 
+    "immaculate stone": 32000,
+    "an emote deed": 200000,
     "a battle commendation (double-click to consume and receive reward item)": 10000,
 }
 
@@ -256,6 +259,8 @@ def scrape_wide_page(item, prices_obj):
     if soup:
         # Find the table with the specific id
         table = soup.find('table', id="item-search-results")
+        if not table:
+            return
         # Extract all rows from the table body
         out_data = []
         rows = table.tbody.find_all('tr')
@@ -314,13 +319,20 @@ def scrape_vendor_updates():
     my_locations = {
         #"location name": (x,y),
         "S Terran Clearing": (927,1471),
+        "N Terran Clearing": (869,1381),
         "Minotaur Island": (3967,1736),
+        "Minotaur Island E": (4067,1766),
         "N Prev Clearing SW": (1560,1438),
         "N Prev Clearing S": (1589,1430),
         "N Prev Clearing W": (1555,1404),
         "N Prev Clearing N": (1576,1389),
         "N Prev Clearing E": (1629,1421),
+        "Prevalia Gate": (1475,1488),
+        "West of Prev Gate": (1425,1483),
         "S Cambria Gate": (1709,3182),
+        "SW Cambria Gate": (1669,3177),
+        "N Cambria Gate": (1706,3129),
+        "NW Cambria Gate": (1670,3138),
         "West of SSC": (3267,689),
         "NE Outpost Close": (3387,377),
         "NE Outpost Far": (3398,178),
@@ -329,6 +341,7 @@ def scrape_vendor_updates():
         "N Prevalia Sandbar": (1657,1320),
         "Khal": (2002,1795),
         "Mine": (4008,477),
+        "AR0": (3947,504),
         "AR1": (3961,559),
         "AR2": (3961,477),
         "AR3": (4002,554),
@@ -339,8 +352,21 @@ def scrape_vendor_updates():
         "SW Prevalia Clearing SE": (1547,1653),
         "SW Prevalia Clearing NE": (1544,1623),
         "SW Prevalia Clearing SW": (1510,1657),
-        "Minotaur Island E": (4067,1766),
-        "Andaria Gate": (2315,639),
+        "W Andaria Gate": (2315,639),
+        "N Andaria Gate": (2334,591),
+        "South of Pulma": (1748,1055),
+        "Western Camp Island": (3495,1467),
+        "TRT":(1756,2341),
+        "South of TRT": (1779,2388),
+        "South of GH": (3981,854),
+        "SOF Island Mall": (3498,3748),
+        "NW Outpost Gate": (2940,563),
+        "NW Outpost Gate Far": (2982,500),
+        "N Outpost Gate": (2980,579),
+        "N Outpost Gate 2": (2975,547),
+        "N Outpost Gate 3": (3001,496),
+        "Cedar Island Mall":(3975,355),
+        "Cedar Island Center":(4025,305),
     }
     start_time = time.time()  # Record the current time
     headers = {
@@ -431,7 +457,9 @@ def append_to_tree(text1='',text2='',text3='',text4='',text5='',text6='',text7='
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("med",))
         elif ratio <= 0.9:
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("low",))
-        elif ratio <= 1.0:
+        elif ratio < 1.0:
+            item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("verylow",))
+        elif ratio == 1.0:
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("base",))
         else:
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9))
@@ -451,7 +479,7 @@ def is_time_recent(time_string,seconds_threshold=300):
 def get_seconds_from_string(time_string):
     parse = str(time_string)
     time_seconds = 0
-    if 'second' in parse:
+    if 'second ago' in parse or 'seconds ago' in parse:
         if 'about' in parse:
             time_seconds += 1
         else:
@@ -459,7 +487,7 @@ def get_seconds_from_string(time_string):
             seconds = int(split[0])
             if seconds:
                 time_seconds += seconds
-    elif 'minute' in parse:
+    elif 'minute ago' in parse or 'minutes ago' in parse:
         if 'about' in parse:
             time_seconds += 59 #about a minute
         else:
@@ -467,7 +495,7 @@ def get_seconds_from_string(time_string):
             minutes = int(split[0])
             if minutes:
                 time_seconds += minutes * 60
-    elif 'hour' in parse:
+    elif 'hour ago' in parse or 'hours ago' in parse:
         if 'about' in parse:
             time_seconds += 3540 #about an hour
         else:
@@ -475,7 +503,7 @@ def get_seconds_from_string(time_string):
             hours = int(split[0])
             if hours:
                 time_seconds += hours * 3600
-    elif 'day' in parse:
+    elif 'day ago' in parse or 'days ago' in parse:
         time_seconds = 1000000 #about an hour
     else:
         return False
@@ -576,9 +604,13 @@ def sort_key_tuple(item):
                 if result:
                     primary_key = float(result)
                 else:
-                    raise Exception(f'{primary_val}')
+                    primary_key = float(primary_val)
+                    if primary_key > 1000.0:
+                        print(f'Vendor name convertable to float {primary_val}:{primary_key}')
+                        raise Exception('Vendor name convertable to float')
+                    #print(primary_key)
             except Exception as e:
-                print(f"Couldn't parse seconds from string: {e}")
+                #print(f"Couldn't parse seconds from string: {e}")
                 primary_key = primary_val.lower()
     except Exception as e:
         print(f"Unexpected error for primary column: {e}")
@@ -593,12 +625,16 @@ def sort_key_tuple(item):
                 if result:
                     primary_key = float(result)
                 else:
-                    raise Exception(f'{secondary_val}')
+                    secondary_key = float(secondary_val)
+                    if secondary_key > 1000.0:
+                        print(f'Vendor name convertable to float {secondary_val}:{secondary_key}')
+                        raise Exception('Vendor name convertable to float')
+                    #print(primary_key)
             except Exception as e:
-                print(f"Couldn't parse seconds from string: {e}")
+                #print(f"Couldn't parse seconds from string: {e}")
                 secondary_key = secondary_val.lower()
     except Exception as e:
-        print(f"Unexpected error for primary column: {e}")
+        print(f"Unexpected error for secondary column: {e}")
     #print(f"primary_key:{primary_key}, secondary_key:{secondary_key}")
     return (primary_key, secondary_key)  # Return a tuple for multi-level sorting
 
@@ -642,6 +678,8 @@ def step_scraping():
             if soup:
                 # Find the table with the specific id
                 table = soup.find('table', id="item-search-results")
+                if not table:
+                    continue
                 # Extract all rows from the table body
                 rows = table.tbody.find_all('tr')
                 out_data = []
@@ -717,6 +755,7 @@ def is_inaccessible(file_path):
 
 # Initialize an empty dictionary to store the results
 def parse_log_to_object():
+    my_vendors = [4342004]
     vendors = {}
     current_vendor = None
     latest_log = get_most_recent_log()
@@ -732,20 +771,23 @@ def parse_log_to_object():
                 # if "[blessed]" in line:
                 #     line = line.replace(" [blessed]","")
                 #     print(line)
-                match = re.search(r'Price: (\d+) (.+?)(?: : (\d+)(.*))?$', line)
+                item_id = re.search(r'ID:(\d+) (.+?)(?: : (\d+)(.*))?$', line)
+                match = re.search(r'ID:(\d+) Price: (\d+) (.+?)(?: : (\d+)(.*))?$', line)
                 # If a match is found
                 #print(match.group())
                 if match:
-                    item_price = int(match.group(1))
-                    item_description = match.group(2)
+                    item_id = int(match.group(1))
+                    item_price = int(match.group(2))
+                    item_description = match.group(3)
                     #print(item_description)
-                    item_quantity = int(match.group(3)) if match.group(3) else 1
-                    item_suffix = match.group(4) if match.group(4) else ''
+                    item_quantity = int(match.group(4)) if match.group(4) else 1
+                    item_suffix = match.group(5) if match.group(5) else ''
                     if(item_suffix):
                         item_description += item_suffix
                     item_unitprice = round(item_price / item_quantity,1)
                     # If a match was found, return the matched number as an integer
                     item = {
+                        'id': item_id,
                         "price": item_unitprice,
                         "description": item_description,
                         "quantity": item_quantity,
@@ -758,7 +800,7 @@ def parse_log_to_object():
             elif "…vendorStart" in line:
                 # Extract the vendor ID and name
                 parts = line.split()
-                vendor_id = parts[4]
+                vendor_id = int(parts[4])
                 vendor_name = ' '.join(parts[5:])
                 date_string = parts[0][1:]
                 time_string = parts[1][:1]
@@ -770,6 +812,8 @@ def parse_log_to_object():
                 }
                 vendors[vendor_id] = current_vendor
             elif "…vendorEnd" in line:
+                if current_vendor['id'] in my_vendors:
+                    HandleMyVendor(current_vendor)
                 current_vendor = None
             elif "System: Current location is" in line:
                 match = re.search(r'Current location is \((\d+), (\d+)', line)
@@ -781,6 +825,13 @@ def parse_log_to_object():
             return vendors, latest_log
     return latest_log
     
+def HandleMyVendor(vendor_obj):
+    initialize_db()
+    items = vendor_obj['items']
+    update_snapshots(items)
+
+
+
 def search_self_parse_obj(parse_obj):
     corrupted_link_price_threshold = 200000
     bools = [
@@ -854,6 +905,7 @@ def ParseMostRecentJournalLog():
         status_var.set(f"Invalid: {out_string}")
         return
     search_self_parse_obj(obj)
+    root.update()
 
 def PostJournalLog():
     url = 'https://outlandmalls.com/uploads'
@@ -866,12 +918,291 @@ def PostJournalLog():
     with open(file_path, 'rb') as f:
         files = {'file': (file_path, f)}
         response = requests.post(url, headers=headers, files=files, data=data)
-        status_var.set("POST succeeded")
+        status_var.set(f"{response}")
 
 def clear_tree():
     # Clear the Treeview
     for row in tree.get_children():
         tree.delete(row)
+
+
+# def connect_db():
+#     return sqlite3.connect('inventory.db')
+@contextmanager
+def connect_db():
+    conn = sqlite3.connect('inventory.db')
+    try:
+        yield conn
+    finally:
+        conn.close()
+
+def execute_query(query, params=()):
+    with connect_db() as conn:
+        c = conn.cursor()
+        c.execute(query, params)
+        conn.commit()
+
+def fetch_query(query, params=()):
+    with connect_db() as conn:
+        c = conn.cursor()
+        c.execute(query, params)
+        return c.fetchall()
+
+# def fetch_query(query, params=()):
+#     conn = connect_db()
+#     c = conn.cursor()
+#     try:
+#         c.execute(query, params)
+#         result = c.fetchall()
+#     except Exception as e:
+#         print(f"An error occurred: {e}")
+#         result = []
+#     finally:
+#         c.close()
+#         conn.close()
+#     return result
+    
+def initialize_db():
+    if not os.path.exists('inventory.db'):
+        execute_query('''CREATE TABLE IF NOT EXISTS inventory_snapshots
+                    (snapshot_time TEXT, id TEXT, price INTEGER, description TEXT, quantity INTEGER)''')
+
+        execute_query('''CREATE TABLE IF NOT EXISTS sales_history
+                    (snapshot_time TEXT, id TEXT PRIMARY KEY, price INTEGER, description TEXT, quantity INTEGER)''')
+        print("Database and tables initialized.")
+
+        
+def take_snapshot(inventory_items):
+    inserted_rows = []
+    try:
+        with connect_db() as conn:
+            c = conn.cursor()
+            snapshot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            previous_snapshot = get_most_recent_inventory_snapshot()
+            previous_length = len(previous_snapshot)
+            if previous_length == 0 or (previous_length and not snapshots_are_identical(previous_snapshot,inventory_items)):
+                for item in inventory_items:
+                    c.execute("INSERT INTO inventory_snapshots (snapshot_time, id, price, description, quantity) VALUES (?, ?, ?, ?, ?)",
+                            (snapshot_time, item['id'], item['price'], item['description'], item['quantity']))
+                    
+                    last_row_id = c.lastrowid
+                    c.execute("SELECT * FROM inventory_snapshots WHERE rowid=?", (last_row_id,))
+                    inserted_row = c.fetchone()
+                    inserted_rows.append(inserted_row)
+                conn.commit()
+                return inserted_rows
+            else:
+                print('Previous snapshot is identical')
+                return previous_snapshot
+    except Exception as e:
+        print(f"Exception in take_snapshot: {e}")
+
+# Function to get the sales from the database
+def read_full_db():
+    try:
+        with connect_db() as conn:
+            c = conn.cursor()
+            c.execute("SELECT name FROM sqlite_master WHERE type='table';")
+            tables = c.fetchall()
+            table_names = [table[0] for table in tables]
+            print('-FULL DB-')
+            for table in table_names:
+                print(f"Fetching records from table: {table}")
+                c.execute(f"SELECT * FROM {table}")
+                rows = c.fetchall()
+                for row in rows:
+                    print(row)
+            print("-END DB-")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    
+# Function to get the sales from the database
+def read_db_total_sales():
+    try:
+        with connect_db() as conn:
+            c = conn.cursor()
+            c.execute("SELECT * FROM sales_history")
+            rows = c.fetchall()
+            columns = [desc[0] for desc in c.description]
+        print('-Sales Report-')
+        sales_window = tk.Toplevel(root)
+        sales_window.title("Sales Report")
+        total_revenue = 0
+        for row in rows:
+            row_dict = dict(zip(columns, row))
+            total_price = row_dict['price'] * row_dict['quantity']
+            total_revenue += total_price
+            result = f"{row_dict['snapshot_time']} ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
+            #result = f"{row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
+            label = tk.Label(sales_window, text=result, anchor="w", justify=tk.LEFT)
+            label.pack(fill=tk.X)
+            print(result)
+        rev_string = f"Total Revenue: {total_revenue}"
+        label = tk.Label(sales_window, text=rev_string, anchor="w", justify=tk.LEFT)
+        label.pack(fill=tk.X)
+        print(f"{rev_string}\n-End Report-")
+        return rows
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+
+def read_db_recent_sales():
+    try:
+        with connect_db() as conn:
+            c = conn.cursor()
+            c.execute("SELECT MAX(snapshot_time) FROM sales_history")
+            entries = c.fetchall()
+            if len(entries) == 0:
+                print('No recent sales')
+            most_recent_time = entries[0][0]
+            c.execute("SELECT * FROM sales_history WHERE snapshot_time=?",(most_recent_time,))
+            rows = c.fetchall()
+            columns = [desc[0] for desc in c.description]
+        print('-Sales Report-')
+        sales_window = tk.Toplevel(root)
+        sales_window.title("Sales Report")
+        total_revenue = 0
+        for row in rows:
+            row_dict = dict(zip(columns, row))
+            total_price = row_dict['price'] * row_dict['quantity']
+            total_revenue += total_price
+            result = f"{row_dict['snapshot_time']} ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
+            #result = f"{row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
+            label = tk.Label(sales_window, text=result, anchor="w", justify=tk.LEFT)
+            label.pack(fill=tk.X)
+            print(result)
+        rev_string = f"Total Revenue: {total_revenue}"
+        label = tk.Label(sales_window, text=rev_string, anchor="w", justify=tk.LEFT)
+        label.pack(fill=tk.X)
+        print(f"{rev_string}\n-End Report-")
+        return rows
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+    
+# Function to get the most recent snapshot from the database
+def get_most_recent_inventory_snapshot():
+    try:
+        fetches = fetch_query("SELECT MAX(snapshot_time) FROM inventory_snapshots") #returns fetchall
+        if len(fetches):
+            most_recent_time = fetches[0][0]
+            return fetch_query("SELECT * FROM inventory_snapshots WHERE snapshot_time=?", (most_recent_time,))
+        return []
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+    
+def get_most_recent_sales_time():
+    try:
+        fetches = fetch_query("SELECT MAX(snapshot_time) FROM sales_history") #returns fetchall
+        if len(fetches):
+            most_recent_time = fetches[0][0]
+            return most_recent_time
+        return None
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
+
+def read_db_current_inventory():
+    try:
+        rows = get_most_recent_inventory_snapshot()
+        if not rows:
+            print("No inventory snapshot available.")
+            return []
+        snapshot_time = rows[0][0]
+        print(f'-Inventory Report- {snapshot_time}')
+        inventory_window = tk.Toplevel(root)
+        inventory_window.title("Inventory")
+        columns = ['snapshot_time', 'id', 'price', 'description', 'quantity']
+        for row in rows:
+            row_dict = dict(zip(columns, row))
+            total_price = row_dict['price'] * row_dict['quantity']
+            result = f"ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
+            label = tk.Label(inventory_window, text=result, anchor="w", justify=tk.LEFT)
+            label.pack(fill=tk.X)
+            print(result)
+        print("-End Report-")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+    
+def delete_db():
+    conn = sqlite3.connect('inventory.db')
+    c = conn.cursor()
+    c.execute("DELETE FROM inventory_snapshots")
+    conn.commit()
+    conn.close()
+
+def simulate_snapshot(inventory_items):
+    sim_snap = []
+    for item in inventory_items:
+        sim_snap.append(tuple(item.values()))
+    return sim_snap[:-1]
+
+def snapshots_are_identical(snapshot, inventory_items):
+    truncated_snapshot = [t[1:] for t in snapshot]
+    simulated_snapshot = simulate_snapshot(inventory_items)
+    # Sort both snapshots by the 'id' field (assuming id is at index 0)
+    sorted_snap1 = sorted(truncated_snapshot, key=lambda x: x[0])
+    sorted_snap2 = sorted(simulated_snapshot, key=lambda x: x[0])
+
+    # If their lengths are different, they can't be identical
+    if len(sorted_snap1) != len(sorted_snap2):
+        print('same length')
+        return False
+    for item1, item2 in zip(sorted_snap1, sorted_snap2):
+        # Compare all fields except the timestamp (assuming timestamp is at index 0)
+        if item1 != item2:
+            print('item1:',item1)
+            print('item2:',item2)
+            return False
+    return True
+
+def update_snapshots(inventory_items):
+    snapshot1 = get_most_recent_inventory_snapshot()
+    if len(snapshot1) == 0:
+        take_snapshot(inventory_items)
+        return    
+    if snapshots_are_identical(snapshot1, inventory_items):
+        print("The snapshots are identical, no changes detected.")
+        return
+    snapshot2 = take_snapshot(inventory_items)
+
+    # Assuming that id is at index 1
+    snapshot1_dict = {item[1]: (item[2],item[3],item[4]) for item in snapshot1}
+    snapshot2_dict = {item[1]: (item[2],item[3],item[4]) for item in snapshot2}
+    snapshot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    sold_items = {}
+    for id, item_info in snapshot1_dict.items():
+        price1, description1, quantity1 = item_info
+        if id in snapshot2_dict:
+            price2, description2, quantity2 = snapshot2_dict[id]
+            sold_quantity = quantity1 - quantity2
+            if sold_quantity > 0:
+                sold_items[id] = (price1,description1,sold_quantity)
+        else:
+            # Handle the case where the item exists in the first snapshot but not the second
+            print(f"Item {id} exists in the first snapshot but not in the second. All {quantity1} units may have been sold or removed.")
+            sold_items[id] = item_info  # Or some other logic
+    for id, item_info in sold_items.items():
+        price, description, quantity = item_info
+        record_sale(snapshot_time,id,price,description,quantity)
+    return sold_items
+
+def record_sale(snapshot_time, id, price, description, quantity):
+    try:
+        # Check if the item ID already exists in sales_history
+        existing_records = fetch_query("SELECT * FROM sales_history WHERE id = ?", (id,))
+        # Insert a new sale record
+        if len(existing_records) == 0:
+            execute_query("INSERT INTO sales_history (snapshot_time, id, price, description, quantity) VALUES (?, ?, ?, ?, ?)",
+                    (snapshot_time, id, price, description, quantity))
+            total_price = price * quantity
+            print(f"Recorded sale: {quantity} of item {description} at {price} each, for a total price of {total_price}.")
+        else:
+            print(f"Item with ID {id} already exists in sales_history. Skipping insert.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 root = tk.Tk()
 root.title("Ali's Outland Malls Scraper")
@@ -895,13 +1226,13 @@ tree_frame.grid_rowconfigure(1, weight=0)
 
 # Create the Treeview with several columns
 tree = ttk.Treeview(tree_frame, columns=("Item", "Price","Ratio","#","Vendor","Location","Time"),show='headings')
-tree.heading("Item", text="Item", command=lambda _col="Item": sort_column(_col, False, lambda x: x[0].lower(),))
+tree.heading("Item", text="Item", command=lambda _col="Item",_col2 ="Ratio": sort_column_tuple(_col, _col2, False, sort_key_tuple))
 tree.heading("Price", text="Price")
 tree.heading("Ratio", text="%", command=lambda _col="Ratio",_col2 ="Item": sort_column_tuple(_col, _col2, False, sort_key_tuple))
 tree.heading("#", text="#")
-tree.heading("Vendor", text="Vendor", command=lambda _col="Vendor": sort_column(_col, False, lambda x: x[0].lower()))
-tree.heading("Location", text="Location", command=lambda _col="Location": sort_column(_col, False, lambda x: x[0]))
-tree.heading("Time", text="Time", command=lambda _col="Time": sort_column(_col, False, sort_timestring_key))
+tree.heading("Vendor", text="Vendor", command=lambda _col="Vendor",_col2 ="Item": sort_column_tuple(_col, _col2, False, sort_key_tuple))
+tree.heading("Location", text="Location", command=lambda _col="Location",_col2 ="Vendor": sort_column_tuple(_col, _col2, False, sort_key_tuple))
+tree.heading("Time", text="Time", command=lambda _col="Time",_col2 ="Ratio": sort_column_tuple(_col, _col2, False, sort_key_tuple))
 tree.column("Item", width=300)
 tree.column("Price", width=100)
 tree.column("Ratio", width=25)
@@ -915,7 +1246,8 @@ tree.tag_configure("ultra", background="#FF0000")
 tree.tag_configure("high", background="#FFA500")
 tree.tag_configure("med", background="#FFD700")
 tree.tag_configure("low", background="#00FF00")
-tree.tag_configure("base", background="#00BFFF")
+tree.tag_configure("verylow", background="#00BFFF")
+tree.tag_configure("base", background="#ADD8E6")
 tree.bind("<Button-1>", on_treeview_click)
 
 # Create a Scrollbar and associate it with the Tree widget
@@ -978,6 +1310,10 @@ radio_frame.grid_rowconfigure(4, weight=1)
 radio_frame.grid_rowconfigure(5, weight=1)
 radio_frame.grid_rowconfigure(6, weight=1)
 radio_frame.grid_rowconfigure(7, weight=1)
+radio_frame.grid_rowconfigure(8, weight=1)
+radio_frame.grid_rowconfigure(9, weight=1)
+radio_frame.grid_rowconfigure(10, weight=1)
+radio_frame.grid_rowconfigure(11, weight=1)
 search_timeframe = tk.IntVar()
 search_timeframe.set(1)
 search_pricedepth = tk.IntVar()
@@ -1003,9 +1339,17 @@ radio6 = ttk.Radiobutton(radio_frame, text="Best Ratio", variable=search_sortmod
 radio5.grid(row=5, column=0,sticky='w')
 radio6.grid(row=5, column=1,sticky='w')
 btn_start = ttk.Button(radio_frame, text="Locations", command=scrape_vendor_updates)
-btn_start.grid(row=6, column=0, sticky='ew', padx=10, pady=10, columnspan=2)
+btn_start.grid(row=6, column=0, sticky='ew', padx=10, pady=(15,5), columnspan=2)
+btn_visit_web = ttk.Button(radio_frame, text="Open Website", command=lambda: webbrowser.open("https://outlandmalls.com/"))
+btn_visit_web.grid(row=7, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
+btn_open_folder = ttk.Button(radio_frame, text="Open Folder", command=lambda: os.system('explorer "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\\Client\\JournalLogs"'))
+btn_open_folder.grid(row=8, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
+btn_inventory = ttk.Button(radio_frame, text="Inventory", command=read_db_current_inventory)
+btn_inventory.grid(row=9, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
+btn_recent_sales = ttk.Button(radio_frame, text="Sales", command=read_db_recent_sales)
+btn_recent_sales.grid(row=10, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
 btn_post_journal = ttk.Button(radio_frame, text="POST", command=PostJournalLog)
-btn_post_journal.grid(row=7, column=0, sticky='ew', padx=10, pady=2, columnspan=2)
+btn_post_journal.grid(row=11, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
 
 def clicker():
     # Move the mouse to a specific location; coordinates x=100, y=100

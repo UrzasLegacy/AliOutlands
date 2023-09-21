@@ -1,0 +1,39 @@
+// selecting the container ID to use
+// leave it empty to pick a container each time
+// getting bank container ID: type -info and click on anything in your bank
+// getting other container ID: type >info and click on the container
+setvar! stackContainer
+
+setvar! globalWait 650
+@setvar! stack15kPile 0
+@setvar! stackSubPile 0
+@clearignore
+while findtype "gold coin" stackContainer as goldPile
+    getlabel goldPile desc
+    if ": 15000" in desc
+        @ignore goldPile
+    else
+        lift goldPile 15000
+        drop stackContainer
+        wait globalWait
+        getlabel goldPile desc
+        if ": 15000" in desc
+        elseif stackSubPile == 0
+            @setvar! stackSubPile goldPile
+            @ignore goldPile
+        else
+            lift goldPile 15000
+            drop stackSubPile
+            @unignore stackSubPile
+            @setvar! stackSubPile 0
+            wait globalWait
+        endif
+    endif
+endwhile
+
+if stack15kPile != 0 and stackSubPile != 0
+    lift stackSubPile 60000
+    drop stack5kPile
+    wait globalWait
+endif
+overhead "Done"
