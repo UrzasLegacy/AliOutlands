@@ -7,8 +7,7 @@ createlist 'vendors'
 removelist 'runetomeSpots'
 createlist 'runetomeSpots'
 
-@setvar! stage 2
-
+@setvar! stage 1
 // Add recall locations here.
 // Location 100 is the first rune in the tome. 101 is the second, and so on.
 //pushlist 'runetomeSpots' 100
@@ -17,27 +16,26 @@ if stage = 1
     pushlist 'runetomeSpots' 102
     pushlist 'runetomeSpots' 103
     pushlist 'runetomeSpots' 104
-elseif stage = 2
     pushlist 'runetomeSpots' 105
+elseif stage = 2
     pushlist 'runetomeSpots' 106
     pushlist 'runetomeSpots' 107
     pushlist 'runetomeSpots' 108
-elseif stage = 3
     pushlist 'runetomeSpots' 109
     pushlist 'runetomeSpots' 110
+elseif stage = 3
     pushlist 'runetomeSpots' 111
     pushlist 'runetomeSpots' 112
-elseif stage = 4
     pushlist 'runetomeSpots' 113
     pushlist 'runetomeSpots' 114
     pushlist 'runetomeSpots' 115
     pushlist 'runetomeSpots' 116
- elseif stage = 5
     pushlist 'runetomeSpots' 117
     pushlist 'runetomeSpots' 118
     pushlist 'runetomeSpots' 119
     pushlist 'runetomeSpots' 120
-elseif stage = 6
+elseif stage = 4
+ elseif stage = 5
     pushlist 'runetomeSpots' 121
     pushlist 'runetomeSpots' 122
     pushlist 'runetomeSpots' 123

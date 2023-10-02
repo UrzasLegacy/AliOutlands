@@ -16,136 +16,136 @@ from contextlib import contextmanager
 from urllib.parse import quote_plus
 
 core_prices = { #exact string MATTERS
-    "Blood Aspect Core": 4000,
+    "Blood Aspect Core": 3000,
     "Holy Aspect Core": 3000,
     "Earth Aspect Core": 3000,
     "War Aspect Core": 3000,
     "Death Aspect Core": 4000,
     "Water Aspect Core": 8000,
-    "Gadget Aspect Core": 4000,
+    "Gadget Aspect Core": 3000,
     "Shadow Aspect Core": 10000,
     "Void Aspect Core": 13000,
     "Fire Aspect Core": 10000,
     "Discipline Aspect Core": 8000,
-    "Lyric Aspect Core": 13000,
-    "Poison Aspect Core": 30000,
-    "Eldritch Aspect Core": 32000,
-    "Fortune Aspect Core": 40000,
+    "Lyric Aspect Core": 14000,
+    "Poison Aspect Core": 28000,
+    "Eldritch Aspect Core": 35000,
+    "Fortune Aspect Core": 45000,
     "Command Aspect Core": 95000,
-    "Artisan Aspect Core": 50000,
-    "Air Aspect Core": 39000,
+    "Artisan Aspect Core": 60000,
+    "Air Aspect Core": 40000,
     "Harvest Aspect Core": 130000,
 }
 
 extract_prices = { #exact string MATTERS
-    "Blood Aspect Extract": 3000,
-    "Holy Aspect Extract": 3000,
-    "Earth Aspect Extract": 3000,
-    "Death Aspect Extract": 3000,
+    "Blood Aspect Extract": 2000,
+    "Holy Aspect Extract": 2000,
+    "Earth Aspect Extract": 2000,
+    "Death Aspect Extract": 2000,
     "Water Aspect Extract": 5000,
     "Gadget Aspect Extract": 3000,
     "Shadow Aspect Extract": 5000,
     "Void Aspect Extract": 5000,
-    "Fire Aspect Extract": 5000,
+    "Fire Aspect Extract": 3000,
     "Discipline Aspect Extract": 4000,
-    "Lyric Aspect Extract": 4000,
+    "Lyric Aspect Extract": 5000,
     "Poison Aspect Extract": 8000,
     "Eldritch Aspect Extract": 8000,
-    "Fortune Aspect Extract": 5000,
-    "Command Aspect Extract": 9000,
+    "Fortune Aspect Extract": 7000,
+    "Command Aspect Extract": 8000,
     "Artisan Aspect Extract": 5000,
     "Air Aspect Extract": 7000,
-    "Harvest Aspect Extract": 12000,
+    "Harvest Aspect Extract": 10000,
 }
 
 distil_prices = { #exact string MATTERS
-    "Blood Aspect Distillation": 3000,
-    "Holy Aspect Distillation": 3000,
-    "Earth Aspect Distillation": 3000,
-    "Death Aspect Distillation": 4000,
-    "Water Aspect Distillation": 6000,
-    "Gadget Aspect Distillation": 3000,
+    "Blood Aspect Distillation": 2000,
+    "Holy Aspect Distillation": 2000,
+    "Earth Aspect Distillation": 2000,
+    "Death Aspect Distillation": 3000,
+    "Water Aspect Distillation": 5000,
+    "Gadget Aspect Distillation": 2000,
     "Shadow Aspect Distillation": 5000,
     "Void Aspect Distillation": 5000,
-    "Fire Aspect Distillation": 5000,
+    "Fire Aspect Distillation": 3000,
     "Discipline Aspect Distillation": 5000,
     "Lyric Aspect Distillation": 5000,
-    "War Aspect Distillation": 5000,
+    "War Aspect Distillation": 2000,
     "Poison Aspect Distillation": 8000,
     "Eldritch Aspect Distillation": 8000,
     "Fortune Aspect Distillation": 7000,
     "Command Aspect Distillation": 8000,
     "Artisan Aspect Distillation": 5000,
     "Air Aspect Distillation": 7000,
-    "Harvest Aspect Distillation": 12000,
+    "Harvest Aspect Distillation": 10000,
 }
 
 map_prices = { #exact string MATTERS
-    "plainly drawn treasure map: level 1 (undeciphered)": 3000,
-    "plainly drawn treasure map: level 1 [100.0% estimated accuracy]": 3000,
-    "expertly drawn treasure map: level 2 (undeciphered)": 5000,
-    "expertly drawn treasure map: level 2 [100.0% estimated accuracy]": 5000,
-    "adeptly drawn treasure map: level 3 (undeciphered)": 12000,
-    "adeptly drawn treasure map: level 3 [100.0% estimated accuracy]": 12000,
-    "cleverly drawn treasure map: level 4 (undeciphered)": 23000,
-    "cleverly drawn treasure map: level 4 [100.0% estimated accuracy]": 23000,
+    "plainly drawn treasure map: level 1 (undeciphered)": 4000,
+    "plainly drawn treasure map: level 1 [100.0% estimated accuracy]": 4000,
+    "expertly drawn treasure map: level 2 (undeciphered)": 9000,
+    "expertly drawn treasure map: level 2 [100.0% estimated accuracy]": 9000,
+    "adeptly drawn treasure map: level 3 (undeciphered)": 20000,
+    "adeptly drawn treasure map: level 3 [100.0% estimated accuracy]": 20000,
+    "cleverly drawn treasure map: level 4 (undeciphered)": 25000,
+    "cleverly drawn treasure map: level 4 [100.0% estimated accuracy]": 25000,
     "deviously drawn treasure map: level 5 (undeciphered)": 35000,
     "deviously drawn treasure map: level 5 [100.0% estimated accuracy]": 35000,
-    "ingeniously drawn treasure map: level 6 (undeciphered)": 60000,
-    "ingeniously drawn treasure map: level 6 [100.0% estimated accuracy]": 60000,
-    "diabolically drawn treasure map: level 7 (undeciphered)": 100000,
-    "diabolically drawn treasure map: level 7 [100.0% estimated accuracy]": 100000,
+    "ingeniously drawn treasure map: level 6 (undeciphered)": 45000,
+    "ingeniously drawn treasure map: level 6 [100.0% estimated accuracy]": 45000,
+    "diabolically drawn treasure map: level 7 (undeciphered)": 60000,
+    "diabolically drawn treasure map: level 7 [100.0% estimated accuracy]": 60000,
     "legendarily drawn treasure map: level 8 (undeciphered)": 275000,
     "legendarily drawn treasure map: level 8 [100.0% estimated accuracy]": 275000,
 }
 scroll_prices = { #exact string MATTERS
-    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 25000, #alchemy skill mastery scroll : 3 (used to increase a player's skill cap for a skill by 1)
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 29000, #alchemy skill mastery scroll : 3 (used to increase a player's skill cap for a skill by 1)
     "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
-    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 22000,
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 21000,
     "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
-    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
     "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 17000,
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 19000,
     "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 25000,
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 24000,
     "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
-    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 35000,
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 40000,
     "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
 }
 
 link_prices = { #exact chain type string MATTERS
-    "Melee Accuracy": [110000,650000,2800000], #Melee Accuracy/Defense
-    "Melee Defense": [110000,650000,2800000], #Melee Accuracy/Defense
-    "Melee Accuracy/Defense": [110000,650000,2800000],
-    "Melee Special Chance/Special Damage": [80000,710000,2800000],
-    "Melee Special Chance": [80000,710000,2800000], #Melee Special Chance/Special Damage
+    "Melee Accuracy": [100000,650000,2800000], #Melee Accuracy/Defense
+    "Melee Defense": [100000,650000,2800000], #Melee Accuracy/Defense
+    "Melee Accuracy/Defense": [100000,650000,2800000],
+    "Melee Special Chance/Special Damage": [100000,710000,2800000],
+    "Melee Special Chance": [100000,710000,2800000], #Melee Special Chance/Special Damage
     "Melee Swing Speed": [130000,700000,2800000],
     "Melee Damage": [70000,500000,2300000], #Melee Damage/Ignore Armor Chance
     "Melee Ignore Armor Chance": [70000,500000,2300000], #Melee Damage/Ignore Armor Chance
     "Melee Damage/Ignore Armor Chance": [70000,500000,2300000],
-    "Melee Aspect Effect Modifier": [80000,700000,2700000],
-    "Melee Aspect Effect Chance": [130000,700000,2800000],
+    "Melee Aspect Effect Modifier": [70000,700000,2700000],
+    "Melee Aspect Effect Chance": [100000,700000,2800000],
     "Spell Damage": [70000,500000,2300000], #Spell Damage/Ignore Resist Chance
     "Spell Damage When No Followers": [70000,500000,2300000],
     "Spell Ignore Resist Chance": [70000,500000,2300000], #Spell Damage/Ignore Resist Chance
@@ -156,8 +156,8 @@ link_prices = { #exact chain type string MATTERS
     "Meditation Rate": [70000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance
     "Spell Disrupt Avoid Chance": [70000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance, Spell Damage When No Followers
     "Meditation Rate/Disrupt Avoid Chance": [70000,500000,2300000], #Spell Damage When No Followers
-    "Spell Aspect Effect Modifier": [80000,600000,2500000],
-    "Spell Aspect Special Chance": [125000,750000,2500000],
+    "Spell Aspect Effect Modifier": [70000,600000,2500000],
+    "Spell Aspect Special Chance": [135000,750000,2500000],
     "Damage to Beastial Creatures": [80000,625000,2500000], #Nusero Damage
     "Damage to Construct Creatures": [80000,625000,2500000], #Mausoleum Damage
     "Damage to Daemonic Creatures": [80000,625000,2500000], #Inferno Damage
@@ -173,19 +173,19 @@ link_prices = { #exact chain type string MATTERS
     "Aegis Keep Damage": [80000,625000,2500000],
     "Cavernam Damage": [80000,625000,2500000],
     "Darkmire Temple Damage": [80000,625000,2500000],
-    "Ossuary Damage": [80000,625000,2500000,1111111111],
+    "Ossuary Damage": [80000,625000,2500000],
     "Pulma Damage": [80000,625000,2500000],
-    "Shadowspire Cathedral Damage": [80000,625000,2500000],
-    "Wilderness Damage": [80000,625000,2500000],
-    "Follower Damage": [150000,750000,2800000],
-    "Damage to Barded Creatures": [120000,650000,2800000],
+    "Shadowspire Cathedral Damage": [90000,625000,2500000],
+    "Wilderness Damage": [90000,625000,2500000],
+    "Follower Damage": [160000,750000,2800000],
+    "Damage to Barded Creatures": [110000,650000,2800000],
     "Damage to Poisoned Creatures": [120000,650000,2800000],
     "Poison Damage/Resist Ignore": [70000,500000,2300000],
-    "Backstab Damage": [110000,600000,2500000],
-    "Trap Damage": [130000,700000,2800000],
+    "Backstab Damage": [100000,600000,2500000],
+    "Trap Damage": [100000,700000,2800000],
     "Damage to Bosses": [80000,600000,2600000],
-    "Damage on Ships": [135000,650000,2600000],
-    "Ship Cannon Damage": [135000,650000,2600000],
+    "Damage on Ships": [125000,650000,2600000],
+    "Ship Cannon Damage": [125000,650000,2600000],
     "Damage to Creatures Above 66% HP": [70000,500000,2300000], #Damage Dealt By Player
     "Damage to Creatures Below 33% HP": [70000,500000,2300000], #Damage Dealt By Player
     "Damage Dealt By Player": [70000,500000,2300000],
@@ -195,8 +195,8 @@ link_prices = { #exact chain type string MATTERS
     "Effective Parrying Skill": [70000,500000,2300000], #Damage Resistance
     "Effective Magic Resist Skill": [70000,500000,2300000], #Damage Resistance
     "Healing Received": [70000,500000,2300000], #Effective Alchemy/Healing/Veterinary Skill
-    "Follower Attack Speed": [150000,700000,2800000],
-    "Follower Healing Received": [150000,700000,2800000], #Effective Alchemy/Healing/Veterinary Skill, Follower Attack Speed
+    "Follower Attack Speed": [140000,700000,2800000],
+    "Follower Healing Received": [140000,700000,2800000], #Effective Alchemy/Healing/Veterinary Skill, Follower Attack Speed
     "Boss Damage Resistance": [70000,500000,2300000], #Damage Resistance
     "Damage Resistance on Ships": [70000,500000,2300000], #Damage Resistance
     "Damage Resistance": [70000,500000,2300000],
@@ -205,40 +205,41 @@ link_prices = { #exact chain type string MATTERS
     "Alchemy/Healing/Veterinary": [70000,500000,2300000],
     "Effective Lockpicking Skill": [100000,650000,2700000], #Chest Success Chances/Progress
     "Effective Poisoning Skill": [70000,500000,2300000], #Poison Damage/Resist Ignore
-    "Effective Barding Skill": [120000,650000,2800000], #Bard Reset/Break Ignore Chance
+    "Effective Barding Skill": [110000,650000,2800000], #Bard Reset/Break Ignore Chance
     "Chivalry Skill": [70000,500000,2300000], 
     "Necromancy Skill": [140000,750000,2800000], #Follower Damage, Follower Damage Resistance
-    "Barding Effect Durations": [80000,650000,2600000], #Bard Reset/Break Ignore Chance
-    "Bard Reset/Break Ignore Chance": [80000,650000,2600000],
+    "Barding Effect Durations": [70000,650000,2600000], #Bard Reset/Break Ignore Chance
+    "Bard Reset/Break Ignore Chance": [70000,650000,2600000],
     "Spirit Speak/Inscription": [140000,750000,2800000], #Follower Damage, Follower Damage Resistance
-    "Chance on Stealth For 5 Extra Steps": [130000,720000,2700000],
+    "Chance on Stealth For 5 Extra Steps": [110000,720000,2700000],
     "Gold/Doubloon Drop Increase": [70000,500000,2300000],
     "Special/Rare Loot Chance": [70000,500000,2300000],
     "reforging tool": [85000,180000,350000],
 }
 
 misc_prices = { #exact string matters
-    "exceedingly potent magic spellbook": 3500,
-    "supremely potent magic spellbook": 15000,
-    "an ankh token":10000,
-    "prevalia coins [blessed]":18000, #prevalia coins : 5 [blessed]
-    "a random spell hue deed": 17000,
-    "research guide (25 uses remaining)":15000,
-    "research materials (double-click to research)": 32000,
-    "mastercrafting diagram": 15000,
-    "aspect kit": 22000,
+    "research materials (double-click to research)": 35000,
+    "mastercrafting diagram": 15500,
     "a skill mastery orb (used to increase a player's total skill cap by 1)": 15000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
     "an arcane scroll": 1000,
+    "plant chemicals": 1750,
+    "supremely potent magic spellbook": 13000,
+    "an ankh token":9000,
+    "prevalia coins [blessed]":17500, #prevalia coins : 5 [blessed]
+    #"a random spell hue deed": 17000,
+    #"research guide (25 uses remaining)":15000,
+    #"aspect kit": 22000,
+    #"exceedingly potent magic spellbook": 3500,
     "arcane essence": 30,
-    "plant chemicals": 2000,
-    "iron ingot commodity (5,000 total)": 80000,
-    "board commodity (5,000 total)": 70000,
-    "leather commodity (5,000 total)": 9500,
-    "a message in a bottle": 17000, 
+    "iron ingot commodity (5,000 total)": 75000,
+    "board commodity (5,000 total)": 65000,
+    "leather commodity (5,000 total)": 8500,
+    "a message in a bottle": 19000, 
     "pristine lumber": 32000, 
     "immaculate stone": 32000,
     "an emote deed": 200000,
     "a battle commendation (double-click to consume and receive reward item)": 10000,
+    "invulnerability leather cap": 100000,
 }
 
 def scrape_wide_page(item, prices_obj):
@@ -336,9 +337,12 @@ def scrape_vendor_updates():
         "West of SSC": (3267,689),
         "NE Outpost Close": (3387,377),
         "NE Outpost Far": (3398,178),
+        "NE Outpost Far NW": (3250,296),
         "S of Anchor's Rest": (3757,740),
+        "Far South of Anchor's Rest": (3715, 872),
         "S Prevalia Xroad": (1546,1751),
         "N Prevalia Sandbar": (1657,1320),
+        "Frost Forest": (3622,447),
         "Khal": (2002,1795),
         "Mine": (4008,477),
         "AR0": (3947,504),
@@ -347,14 +351,14 @@ def scrape_vendor_updates():
         "AR3": (4002,554),
         "AR4": (4020,515),
         "AR5": (4050,540),
-        "AR6": (4050,508),
+        "AR6": (4050,508), 
         "AR7": (4055,463),
         "SW Prevalia Clearing SE": (1547,1653),
         "SW Prevalia Clearing NE": (1544,1623),
         "SW Prevalia Clearing SW": (1510,1657),
         "W Andaria Gate": (2315,639),
         "N Andaria Gate": (2334,591),
-        "South of Pulma": (1748,1055),
+        "South of Pulma": (1780,1048),
         "Western Camp Island": (3495,1467),
         "TRT":(1756,2341),
         "South of TRT": (1779,2388),
@@ -367,6 +371,9 @@ def scrape_vendor_updates():
         "N Outpost Gate 3": (3001,496),
         "Cedar Island Mall":(3975,355),
         "Cedar Island Center":(4025,305),
+        "Pwnstar":(4218,1090),
+        "Frozen Ruins SE":(1612,780),
+        "Frozen Ruins SW":(1546,753),
     }
     start_time = time.time()  # Record the current time
     headers = {
@@ -400,8 +407,8 @@ def scrape_vendor_updates():
         loc_hash_set.add(location_string)
         found_locations.append((update_time_string,location_string.split(', '),vendor_name_string))
     out_arr = []
-    for location_name, dict_loc in my_locations.items():
-        x1, y1 = map(int,dict_loc)
+    for location_name, tuple_loc in my_locations.items():
+        x1, y1 = map(int,tuple_loc)
         closest = None
         min_distance = 20
         min_time = 1000000
@@ -427,11 +434,16 @@ def scrape_vendor_updates():
         #print(f"{location_name}: {scan_time_string}")
     out_arr.sort(key=lambda x:x[2],reverse=True)
     new_window = tk.Toplevel(root)
+    new_window.wm_attributes("-topmost", 1)
     new_window.title("Results")
+    scrollbar = tk.Scrollbar(new_window, orient="vertical")
+    listbox = tk.Listbox(new_window, yscrollcommand=scrollbar.set, width=60, height=20)
+    scrollbar.config(command=listbox.yview)
+    scrollbar.pack(side="right", fill="y")
+    listbox.pack(side="left", fill="both", expand=True)
     for locName,scanString,minTime,x,y,name in out_arr:
         result = f"{locName}: {scanString}: {x},{y}"
-        label = tk.Label(new_window, text=result, anchor="w", justify=tk.LEFT)
-        label.pack(fill=tk.X)
+        listbox.insert(tk.END, result)
     elapsed_time = round(time.time() - start_time,2)
     print(f"end: {elapsed_time}")
 
@@ -457,9 +469,9 @@ def append_to_tree(text1='',text2='',text3='',text4='',text5='',text6='',text7='
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("med",))
         elif ratio <= 0.9:
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("low",))
-        elif ratio < 1.0:
+        elif ratio < 0.95:
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("verylow",))
-        elif ratio == 1.0:
+        elif ratio >= 0.95 and ratio <= 1.0:
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9), tags=("base",))
         else:
             item = tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9))
@@ -537,15 +549,119 @@ def on_treeview_click(event):
             url = tree.item(row_id, "values")[7]
 
         value_to_copy_raw = tree.item(row_id, "values")[7]
-        number_match = re.search(r'\?(\d+)#', value_to_copy_raw)
-        number = number_match.group(1) if number_match else 0
+        number_match = re.search(r'\?(\d+)(?:\?(\d+))?#',value_to_copy_raw)
+        vendor_serial = number_match.group(1) if number_match else 0
+        item_serial = number_match.group(2) if number_match else 0
         # split = value_to_copy_raw.(', ')
         # value_to_copy = ">waypoint " + split[0] + " " + split[1]
         # Copy the value to the clipboard
         root.clipboard_clear()
-        root.clipboard_append(number)
+        root.clipboard_append(vendor_serial)
         root.update()
         webbrowser.open(url)
+
+def on_treeview_select():
+    item = tree.selection()[0]
+    row_values = tree.item(item,'values')
+    
+    snapshot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    description = row_values[0]
+    price_string = row_values[1] #80000.0/80000.0
+    left_side_price = price_string.split('/')[0]
+    price = int(float(left_side_price))
+    quantity = row_values[3] #80000.0/80000.0
+    value_to_copy_raw = row_values[7] #'https://www.exploreoutlands.com/?471890?1251126567#pos:869,1381,13'
+    number_match = re.search(r'\?(\d+)(?:\?(\d+))?#', value_to_copy_raw)
+    vendor_serial = number_match.group(1) if number_match else 0
+    id = number_match.group(2) if number_match else 0
+    # execute_query("INSERT INTO sales_history (snapshot_time, id, price, description, quantity) VALUES (?, ?, ?, ?, ?)",
+    #                        (snapshot_time, id, price, description, quantity))
+    print(f"You selected item: {snapshot_time}, {id}, {price}, {description}, {quantity}")
+
+def show_context_menu(event):
+    if tree.identify_region(event.x, event.y) == "heading":
+        return
+    my_locations = {
+        #"location name": (x,y),
+        "S Terran Clearing": (927,1471),
+        "N Terran Clearing": (869,1381),
+        "Minotaur Island": (3967,1736),
+        "Minotaur Island E": (4067,1766),
+        "N Prev Clearing SW": (1560,1438),
+        "N Prev Clearing S": (1589,1430),
+        "N Prev Clearing W": (1555,1404),
+        "N Prev Clearing N": (1576,1389),
+        "N Prev Clearing E": (1629,1421),
+        "Prevalia Gate": (1475,1488),
+        "West of Prev Gate": (1425,1483),
+        "S Cambria Gate": (1709,3182),
+        "SW Cambria Gate": (1669,3177),
+        "N Cambria Gate": (1706,3129),
+        "NW Cambria Gate": (1670,3138),
+        "West of SSC": (3267,689),
+        "NE Outpost Close": (3387,377),
+        "NE Outpost Far": (3398,178),
+        "NE Outpost Far NW": (3250,296),
+        "S of Anchor's Rest": (3757,740),
+        "Far South of Anchor's Rest": (3715, 872),
+        "S Prevalia Xroad": (1546,1751),
+        "N Prevalia Sandbar": (1657,1320),
+        "Frost Forest": (3622,447),
+        "Khal": (2002,1795),
+        "Mine": (4008,477),
+        "AR0": (3947,504),
+        "AR1": (3961,559),
+        "AR2": (3961,477),
+        "AR3": (4002,554),
+        "AR4": (4020,515),
+        "AR5": (4050,540),
+        "AR6": (4050,508), 
+        "AR7": (4055,463),
+        "SW Prevalia Clearing SE": (1547,1653),
+        "SW Prevalia Clearing NE": (1544,1623),
+        "SW Prevalia Clearing SW": (1510,1657),
+        "W Andaria Gate": (2315,639),
+        "N Andaria Gate": (2334,591),
+        "South of Pulma": (1780,1048),
+        "Western Camp Island": (3495,1467),
+        "TRT":(1756,2341),
+        "South of TRT": (1779,2388),
+        "South of GH": (3981,854),
+        "SOF Island Mall": (3498,3748),
+        "NW Outpost Gate": (2940,563),
+        "NW Outpost Gate Far": (2982,500),
+        "N Outpost Gate": (2980,579),
+        "N Outpost Gate 2": (2975,547),
+        "N Outpost Gate 3": (3001,496),
+        "Cedar Island Mall":(3975,355),
+        "Cedar Island Center":(4025,305),
+        "Pwnstar":(4218,1090),
+        "Frozen Ruins SE":(1612,780),
+        "Frozen Ruins SW":(1546,753),
+    }
+    row_id = tree.identify_row(event.y)
+    location_raw = tree.item(row_id, "values")[5]
+    location_split = location_raw.split(',')
+    x1, y1 = map(int,location_split)
+    check_dist = float('inf')
+    closest = None
+    for location_name, tuple_loc in my_locations.items():
+        x2, y2 = map(int,tuple_loc)
+        distance = get_distance(x1,y1,x2,y2)
+        if distance < check_dist:
+            check_dist = distance
+            closest = location_name
+    location_name = closest if closest else 'Not found'
+    value_to_copy_raw = tree.item(row_id, "values")[7]
+    serial_match = re.search(r'\?(\d+)(?:\?(\d+))?#', value_to_copy_raw)
+    #item_id = number_match.group(1) if number_match else 0
+    vendor_serial = serial_match.group(1) if serial_match else 0
+    root.clipboard_clear()
+    root.clipboard_append(vendor_serial)
+    root.update()
+    tree.selection_set(row_id)
+    #context_menu.post(event.x_root, event.y_root)
+    status_var.set(location_name)
 
 def sort_floats_key(item):
     #print('sort_floats_key')
@@ -605,7 +721,7 @@ def sort_key_tuple(item):
                     primary_key = float(result)
                 else:
                     primary_key = float(primary_val)
-                    if primary_key > 1000.0:
+                    if primary_key > 10000.0:
                         print(f'Vendor name convertable to float {primary_val}:{primary_key}')
                         raise Exception('Vendor name convertable to float')
                     #print(primary_key)
@@ -755,13 +871,14 @@ def is_inaccessible(file_path):
 
 # Initialize an empty dictionary to store the results
 def parse_log_to_object():
-    my_vendors = [4342004]
+    my_vendors = [4342004,1888935]
     vendors = {}
     current_vendor = None
     latest_log = get_most_recent_log()
     if not latest_log:
         return False
     pass_flag = False
+    my_vendor_objs = []
     with open(latest_log, 'r', encoding='utf-8') as lines:
         # Iterate through each line
 
@@ -813,7 +930,8 @@ def parse_log_to_object():
                 vendors[vendor_id] = current_vendor
             elif "…vendorEnd" in line:
                 if current_vendor['id'] in my_vendors:
-                    HandleMyVendor(current_vendor)
+                    my_vendor_objs.append(current_vendor)
+                    #HandleMyVendor(current_vendor)
                 current_vendor = None
             elif "System: Current location is" in line:
                 match = re.search(r'Current location is \((\d+), (\d+)', line)
@@ -822,15 +940,19 @@ def parse_log_to_object():
                 else:
                     location = "0,0,13"
         if pass_flag:
+            if len(my_vendor_objs):
+                HandleMyVendors(my_vendor_objs)
             return vendors, latest_log
     return latest_log
     
-def HandleMyVendor(vendor_obj):
+def HandleMyVendors(vendor_obj_list):
     initialize_db()
-    items = vendor_obj['items']
-    update_snapshots(items)
-
-
+    full_items = []
+    for vendor_obj in vendor_obj_list:
+        items = vendor_obj['items']
+        for item in items:
+            full_items.append(item)
+    update_snapshots(full_items)
 
 def search_self_parse_obj(parse_obj):
     corrupted_link_price_threshold = 200000
@@ -887,14 +1009,14 @@ def search_self_parse_obj(parse_obj):
                 format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
                 location_link = "https://www.exploreoutlands.com/#pos:" + location_string
                 location_split = location_link.split('#')
-                formatted_location_link = f"{location_split[0]}?{vendor_id}#{location_split[1]}"
+                formatted_location_link = f"{location_split[0]}?{vendor_id}?{item['id']}#{location_split[1]}"
                 out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string[:-3]}",f"{out_string}",f"{formatted_location_link}",f"{format_url}"))
     for tuple in out_data:
         append_to_tree(*tuple)
     if search_sortmode.get() == 2 and len(out_data):
         sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
 
-def ParseMostRecentJournalLog():
+def ParseMostRecentJournalLog(event=''):
     clear_tree()
     obj = parse_log_to_object()
     if type(obj) is str:
@@ -905,9 +1027,13 @@ def ParseMostRecentJournalLog():
         status_var.set(f"Invalid: {out_string}")
         return
     search_self_parse_obj(obj)
+    tree_children = tree.get_children()
+    if tree_children:
+        tree.see(tree_children[0])
+    status_var.set('Recent Journal')
     root.update()
 
-def PostJournalLog():
+def PostJournalLog(event=''):
     url = 'https://outlandmalls.com/uploads'
     headers = {'Authorization': '9ec321b8-6c45-4869-aa01-c15cfc7d38be'}
     data = {'tz': 'America/New_York'}
@@ -965,10 +1091,11 @@ def fetch_query(query, params=()):
 def initialize_db():
     if not os.path.exists('inventory.db'):
         execute_query('''CREATE TABLE IF NOT EXISTS inventory_snapshots
-                    (snapshot_time TEXT, id TEXT, price INTEGER, description TEXT, quantity INTEGER)''')
+                    (snapshot_time TEXT, id TEXT PRIMARY KEY, price INTEGER, description TEXT, quantity INTEGER)''')
 
         execute_query('''CREATE TABLE IF NOT EXISTS sales_history
                     (snapshot_time TEXT, id TEXT PRIMARY KEY, price INTEGER, description TEXT, quantity INTEGER)''')
+        
         print("Database and tables initialized.")
 
         
@@ -1025,8 +1152,13 @@ def read_db_total_sales():
             rows = c.fetchall()
             columns = [desc[0] for desc in c.description]
         print('-Sales Report-')
-        sales_window = tk.Toplevel(root)
-        sales_window.title("Sales Report")
+        total_sales_window = tk.Toplevel(root)
+        total_sales_window.title("Sales Report")
+        scrollbar = tk.Scrollbar(total_sales_window, orient="vertical")
+        listbox = tk.Listbox(total_sales_window, yscrollcommand=scrollbar.set, width=60, height=20)
+        scrollbar.config(command=listbox.yview)
+        scrollbar.pack(side="right", fill="y")
+        listbox.pack(side="left", fill="both", expand=True)
         total_revenue = 0
         for row in rows:
             row_dict = dict(zip(columns, row))
@@ -1034,12 +1166,11 @@ def read_db_total_sales():
             total_revenue += total_price
             result = f"{row_dict['snapshot_time']} ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
             #result = f"{row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
-            label = tk.Label(sales_window, text=result, anchor="w", justify=tk.LEFT)
-            label.pack(fill=tk.X)
+            
+            listbox.insert(tk.END, result)
             print(result)
         rev_string = f"Total Revenue: {total_revenue}"
-        label = tk.Label(sales_window, text=rev_string, anchor="w", justify=tk.LEFT)
-        label.pack(fill=tk.X)
+        listbox.insert(tk.END, rev_string)
         print(f"{rev_string}\n-End Report-")
         return rows
     except Exception as e:
@@ -1061,6 +1192,11 @@ def read_db_recent_sales():
         print('-Sales Report-')
         sales_window = tk.Toplevel(root)
         sales_window.title("Sales Report")
+        scrollbar = tk.Scrollbar(sales_window, orient="vertical")
+        listbox = tk.Listbox(sales_window, yscrollcommand=scrollbar.set, width=60, height=20)
+        scrollbar.config(command=listbox.yview)
+        scrollbar.pack(side="right", fill="y")
+        listbox.pack(side="left", fill="both", expand=True)
         total_revenue = 0
         for row in rows:
             row_dict = dict(zip(columns, row))
@@ -1068,12 +1204,10 @@ def read_db_recent_sales():
             total_revenue += total_price
             result = f"{row_dict['snapshot_time']} ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
             #result = f"{row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
-            label = tk.Label(sales_window, text=result, anchor="w", justify=tk.LEFT)
-            label.pack(fill=tk.X)
+            listbox.insert(tk.END, result)
             print(result)
         rev_string = f"Total Revenue: {total_revenue}"
-        label = tk.Label(sales_window, text=rev_string, anchor="w", justify=tk.LEFT)
-        label.pack(fill=tk.X)
+        listbox.insert(tk.END, rev_string)
         print(f"{rev_string}\n-End Report-")
         return rows
     except Exception as e:
@@ -1113,13 +1247,17 @@ def read_db_current_inventory():
         print(f'-Inventory Report- {snapshot_time}')
         inventory_window = tk.Toplevel(root)
         inventory_window.title("Inventory")
+        scrollbar = tk.Scrollbar(inventory_window, orient="vertical")
+        listbox = tk.Listbox(inventory_window, yscrollcommand=scrollbar.set, width=60, height=20)
+        scrollbar.config(command=listbox.yview)
+        scrollbar.pack(side="right", fill="y")
+        listbox.pack(side="left", fill="both", expand=True)
         columns = ['snapshot_time', 'id', 'price', 'description', 'quantity']
         for row in rows:
             row_dict = dict(zip(columns, row))
             total_price = row_dict['price'] * row_dict['quantity']
             result = f"ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
-            label = tk.Label(inventory_window, text=result, anchor="w", justify=tk.LEFT)
-            label.pack(fill=tk.X)
+            listbox.insert(tk.END, result)
             print(result)
         print("-End Report-")
     except Exception as e:
@@ -1209,7 +1347,8 @@ root.title("Ali's Outland Malls Scraper")
 root.geometry("1000x700")  # Initial size
 root.minsize(920, 450)  # Minimum size
 #root.maxsize(900, 700)  # Maximum size
-root.bind("<Return>", ScrapeOutlandMall)
+root.bind("<Return>", ParseMostRecentJournalLog)
+root.bind("<F1>", PostJournalLog)
 root.grid_columnconfigure(0, weight=10)
 root.grid_columnconfigure(1, weight=0)
 root.grid_columnconfigure(2, weight=0)
@@ -1250,6 +1389,13 @@ tree.tag_configure("verylow", background="#00BFFF")
 tree.tag_configure("base", background="#ADD8E6")
 tree.bind("<Button-1>", on_treeview_click)
 
+# Create context menu
+context_menu = tk.Menu(root, tearoff=0)
+context_menu.add_command(label='Insert To Sales History', command=on_treeview_select)
+#context_menu.add_command(label='Option 2', command=lambda: print("Option 2 clicked"))
+# Bind right-click event
+tree.bind('<Button-3>', show_context_menu)
+
 # Create a Scrollbar and associate it with the Tree widget
 scrollbar = tk.Scrollbar(tree_frame,orient='vertical', command=tree.yview)
 scrollbar.grid(row=0, column=1, sticky='ns')
@@ -1261,7 +1407,7 @@ config_frame.grid_rowconfigure(0, weight=1)
 config_frame.grid_rowconfigure(1, weight=1)
 config_frame.grid_columnconfigure(0, weight=1)
 
-# Define the checkboxes
+# Checkbox Panel
 checkbox_frame = tk.Frame(config_frame)#,bg='blue')
 checkbox_frame.grid(row=0, column=0)
 #checkbox_frame.grid_rowconfigure(0, weight=1)
@@ -1297,7 +1443,7 @@ check_chainlinks_search.grid(row=5, column=0,sticky='w')
 check_misc_search = ttk.Checkbutton(checkbox_frame, text="Search Misc", variable=check_misc_var)
 check_misc_search.grid(row=6, column=0,sticky='w')
 
-# Define the radio buttons
+# Radio Panel
 radio_frame = tk.Frame(config_frame)#,bg='yellow')
 radio_frame.grid(row=1, column=0)
 radio_frame.grid_columnconfigure(0, weight=0)
@@ -1338,44 +1484,36 @@ radio5 = ttk.Radiobutton(radio_frame, text="Indexed", variable=search_sortmode, 
 radio6 = ttk.Radiobutton(radio_frame, text="Best Ratio", variable=search_sortmode, value=2)
 radio5.grid(row=5, column=0,sticky='w')
 radio6.grid(row=5, column=1,sticky='w')
-btn_start = ttk.Button(radio_frame, text="Locations", command=scrape_vendor_updates)
-btn_start.grid(row=6, column=0, sticky='ew', padx=10, pady=(15,5), columnspan=2)
+btn_locations = ttk.Button(radio_frame, text="Locations", command=scrape_vendor_updates)
+btn_locations.grid(row=6, column=0, sticky='ew', padx=10, pady=(15,5), columnspan=2)
 btn_visit_web = ttk.Button(radio_frame, text="Open Website", command=lambda: webbrowser.open("https://outlandmalls.com/"))
 btn_visit_web.grid(row=7, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
 btn_open_folder = ttk.Button(radio_frame, text="Open Folder", command=lambda: os.system('explorer "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\\Client\\JournalLogs"'))
 btn_open_folder.grid(row=8, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
 btn_inventory = ttk.Button(radio_frame, text="Inventory", command=read_db_current_inventory)
 btn_inventory.grid(row=9, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
-btn_recent_sales = ttk.Button(radio_frame, text="Sales", command=read_db_recent_sales)
+btn_recent_sales = ttk.Button(radio_frame, text="Sales", command=read_db_total_sales) # read_db_recent_sales
 btn_recent_sales.grid(row=10, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
 btn_post_journal = ttk.Button(radio_frame, text="POST", command=PostJournalLog)
 btn_post_journal.grid(row=11, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
 
-def clicker():
-    # Move the mouse to a specific location; coordinates x=100, y=100
-    pyautogui.moveTo(100, 100)
-
-    # Perform a mouse click
-    pyautogui.click()
-
-# Create a frame for the buttons
+# Floor Panel
 button_frame = tk.Frame(root)
 button_frame.grid(row=1, column=0,pady=10)
 button_frame.columnconfigure(0,weight=1)
 button_frame.columnconfigure(1,weight=1)
 btn_start = ttk.Button(button_frame, text="OutlandMalls", command=ScrapeOutlandMall)
-btn_start.grid(row=0, column=1, sticky='ew', padx=10)  # Pack to the left side of the button_frame
-
+btn_start.grid(row=0, column=1, sticky='ew', padx=10)
 btn_reset = ttk.Button(button_frame, text="Journal Log", command=ParseMostRecentJournalLog)
-btn_reset.grid(row=0, column=0, sticky='ew', padx=10)  # Pack to the left side of the button_frame, right next to btn_start
+btn_reset.grid(row=0, column=0, sticky='ew', padx=10)
 
+# Status Panel
 status_frame = tk.Frame(root)
 status_frame.grid(row=1, column=2,sticky='nesw')
 status_frame.grid_rowconfigure(0, weight=1)
 status_frame.grid_rowconfigure(1, weight=1)
 status_frame.grid_columnconfigure(0, weight=1)
 status_frame.grid_propagate(False)
-# Step 2: Create a Label widget tied to the StringVar
 status_label = tk.Label(status_frame, text='Status:')
 status_label.grid(row=0,column=0,pady=(3,0))
 status_var = tk.StringVar()

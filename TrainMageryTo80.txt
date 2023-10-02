@@ -1,0 +1,32 @@
+# Training Magery to 80 by Alistor
+# UO Outlands
+# Requirements:
+# Lightning: ~100 Mandrake root, Sulfurous Ash
+# Greater Heal: ~20 Spider Silk, Ginsing, Garlic, Mandrake Root
+# Invisibility: ~400 Bloodmoss, Nightshade
+if mana < 20
+    while diffmana > 1
+        if not findbuff "actively meditating"
+            hotkey 'Meditation'
+        endif
+        wait 500
+    endwhile
+elseif skill 'Magery' < 60
+    if hp < 40
+        hotkey "Greater Heal"
+    else
+        hotkey "lightning"
+    endif
+    wft 3500
+    hotkey 'Target Self'
+elseif skill 'Magery' < 80
+    hotkey 'Invisibility'
+    wft 5000
+    hotkey 'Target Self'
+else
+    overhead 'Time for a different script!' 34
+    stop
+endif 
+
+wait 250
+loop

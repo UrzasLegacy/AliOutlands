@@ -1,0 +1,53 @@
+# Training Magery to 100 by Alistor
+# UO Outlands
+# Requirements:
+# Restock Agent 10 setup for regs
+# Invisibility: ~2100 Blood moss, Nightshade
+# Summon a water elemental: ~5000 Blood moss, Spiders Silk, Mandrake Root
+
+if not varexist "start_check"
+    @setvar! "restock_method" 0
+    if findtype "storage shelf" ground 0 1 2 as myStorageShelf
+        @setvar! "restock_method" myStorageShelf
+    else
+        overhead "No storage shelf nearby"
+        overhead "Target your restock container"
+        @setvar! "restock_container"
+    endif
+    @setvar! "start_check" 1
+endif
+
+if counttype "Blood Moss" < 10 or counttype "Spider's Silk" < 10 or counttype "Mandrake Root%s%" < 10 or counttype "Nightshade" < 10
+    if "restock_method" = 0
+        restock 10
+        wft 200
+        target "restock_container"
+    else
+        menu "restock_method" 1
+    endif
+elseif mana < 40
+    while diffmana > 5
+        if not findbuff "actively meditating"
+        hotkey "Meditation"
+        endif
+        wait 500
+    endwhile
+elseif skill "Magery" < 80
+    hotkey "Invisibility"
+    wft 3500
+    hotkey "Target Self"
+    wait 500
+elseif skill "Magery" < 100
+    if findtype "a water elemental" true
+        say "a water elemental release"
+        wait 200
+    endif
+    hotkey "Water Elemental"
+    wait 5000
+else
+    overhead "Finished" 1159
+    stop
+endif
+
+wait 500
+loop
