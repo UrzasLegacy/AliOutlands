@@ -244,6 +244,65 @@ misc_prices = { #exact string matters
     "invulnerability leather cap": 100000,
 }
 
+my_locations = {
+    "S Terran Clearing": (927,1471),
+    "SW Terran Clearing": (893,1517),
+    "N Terran Clearing": (869,1381),
+    "Minotaur Island": (3967,1736),
+    "Minotaur Island E": (4067,1766),
+    "N Prev Clearing SW": (1560,1438),
+    "N Prev Clearing S": (1589,1430),
+    "N Prev Clearing W": (1555,1404),
+    "N Prev Clearing N": (1576,1389),
+    "N Prev Clearing E": (1629,1421),
+    "Prevalia Gate": (1475,1488),
+    "West of Prev Gate": (1425,1483),
+    "S Cambria Gate": (1709,3182),
+    "SW Cambria Gate": (1669,3177),
+    "N Cambria Gate": (1706,3129),
+    "NW Cambria Gate": (1670,3138),
+    "West of SSC": (3267,689),
+    "NE Outpost Close": (3387,377),
+    "NE Outpost Far": (3398,178),
+    "NE Outpost Far NW": (3250,296),
+    "S of Anchor's Rest": (3757,740),
+    "Far South of Anchor's Rest": (3715, 872),
+    "S Prevalia Xroad": (1546,1751),
+    "N Prevalia Sandbar": (1657,1320),
+    "Frost Forest": (3622,447),
+    "Khal": (2002,1795),
+    "Mine": (4008,477),
+    "AR0": (3947,504),
+    "AR1": (3961,559),
+    "AR2": (3961,477),
+    "AR3": (4002,554),
+    "AR4": (4020,515),
+    "AR5": (4050,540),
+    "AR6": (4050,508), 
+    "AR7": (4055,463),
+    "SW Prevalia Clearing SE": (1547,1653),
+    "SW Prevalia Clearing NE": (1544,1623),
+    "SW Prevalia Clearing SW": (1510,1657),
+    "W Andaria Gate": (2315,639),
+    "N Andaria Gate": (2334,591),
+    "South of Pulma": (1780,1048),
+    "Western Camp Island": (3495,1467),
+    "TRT":(1756,2341),
+    "South of TRT": (1779,2388),
+    "South of GH": (3981,854),
+    "SOF Island Mall": (3498,3748),
+    "NW Outpost Gate": (2940,563),
+    "NW Outpost Gate Far": (2982,500),
+    "N Outpost Gate": (2980,579),
+    "N Outpost Gate 2": (2975,547),
+    "N Outpost Gate 3": (3001,496),
+    "Cedar Island Mall":(3975,355),
+    "Cedar Island Center":(4025,305),
+    "Pwnstar":(4218,1090),
+    "Frozen Ruins SE":(1612,780),
+    "Frozen Ruins SW":(1546,753),
+}
+
 def multi_parse_wide(in_tuple):
     response = in_tuple[0]
     item = in_tuple[1]
@@ -783,8 +842,8 @@ class AliApp:
     def __init__(self,root):
         self.root = root
         self.root.title("Ali's Outland Malls Scraper")
-        self.root.geometry("1000x700")  # Initial size
-        self.root.minsize(920, 500)  # Minimum size
+        self.root.geometry("1000x600")  # Initial size
+        self.root.minsize(1000, 600)  # Minimum size
         #self.root.maxsize(900, 700)  # Maximum size
         self.root.bind("<Return>", self.ParseMostRecentJournalLog)
         self.root.bind("<F1>", self.PostJournalLog)
@@ -964,7 +1023,6 @@ class AliApp:
         self.status_label = tk.Label(self.status_frame, text='Status:')
         self.status_label.grid(row=0,column=0,pady=(3,0))
         self.status_var = tk.StringVar()
-        self.status_var.set("Idle")
         self.update_label = tk.Label(self.status_frame, textvariable=self.status_var, font=("Arial", 10))
         self.update_label.grid(row=1,column=0,pady=(0,10))
 
@@ -972,6 +1030,7 @@ class AliApp:
         self.queue_flag = False
         #data_queue_sortcommand = queue.Queue()
         self.check_queue_appendcommand()
+        self.data_queue_appendcommand.put("Idle")
 
     def scrape_wide_request(self,item):
         page_url = "https://outlandmalls.com/?item=" + quote_plus(item) + "&search_category_id=0"
@@ -987,63 +1046,6 @@ class AliApp:
         
     
     def scrape_vendor_updates(self):
-        my_locations = {
-            "S Terran Clearing": (927,1471),
-            "N Terran Clearing": (869,1381),
-            "Minotaur Island": (3967,1736),
-            "Minotaur Island E": (4067,1766),
-            "N Prev Clearing SW": (1560,1438),
-            "N Prev Clearing S": (1589,1430),
-            "N Prev Clearing W": (1555,1404),
-            "N Prev Clearing N": (1576,1389),
-            "N Prev Clearing E": (1629,1421),
-            "Prevalia Gate": (1475,1488),
-            "West of Prev Gate": (1425,1483),
-            "S Cambria Gate": (1709,3182),
-            "SW Cambria Gate": (1669,3177),
-            "N Cambria Gate": (1706,3129),
-            "NW Cambria Gate": (1670,3138),
-            "West of SSC": (3267,689),
-            "NE Outpost Close": (3387,377),
-            "NE Outpost Far": (3398,178),
-            "NE Outpost Far NW": (3250,296),
-            "S of Anchor's Rest": (3757,740),
-            "Far South of Anchor's Rest": (3715, 872),
-            "S Prevalia Xroad": (1546,1751),
-            "N Prevalia Sandbar": (1657,1320),
-            "Frost Forest": (3622,447),
-            "Khal": (2002,1795),
-            "Mine": (4008,477),
-            "AR0": (3947,504),
-            "AR1": (3961,559),
-            "AR2": (3961,477),
-            "AR3": (4002,554),
-            "AR4": (4020,515),
-            "AR5": (4050,540),
-            "AR6": (4050,508), 
-            "AR7": (4055,463),
-            "SW Prevalia Clearing SE": (1547,1653),
-            "SW Prevalia Clearing NE": (1544,1623),
-            "SW Prevalia Clearing SW": (1510,1657),
-            "W Andaria Gate": (2315,639),
-            "N Andaria Gate": (2334,591),
-            "South of Pulma": (1780,1048),
-            "Western Camp Island": (3495,1467),
-            "TRT":(1756,2341),
-            "South of TRT": (1779,2388),
-            "South of GH": (3981,854),
-            "SOF Island Mall": (3498,3748),
-            "NW Outpost Gate": (2940,563),
-            "NW Outpost Gate Far": (2982,500),
-            "N Outpost Gate": (2980,579),
-            "N Outpost Gate 2": (2975,547),
-            "N Outpost Gate 3": (3001,496),
-            "Cedar Island Mall":(3975,355),
-            "Cedar Island Center":(4025,305),
-            "Pwnstar":(4218,1090),
-            "Frozen Ruins SE":(1612,780),
-            "Frozen Ruins SW":(1546,753),
-        }
         start_time = time.time()
         headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
@@ -1052,12 +1054,12 @@ class AliApp:
         response = requests.get(url, headers=headers)
         if response.status_code != 200:
             print(f"Failed to retrieve the webpage: {url}. Status code: {response.status_code}")
-            self.status_var.set('Vendor Page Failed')
+            self.data_queue_appendcommand.put('Vendor Page Failed')
             return
-        self.status_var.set(f"Scanning Locations")
+        self.data_queue_appendcommand.put(f"Scanning Locations")
         soup = BeautifulSoup(response.content, 'lxml')
         if not soup:
-            self.status_var.set('Vendor Page Soup Failed')
+            self.data_queue_appendcommand.put('Vendor Page Soup Failed')
             return
         table = soup.find_all('table')[1]
         rows = table.tbody.find_all('tr')
@@ -1113,7 +1115,8 @@ class AliApp:
             listbox.insert(tk.END, result)
         elapsed_time = round(time.time() - start_time,2)
         #print(f"end: {elapsed_time}")
-    
+        self.data_queue_appendcommand.put("Idle")
+
     def parse_combobox(self):
         option = self.search_combobox_timeframe.get()
         option_dict = {
@@ -1182,63 +1185,6 @@ class AliApp:
     def show_context_menu(self,event=None):
         if self.tree.identify_region(event.x, event.y) == "heading":
             return
-        my_locations = {
-            "S Terran Clearing": (927,1471),
-            "N Terran Clearing": (869,1381),
-            "Minotaur Island": (3967,1736),
-            "Minotaur Island E": (4067,1766),
-            "N Prev Clearing SW": (1560,1438),
-            "N Prev Clearing S": (1589,1430),
-            "N Prev Clearing W": (1555,1404),
-            "N Prev Clearing N": (1576,1389),
-            "N Prev Clearing E": (1629,1421),
-            "Prevalia Gate": (1475,1488),
-            "West of Prev Gate": (1425,1483),
-            "S Cambria Gate": (1709,3182),
-            "SW Cambria Gate": (1669,3177),
-            "N Cambria Gate": (1706,3129),
-            "NW Cambria Gate": (1670,3138),
-            "West of SSC": (3267,689),
-            "NE Outpost Close": (3387,377),
-            "NE Outpost Far": (3398,178),
-            "NE Outpost Far NW": (3250,296),
-            "S of Anchor's Rest": (3757,740),
-            "Far South of Anchor's Rest": (3715, 872),
-            "S Prevalia Xroad": (1546,1751),
-            "N Prevalia Sandbar": (1657,1320),
-            "Frost Forest": (3622,447),
-            "Khal": (2002,1795),
-            "Mine": (4008,477),
-            "AR0": (3947,504),
-            "AR1": (3961,559),
-            "AR2": (3961,477),
-            "AR3": (4002,554),
-            "AR4": (4020,515),
-            "AR5": (4050,540),
-            "AR6": (4050,508), 
-            "AR7": (4055,463),
-            "SW Prevalia Clearing SE": (1547,1653),
-            "SW Prevalia Clearing NE": (1544,1623),
-            "SW Prevalia Clearing SW": (1510,1657),
-            "W Andaria Gate": (2315,639),
-            "N Andaria Gate": (2334,591),
-            "South of Pulma": (1780,1048),
-            "Western Camp Island": (3495,1467),
-            "TRT":(1756,2341),
-            "South of TRT": (1779,2388),
-            "South of GH": (3981,854),
-            "SOF Island Mall": (3498,3748),
-            "NW Outpost Gate": (2940,563),
-            "NW Outpost Gate Far": (2982,500),
-            "N Outpost Gate": (2980,579),
-            "N Outpost Gate 2": (2975,547),
-            "N Outpost Gate 3": (3001,496),
-            "Cedar Island Mall":(3975,355),
-            "Cedar Island Center":(4025,305),
-            "Pwnstar":(4218,1090),
-            "Frozen Ruins SE":(1612,780),
-            "Frozen Ruins SW":(1546,753),
-        }
         row_id = self.tree.identify_row(event.y)
         location_raw = self.tree.item(row_id, "values")[5]
         location_split = location_raw.split(',')
@@ -1261,15 +1207,15 @@ class AliApp:
         self.root.update()
         self.tree.selection_set(row_id)
         #self.context_menu.post(event.x_self.root, event.y_self.root)
-        self.status_var.set(location_name)
+        self.data_queue_appendcommand.put(location_name)
     
     def async_scraping(self):
         start_time = time.time()
         tuple_list = []
         seconds_threshold = self.parse_combobox()
         if self.check_misc_var.get():
-            self.status_var.set(f"Misc")
             for searchString, searchPrice in misc_prices.items():
+                self.data_queue_appendcommand.put(f"{searchString}")
                 #misc_start_time = time.time()  # Record the current time
                 page_url = "https://outlandmalls.com/?item=" + quote_plus(searchString) + "&search_category_id=0"
                 headers = {
@@ -1280,8 +1226,6 @@ class AliApp:
                 if response.status_code != 200:
                     print(f"Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")
                     continue
-                #soup = BeautifulSoup(response.content, 'lxml')
-                #self.multi_parse_misc(response.content,searchPrice,page_url)
                 tuple_list.append((response.content,searchPrice,page_url,seconds_threshold))
                 #misc_elapsed_time = time.time() - misc_start_time
                 #sleep_time = 0.1 - misc_elapsed_time
@@ -1314,7 +1258,7 @@ class AliApp:
             if not bool:
                 continue
             name = step[0]
-            self.status_var.set(name)
+            self.data_queue_appendcommand.put(name)
             request_return = self.scrape_wide_request(name)
             if request_return[0]:
                 tuple_list.append((request_return[1],name,price_depth,seconds_threshold))
@@ -1328,7 +1272,7 @@ class AliApp:
         time.sleep(.2)
         elapsed_time = round(time.time() - start_time,2)
         print(f"multi wide: {elapsed_time}")
-        self.status_var.set(f"Complete: {elapsed_time}s")
+        self.data_queue_appendcommand.put(f"Complete: {elapsed_time}s")
 
     def ScrapeOutlandMall(self,event=''):
         self.clear_tree()
@@ -1402,13 +1346,13 @@ class AliApp:
             out_string_date = '/'.join(file_info[1:3])
             out_string_time = ':'.join(file_info[3:5])
             out_string = f"{out_string_date} {out_string_time}"
-            self.status_var.set(f"Invalid: {out_string}")
+            self.data_queue_appendcommand.put(f"Invalid: {out_string}")
             return
         self.search_self_parse_obj(obj)
         tree_children = self.tree.get_children()
         if tree_children:
             self.tree.see(tree_children[0])
-        self.status_var.set('Recent Journal')
+        self.data_queue_appendcommand.put('Recent Journal')
         self.root.update()
 
     def PostJournalLog(self,event=''):
@@ -1417,12 +1361,12 @@ class AliApp:
         data = {'tz': 'America/New_York'}
         file_path = get_most_recent_log()
         if not file_path:
-            self.status_var.set('POST failed')
+            self.data_queue_appendcommand.put('POST failed')
             return
         with open(file_path, 'rb') as f:
             files = {'file': (file_path, f)}
             response = requests.post(url, headers=headers, files=files, data=data)
-            self.status_var.set(f"{response}")
+            self.data_queue_appendcommand.put(f"{response}")
 
     def read_db_total_sales(self):
         try:
@@ -1498,7 +1442,7 @@ class AliApp:
             if not rows:
                 print("No inventory snapshot available.")
                 return []
-            snapshot_time = rows[0][0]
+            #snapshot_time = rows[0][0]
             #print(f'-Inventory Report- {snapshot_time}')
             inventory_window = tk.Toplevel(self.root)
             inventory_window.title("Inventory")
@@ -1522,16 +1466,19 @@ class AliApp:
     def check_queue_appendcommand(self,event=None):
         try:
             data = self.data_queue_appendcommand.get_nowait()
-            for tuple in data:
-                self.append_to_tree(*tuple)
-            self.queue_flag = True
-            self.root.after(100, self.check_queue_appendcommand)  # check again after 100ms
+            if isinstance(data,str):
+                self.status_var.set(data)
+            else:
+                for tuple in data:
+                    self.append_to_tree(*tuple)
+                self.queue_flag = True
+            self.root.after(50, self.check_queue_appendcommand)  # check again after 100ms
         except queue.Empty:
             if self.queue_flag:
                 self.queue_flag = False
                 if self.search_sortmode.get() == 2:
                     self.sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
-            self.root.after(500, self.check_queue_appendcommand)  # if queue is empty, check again after a longer delay
+            self.root.after(100, self.check_queue_appendcommand)  # if queue is empty, check again after a longer delay
 
     def clear_tree(self):
         # Clear the Treeview
