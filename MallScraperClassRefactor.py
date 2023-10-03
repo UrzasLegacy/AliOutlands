@@ -13,6 +13,7 @@ import threading
 import queue
 import tkinter as tk
 from tkinter import ttk
+from multiprocessing import Pool, cpu_count
 from bs4 import BeautifulSoup
 from contextlib import contextmanager
 from urllib.parse import quote_plus
@@ -243,6 +244,133 @@ misc_prices = { #exact string matters
     "invulnerability leather cap": 100000,
 }
 
+def multi_parse_wide(in_tuple):
+    response = in_tuple[0]
+    item = in_tuple[1]
+    price_depth = in_tuple[2]
+    time_frame = in_tuple[3]
+    corrupted_link_price_threshold = 200000
+    steps = {
+        "Aspect Core": core_prices,
+        "Aspect Extract": extract_prices,
+        "Aspect Distillation": distil_prices,
+        "Treasure Map": map_prices,
+        "Skill Mastery Scroll": scroll_prices,
+        "Mastery Chain Link": link_prices,
+    }
+    prices_obj = steps[item]
+    page_url = "https://outlandmalls.com/?item=" + quote_plus(item) + "&search_category_id=0"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+    }
+    response = requests.get(page_url, headers=headers)
+    if response.status_code != 200:
+        print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
+        return None
+    soup = BeautifulSoup(response.content, 'lxml')
+    if soup:
+        table = soup.find('table', id="item-search-results")
+        if not table:
+            return
+        out_data = []
+        rows = table.tbody.find_all('tr')
+        for row in rows:
+            cells = row.find_all('td')
+            time_cell = cells[7]
+            time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
+            if is_time_recent_multi(time_string,time_frame):
+                vendor_cell = cells[1]
+                location_cell = cells[2]
+                name_cell = cells[3]
+                quantity_cell = cells[4]
+                price_cell = cells[6]
+                vendor_string = vendor_cell.text.strip()
+                vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
+                location_string = location_cell.text.strip()
+                location_link = location_cell.find('a')['href']
+                location_split = location_link.split('#')
+                formatted_location_link = f"{location_split[0]}?{vendor_serial}#{location_split[1]}"
+                quantity_string = quantity_cell.text.strip()
+                name_string = name_cell.text.strip()
+                price = float(price_cell.text.strip().replace(',', ''))  # Convert price to float
+                if item == 'Mastery Chain Link':
+                    if name_string.startswith('a '):
+                        name_string = name_string[2:]
+                    chain_name = clean_chainlink_string(name_string)
+                    if name_string.startswith('bronze mastery chain link'):
+                        threshold = float(prices_obj.get(chain_name,[0,0,0])[0])
+                    elif name_string.startswith('silver mastery chain link'):
+                        threshold = float(prices_obj.get(chain_name,[0,0,0])[1])
+                    elif name_string.startswith('gold mastery chain link'):
+                        threshold = float(prices_obj.get(chain_name,[0,0,0])[2])
+                    elif name_string.startswith('corrupted mastery chain link'):
+                        threshold = float(corrupted_link_price_threshold)
+                    else:
+                        threshold = 0
+                else:
+                    threshold = float(prices_obj.get(name_string, 0))
+                if threshold > 0:
+                    ratio = round(price / threshold,2)
+                else:
+                    ratio = 1000
+                if(price <= threshold or price_depth == 2): #self.search_pricedepth.get()
+                    format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
+                    out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string}",f"{time_string}",f"{formatted_location_link}",f"{format_url}"))
+        #print(f"out_data length: {len(out_data)}")
+        #for tuple in out_data:
+        return out_data
+        #self.data_queue_appendcommand.put(out_data)
+
+def multi_parse_misc(in_tuple):
+    html = in_tuple[0]
+    searchPrice = in_tuple[1]
+    page_url = in_tuple[2]
+    time_frame = in_tuple[3]
+    soup = BeautifulSoup(html, 'lxml')
+    #print(f"soup: {time.time() - misc_start_time}")
+    if soup:
+        # Find the table with the specific id
+        table = soup.find('table', id="item-search-results")
+        #if not table:
+        # continue
+        # Extract all rows from the table body
+        rows = table.tbody.find_all('tr')
+        out_data = []
+        for row in rows[:7]:
+            cells = row.find_all('td')
+            time_cell = cells[7]
+            time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
+            if is_time_recent_multi(time_string,time_frame):
+                price_cell = cells[6]
+                price = float(price_cell.text.strip().replace(',', ''))  # Convert price to float
+                ratio = round(price / searchPrice,2)
+                if price <= searchPrice:# or self.search_pricedepth.get() == 2:
+                    vendor_cell = cells[1]
+                    location_cell = cells[2]
+                    name_cell = cells[3]
+                    quantity_cell = cells[4]
+                    vendor_string = vendor_cell.text.strip()
+                    vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
+                    location_string = location_cell.text.strip()
+                    location_link = location_cell.find('a')['href']
+                    location_split = location_link.split('#')
+                    formatted_location_link = f"{location_split[0]}?{vendor_serial}#{location_split[1]}"
+                    quantity_string = quantity_cell.text.strip()
+                    name_string = name_cell.text.strip()
+                    out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string}",f"{time_string}",f"{formatted_location_link}",f"{page_url}"))
+        #for tuple in out_data:
+        return out_data
+        #collected_data.append(out_data)
+
+def is_time_recent_multi(time_string,seconds_threshold):
+    #print(seconds_threshold)
+    if seconds_threshold == 'All Time':
+        return True
+    time_seconds = get_seconds_from_string(time_string)
+    if not time_seconds:
+        time_seconds = 1000000
+    return time_seconds <= seconds_threshold
+
 def clean_chainlink_string(string):
     prefixes = ['bronze mastery chain link ', 'silver mastery chain link ', 'gold mastery chain link ', 'corrupted mastery chain link ']
     for prefix in prefixes:
@@ -381,7 +509,7 @@ def get_most_recent_log():
     files = [f for f in glob.glob(os.path.join(folder_path, '*.txt')) if os.path.isfile(f)]
     sorted_files = sorted(files, key=os.path.getmtime, reverse=True)
     latest_files = sorted_files[:6]
-    accessible_files = [f for f in latest_files if not is_inaccessible(f)]
+    accessible_files = [f for f in latest_files if not check_accessibility(f)]
     try:
         latest_file = max(accessible_files, key=os.path.getmtime)
     except Exception as e:
@@ -390,7 +518,7 @@ def get_most_recent_log():
     #print('latest: ' + latest_file)
     return latest_file
 
-def is_inaccessible(file_path):
+def check_accessibility(file_path):
     try:
         with open(file_path):  # Using with ensures the file is closed after this block
             pass
@@ -465,11 +593,11 @@ def parse_log_to_object():
                     location = "0,0,13"
         if pass_flag:
             if len(my_vendor_objs):
-                HandleMyVendors(my_vendor_objs)
+                handle_my_vendors(my_vendor_objs)
             return vendors, latest_log
     return latest_log
     
-def HandleMyVendors(vendor_obj_list):
+def handle_my_vendors(vendor_obj_list):
     initialize_db()
     full_items = []
     for vendor_obj in vendor_obj_list:
@@ -845,77 +973,19 @@ class AliApp:
         #data_queue_sortcommand = queue.Queue()
         self.check_queue_appendcommand()
 
-    def scrape_wide_page(self, item, prices_obj):
-        corrupted_link_price_threshold = 200000
-        start_time = time.time()  # Record the current time
+    def scrape_wide_request(self,item):
         page_url = "https://outlandmalls.com/?item=" + quote_plus(item) + "&search_category_id=0"
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         }
         response = requests.get(page_url, headers=headers)
-        elapsed_time = time.time() - start_time  # Calculate the elapsed time
-        #print(f'get: {elapsed_time}')
         if response.status_code != 200:
-            self.append_to_tree(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
-            return None
-        soup = BeautifulSoup(response.content, 'lxml')
-        #print(f'soup: {time.time() - start_time}')
-        if soup:
-            table = soup.find('table', id="item-search-results")
-            if not table:
-                return
-            out_data = []
-            rows = table.tbody.find_all('tr')
-            for row in rows:
-                cells = row.find_all('td')
-                time_cell = cells[7]
-                time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
-                if self.is_time_recent(time_string):
-                    vendor_cell = cells[1]
-                    location_cell = cells[2]
-                    name_cell = cells[3]
-                    quantity_cell = cells[4]
-                    price_cell = cells[6]
-                    vendor_string = vendor_cell.text.strip()
-                    vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
-                    location_string = location_cell.text.strip()
-                    location_link = location_cell.find('a')['href']
-                    location_split = location_link.split('#')
-                    formatted_location_link = f"{location_split[0]}?{vendor_serial}#{location_split[1]}"
-                    quantity_string = quantity_cell.text.strip()
-                    name_string = name_cell.text.strip()
-                    price = float(price_cell.text.strip().replace(',', ''))  # Convert price to float
-                    if item == 'Mastery Chain Link':
-                        if name_string.startswith('a '):
-                            name_string = name_string[2:]
-                        chain_name = clean_chainlink_string(name_string)
-                        if name_string.startswith('bronze mastery chain link'):
-                            threshold = float(prices_obj.get(chain_name,[0,0,0])[0])
-                        elif name_string.startswith('silver mastery chain link'):
-                            threshold = float(prices_obj.get(chain_name,[0,0,0])[1])
-                        elif name_string.startswith('gold mastery chain link'):
-                            threshold = float(prices_obj.get(chain_name,[0,0,0])[2])
-                        elif name_string.startswith('corrupted mastery chain link'):
-                            threshold = float(corrupted_link_price_threshold)
-                        else:
-                            threshold = 0
-                    else:
-                        threshold = float(prices_obj.get(name_string, 0))
-                    if threshold > 0:
-                        ratio = round(price / threshold,2)
-                    else:
-                        ratio = 1000
-                    if(price <= threshold or self.search_pricedepth.get() == 2):
-                        format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
-                        out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string}",f"{time_string}",f"{formatted_location_link}",f"{format_url}"))
-            #print(f"out_data length: {len(out_data)}")
-            #for tuple in out_data:
-            self.data_queue_appendcommand.put(out_data)
-        #print(f'end: {time.time() - start_time}')
-        sleep_time = 0.3 - elapsed_time
-        if sleep_time > 0:
-            time.sleep(sleep_time)
-
+            print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
+            return (None,item)
+        else:
+            return (response.content,item)
+        
+    
     def scrape_vendor_updates(self):
         my_locations = {
             "S Terran Clearing": (927,1471),
@@ -1056,8 +1126,11 @@ class AliApp:
         }
         return option_dict[option]
     
-    def is_time_recent(self, time_string):
-        seconds_threshold = self.parse_combobox()
+    def is_time_recent(self, time_string,sideskirt=False):
+        if sideskirt:
+            seconds_threshold = sideskirt
+        else:
+            seconds_threshold = self.parse_combobox()
         #print(seconds_threshold)
         if seconds_threshold == 'All Time':
             return True
@@ -1192,11 +1265,12 @@ class AliApp:
     
     def async_scraping(self):
         start_time = time.time()
-        html_list = []
+        tuple_list = []
+        seconds_threshold = self.parse_combobox()
         if self.check_misc_var.get():
+            self.status_var.set(f"Misc")
             for searchString, searchPrice in misc_prices.items():
-                self.status_var.set(f"{searchString}")
-                misc_start_time = time.time()  # Record the current time
+                #misc_start_time = time.time()  # Record the current time
                 page_url = "https://outlandmalls.com/?item=" + quote_plus(searchString) + "&search_category_id=0"
                 headers = {
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
@@ -1207,13 +1281,22 @@ class AliApp:
                     print(f"Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")
                     continue
                 #soup = BeautifulSoup(response.content, 'lxml')
-                self.multi_parse(response.content,searchPrice,page_url)
-                #html_list.append((response.content,searchPrice))
-                misc_elapsed_time = time.time() - misc_start_time
-                sleep_time = 0.5 - misc_elapsed_time
-                if sleep_time > 0:
-                    time.sleep(sleep_time)
-        
+                #self.multi_parse_misc(response.content,searchPrice,page_url)
+                tuple_list.append((response.content,searchPrice,page_url,seconds_threshold))
+                #misc_elapsed_time = time.time() - misc_start_time
+                #sleep_time = 0.1 - misc_elapsed_time
+                #if sleep_time > 0:
+                #   time.sleep(sleep_time)
+
+            elapsed_time = round(time.time() - start_time,2)
+            print(f"misc request: {elapsed_time}")
+            num_cores = cpu_count()
+            with Pool(num_cores) as pool:
+                for result in pool.imap_unordered(multi_parse_misc,tuple_list):
+                    self.data_queue_appendcommand.put(result)
+
+        elapsed_time = round(time.time() - start_time,2)
+        print(f"multi misc: {elapsed_time}")
         steps = [
             ["Aspect Core", core_prices, self.check_core_var.get()],
             ["Aspect Extract", extract_prices, self.check_extract_var.get()],
@@ -1222,54 +1305,30 @@ class AliApp:
             ["Skill Mastery Scroll", scroll_prices, self.check_skillscrolls_var.get()],
             ["Mastery Chain Link", link_prices, self.check_chainlinks_var.get()],
         ]
+        
+        price_depth = self.search_pricedepth.get()
+        seconds_threshold = self.parse_combobox()
+        tuple_list = []
         for step in steps:
             bool = step[2]
             if not bool:
                 continue
             name = step[0]
-            prices = step[1]
             self.status_var.set(name)
-            self.scrape_wide_page(name,prices)
+            request_return = self.scrape_wide_request(name)
+            if request_return[0]:
+                tuple_list.append((request_return[1],name,price_depth,seconds_threshold))
 
         elapsed_time = round(time.time() - start_time,2)
+        print(f"wide request: {elapsed_time}")
+        num_cores = cpu_count()
+        with Pool(num_cores) as pool:
+            for result in pool.imap_unordered(multi_parse_wide,tuple_list):
+                self.data_queue_appendcommand.put(result)
+        time.sleep(.2)
+        elapsed_time = round(time.time() - start_time,2)
+        print(f"multi wide: {elapsed_time}")
         self.status_var.set(f"Complete: {elapsed_time}s")
-
-    def multi_parse(self,html,searchPrice,page_url):
-        soup = BeautifulSoup(html, 'lxml')
-        #print(f"soup: {time.time() - misc_start_time}")
-        if soup:
-            # Find the table with the specific id
-            table = soup.find('table', id="item-search-results")
-            #if not table:
-            # continue
-            # Extract all rows from the table body
-            rows = table.tbody.find_all('tr')
-            out_data = []
-            for row in rows[:7]:
-                cells = row.find_all('td')
-                time_cell = cells[7]
-                time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
-                if self.is_time_recent(time_string):
-                    price_cell = cells[6]
-                    price = float(price_cell.text.strip().replace(',', ''))  # Convert price to float
-                    ratio = round(price / searchPrice,2)
-                    if price <= searchPrice or self.search_pricedepth.get() == 2:
-                        vendor_cell = cells[1]
-                        location_cell = cells[2]
-                        name_cell = cells[3]
-                        quantity_cell = cells[4]
-                        vendor_string = vendor_cell.text.strip()
-                        vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
-                        location_string = location_cell.text.strip()
-                        location_link = location_cell.find('a')['href']
-                        location_split = location_link.split('#')
-                        formatted_location_link = f"{location_split[0]}?{vendor_serial}#{location_split[1]}"
-                        quantity_string = quantity_cell.text.strip()
-                        name_string = name_cell.text.strip()
-                        out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string}",f"{time_string}",f"{formatted_location_link}",f"{page_url}"))
-            #for tuple in out_data:
-            self.data_queue_appendcommand.put(out_data)
-            #collected_data.append(out_data)
 
     def ScrapeOutlandMall(self,event=''):
         self.clear_tree()
