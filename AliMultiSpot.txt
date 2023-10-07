@@ -7,8 +7,12 @@ createlist 'vendors'
 removelist 'runetomeSpots'
 createlist 'runetomeSpots'
 
-@setvar! stage 2
+//7 Vendor Police
+//8 a lost girl
+//9 Aprocto
+//all locs
 
+@setvar! stage 10
 // Add recall locations here.
 // Location 100 is the first rune in the tome. 101 is the second, and so on.
 //  pushlist 'runetomeSpots' 200
@@ -69,6 +73,116 @@ elseif stage = 6
     pushlist 'runetomeSpots' 10
     pushlist 'runetomeSpots' 225
     pushlist 'runetomeSpots' 20
+elseif stage = 7
+    pushlist 'runetomeSpots' 201
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 208
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 210
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 211
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 221
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 222
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 224
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 225
+    pushlist 'runetomeSpots' 20
+elseif stage = 8
+    pushlist 'runetomeSpots' 203
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 206
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 211
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 212
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 214
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 217
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 218
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 219
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 220
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 224
+    pushlist 'runetomeSpots' 10
+elseif stage = 9
+    pushlist 'runetomeSpots' 201
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 202
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 203
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 204
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 205
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 206
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 207
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 208
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 209
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 216
+    pushlist 'runetomeSpots' 10
+elseif stage = 10
+    pushlist 'runetomeSpots' 201
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 202
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 203
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 204
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 205
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 206
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 207
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 208
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 209
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 210
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 211
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 212
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 213
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 214
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 215
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 216
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 217
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 218
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 219
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 220
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 221
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 222
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 223
+    pushlist 'runetomeSpots' 20
+    pushlist 'runetomeSpots' 224
+    pushlist 'runetomeSpots' 10
+    pushlist 'runetomeSpots' 225
+    pushlist 'runetomeSpots' 20
 endif
 
 dclick backpack
@@ -92,11 +206,17 @@ while not dead
             gumpresponse spot 167090027
             waitforgump 167090027
             gumpresponse code 167090027
-            wait 4000
+            wait 1000
         endif
     endif
 
-    skill 'hiding'
+    while not dead
+        if hidden
+            break
+        endif
+        skill 'hiding'
+        wait 200
+    endwhile
     sysmsg "…OutlandMall Start v1" 23
     wait 2000
     say "[coords"

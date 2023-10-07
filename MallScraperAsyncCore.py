@@ -112,7 +112,7 @@ scroll_prices = { #exact string MATTERS
     "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 21000,
     "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
     "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
@@ -243,6 +243,209 @@ misc_prices = { #exact string matters
     "a battle commendation (double-click to consume and receive reward item)": 10000,
     "invulnerability leather cap": 100000,
 }
+
+my_locations = {
+    # Vendor Police
+    "N Prevalia Sandbar": (1657,1320),
+    "N Prev Clearing SW": (1560,1438),
+    "N Prev Clearing S": (1589,1430),
+    "N Prev Clearing W": (1555,1404),
+    "N Prev Clearing N": (1576,1389),
+    "N Prev Clearing E": (1629,1421),
+    "E of Prev": (2036,1463),
+    "Khal SE Prev": (2002,1795),
+    "S Prev Xroad N": (1569,1729),
+    "S Prev Xroad E": (1647,1745),
+    "S Prev Xroad S": (1545,1772),
+    "S Prev Xroad Far S": (1531,1833),
+    "S Prev Xroad W": (1499,1757),
+    "SW Prev Clearing SE": (1547,1653),
+    "SW Prev Clearing NE": (1544,1623),
+    "SW Prev Clearing SW": (1510,1657),
+    "SW Prev Clearing NW": (1486,1588),
+    "Prev Gate": (1475,1488),
+    "W of Prev Gate": (1425,1483),
+    "S of Anchor's Rest": (3757,740),
+    "S of Anchor's Rest 2": (3752,671),
+    "Far S Anchor's Rest": (3715, 872),
+    "E of GH": (3981,854),
+    "Pwnstar":(4218,1090),
+
+    # a lost girl
+    "N Cambria Gate": (1706,3129),
+    "SE Cambria Gate": (1753,3176),
+    "S Cambria Gate": (1709,3182),
+    "SW Cambria Gate": (1669,3177),
+    "NW Cambria Gate": (1670,3138),
+    "N Outpost Gate": (2980,579),
+    "N Outpost Gate 2": (2975,547),
+    "N Outpost Gate 3": (3001,496),
+    "NW Outpost Gate": (2940,563),
+    "NW Outpost Gate Far": (2982,500),
+    "NE Outpost Close": (3387,377),
+    "NE Outpost Far": (3398,178),
+    "NE Outpost Far NW": (3250,296),
+    "Frost Forest": (3622,447),
+    "Frozen Ruins SE":(1612,780),
+    "Frozen Ruins SW":(1546,753),
+    "W Andaria Gate": (2315,639),
+    "N Andaria Gate": (2334,591),
+    "Minotaur Island": (3967,1736),
+    "Minotaur Island E": (4067,1766),
+    "N Terran Clearing": (869,1381),
+    "S Terran Clearing": (927,1471),
+    "SW Terran Clearing": (893,1517),
+    "TRT":(1756,2341),
+    "S of TRT": (1779,2388),
+
+    # Aproctoflecticus
+    "Mine": (4008,477),
+    "AR0": (3947,504),
+    "AR1": (3961,559),
+    "AR2": (3961,477),
+    "AR3": (4002,554),
+    "AR4": (4020,515),
+    "AR5": (4050,540),
+    "AR6": (4050,508), 
+    "AR7": (4055,463),
+    "S of Pulma": (1780,1048),
+    "W of SSC": (3267,689),
+    "Cedar Island Mall":(3975,355),
+    "Cedar Island Center":(4025,305),
+    "Shelter Haven": (1588,2550),
+    "MyKruelz":(1634,1136),
+    "Western Camp Island": (3495,1467),
+
+    # Unassigned
+    "SOF Island Mall": (3498,3748),
+}
+
+def multi_parse_wide(in_tuple):
+    response = in_tuple[0]
+    item = in_tuple[1]
+    price_depth = in_tuple[2]
+    time_frame = in_tuple[3]
+    corrupted_link_price_threshold = 200000
+    steps = {
+        "Aspect Core": core_prices,
+        "Aspect Extract": extract_prices,
+        "Aspect Distillation": distil_prices,
+        "Treasure Map": map_prices,
+        "Skill Mastery Scroll": scroll_prices,
+        "Mastery Chain Link": link_prices,
+    }
+    prices_obj = steps[item]
+    page_url = "https://outlandmalls.com/?item=" + quote_plus(item) + "&search_category_id=0"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+    }
+    response = requests.get(page_url, headers=headers)
+    if response.status_code != 200:
+        print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
+        return None
+    soup = BeautifulSoup(response.content, 'lxml')
+    if soup:
+        table = soup.find('table', id="item-search-results")
+        if not table:
+            return
+        out_data = []
+        rows = table.tbody.find_all('tr')
+        for row in rows:
+            cells = row.find_all('td')
+            time_cell = cells[7]
+            time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
+            if is_time_recent_multi(time_string,time_frame):
+                vendor_cell = cells[1]
+                location_cell = cells[2]
+                name_cell = cells[3]
+                quantity_cell = cells[4]
+                price_cell = cells[6]
+                vendor_string = vendor_cell.text.strip()
+                vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
+                location_string = location_cell.text.strip() #"x,y:name"
+                location_link = location_cell.find('a')['href']
+                location_split = location_link.split('#')
+                formatted_location_link = f"{location_split[0]}?{vendor_serial}#{location_split[1]}"
+                quantity_string = quantity_cell.text.strip()
+                name_string = name_cell.text.strip()
+                price = float(price_cell.text.strip().replace(',', ''))  # Convert price to float
+                if item == 'Mastery Chain Link':
+                    if name_string.startswith('a '):
+                        name_string = name_string[2:]
+                    chain_name = clean_chainlink_string(name_string)
+                    if name_string.startswith('bronze mastery chain link'):
+                        threshold = float(prices_obj.get(chain_name,[0,0,0])[0])
+                    elif name_string.startswith('silver mastery chain link'):
+                        threshold = float(prices_obj.get(chain_name,[0,0,0])[1])
+                    elif name_string.startswith('gold mastery chain link'):
+                        threshold = float(prices_obj.get(chain_name,[0,0,0])[2])
+                    elif name_string.startswith('corrupted mastery chain link'):
+                        threshold = float(corrupted_link_price_threshold)
+                    else:
+                        threshold = 0
+                else:
+                    threshold = float(prices_obj.get(name_string, 0))
+                if threshold > 0:
+                    ratio = round(price / threshold,2)
+                else:
+                    ratio = 1000
+                if(price <= threshold or price_depth == 2): #self.search_pricedepth.get()
+                    format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
+                    out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string}",f"{time_string}",f"{formatted_location_link}",f"{format_url}"))
+        #print(f"out_data length: {len(out_data)}")
+        #for tuple in out_data:
+        return out_data
+        #self.queue_append.put(out_data)
+
+def multi_parse_misc(in_tuple):
+    html = in_tuple[0]
+    searchPrice = in_tuple[1]
+    page_url = in_tuple[2]
+    time_frame = in_tuple[3]
+    soup = BeautifulSoup(html, 'lxml')
+    #print(f"soup: {time.time() - misc_start_time}")
+    if soup:
+        # Find the table with the specific id
+        table = soup.find('table', id="item-search-results")
+        #if not table:
+        # continue
+        # Extract all rows from the table body
+        rows = table.tbody.find_all('tr')
+        out_data = []
+        for row in rows[:7]:
+            cells = row.find_all('td')
+            time_cell = cells[7]
+            time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
+            if is_time_recent_multi(time_string,time_frame):
+                price_cell = cells[6]
+                price = float(price_cell.text.strip().replace(',', ''))  # Convert price to float
+                ratio = round(price / searchPrice,2)
+                if price <= searchPrice:# or self.search_pricedepth.get() == 2:
+                    vendor_cell = cells[1]
+                    location_cell = cells[2]
+                    name_cell = cells[3]
+                    quantity_cell = cells[4]
+                    vendor_string = vendor_cell.text.strip()
+                    vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
+                    location_string = location_cell.text.strip()
+                    location_link = location_cell.find('a')['href']
+                    location_split = location_link.split('#')
+                    formatted_location_link = f"{location_split[0]}?{vendor_serial}#{location_split[1]}"
+                    quantity_string = quantity_cell.text.strip()
+                    name_string = name_cell.text.strip()
+                    out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string}",f"{time_string}",f"{formatted_location_link}",f"{page_url}"))
+        #for tuple in out_data:
+        return out_data
+        #collected_data.append(out_data)
+
+def is_time_recent_multi(time_string,seconds_threshold):
+    #print(seconds_threshold)
+    if seconds_threshold == 'All Time':
+        return True
+    time_seconds = get_seconds_from_string(time_string)
+    if not time_seconds:
+        time_seconds = 1000000
+    return time_seconds <= seconds_threshold
 
 def clean_chainlink_string(string):
     prefixes = ['bronze mastery chain link ', 'silver mastery chain link ', 'gold mastery chain link ', 'corrupted mastery chain link ']
@@ -382,7 +585,7 @@ def get_most_recent_log():
     files = [f for f in glob.glob(os.path.join(folder_path, '*.txt')) if os.path.isfile(f)]
     sorted_files = sorted(files, key=os.path.getmtime, reverse=True)
     latest_files = sorted_files[:6]
-    accessible_files = [f for f in latest_files if not is_inaccessible(f)]
+    accessible_files = [f for f in latest_files if not check_accessibility(f)]
     try:
         latest_file = max(accessible_files, key=os.path.getmtime)
     except Exception as e:
@@ -391,7 +594,7 @@ def get_most_recent_log():
     #print('latest: ' + latest_file)
     return latest_file
 
-def is_inaccessible(file_path):
+def check_accessibility(file_path):
     try:
         with open(file_path):  # Using with ensures the file is closed after this block
             pass
@@ -466,11 +669,11 @@ def parse_log_to_object():
                     location = "0,0,13"
         if pass_flag:
             if len(my_vendor_objs):
-                HandleMyVendors(my_vendor_objs)
+                handle_my_vendors(my_vendor_objs)
             return vendors, latest_log
     return latest_log
     
-def HandleMyVendors(vendor_obj_list):
+def handle_my_vendors(vendor_obj_list):
     initialize_db()
     full_items = []
     for vendor_obj in vendor_obj_list:
@@ -656,8 +859,8 @@ class AliApp:
     def __init__(self,root):
         self.root = root
         self.root.title("Ali's Outland Malls Scraper")
-        self.root.geometry("1000x700")  # Initial size
-        self.root.minsize(920, 500)  # Minimum size
+        self.root.geometry("1000x600")  # Initial size
+        self.root.minsize(1000, 600)  # Minimum size
         #self.root.maxsize(900, 700)  # Maximum size
         self.root.bind("<Return>", self.ParseMostRecentJournalLog)
         self.root.bind("<F1>", self.PostJournalLog)
@@ -837,144 +1040,29 @@ class AliApp:
         self.status_label = tk.Label(self.status_frame, text='Status:')
         self.status_label.grid(row=0,column=0,pady=(3,0))
         self.status_var = tk.StringVar()
-        self.status_var.set("Idle")
         self.update_label = tk.Label(self.status_frame, textvariable=self.status_var, font=("Arial", 10))
         self.update_label.grid(row=1,column=0,pady=(0,10))
 
-        self.data_queue_appendcommand = queue.Queue()
+        self.queue_append = queue.Queue()
         self.queue_flag = False
         #data_queue_sortcommand = queue.Queue()
         self.check_queue_appendcommand()
+        self.queue_append.put("Idle")
 
-    def scrape_wide_page(self, item, prices_obj):
-        corrupted_link_price_threshold = 200000
-        start_time = time.time()  # Record the current time
+    def scrape_wide_request(self,item):
         page_url = "https://outlandmalls.com/?item=" + quote_plus(item) + "&search_category_id=0"
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         }
         response = requests.get(page_url, headers=headers)
-        elapsed_time = time.time() - start_time  # Calculate the elapsed time
-        #print(f'get: {elapsed_time}')
         if response.status_code != 200:
-            self.append_to_tree(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
-            return None
-        soup = BeautifulSoup(response.content, 'lxml')
-        #print(f'soup: {time.time() - start_time}')
-        if soup:
-            table = soup.find('table', id="item-search-results")
-            if not table:
-                return
-            out_data = []
-            rows = table.tbody.find_all('tr')
-            for row in rows:
-                cells = row.find_all('td')
-                time_cell = cells[7]
-                time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
-                if self.is_time_recent(time_string):
-                    vendor_cell = cells[1]
-                    location_cell = cells[2]
-                    name_cell = cells[3]
-                    quantity_cell = cells[4]
-                    price_cell = cells[6]
-                    vendor_string = vendor_cell.text.strip()
-                    vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
-                    location_string = location_cell.text.strip()
-                    location_link = location_cell.find('a')['href']
-                    location_split = location_link.split('#')
-                    formatted_location_link = f"{location_split[0]}?{vendor_serial}#{location_split[1]}"
-                    quantity_string = quantity_cell.text.strip()
-                    name_string = name_cell.text.strip()
-                    price = float(price_cell.text.strip().replace(',', ''))  # Convert price to float
-                    if item == 'Mastery Chain Link':
-                        if name_string.startswith('a '):
-                            name_string = name_string[2:]
-                        chain_name = clean_chainlink_string(name_string)
-                        if name_string.startswith('bronze mastery chain link'):
-                            threshold = float(prices_obj.get(chain_name,[0,0,0])[0])
-                        elif name_string.startswith('silver mastery chain link'):
-                            threshold = float(prices_obj.get(chain_name,[0,0,0])[1])
-                        elif name_string.startswith('gold mastery chain link'):
-                            threshold = float(prices_obj.get(chain_name,[0,0,0])[2])
-                        elif name_string.startswith('corrupted mastery chain link'):
-                            threshold = float(corrupted_link_price_threshold)
-                        else:
-                            threshold = 0
-                    else:
-                        threshold = float(prices_obj.get(name_string, 0))
-                    if threshold > 0:
-                        ratio = round(price / threshold,2)
-                    else:
-                        ratio = 1000
-                    if(price <= threshold or self.search_pricedepth.get() == 2):
-                        format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
-                        out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string}",f"{time_string}",f"{formatted_location_link}",f"{format_url}"))
-            #print(f"out_data length: {len(out_data)}")
-            #for tuple in out_data:
-            self.data_queue_appendcommand.put(out_data)
-        #print(f'end: {time.time() - start_time}')
-        sleep_time = 0.3 - elapsed_time
-        if sleep_time > 0:
-            time.sleep(sleep_time)
-
+            print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
+            return (None,item)
+        else:
+            return (response.content,item)
+        
+    
     def scrape_vendor_updates(self):
-        my_locations = {
-            "S Terran Clearing": (927,1471),
-            "N Terran Clearing": (869,1381),
-            "Minotaur Island": (3967,1736),
-            "Minotaur Island E": (4067,1766),
-            "N Prev Clearing SW": (1560,1438),
-            "N Prev Clearing S": (1589,1430),
-            "N Prev Clearing W": (1555,1404),
-            "N Prev Clearing N": (1576,1389),
-            "N Prev Clearing E": (1629,1421),
-            "Prevalia Gate": (1475,1488),
-            "West of Prev Gate": (1425,1483),
-            "S Cambria Gate": (1709,3182),
-            "SW Cambria Gate": (1669,3177),
-            "N Cambria Gate": (1706,3129),
-            "NW Cambria Gate": (1670,3138),
-            "West of SSC": (3267,689),
-            "NE Outpost Close": (3387,377),
-            "NE Outpost Far": (3398,178),
-            "NE Outpost Far NW": (3250,296),
-            "S of Anchor's Rest": (3757,740),
-            "Far South of Anchor's Rest": (3715, 872),
-            "S Prevalia Xroad": (1546,1751),
-            "N Prevalia Sandbar": (1657,1320),
-            "Frost Forest": (3622,447),
-            "Khal": (2002,1795),
-            "Mine": (4008,477),
-            "AR0": (3947,504),
-            "AR1": (3961,559),
-            "AR2": (3961,477),
-            "AR3": (4002,554),
-            "AR4": (4020,515),
-            "AR5": (4050,540),
-            "AR6": (4050,508), 
-            "AR7": (4055,463),
-            "SW Prevalia Clearing SE": (1547,1653),
-            "SW Prevalia Clearing NE": (1544,1623),
-            "SW Prevalia Clearing SW": (1510,1657),
-            "W Andaria Gate": (2315,639),
-            "N Andaria Gate": (2334,591),
-            "South of Pulma": (1780,1048),
-            "Western Camp Island": (3495,1467),
-            "TRT":(1756,2341),
-            "South of TRT": (1779,2388),
-            "South of GH": (3981,854),
-            "SOF Island Mall": (3498,3748),
-            "NW Outpost Gate": (2940,563),
-            "NW Outpost Gate Far": (2982,500),
-            "N Outpost Gate": (2980,579),
-            "N Outpost Gate 2": (2975,547),
-            "N Outpost Gate 3": (3001,496),
-            "Cedar Island Mall":(3975,355),
-            "Cedar Island Center":(4025,305),
-            "Pwnstar":(4218,1090),
-            "Frozen Ruins SE":(1612,780),
-            "Frozen Ruins SW":(1546,753),
-        }
         start_time = time.time()
         headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
@@ -983,12 +1071,12 @@ class AliApp:
         response = requests.get(url, headers=headers)
         if response.status_code != 200:
             print(f"Failed to retrieve the webpage: {url}. Status code: {response.status_code}")
-            self.status_var.set('Vendor Page Failed')
+            self.queue_append.put('Vendor Page Failed')
             return
-        self.status_var.set(f"Scanning Locations")
+        self.queue_append.put(f"Scanning Locations")
         soup = BeautifulSoup(response.content, 'lxml')
         if not soup:
-            self.status_var.set('Vendor Page Soup Failed')
+            self.queue_append.put('Vendor Page Soup Failed')
             return
         table = soup.find_all('table')[1]
         rows = table.tbody.find_all('tr')
@@ -1044,7 +1132,8 @@ class AliApp:
             listbox.insert(tk.END, result)
         elapsed_time = round(time.time() - start_time,2)
         #print(f"end: {elapsed_time}")
-    
+        self.queue_append.put("Idle")
+
     def parse_combobox(self):
         option = self.search_combobox_timeframe.get()
         option_dict = {
@@ -1056,16 +1145,6 @@ class AliApp:
             'All Time': 'All Time'
         }
         return option_dict[option]
-    
-    def is_time_recent(self, time_string):
-        seconds_threshold = self.parse_combobox()
-        #print(seconds_threshold)
-        if seconds_threshold == 'All Time':
-            return True
-        time_seconds = get_seconds_from_string(time_string)
-        if not time_seconds:
-            time_seconds = 1000000
-        return time_seconds <= seconds_threshold
     
     def on_treeview_click(self, event):
         if self.tree.identify_region(event.x, event.y) == "heading":
@@ -1093,7 +1172,7 @@ class AliApp:
     def on_treeview_select(self):
         item = self.tree.selection()[0]
         row_values = self.tree.item(item,'values')
-        snapshot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        #snapshot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         description = row_values[0]
         price_string = row_values[1] #80000.0/80000.0
         left_side_price = price_string.split('/')[0]
@@ -1110,63 +1189,6 @@ class AliApp:
     def show_context_menu(self,event=None):
         if self.tree.identify_region(event.x, event.y) == "heading":
             return
-        my_locations = {
-            "S Terran Clearing": (927,1471),
-            "N Terran Clearing": (869,1381),
-            "Minotaur Island": (3967,1736),
-            "Minotaur Island E": (4067,1766),
-            "N Prev Clearing SW": (1560,1438),
-            "N Prev Clearing S": (1589,1430),
-            "N Prev Clearing W": (1555,1404),
-            "N Prev Clearing N": (1576,1389),
-            "N Prev Clearing E": (1629,1421),
-            "Prevalia Gate": (1475,1488),
-            "West of Prev Gate": (1425,1483),
-            "S Cambria Gate": (1709,3182),
-            "SW Cambria Gate": (1669,3177),
-            "N Cambria Gate": (1706,3129),
-            "NW Cambria Gate": (1670,3138),
-            "West of SSC": (3267,689),
-            "NE Outpost Close": (3387,377),
-            "NE Outpost Far": (3398,178),
-            "NE Outpost Far NW": (3250,296),
-            "S of Anchor's Rest": (3757,740),
-            "Far South of Anchor's Rest": (3715, 872),
-            "S Prevalia Xroad": (1546,1751),
-            "N Prevalia Sandbar": (1657,1320),
-            "Frost Forest": (3622,447),
-            "Khal": (2002,1795),
-            "Mine": (4008,477),
-            "AR0": (3947,504),
-            "AR1": (3961,559),
-            "AR2": (3961,477),
-            "AR3": (4002,554),
-            "AR4": (4020,515),
-            "AR5": (4050,540),
-            "AR6": (4050,508), 
-            "AR7": (4055,463),
-            "SW Prevalia Clearing SE": (1547,1653),
-            "SW Prevalia Clearing NE": (1544,1623),
-            "SW Prevalia Clearing SW": (1510,1657),
-            "W Andaria Gate": (2315,639),
-            "N Andaria Gate": (2334,591),
-            "South of Pulma": (1780,1048),
-            "Western Camp Island": (3495,1467),
-            "TRT":(1756,2341),
-            "South of TRT": (1779,2388),
-            "South of GH": (3981,854),
-            "SOF Island Mall": (3498,3748),
-            "NW Outpost Gate": (2940,563),
-            "NW Outpost Gate Far": (2982,500),
-            "N Outpost Gate": (2980,579),
-            "N Outpost Gate 2": (2975,547),
-            "N Outpost Gate 3": (3001,496),
-            "Cedar Island Mall":(3975,355),
-            "Cedar Island Center":(4025,305),
-            "Pwnstar":(4218,1090),
-            "Frozen Ruins SE":(1612,780),
-            "Frozen Ruins SW":(1546,753),
-        }
         row_id = self.tree.identify_row(event.y)
         location_raw = self.tree.item(row_id, "values")[5]
         location_split = location_raw.split(',')
@@ -1189,15 +1211,16 @@ class AliApp:
         self.root.update()
         self.tree.selection_set(row_id)
         #self.context_menu.post(event.x_self.root, event.y_self.root)
-        self.status_var.set(location_name)
+        self.queue_append.put(location_name)
     
     def async_scraping(self):
         start_time = time.time()
-        html_list = []
+        tuple_list = []
+        seconds_threshold = self.parse_combobox()
         if self.check_misc_var.get():
             for searchString, searchPrice in misc_prices.items():
-                self.status_var.set(f"{searchString}")
-                misc_start_time = time.time()  # Record the current time
+                self.queue_append.put(f"{searchString}")
+                #misc_start_time = time.time()  # Record the current time
                 page_url = "https://outlandmalls.com/?item=" + quote_plus(searchString) + "&search_category_id=0"
                 headers = {
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
@@ -1207,14 +1230,21 @@ class AliApp:
                 if response.status_code != 200:
                     print(f"Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")
                     continue
-                #soup = BeautifulSoup(response.content, 'lxml')
-                self.multi_parse(response.content,searchPrice,page_url)
-                #html_list.append((response.content,searchPrice))
-                misc_elapsed_time = time.time() - misc_start_time
-                sleep_time = 0.5 - misc_elapsed_time
-                if sleep_time > 0:
-                    time.sleep(sleep_time)
-        
+                tuple_list.append((response.content,searchPrice,page_url,seconds_threshold))
+                #misc_elapsed_time = time.time() - misc_start_time
+                #sleep_time = 0.1 - misc_elapsed_time
+                #if sleep_time > 0:
+                #   time.sleep(sleep_time)
+
+            elapsed_time = round(time.time() - start_time,2)
+            print(f"misc request: {elapsed_time}")
+            num_cores = cpu_count()
+            with Pool(num_cores) as pool:
+                for result in pool.imap_unordered(multi_parse_misc,tuple_list):
+                    self.queue_append.put(result)
+
+        elapsed_time = round(time.time() - start_time,2)
+        print(f"multi misc: {elapsed_time}")
         steps = [
             ["Aspect Core", core_prices, self.check_core_var.get()],
             ["Aspect Extract", extract_prices, self.check_extract_var.get()],
@@ -1223,54 +1253,30 @@ class AliApp:
             ["Skill Mastery Scroll", scroll_prices, self.check_skillscrolls_var.get()],
             ["Mastery Chain Link", link_prices, self.check_chainlinks_var.get()],
         ]
+        
+        price_depth = self.search_pricedepth.get()
+        seconds_threshold = self.parse_combobox()
+        tuple_list = []
         for step in steps:
             bool = step[2]
             if not bool:
                 continue
             name = step[0]
-            prices = step[1]
-            self.status_var.set(name)
-            self.scrape_wide_page(name,prices)
+            self.queue_append.put(name)
+            request_return = self.scrape_wide_request(name)
+            if request_return[0]:
+                tuple_list.append((request_return[1],name,price_depth,seconds_threshold))
 
         elapsed_time = round(time.time() - start_time,2)
-        self.status_var.set(f"Complete: {elapsed_time}s")
-
-    def multi_parse(self,html,searchPrice,page_url):
-        soup = BeautifulSoup(html, 'lxml')
-        #print(f"soup: {time.time() - misc_start_time}")
-        if soup:
-            # Find the table with the specific id
-            table = soup.find('table', id="item-search-results")
-            #if not table:
-            # continue
-            # Extract all rows from the table body
-            rows = table.tbody.find_all('tr')
-            out_data = []
-            for row in rows[:7]:
-                cells = row.find_all('td')
-                time_cell = cells[7]
-                time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
-                if self.is_time_recent(time_string):
-                    price_cell = cells[6]
-                    price = float(price_cell.text.strip().replace(',', ''))  # Convert price to float
-                    ratio = round(price / searchPrice,2)
-                    if price <= searchPrice or self.search_pricedepth.get() == 2:
-                        vendor_cell = cells[1]
-                        location_cell = cells[2]
-                        name_cell = cells[3]
-                        quantity_cell = cells[4]
-                        vendor_string = vendor_cell.text.strip()
-                        vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
-                        location_string = location_cell.text.strip()
-                        location_link = location_cell.find('a')['href']
-                        location_split = location_link.split('#')
-                        formatted_location_link = f"{location_split[0]}?{vendor_serial}#{location_split[1]}"
-                        quantity_string = quantity_cell.text.strip()
-                        name_string = name_cell.text.strip()
-                        out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string}",f"{time_string}",f"{formatted_location_link}",f"{page_url}"))
-            #for tuple in out_data:
-            self.data_queue_appendcommand.put(out_data)
-            #collected_data.append(out_data)
+        print(f"wide request: {elapsed_time}")
+        num_cores = cpu_count()
+        with Pool(num_cores) as pool:
+            for result in pool.imap_unordered(multi_parse_wide,tuple_list):
+                self.queue_append.put(result)
+        time.sleep(.2)
+        elapsed_time = round(time.time() - start_time,2)
+        print(f"multi wide: {elapsed_time}")
+        self.queue_append.put(f"Complete: {elapsed_time}s")
 
     def ScrapeOutlandMall(self,event=''):
         self.clear_tree()
@@ -1334,7 +1340,7 @@ class AliApp:
                     location_split = location_link.split('#')
                     formatted_location_link = f"{location_split[0]}?{vendor_id}?{item['id']}#{location_split[1]}"
                     out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string[:-3]}",f"{out_string}",f"{formatted_location_link}",f"{format_url}"))
-        self.data_queue_appendcommand.put(out_data)
+        self.queue_append.put(out_data)
 
     def ParseMostRecentJournalLog(self,event=''):
         self.clear_tree()
@@ -1344,13 +1350,13 @@ class AliApp:
             out_string_date = '/'.join(file_info[1:3])
             out_string_time = ':'.join(file_info[3:5])
             out_string = f"{out_string_date} {out_string_time}"
-            self.status_var.set(f"Invalid: {out_string}")
+            self.queue_append.put(f"Invalid: {out_string}")
             return
         self.search_self_parse_obj(obj)
         tree_children = self.tree.get_children()
         if tree_children:
             self.tree.see(tree_children[0])
-        self.status_var.set('Recent Journal')
+        self.queue_append.put('Recent Journal')
         self.root.update()
 
     def PostJournalLog(self,event=''):
@@ -1359,12 +1365,12 @@ class AliApp:
         data = {'tz': 'America/New_York'}
         file_path = get_most_recent_log()
         if not file_path:
-            self.status_var.set('POST failed')
+            self.queue_append.put('POST failed')
             return
         with open(file_path, 'rb') as f:
             files = {'file': (file_path, f)}
             response = requests.post(url, headers=headers, files=files, data=data)
-            self.status_var.set(f"{response}")
+            self.queue_append.put(f"{response}")
 
     def read_db_total_sales(self):
         try:
@@ -1440,7 +1446,7 @@ class AliApp:
             if not rows:
                 print("No inventory snapshot available.")
                 return []
-            snapshot_time = rows[0][0]
+            #snapshot_time = rows[0][0]
             #print(f'-Inventory Report- {snapshot_time}')
             inventory_window = tk.Toplevel(self.root)
             inventory_window.title("Inventory")
@@ -1463,17 +1469,20 @@ class AliApp:
     #------------------------------ GUI Updates---------------------------
     def check_queue_appendcommand(self,event=None):
         try:
-            data = self.data_queue_appendcommand.get_nowait()
-            for tuple in data:
-                self.append_to_tree(*tuple)
-            self.queue_flag = True
-            self.root.after(100, self.check_queue_appendcommand)  # check again after 100ms
+            data = self.queue_append.get_nowait()
+            if isinstance(data,str):
+                self.status_var.set(data)
+            else:
+                for tuple in data:
+                    self.append_to_tree(*tuple)
+                self.queue_flag = True
+            self.root.after(50, self.check_queue_appendcommand)  # check again after 100ms
         except queue.Empty:
             if self.queue_flag:
                 self.queue_flag = False
                 if self.search_sortmode.get() == 2:
                     self.sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
-            self.root.after(500, self.check_queue_appendcommand)  # if queue is empty, check again after a longer delay
+            self.root.after(100, self.check_queue_appendcommand)  # if queue is empty, check again after a longer delay
 
     def clear_tree(self):
         # Clear the Treeview

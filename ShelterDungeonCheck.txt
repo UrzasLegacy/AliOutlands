@@ -1,0 +1,36 @@
+// There are 3 hay, 2 trash barrels, and 1 gate at the entrance of shelter dungeon.
+// This checks if there are exactly 6 of these items on screen to determine whether
+// we are in shelter dungeon or not. Hopefully thats unique enough an identifier, but 
+// can make it stricter if need be.
+
+// Config variable. Set to 1 to skip this whole check
+@setvar! "Shelter Override" 0
+
+
+// No edit
+removelist "shelter_list"
+createlist "shelter_list"
+
+// Passthrough variable to transmit status further along the script
+@setvar "in_shelter" 0
+
+if skill "Magery" < 80
+    if "Shelter Override" = 1
+    elseif findtypelist "shelter_list" 4150|3948|3703 "ground" any 1 18 and "Shelter Override" = 0
+        if atlist "shelter_list" 0 and atlist "shelter_list" 1 and atlist "shelter_list" 2 and atlist "shelter_list" 3 and atlist "shelter_list" 4 and atlist "shelter_list" 5 and not atlist "shelter_list" 6
+            @setvar! "in_shelter" 1
+        else
+            overhead "Go to the entrance of shelter dungeon first for increased skill gain!"
+            stop
+        endif
+    else
+        overhead "Go to the entrance of shelter dungeon first for increased skill gain!"
+        stop
+    endif
+endif
+//lol
+
+// Passthrough to determine when to stop
+if "in_shelter" = 1 and skill "Magery >= 80
+    stop
+endif

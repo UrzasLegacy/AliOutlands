@@ -112,7 +112,7 @@ scroll_prices = { #exact string MATTERS
     "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 21000,
     "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
     "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
@@ -245,32 +245,60 @@ misc_prices = { #exact string matters
 }
 
 my_locations = {
-    "S Terran Clearing": (927,1471),
-    "SW Terran Clearing": (893,1517),
-    "N Terran Clearing": (869,1381),
-    "Minotaur Island": (3967,1736),
-    "Minotaur Island E": (4067,1766),
+    # Vendor Police
+    "N Prevalia Sandbar": (1657,1320),
     "N Prev Clearing SW": (1560,1438),
     "N Prev Clearing S": (1589,1430),
     "N Prev Clearing W": (1555,1404),
     "N Prev Clearing N": (1576,1389),
     "N Prev Clearing E": (1629,1421),
-    "Prevalia Gate": (1475,1488),
-    "West of Prev Gate": (1425,1483),
+    "E of Prev": (2036,1463),
+    "Khal SE Prev": (2002,1795),
+    "S Prev Xroad N": (1569,1729),
+    "S Prev Xroad E": (1647,1745),
+    "S Prev Xroad S": (1545,1772),
+    "S Prev Xroad Far S": (1531,1833),
+    "S Prev Xroad W": (1499,1757),
+    "SW Prev Clearing SE": (1547,1653),
+    "SW Prev Clearing NE": (1544,1623),
+    "SW Prev Clearing SW": (1510,1657),
+    "SW Prev Clearing NW": (1486,1588),
+    "Prev Gate": (1475,1488),
+    "W of Prev Gate": (1425,1483),
+    "S of Anchor's Rest": (3757,740),
+    "S of Anchor's Rest 2": (3752,671),
+    "Far S Anchor's Rest": (3715, 872),
+    "E of GH": (3981,854),
+    "Pwnstar":(4218,1090),
+
+    # a lost girl
+    "N Cambria Gate": (1706,3129),
+    "SE Cambria Gate": (1753,3176),
     "S Cambria Gate": (1709,3182),
     "SW Cambria Gate": (1669,3177),
-    "N Cambria Gate": (1706,3129),
     "NW Cambria Gate": (1670,3138),
-    "West of SSC": (3267,689),
+    "N Outpost Gate": (2980,579),
+    "N Outpost Gate 2": (2975,547),
+    "N Outpost Gate 3": (3001,496),
+    "NW Outpost Gate": (2940,563),
+    "NW Outpost Gate Far": (2982,500),
     "NE Outpost Close": (3387,377),
     "NE Outpost Far": (3398,178),
     "NE Outpost Far NW": (3250,296),
-    "S of Anchor's Rest": (3757,740),
-    "Far South of Anchor's Rest": (3715, 872),
-    "S Prevalia Xroad": (1546,1751),
-    "N Prevalia Sandbar": (1657,1320),
     "Frost Forest": (3622,447),
-    "Khal": (2002,1795),
+    "Frozen Ruins SE":(1612,780),
+    "Frozen Ruins SW":(1546,753),
+    "W Andaria Gate": (2315,639),
+    "N Andaria Gate": (2334,591),
+    "Minotaur Island": (3967,1736),
+    "Minotaur Island E": (4067,1766),
+    "N Terran Clearing": (869,1381),
+    "S Terran Clearing": (927,1471),
+    "SW Terran Clearing": (893,1517),
+    "TRT":(1756,2341),
+    "S of TRT": (1779,2388),
+
+    # Aproctoflecticus
     "Mine": (4008,477),
     "AR0": (3947,504),
     "AR1": (3961,559),
@@ -280,27 +308,16 @@ my_locations = {
     "AR5": (4050,540),
     "AR6": (4050,508), 
     "AR7": (4055,463),
-    "SW Prevalia Clearing SE": (1547,1653),
-    "SW Prevalia Clearing NE": (1544,1623),
-    "SW Prevalia Clearing SW": (1510,1657),
-    "W Andaria Gate": (2315,639),
-    "N Andaria Gate": (2334,591),
-    "South of Pulma": (1780,1048),
-    "Western Camp Island": (3495,1467),
-    "TRT":(1756,2341),
-    "South of TRT": (1779,2388),
-    "South of GH": (3981,854),
-    "SOF Island Mall": (3498,3748),
-    "NW Outpost Gate": (2940,563),
-    "NW Outpost Gate Far": (2982,500),
-    "N Outpost Gate": (2980,579),
-    "N Outpost Gate 2": (2975,547),
-    "N Outpost Gate 3": (3001,496),
+    "S of Pulma": (1780,1048),
+    "W of SSC": (3267,689),
     "Cedar Island Mall":(3975,355),
     "Cedar Island Center":(4025,305),
-    "Pwnstar":(4218,1090),
-    "Frozen Ruins SE":(1612,780),
-    "Frozen Ruins SW":(1546,753),
+    "Shelter Haven": (1588,2550),
+    "MyKruelz":(1634,1136),
+    "Western Camp Island": (3495,1467),
+
+    # Unassigned
+    "SOF Island Mall": (3498,3748),
 }
 
 def multi_parse_wide(in_tuple):
@@ -345,7 +362,7 @@ def multi_parse_wide(in_tuple):
                 price_cell = cells[6]
                 vendor_string = vendor_cell.text.strip()
                 vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
-                location_string = location_cell.text.strip()
+                location_string = location_cell.text.strip() #"x,y:name"
                 location_link = location_cell.find('a')['href']
                 location_split = location_link.split('#')
                 formatted_location_link = f"{location_split[0]}?{vendor_serial}#{location_split[1]}"
@@ -378,7 +395,7 @@ def multi_parse_wide(in_tuple):
         #print(f"out_data length: {len(out_data)}")
         #for tuple in out_data:
         return out_data
-        #self.data_queue_appendcommand.put(out_data)
+        #self.queue_append.put(out_data)
 
 def multi_parse_misc(in_tuple):
     html = in_tuple[0]
@@ -1026,11 +1043,11 @@ class AliApp:
         self.update_label = tk.Label(self.status_frame, textvariable=self.status_var, font=("Arial", 10))
         self.update_label.grid(row=1,column=0,pady=(0,10))
 
-        self.data_queue_appendcommand = queue.Queue()
+        self.queue_append = queue.Queue()
         self.queue_flag = False
         #data_queue_sortcommand = queue.Queue()
         self.check_queue_appendcommand()
-        self.data_queue_appendcommand.put("Idle")
+        self.queue_append.put("Idle")
 
     def scrape_wide_request(self,item):
         page_url = "https://outlandmalls.com/?item=" + quote_plus(item) + "&search_category_id=0"
@@ -1054,12 +1071,12 @@ class AliApp:
         response = requests.get(url, headers=headers)
         if response.status_code != 200:
             print(f"Failed to retrieve the webpage: {url}. Status code: {response.status_code}")
-            self.data_queue_appendcommand.put('Vendor Page Failed')
+            self.queue_append.put('Vendor Page Failed')
             return
-        self.data_queue_appendcommand.put(f"Scanning Locations")
+        self.queue_append.put(f"Scanning Locations")
         soup = BeautifulSoup(response.content, 'lxml')
         if not soup:
-            self.data_queue_appendcommand.put('Vendor Page Soup Failed')
+            self.queue_append.put('Vendor Page Soup Failed')
             return
         table = soup.find_all('table')[1]
         rows = table.tbody.find_all('tr')
@@ -1115,7 +1132,7 @@ class AliApp:
             listbox.insert(tk.END, result)
         elapsed_time = round(time.time() - start_time,2)
         #print(f"end: {elapsed_time}")
-        self.data_queue_appendcommand.put("Idle")
+        self.queue_append.put("Idle")
 
     def parse_combobox(self):
         option = self.search_combobox_timeframe.get()
@@ -1128,19 +1145,6 @@ class AliApp:
             'All Time': 'All Time'
         }
         return option_dict[option]
-    
-    def is_time_recent(self, time_string,sideskirt=False):
-        if sideskirt:
-            seconds_threshold = sideskirt
-        else:
-            seconds_threshold = self.parse_combobox()
-        #print(seconds_threshold)
-        if seconds_threshold == 'All Time':
-            return True
-        time_seconds = get_seconds_from_string(time_string)
-        if not time_seconds:
-            time_seconds = 1000000
-        return time_seconds <= seconds_threshold
     
     def on_treeview_click(self, event):
         if self.tree.identify_region(event.x, event.y) == "heading":
@@ -1168,7 +1172,7 @@ class AliApp:
     def on_treeview_select(self):
         item = self.tree.selection()[0]
         row_values = self.tree.item(item,'values')
-        snapshot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        #snapshot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         description = row_values[0]
         price_string = row_values[1] #80000.0/80000.0
         left_side_price = price_string.split('/')[0]
@@ -1207,7 +1211,7 @@ class AliApp:
         self.root.update()
         self.tree.selection_set(row_id)
         #self.context_menu.post(event.x_self.root, event.y_self.root)
-        self.data_queue_appendcommand.put(location_name)
+        self.queue_append.put(location_name)
     
     def async_scraping(self):
         start_time = time.time()
@@ -1215,7 +1219,7 @@ class AliApp:
         seconds_threshold = self.parse_combobox()
         if self.check_misc_var.get():
             for searchString, searchPrice in misc_prices.items():
-                self.data_queue_appendcommand.put(f"{searchString}")
+                self.queue_append.put(f"{searchString}")
                 #misc_start_time = time.time()  # Record the current time
                 page_url = "https://outlandmalls.com/?item=" + quote_plus(searchString) + "&search_category_id=0"
                 headers = {
@@ -1237,7 +1241,7 @@ class AliApp:
             num_cores = cpu_count()
             with Pool(num_cores) as pool:
                 for result in pool.imap_unordered(multi_parse_misc,tuple_list):
-                    self.data_queue_appendcommand.put(result)
+                    self.queue_append.put(result)
 
         elapsed_time = round(time.time() - start_time,2)
         print(f"multi misc: {elapsed_time}")
@@ -1258,7 +1262,7 @@ class AliApp:
             if not bool:
                 continue
             name = step[0]
-            self.data_queue_appendcommand.put(name)
+            self.queue_append.put(name)
             request_return = self.scrape_wide_request(name)
             if request_return[0]:
                 tuple_list.append((request_return[1],name,price_depth,seconds_threshold))
@@ -1268,11 +1272,11 @@ class AliApp:
         num_cores = cpu_count()
         with Pool(num_cores) as pool:
             for result in pool.imap_unordered(multi_parse_wide,tuple_list):
-                self.data_queue_appendcommand.put(result)
+                self.queue_append.put(result)
         time.sleep(.2)
         elapsed_time = round(time.time() - start_time,2)
         print(f"multi wide: {elapsed_time}")
-        self.data_queue_appendcommand.put(f"Complete: {elapsed_time}s")
+        self.queue_append.put(f"Complete: {elapsed_time}s")
 
     def ScrapeOutlandMall(self,event=''):
         self.clear_tree()
@@ -1336,7 +1340,7 @@ class AliApp:
                     location_split = location_link.split('#')
                     formatted_location_link = f"{location_split[0]}?{vendor_id}?{item['id']}#{location_split[1]}"
                     out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_string[:-3]}",f"{out_string}",f"{formatted_location_link}",f"{format_url}"))
-        self.data_queue_appendcommand.put(out_data)
+        self.queue_append.put(out_data)
 
     def ParseMostRecentJournalLog(self,event=''):
         self.clear_tree()
@@ -1346,13 +1350,13 @@ class AliApp:
             out_string_date = '/'.join(file_info[1:3])
             out_string_time = ':'.join(file_info[3:5])
             out_string = f"{out_string_date} {out_string_time}"
-            self.data_queue_appendcommand.put(f"Invalid: {out_string}")
+            self.queue_append.put(f"Invalid: {out_string}")
             return
         self.search_self_parse_obj(obj)
         tree_children = self.tree.get_children()
         if tree_children:
             self.tree.see(tree_children[0])
-        self.data_queue_appendcommand.put('Recent Journal')
+        self.queue_append.put('Recent Journal')
         self.root.update()
 
     def PostJournalLog(self,event=''):
@@ -1361,12 +1365,12 @@ class AliApp:
         data = {'tz': 'America/New_York'}
         file_path = get_most_recent_log()
         if not file_path:
-            self.data_queue_appendcommand.put('POST failed')
+            self.queue_append.put('POST failed')
             return
         with open(file_path, 'rb') as f:
             files = {'file': (file_path, f)}
             response = requests.post(url, headers=headers, files=files, data=data)
-            self.data_queue_appendcommand.put(f"{response}")
+            self.queue_append.put(f"{response}")
 
     def read_db_total_sales(self):
         try:
@@ -1465,7 +1469,7 @@ class AliApp:
     #------------------------------ GUI Updates---------------------------
     def check_queue_appendcommand(self,event=None):
         try:
-            data = self.data_queue_appendcommand.get_nowait()
+            data = self.queue_append.get_nowait()
             if isinstance(data,str):
                 self.status_var.set(data)
             else:

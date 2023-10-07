@@ -1,6 +1,6 @@
 
 @setvar! harvestingContainer 0x46075D38
-@setvar! magicContainer 0x4387FA42
+@setvar! magicContainer 0x4E707A91
 @setvar! EDCContainer 0x5882CC0B
 @setvar! valuablesContainer 0x554F6F54
 @setvar! globalTimeout 650
@@ -40,6 +40,13 @@ while skill "lumberjacking" > 50 and findtype 7133 as logs
     target logs
     wait 650
 endwhile
+
+if findtype 5356 as map and findtype 29104 ground any 1 2 as myTreasureMapBook
+    menu myTreasureMapBook
+    wft 1000
+    target self
+    wait 650
+endif
 
 if findtype 'storage shelf' ground 0 1 2 as myStorageShelf
     menu myStorageShelf 0
