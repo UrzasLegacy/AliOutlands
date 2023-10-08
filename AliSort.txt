@@ -43,8 +43,6 @@ endwhile
 
 if findtype 5356 as map and findtype 29104 ground any 1 2 as myTreasureMapBook
     menu myTreasureMapBook
-    wft 1000
-    target self
     wait 650
 endif
 

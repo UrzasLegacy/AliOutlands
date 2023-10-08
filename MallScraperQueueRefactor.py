@@ -7,7 +7,6 @@ import re
 import time
 import datetime
 import webbrowser
-#import pyautogui
 import sqlite3
 import threading
 import queue
@@ -17,6 +16,13 @@ from multiprocessing import Pool, cpu_count
 from bs4 import BeautifulSoup
 from contextlib import contextmanager
 from urllib.parse import quote_plus
+from collections import defaultdict
+import pygetwindow as gw
+import keyboard
+import win32api
+import pywinauto
+from pywinauto import Application
+
 core_prices = { #exact string MATTERS
     "Blood Aspect Core": 3000,
     "Holy Aspect Core": 3000,
@@ -321,9 +327,10 @@ my_locations = {
     "Far S Prev W":(1765,1740),
     "81a Xroad":(1262,1907),
     "E Andaria Gate":(2398,648),
+    "Winterspire":(2398,648),
 
     # Unassigned
-    "SOF Island Mall": (3498,3748),
+    "SOF Island Mall": (3571,198),
 }
 
 def item_scorer(item,quantity,buy_price,sell_price,total_profit,discount_ratio,liquidity_sore):
@@ -374,7 +381,7 @@ def multi_parse_wide(in_tuple):
                 vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
                 item_serial = vendor_cell.find('span')['data-item_id']
                 item_price = vendor_cell.find('span')['data-price']
-                location_coordinates = location_cell.text.strip() #"x,y:name"
+                location_coordinates = location_cell.text.strip()
                 location_link = location_cell.find('a')['href']
                 location_link_split = location_link.split('#')
                 location_split = location_coordinates.split(',')
@@ -409,14 +416,14 @@ def multi_parse_wide(in_tuple):
                 else:
                     threshold = float(prices_obj.get(name_string, 0))
                 if threshold > 0:
-                    ratio = round(price / threshold,2)
+                    cost_to_price_ratio = round(price / threshold,2)
                 else:
-                    ratio = 1000
-                if ratio > cutoff_threshold and price_depth != 2:
+                    cost_to_price_ratio = 1000
+                if cost_to_price_ratio > cutoff_threshold and price_depth != 2:
                     continue
                 if(price <= threshold or price_depth == 2): #self.search_pricedepth.get()
                     format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
-                    out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{format_url}"))
+                    out_data.append((f"{name_string}",f"{price}/{threshold}",f"{cost_to_price_ratio}",f"{quantity_string}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{format_url}"))
         #print(f"out_data length: {len(out_data)}")
         #for tuple in out_data:
         return (item,out_data)
@@ -448,7 +455,7 @@ def multi_parse_misc(in_tuple):
                 price = float(price_cell.text.strip().replace(',', ''))  # Convert price to float
                 ratio = round(price / searchPrice,2)
                 if ratio > cutoff_threshold and price_depth != 2:
-                    continue
+                        continue
                 if price <= searchPrice or price_depth == 2:
                     vendor_cell = cells[1]
                     location_cell = cells[2]
@@ -652,13 +659,18 @@ def parse_log_to_object():
     latest_log = get_most_recent_log()
     if not latest_log:
         return False
+    character_name = None
     pass_flag = False
     my_vendor_objs = []
     with open(latest_log, 'r', encoding='utf-8') as lines:
         # Iterate through each line
 
         for line in lines:
-            if "…item" in line and current_vendor is not None:
+            if "System: Welcome" in line:
+                match = re.search(r'System: Welcome (.+)!', line)
+                character_name = match.group(1) if match else 'Invalid Name'
+                pass
+            elif "…item" in line and current_vendor is not None:
                 if "Not for sale" in line:
                     continue
                 #item_id = re.search(r'ID:(\d+) (.+?)(?: : (\d+)(.*))?$', line)
@@ -679,7 +691,8 @@ def parse_log_to_object():
                         "price": item_unitprice,
                         "description": item_description,
                         "quantity": item_quantity,
-                        'location': location
+                        'location': location,
+                        'location_name': location_name
                         #TODO add location name
                     }
                     pass_flag = True
@@ -707,14 +720,25 @@ def parse_log_to_object():
             elif "System: Current location is" in line:
                 match = re.search(r'Current location is \((\d+), (\d+)', line)
                 if match:
-                    location = f"{match.group(1)},{match.group(2)},13"
+                    x1 = match.group(1)
+                    y1 = match.group(2)
+                    location = f"{x1}, {y1}" #todo
+                    check_dist = float('inf')
+                    closest = None
+                    for location_name, tuple_loc in my_locations.items():
+                        x2, y2 = map(int,tuple_loc)
+                        distance = get_distance(int(x1),int(y1),x2,y2)
+                        if distance < check_dist:
+                            check_dist = distance
+                            closest = location_name
+                    location_name = closest if closest else 'N/A'
                 else:
-                    location = "0,0,13"
+                    location = "0,0"
         if pass_flag:
             if len(my_vendor_objs):
                 handle_my_vendors(my_vendor_objs)
-            return vendors, latest_log
-    return latest_log
+            return (vendors, latest_log, character_name)
+    return (latest_log, character_name)
     
 def handle_my_vendors(vendor_obj_list):
     initialize_db()
@@ -907,7 +931,7 @@ class AliApp:
         #self.root.maxsize(900, 700)  # Maximum size
         self.root.bind("<Return>", self.ParseMostRecentJournalLog)
         self.root.bind("<Control-Return>", self.ScrapeOutlandMall)
-        self.root.bind("<F1>", self.PostJournalLog)
+        self.root.bind("<F1>", self.sort_tree_density)
         self.root.grid_columnconfigure(0, weight=10)
         self.root.grid_columnconfigure(1, weight=0)
         self.root.grid_columnconfigure(2, weight=0)
@@ -929,7 +953,7 @@ class AliApp:
         self.tree.heading("Ratio", text="%", command=lambda _col="Ratio",_col2 ="Item": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
         self.tree.heading("#", text="#")
         self.tree.heading("Vendor", text="Vendor", command=lambda _col="Vendor",_col2 ="Item": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
-        self.tree.heading("Location", text="Location", command=lambda _col="Location",_col2 ="Vendor": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
+        self.tree.heading("Location", text="Location", command=lambda _col="Location",_col2 ="Ratio": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
         self.tree.heading("Time", text="Time", command=lambda _col="Time",_col2 ="Ratio": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
         self.tree.column("Item", width=300)
         self.tree.column("Price", width=100)
@@ -940,6 +964,7 @@ class AliApp:
         self.tree.column("Time", width=100)
         self.tree.configure(height=20)
         self.tree.grid(row=0, column=0,sticky='nsew')
+        self.tree.tag_configure("mistake", background="#D3D3D3")
         self.tree.tag_configure("ultra", background="#FF0000")
         self.tree.tag_configure("high", background="#FFA500")
         self.tree.tag_configure("med", background="#FFD700")
@@ -1412,6 +1437,8 @@ endwhile"""
 
     def search_self_parse_obj(self,parse_obj):
         corrupted_link_price_threshold = 200000
+        cutoff_threshold = self.cutoff_threshold.get()
+        price_depth = self.search_pricedepth.get()
         bools = [
             (self.check_core_var.get(), core_prices),
             (self.check_extract_var.get(), extract_prices),
@@ -1457,33 +1484,39 @@ endwhile"""
                     threshold = float(self_parse_prices.get(name_string, 0))
                 if threshold > 0:
                     ratio = round(price / threshold,2)
+                elif price == 999:
+                    ratio = 1001
                 else:
-                    ratio = 1000 #TODO check ratio against self.cutoff_threshold.get()
-                if(price <= threshold or self.search_pricedepth.get() == 2):
-                    location_string = item['location'] #TODO add location name to item object
+                    ratio = 1000
+                if ratio != 1001 and ratio > cutoff_threshold and price_depth != 2:
+                    continue
+                if(price <= threshold or price_depth == 2 or price == 999):
+                    location_coordinates = item['location']
+                    location_coordinates_cleaned = re.sub(' ', '', location_coordinates)
+                    location_name = item['location_name']
                     quantity_int = item['quantity']
                     format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
-                    location_link = "https://www.exploreoutlands.com/#pos:" + location_string
-                    location_split = location_link.split('#')
-                    formatted_location_link = f"{location_split[0]}?{vendor_id}?{item['id']}?{int(price * quantity_int)}#{location_split[1]}"
-                    out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_int}",f"{vendor_string}",f"{location_string[:-3]}",f"{out_string}",f"{formatted_location_link}",f"{format_url}"))
+                    location_link = f"https://www.exploreoutlands.com/#pos:{location_coordinates_cleaned},13"
+                    location_link_split = location_link.split('#')
+                    formatted_location_link = f"{location_link_split[0]}?{vendor_id}?{item['id']}?{int(price * quantity_int)}#{location_link_split[1]}"
+                    out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_int}",f"{vendor_string}",f"{location_coordinates}\t{location_name}",f"{out_string}",f"{formatted_location_link}",f"{format_url}"))
         self.queue_append.put(out_data)
 
     def ParseMostRecentJournalLog(self,event=''):
         self.clear_tree()
         obj = parse_log_to_object()
-        if type(obj) is str:
-            file_info = obj.split('\\')[-1].split('_') #2023_09_02_17_07_16_journal.txt
+        if type(obj[0]) is str:
+            file_info = obj[0].split('\\')[-1].split('_') #2023_09_02_17_07_16_journal.txt
             out_string_date = '/'.join(file_info[1:3])
             out_string_time = ':'.join(file_info[3:5])
             out_string = f"{out_string_date} {out_string_time}"
-            self.queue_append.put(f"Invalid: {out_string}")
+            self.queue_append.put(f"X: {obj[1][:6]}: {out_string}")
             return
         self.search_self_parse_obj(obj)
         tree_children = self.tree.get_children()
         if tree_children:
             self.tree.see(tree_children[0])
-        self.queue_append.put('Recent Journal')
+        self.queue_append.put(f'Recent: {obj[2][:6]}')
         self.root.update()
 
     def PostJournalLog(self,event=''):
@@ -1602,7 +1635,7 @@ endwhile"""
             data = self.queue_append.get_nowait()
             if isinstance(data,str):
                 self.status_var.set(data)
-            else:
+            elif data:
                 for tuple in data:
                     self.append_to_tree(*tuple)
                 self.queue_flag = True
@@ -1622,7 +1655,9 @@ endwhile"""
     def append_to_tree(self,text1='',text2='',text3='',text4='',text5='',text6='',text7='',text8='',text9='',text10=''):
         if len(text3):
             ratio = float(text3)
-            if ratio < 0.6:
+            if ratio == 1001:
+                item = self.tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9, text10), tags=("mistake",))
+            elif ratio < 0.6:
                 item = self.tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9, text10), tags=("ultra",))
             elif ratio <= 0.7:
                 item = self.tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9, text10), tags=("high",))
@@ -1656,6 +1691,218 @@ endwhile"""
         for index, (_, _, k) in enumerate(l):
             self.tree.move(k, '', index)
         self.tree.heading(col, command=lambda _col=col,_secondary_col = secondary_col: self.sort_column_tuple(_col, _secondary_col, not reverse, key))
+
+    def sort_tree_density(self, event=None):
+        #TODO
+        # Profit = Selling Price - Buying Price
+        # Profit Ratio = Profit / Buying Price
+        #
+        data = []
+
+        for child in self.tree.get_children():
+            row_data = {}
+            for col in self.tree["columns"]:
+                row_data[col] = self.tree.set(child, col)
+            data.append(row_data)
+        items_by_location = defaultdict(list)
+        for item in data:
+            items_by_location[item['Location'].split('\t')[1]].append(item)
+        for location, items in items_by_location.items():
+            print(location)
+            profit_sum = 0
+            ctp_sum = 0
+            margin_sum = 0
+            total_items_at_location = len(items)
+            for item in items:
+                price_col_string = item['Price']
+                price_col_split = price_col_string.split('/')
+                my_cost = int(float(price_col_split[0]))
+                sale_price = int(float(price_col_split[1]))
+                quantity_int = int(item['#'])
+                ctp_ratio_float = float(item['Ratio'])
+                profit_margin = round((sale_price - my_cost) / my_cost,2)
+                total_profit = (sale_price - my_cost) * quantity_int
+                profit_sum += total_profit
+                ctp_sum += ctp_ratio_float
+                margin_sum += profit_margin
+            print(f"Total Profit: {profit_sum}\tCTP Ratio Average: {round(ctp_sum / total_items_at_location,2)}\tProfit Margin Average: {margin_sum / total_items_at_location}")
+
+
+
+def start_purchase_script():
+    mouse_pos = win32api.GetCursorPos()
+
+    active_window = gw.getActiveWindow()
+    active_title = active_window.title
+
+    regex_client = r"UO - ([\w\s]+) - ClassicUO"
+    regex_assistant = r"(?:\] - )?([\w\s]+) \(\[None\]\)"
+    match_client = re.search(regex_client, active_title)
+    match_assistant = re.search(regex_assistant, active_title)
+    if match_client: #if focus is on client, switch to assistant and set it as target
+        original = connect_to_window(active_window._hWnd)
+        if not original:
+            print("Something went wrong when selecting original window")
+            return
+        extracted_name = match_client.group(1)
+        window = focus_named_assistant(extracted_name)
+    elif match_assistant: #if focus is on assistant, set assistant as target
+        extracted_name = match_assistant.group(1)
+        for window in gw.getAllWindows():
+            if extracted_name in window.title and window != active_window:
+                original = connect_to_window(window._hWnd)
+                break
+        if not original:
+            print("Something went wrong when selecting original window")
+            return
+        window = connect_to_window(active_window._hWnd)
+    else:
+        print("No match found in the active window's title.")
+        return
+    if not window:
+        print("Error connecting to window")
+
+    tab_control = window.TabControl
+    if tab_control.get_selected_tab() != 9:
+        tab_control.select("TabControlScripts")
+    tree = window.TreeView
+    node = tree.get_item(['aaaaab'])
+    if not node.is_selected():
+        node.select()
+    try:
+        script_editor = window.child_window(auto_id="scriptEditor", control_type="FastColoredTextBoxNS.FastColoredTextBox")
+        scripts_tab = window.child_window(title="Scripts", auto_id="subScripts", control_type="System.Windows.Forms.TabPage")
+        if scripts_tab.exists():
+            scripts_tab.click()
+            time.sleep(.01)
+        if script_editor.is_enabled():
+            script_editor.set_focus()
+            time.sleep(.01)
+            script_editor.type_keys("^a")
+            time.sleep(.01)
+            script_editor.type_keys("^v")
+            time.sleep(.01)
+            play_button = window.child_window(title="Scripts", auto_id="subScripts", control_type="System.Windows.Forms.TabPage")\
+                .child_window(auto_id="tableLayoutPanel1", control_type="System.Windows.Forms.TableLayoutPanel")\
+                .child_window(auto_id="tableLayoutPanel2", control_type="System.Windows.Forms.TableLayoutPanel")\
+                .child_window(title="Play", auto_id="playScript", control_type="System.Windows.Forms.Button")
+            if play_button.exists():
+                play_button.click()
+                time.sleep(.01)
+                original.set_focus()
+            else:
+                print('Play button missing!')
+                return
+        else:
+            stop_button = window.child_window(title="Scripts", auto_id="subScripts", control_type="System.Windows.Forms.TabPage")\
+                .child_window(auto_id="tableLayoutPanel1", control_type="System.Windows.Forms.TableLayoutPanel")\
+                .child_window(auto_id="tableLayoutPanel2", control_type="System.Windows.Forms.TableLayoutPanel")\
+                .child_window(title="Stop", auto_id="playScript", control_type="System.Windows.Forms.Button")
+            if stop_button.exists():
+                stop_button.click()
+                time.sleep(.01)
+                original.set_focus()
+            else:
+                print('Stop button missing!')
+                return
+    except Exception as e:
+        print(f"error: {e}")
+    win32api.SetCursorPos(mouse_pos)
+
+def switch_focus():
+    mouse_pos = win32api.GetCursorPos()
+
+    active_window = gw.getActiveWindow()
+    active_title = active_window.title
+    regex_client = r"UO - ([\w\s]+) - ClassicUO"
+    regex_assistant = r"(?:\] - )?([\w\s]+) \(\[None\]\)"
+    match_client = re.search(regex_client, active_title)
+    match_assistant = re.search(regex_assistant, active_title)
+    if match_client: #if focus is on client, switch to assistant
+        extracted_name = match_client.group(1)
+        target_window = None
+        for window in gw.getAllWindows():
+            if extracted_name in window.title and window != active_window:
+                target_window = window
+                break
+        if target_window is not None:
+            window = connect_to_window(target_window._hWnd)
+        else:
+            print("No other window found with the extracted string in its title")
+    elif match_assistant: #if focus is on assistant, swtich to client
+        extracted_name = match_assistant.group(1)
+        target_window = None
+        for window in gw.getAllWindows():
+            if extracted_name in window.title and window != active_window:
+                target_window = window
+                break
+        window = connect_to_window(target_window._hWnd)
+    else:
+        print("No match found in the active window's title.")
+        return
+    if not window:
+        print("Error connecting to window")
+    window.set_focus()
+    win32api.SetCursorPos(mouse_pos)
+
+def focus_named_assistant(name):
+    # Save the current mouse position
+    regex_assistant = rf"(?:\] - )?{name} \(\[None\]\)"
+    assistant_window = None
+    for window in gw.getAllWindows():
+        if re.search(regex_assistant, window.title):
+            assistant_window = window
+            break
+    if not assistant_window:
+        print("Couldn't find assistant window!")
+        return
+    assistant = connect_to_window(assistant_window._hWnd)
+    if not assistant:
+        print("Couldn't connect to assistant app!")
+        return
+    assistant.set_focus()
+    return assistant
+
+def focus_named_client(name):
+    mouse_pos = win32api.GetCursorPos()
+    regex_client = rf"UO - {name} - ClassicUO"
+    client_window = None
+    for window in gw.getAllWindows():
+        if re.search(regex_client, window.title):
+            client_window = window
+            break
+    if not client_window:
+        print("Couldn't find client window!")
+        return
+    client = connect_to_window(client_window._hWnd)
+    if not client:
+        print("Couldn't connect to client app!")
+        return
+    client.set_focus()
+    win32api.SetCursorPos(mouse_pos)
+    return client
+
+def connect_to_window(hWnd):
+    try:
+        app = Application().connect(handle=hWnd)
+        connection = app.window(handle=hWnd)
+    except pywinauto.findwindows.ElementNotFoundError as e:
+        print(f"Window not found: {e}")
+        return
+    except pywinauto.timings.TimeoutError as e:
+        print(f"Operation timed out: {e}")
+        return
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return
+    return connection
+
+print(f"Press ctrl+alt+` to find the Client/Assistant window for the active window...")
+keyboard.add_hotkey("ctrl+alt+c", start_purchase_script)
+keyboard.add_hotkey("ctrl+alt+`", switch_focus)
+keyboard.add_hotkey("ctrl+alt+1", lambda: focus_named_assistant('a lost girl'))
+keyboard.add_hotkey("ctrl+alt+2", lambda: focus_named_assistant('Vendor Police'))
+keyboard.add_hotkey("ctrl+alt+3", lambda: focus_named_assistant('Aproctoflecticus'))
 
 def main():
     root = tk.Tk()
