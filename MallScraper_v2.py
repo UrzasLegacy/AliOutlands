@@ -32,12 +32,12 @@ core_prices = { #exact string MATTERS
     "Water Aspect Core": 9000,
     "Gadget Aspect Core": 3000,
     "Shadow Aspect Core": 10000,
-    "Void Aspect Core": 18000,
+    "Void Aspect Core": 20000,
     "Fire Aspect Core": 10000,
     "Discipline Aspect Core": 8000,
     "Lyric Aspect Core": 19000,
     "Poison Aspect Core": 29000,
-    "Eldritch Aspect Core": 32000,
+    "Eldritch Aspect Core": 31000,
     "Fortune Aspect Core": 50000,
     "Command Aspect Core": 130000,
     "Artisan Aspect Core": 60000,
@@ -50,18 +50,18 @@ extract_prices = { #exact string MATTERS
     "Holy Aspect Extract": 2000,
     "Earth Aspect Extract": 2000,
     "Death Aspect Extract": 2000,
-    "Water Aspect Extract": 5000,
-    "Gadget Aspect Extract": 3000,
-    "Shadow Aspect Extract": 5000,
-    "Void Aspect Extract": 5000,
-    "Fire Aspect Extract": 3000,
+    "Water Aspect Extract": 4000,
+    "Gadget Aspect Extract": 2000,
+    "Shadow Aspect Extract": 4000,
+    "Void Aspect Extract": 4000,
+    "Fire Aspect Extract": 2000,
     "Discipline Aspect Extract": 4000,
     "Lyric Aspect Extract": 5000,
-    "Poison Aspect Extract": 8000,
+    "Poison Aspect Extract": 6000,
     "Eldritch Aspect Extract": 8000,
     "Fortune Aspect Extract": 7000,
     "Command Aspect Extract": 8000,
-    "Artisan Aspect Extract": 5000,
+    "Artisan Aspect Extract": 4000,
     "Air Aspect Extract": 7000,
     "Harvest Aspect Extract": 10000,
 }
@@ -70,33 +70,33 @@ distil_prices = { #exact string MATTERS
     "Blood Aspect Distillation": 2000,
     "Holy Aspect Distillation": 2000,
     "Earth Aspect Distillation": 2000,
-    "Death Aspect Distillation": 3000,
-    "Water Aspect Distillation": 5000,
+    "Death Aspect Distillation": 2000,
+    "Water Aspect Distillation": 4000,
     "Gadget Aspect Distillation": 2000,
-    "Shadow Aspect Distillation": 5000,
-    "Void Aspect Distillation": 5000,
-    "Fire Aspect Distillation": 3000,
-    "Discipline Aspect Distillation": 5000,
+    "Shadow Aspect Distillation": 4000,
+    "Void Aspect Distillation": 4000,
+    "Fire Aspect Distillation": 2000,
+    "Discipline Aspect Distillation": 4000,
     "Lyric Aspect Distillation": 5000,
     "War Aspect Distillation": 2000,
-    "Poison Aspect Distillation": 8000,
+    "Poison Aspect Distillation": 6000,
     "Eldritch Aspect Distillation": 8000,
     "Fortune Aspect Distillation": 7000,
     "Command Aspect Distillation": 8000,
-    "Artisan Aspect Distillation": 5000,
+    "Artisan Aspect Distillation": 4000,
     "Air Aspect Distillation": 7000,
     "Harvest Aspect Distillation": 10000,
 }
 
 map_prices = { #exact string MATTERS
     "plainly drawn treasure map: level 1 (undeciphered)": 4000,
-    "plainly drawn treasure map: level 1 [100.0% estimated accuracy]": 4000,
-    "expertly drawn treasure map: level 2 (undeciphered)": 9000,
-    "expertly drawn treasure map: level 2 [100.0% estimated accuracy]": 9000,
+    "plainly drawn treasure map: level 1 [100.0% estimated accuracy]": 3000,
+    "expertly drawn treasure map: level 2 (undeciphered)": 10000,
+    "expertly drawn treasure map: level 2 [100.0% estimated accuracy]": 7500,
     "adeptly drawn treasure map: level 3 (undeciphered)": 25000,
-    "adeptly drawn treasure map: level 3 [100.0% estimated accuracy]": 25000,
+    "adeptly drawn treasure map: level 3 [100.0% estimated accuracy]": 19000,
     "cleverly drawn treasure map: level 4 (undeciphered)": 32000,
-    "cleverly drawn treasure map: level 4 [100.0% estimated accuracy]": 28000,
+    "cleverly drawn treasure map: level 4 [100.0% estimated accuracy]": 24000,
     "deviously drawn treasure map: level 5 (undeciphered)": 45000,
     "deviously drawn treasure map: level 5 [100.0% estimated accuracy]": 40000,
     "ingeniously drawn treasure map: level 6 (undeciphered)": 45000,
@@ -107,7 +107,7 @@ map_prices = { #exact string MATTERS
     "legendarily drawn treasure map: level 8 [100.0% estimated accuracy]": 275000,
 }
 scroll_prices = { #exact string MATTERS
-    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 29000, #alchemy skill mastery scroll : 3 (used to increase a player's skill cap for a skill by 1)
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 27000, #alchemy skill mastery scroll : 3 (used to increase a player's skill cap for a skill by 1)
     "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
@@ -116,12 +116,12 @@ scroll_prices = { #exact string MATTERS
     "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 21000,
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 22000,
     "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
     "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
     "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 19000,
@@ -135,7 +135,7 @@ scroll_prices = { #exact string MATTERS
     "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
-    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 40000,
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 38000,
     "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
@@ -143,85 +143,85 @@ scroll_prices = { #exact string MATTERS
 }
 
 link_prices = { #exact chain type string MATTERS
-    "Melee Accuracy": [100000,650000,2800000], #Melee Accuracy/Defense
-    "Melee Defense": [100000,650000,2800000], #Melee Accuracy/Defense
-    "Melee Accuracy/Defense": [100000,650000,2800000],
-    "Melee Special Chance/Special Damage": [100000,710000,2800000],
-    "Melee Special Chance": [100000,710000,2800000], #Melee Special Chance/Special Damage
-    "Melee Swing Speed": [130000,700000,2800000],
-    "Melee Damage": [70000,500000,2300000], #Melee Damage/Ignore Armor Chance
-    "Melee Ignore Armor Chance": [70000,500000,2300000], #Melee Damage/Ignore Armor Chance
-    "Melee Damage/Ignore Armor Chance": [70000,500000,2300000],
-    "Melee Aspect Effect Modifier": [70000,700000,2700000],
-    "Melee Aspect Effect Chance": [100000,700000,2800000],
-    "Spell Damage": [70000,500000,2300000], #Spell Damage/Ignore Resist Chance
-    "Spell Damage When No Followers": [70000,500000,2300000],
-    "Spell Ignore Resist Chance": [70000,500000,2300000], #Spell Damage/Ignore Resist Chance
-    "Spell Damage/Ignore Resist Chance": [70000,500000,2300000],
-    "Spell Charged Chance": [70000,500000,2300000], #Spell Charged Chance/Charged Damage
-    "Spell Charged Damage": [70000,500000,2300000], #Spell Charged Chance/Charged Damage
-    "Spell Charged Chance/Charged Damage": [70000,500000,2300000],
-    "Meditation Rate": [70000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance
-    "Spell Disrupt Avoid Chance": [70000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance, Spell Damage When No Followers
-    "Meditation Rate/Disrupt Avoid Chance": [70000,500000,2300000], #Spell Damage When No Followers
-    "Spell Aspect Effect Modifier": [70000,600000,2500000],
-    "Spell Aspect Special Chance": [135000,750000,2500000],
-    "Damage to Beastial Creatures": [80000,625000,2500000], #Nusero Damage
-    "Damage to Construct Creatures": [80000,625000,2500000], #Mausoleum Damage
-    "Damage to Daemonic Creatures": [80000,625000,2500000], #Inferno Damage
-    "Damage to Elemental Creatures": [80000,625000,2500000], #Mount Petram Damage
-    "Damage to Humanoid Creatures": [80000,625000,2500000], #Aegis Keep Damage
-    "Damage to Monstrous Creatures": [80000,625000,2500000], #Cavernam Damage
-    "Damage to Nature Creatures": [80000,625000,2500000], #Darkmire Temple Damage
-    "Damage to Undead Creatures": [80000,625000,2500000], #Ossuary Damage
-    "Nusero Damage": [80000,625000,2500000],
-    "Mausoleum Damage": [80000,625000,2500000],
-    "Inferno Damage": [80000,625000,2500000],
-    "Mount Petram Damage": [80000,625000,2500000],
-    "Aegis Keep Damage": [80000,625000,2500000],
-    "Cavernam Damage": [80000,625000,2500000],
-    "Darkmire Temple Damage": [80000,625000,2500000],
-    "Ossuary Damage": [80000,625000,2500000],
-    "Pulma Damage": [80000,625000,2500000],
-    "Shadowspire Cathedral Damage": [90000,625000,2500000],
-    "Wilderness Damage": [90000,625000,2500000],
-    "Follower Damage": [160000,750000,2800000],
-    "Damage to Barded Creatures": [110000,650000,2800000],
-    "Damage to Poisoned Creatures": [120000,650000,2800000],
-    "Poison Damage/Resist Ignore": [70000,500000,2300000],
+    "Melee Accuracy": [100000,600000,2700000], #Melee Accuracy/Defense
+    "Melee Defense": [100000,600000,2700000], #Melee Accuracy/Defense
+    "Melee Accuracy/Defense": [100000,600000,2700000],
+    "Melee Special Chance/Special Damage": [90000,710000,2700000],
+    "Melee Special Chance": [90000,710000,2700000], #Melee Special Chance/Special Damage
+    "Melee Swing Speed": [100000,600000,2700000],
+    "Melee Damage": [65000,500000,2300000], #Melee Damage/Ignore Armor Chance
+    "Melee Ignore Armor Chance": [65000,500000,2300000], #Melee Damage/Ignore Armor Chance
+    "Melee Damage/Ignore Armor Chance": [65000,500000,2300000],
+    "Melee Aspect Effect Modifier": [65000,600000,2650000],
+    "Melee Aspect Effect Chance": [100000,600000,2700000],
+    "Spell Damage": [65000,500000,2300000], #Spell Damage/Ignore Resist Chance
+    "Spell Damage When No Followers":   [65000,500000,2300000],
+    "Spell Ignore Resist Chance": [65000,500000,2300000], #Spell Damage/Ignore Resist Chance
+    "Spell Damage/Ignore Resist Chance": [65000,500000,2300000],
+    "Spell Charged Chance": [65000,500000,2300000], #Spell Charged Chance/Charged Damage
+    "Spell Charged Damage": [65000,500000,2300000], #Spell Charged Chance/Charged Damage
+    "Spell Charged Chance/Charged Damage": [65000,500000,2300000],
+    "Meditation Rate": [65000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance
+    "Spell Disrupt Avoid Chance": [65000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance, Spell Damage When No Followers
+    "Meditation Rate/Disrupt Avoid Chance": [65000,500000,2300000], #Spell Damage When No Followers
+    "Spell Aspect Effect Modifier": [65000,500000,2300000],
+    "Spell Aspect Special Chance": [130000,700000,2500000],
+    "Damage to Beastial Creatures": [80000,600000,2500000], #Nusero Damage
+    "Damage to Construct Creatures": [80000,600000,2500000], #Mausoleum Damage
+    "Damage to Daemonic Creatures": [80000,600000,2500000], #Inferno Damage
+    "Damage to Elemental Creatures": [80000,600000,2500000], #Mount Petram Damage
+    "Damage to Humanoid Creatures": [80000,600000,2500000], #Aegis Keep Damage
+    "Damage to Monstrous Creatures": [80000,600000,2500000], #Cavernam Damage
+    "Damage to Nature Creatures": [80000,600000,2500000], #Darkmire Temple Damage
+    "Damage to Undead Creatures": [80000,600000,2500000], #Ossuary Damage
+    "Nusero Damage": [80000,600000,2500000],
+    "Mausoleum Damage": [80000,600000,2500000],
+    "Inferno Damage": [80000,600000,2500000],
+    "Mount Petram Damage": [80000,600000,2500000],
+    "Aegis Keep Damage": [80000,600000,2500000],
+    "Cavernam Damage": [80000,600000,2500000],
+    "Darkmire Temple Damage": [80000,600000,2500000],
+    "Ossuary Damage": [80000,600000,2500000],
+    "Pulma Damage": [80000,600000,2500000],
+    "Shadowspire Cathedral Damage": [90000,600000,2500000],
+    "Wilderness Damage": [100000,600000,2500000],
+    "Follower Damage": [140000,700000,2700000],
+    "Damage to Barded Creatures": [110000,600000,2700000],
+    "Damage to Poisoned Creatures": [120000,600000,2700000],
+    "Poison Damage/Resist Ignore": [65000,500000,2300000],
     "Backstab Damage": [100000,600000,2500000],
-    "Trap Damage": [100000,700000,2800000],
+    "Trap Damage": [100000,600000,2700000],
     "Damage to Bosses": [80000,600000,2600000],
-    "Damage on Ships": [125000,650000,2600000],
-    "Ship Cannon Damage": [125000,650000,2600000],
-    "Damage to Creatures Above 66% HP": [70000,500000,2300000], #Damage Dealt By Player
-    "Damage to Creatures Below 33% HP": [70000,500000,2300000], #Damage Dealt By Player
-    "Damage Dealt By Player": [70000,500000,2300000],
-    "Physical Damage Resistance": [70000,500000,2300000], #Damage Resistance
-    "Spell Damage Resistance": [70000,500000,2300000], #Damage Resistance
-    "Follower Damage Resistance": [150000,700000,2800000], #Alchemy/Healing/Veterinary Skill, Follower Attack Speed
-    "Effective Parrying Skill": [70000,500000,2300000], #Damage Resistance
-    "Effective Magic Resist Skill": [70000,500000,2300000], #Damage Resistance
-    "Healing Received": [70000,500000,2300000], #Effective Alchemy/Healing/Veterinary Skill
-    "Follower Attack Speed": [140000,700000,2800000],
-    "Follower Healing Received": [140000,700000,2800000], #Effective Alchemy/Healing/Veterinary Skill, Follower Attack Speed
-    "Boss Damage Resistance": [70000,500000,2300000], #Damage Resistance
-    "Damage Resistance on Ships": [70000,500000,2300000], #Damage Resistance
-    "Damage Resistance": [70000,500000,2300000],
-    "Chest Success Chances/Progress": [100000,650000,2700000],
-    "Effective Skill on Chests": [100000,650000,2700000],
-    "Alchemy/Healing/Veterinary": [70000,500000,2300000],
-    "Effective Lockpicking Skill": [100000,650000,2700000], #Chest Success Chances/Progress
-    "Effective Poisoning Skill": [70000,500000,2300000], #Poison Damage/Resist Ignore
-    "Effective Barding Skill": [110000,650000,2800000], #Bard Reset/Break Ignore Chance
-    "Chivalry Skill": [70000,500000,2300000], 
-    "Necromancy Skill": [140000,750000,2800000], #Follower Damage, Follower Damage Resistance
-    "Barding Effect Durations": [70000,650000,2600000], #Bard Reset/Break Ignore Chance
-    "Bard Reset/Break Ignore Chance": [70000,650000,2600000],
-    "Spirit Speak/Inscription": [140000,750000,2800000], #Follower Damage, Follower Damage Resistance
-    "Chance on Stealth For 5 Extra Steps": [110000,720000,2700000],
-    "Gold/Doubloon Drop Increase": [70000,500000,2300000],
-    "Special/Rare Loot Chance": [70000,500000,2300000],
+    "Damage on Ships": [125000,600000,2600000],
+    "Ship Cannon Damage": [120000,600000,2600000],
+    "Damage to Creatures Above 66% HP": [65000,500000,2300000], #Damage Dealt By Player
+    "Damage to Creatures Below 33% HP": [65000,500000,2300000], #Damage Dealt By Player
+    "Damage Dealt By Player": [65000,500000,2300000],
+    "Physical Damage Resistance": [65000,500000,2300000], #Damage Resistance
+    "Spell Damage Resistance": [65000,500000,2300000], #Damage Resistance
+    "Follower Damage Resistance": [150000,600000,2700000], #Alchemy/Healing/Veterinary Skill, Follower Attack Speed
+    "Effective Parrying Skill": [65000,500000,2300000], #Damage Resistance
+    "Effective Magic Resist Skill": [65000,500000,2300000], #Damage Resistance
+    "Healing Received": [65000,500000,2300000], #Effective Alchemy/Healing/Veterinary Skill
+    "Follower Attack Speed": [130000,600000,2700000],
+    "Follower Healing Received": [130000,600000,2700000], #Effective Alchemy/Healing/Veterinary Skill, Follower Attack Speed
+    "Boss Damage Resistance": [65000,500000,2300000], #Damage Resistance
+    "Damage Resistance on Ships": [65000,500000,2300000], #Damage Resistance
+    "Damage Resistance": [65000,500000,2300000],
+    "Chest Success Chances/Progress": [90000,600000,2650000],
+    "Effective Skill on Chests": [90000,600000,2650000],
+    "Alchemy/Healing/Veterinary": [65000,500000,2300000],
+    "Effective Lockpicking Skill": [90000,600000,2650000], #Chest Success Chances/Progress
+    "Effective Poisoning Skill": [65000,500000,2300000], #Poison Damage/Resist Ignore
+    "Effective Barding Skill": [110000,600000,2700000], #Bard Reset/Break Ignore Chance
+    "Chivalry Skill": [65000,500000,2300000], 
+    "Necromancy Skill": [140000,750000,2700000], #Follower Damage, Follower Damage Resistance
+    "Barding Effect Durations": [65000,600000,2600000], #Bard Reset/Break Ignore Chance
+    "Bard Reset/Break Ignore Chance": [65000,600000,2600000],
+    "Spirit Speak/Inscription": [140000,750000,2700000], #Follower Damage, Follower Damage Resistance
+    "Chance on Stealth For 5 Extra Steps": [100000,720000,2650000],
+    "Gold/Doubloon Drop Increase": [65000,500000,2300000],
+    "Special/Rare Loot Chance": [65000,500000,2300000],
     "reforging tool": [85000,180000,350000],
 }
 
@@ -230,10 +230,10 @@ misc_prices = { #exact string matters
     "mastercrafting diagram": 15500,
     "a skill mastery orb (used to increase a player's total skill cap by 1)": 15000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
     "an arcane scroll": 1000,
-    "plant chemicals": 1750,
+    "plant chemicals": 2000,
     #"supremely potent magic spellbook": 13000,
     "an ankh token":9000,
-    "prevalia coins [blessed]":17500, #prevalia coins : 5 [blessed]
+    "prevalia coins [blessed]":17800, #prevalia coins : 5 [blessed]
     #"a random spell hue deed": 17000,
     #"research guide (25 uses remaining)":15000,
     #"aspect kit": 22000,
@@ -241,7 +241,7 @@ misc_prices = { #exact string matters
     "arcane essence": 30,
     "iron ingot commodity (5,000 total)": 75000,
     "board commodity (5,000 total)": 65000,
-    "leather commodity (5,000 total)": 8500,
+    "leather commodity (5,000 total)": 8000,
     "a message in a bottle": 19000, 
     #"pristine lumber": 32000, 
     #"immaculate stone": 32000,
@@ -327,7 +327,7 @@ my_locations = {
     "Far S Prev W":(1765,1740),
     "81a Xroad":(1262,1907),
     "E Andaria Gate":(2398,648),
-    "Winterspire":(2398,648),
+    "Winterspire":(3571,198),
 
     # Unassigned
     "SOF Island Mall": (3571,198),
@@ -335,6 +335,34 @@ my_locations = {
 
 def item_scorer(item,quantity,buy_price,sell_price,total_profit,discount_ratio,liquidity_sore):
    pass
+
+def junk_filter(item_name,item_graphic,item_quantity):
+    # Check if the 'forbidden_words_set' attribute exists. If not, create it.
+    if not hasattr(junk_filter, "general_forbidden"):
+        junk_filter.general_forbidden = {
+"potion keg","blank scroll","common plant","common seed","AAAAAAAAAAA"," phylactery","durable ","substantial ","massive ","fortified ","exceptional ","accurate ",
+"ruin ","might ","force ","slaying ","mastercrafted "," defense ","guarding ","hardening ","fortification ","potent ","melodious ","AAAAAAAAAAA",
+"blank map","large ship bomb","(delectable)","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA",
+"AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA"
+}
+
+    if not hasattr(junk_filter, "singleton_forbidden"):
+        junk_filter.singleton_forbidden = {
+"ingot","board","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA"
+}
+        
+    if not hasattr(junk_filter, "graphic_forbidden"):
+        junk_filter.graphic_forbidden = { # gems, boards, ingots, leather,
+"AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA"
+}
+    
+    general_check = not any(word in item_name for word in junk_filter.general_forbidden)
+    singleton_check = not any(word in item_name for word in junk_filter.singleton_forbidden) and item_quantity == 1 #TODO
+    graphic_check = not any(item_graphic in junk_filter.graphic_forbidden) #TODO
+    return 
+
+ 
+
 
 def multi_parse_wide(in_tuple):
     item = in_tuple[0]
@@ -629,6 +657,10 @@ def sort_key_tuple(item):
     #print(f"primary_key:{primary_key}, secondary_key:{secondary_key}")
     return (primary_key, secondary_key)  # Return a tuple for multi-level sorting
 
+def delete_most_recent_log():
+    folder_path = "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\Client\\JournalLogs\\"
+
+
 def get_most_recent_log():
     folder_path = "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\Client\\JournalLogs\\"
     files = [f for f in glob.glob(os.path.join(folder_path, '*.txt')) if os.path.isfile(f)]
@@ -653,7 +685,7 @@ def check_accessibility(file_path):
         return False
 
 def parse_log_to_object():
-    my_vendors = [4342004,1888935]
+    my_vendors = [4342004,1888935,3097786]
     vendors = {}
     current_vendor = None
     latest_log = get_most_recent_log()
@@ -925,7 +957,7 @@ def record_sale(snapshot_time, id, price, description, quantity):
 class AliApp:
     def __init__(self,root):
         self.root = root
-        self.root.title("Ali's Outland Malls Scraper")
+        self.root.title("Ali's OutlandMalls Scraper")
         self.root.geometry("1160x620")  # Initial size
         self.root.minsize(1160, 620)  # Minimum size
         #self.root.maxsize(900, 700)  # Maximum size
@@ -953,7 +985,8 @@ class AliApp:
         self.tree.heading("Ratio", text="%", command=lambda _col="Ratio",_col2 ="Item": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
         self.tree.heading("#", text="#")
         self.tree.heading("Vendor", text="Vendor", command=lambda _col="Vendor",_col2 ="Item": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
-        self.tree.heading("Location", text="Location", command=lambda _col="Location",_col2 ="Ratio": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
+        #self.tree.heading("Location", text="Location", command=lambda _col="Location",_col2 ="Ratio": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
+        self.tree.heading("Location", text="Location", command=self.sort_tree_density)
         self.tree.heading("Time", text="Time", command=lambda _col="Time",_col2 ="Ratio": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
         self.tree.column("Item", width=300)
         self.tree.column("Price", width=100)
@@ -1119,7 +1152,7 @@ class AliApp:
         self.queue_append = queue.Queue()
         self.queue_flag = False
         #data_queue_sortcommand = queue.Queue()
-        self.check_queue_appendcommand()
+        self.queue_daemon()
         self.queue_append.put("Idle") 
     
     def scrape_vendor_updates(self):
@@ -1485,6 +1518,7 @@ endwhile"""
                 if threshold > 0:
                     ratio = round(price / threshold,2)
                 elif price == 999:
+                    #TODO add junk filter
                     ratio = 1001
                 else:
                     ratio = 1000
@@ -1627,7 +1661,7 @@ endwhile"""
             print(f"An error occurred: {e}")
             return []
     #------------------------------ GUI Updates---------------------------
-    def check_queue_appendcommand(self,event=None):
+    def queue_daemon(self,event=None):
         cases = {
 
         }
@@ -1639,13 +1673,13 @@ endwhile"""
                 for tuple in data:
                     self.append_to_tree(*tuple)
                 self.queue_flag = True
-            self.root.after(50, self.check_queue_appendcommand)  # check again after 100ms
+            self.root.after(50, self.queue_daemon)  # check again after 100ms
         except queue.Empty:
             if self.queue_flag:
                 self.queue_flag = False
                 if self.search_sortmode.get() == 2:
                     self.sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
-            self.root.after(100, self.check_queue_appendcommand)  # if queue is empty, check again after a longer delay
+            self.root.after(100, self.queue_daemon)  # if queue is empty, check again after a longer delay
 
     def clear_tree(self):
         # Clear the Treeview
@@ -1691,15 +1725,14 @@ endwhile"""
         for index, (_, _, k) in enumerate(l):
             self.tree.move(k, '', index)
         self.tree.heading(col, command=lambda _col=col,_secondary_col = secondary_col: self.sort_column_tuple(_col, _secondary_col, not reverse, key))
+        self.tree.see(l[0][2])
 
     def sort_tree_density(self, event=None):
-        #TODO
-        # Profit = Selling Price - Buying Price
-        # Profit Ratio = Profit / Buying Price
-        #
         data = []
-
-        for child in self.tree.get_children():
+        tree_children = self.tree.get_children("")          
+        if(len(tree_children) == 0):
+            return
+        for child in tree_children:
             row_data = {}
             for col in self.tree["columns"]:
                 row_data[col] = self.tree.set(child, col)
@@ -1707,12 +1740,12 @@ endwhile"""
         items_by_location = defaultdict(list)
         for item in data:
             items_by_location[item['Location'].split('\t')[1]].append(item)
+        data_by_location = []
         for location, items in items_by_location.items():
-            print(location)
             profit_sum = 0
             ctp_sum = 0
             margin_sum = 0
-            total_items_at_location = len(items)
+            total_items_at_location = 0
             for item in items:
                 price_col_string = item['Price']
                 price_col_split = price_col_string.split('/')
@@ -1721,12 +1754,36 @@ endwhile"""
                 quantity_int = int(item['#'])
                 ctp_ratio_float = float(item['Ratio'])
                 profit_margin = round((sale_price - my_cost) / my_cost,2)
-                total_profit = (sale_price - my_cost) * quantity_int
-                profit_sum += total_profit
+                potential_profit = (sale_price - my_cost) * quantity_int
+                if ctp_ratio_float > 0.9 or profit_margin < 0.1:
+                    continue
+                total_items_at_location += 1
+                profit_sum += potential_profit
                 ctp_sum += ctp_ratio_float
                 margin_sum += profit_margin
-            print(f"Total Profit: {profit_sum}\tCTP Ratio Average: {round(ctp_sum / total_items_at_location,2)}\tProfit Margin Average: {margin_sum / total_items_at_location}")
+            total_profit = profit_sum
+            profit_per_item = round(profit_sum / total_items_at_location)
+            ctp_ratio_average = round((ctp_sum / total_items_at_location) * 10) / 10 if total_items_at_location else 1
+            profit_margin_average = round((margin_sum / total_items_at_location) * 10) / 10 if total_items_at_location else 0
+            loc_data = {
+                "Profit": total_profit,
+                "Profit_Per_Item": profit_per_item,
+                "CTP_Average": ctp_ratio_average,
+                "Margin_Average": profit_margin_average,
+            }
+            data_by_location.append((location,loc_data))
+        loc_data_sorted = sorted(data_by_location,key=lambda x: (-x[1]["Profit_Per_Item"],-x[1]["Margin_Average"],x[1]["CTP_Average"]))
+        loc_sorted = []
+        for loc,data in loc_data_sorted:
+            loc_sorted.append(loc)
+        print(loc_data_sorted)
 
+        loc_id_list = [(self.tree.set(k, 'Location'),self.tree.set(k, 'Ratio'), k) for k in tree_children]
+        loc_id_list_sorted = sorted(loc_id_list,key=lambda x: (loc_sorted.index(x[0].split("\t")[1]), float(x[1])))
+        for index, (_, _, k) in enumerate(loc_id_list_sorted):
+            self.tree.move(k, '', index)
+        self.tree.see(loc_id_list_sorted[0][2])
+        #print(f"Total Profit: {total_profit}\tCTP Ratio Average: {ctp_ratio_average}\t\tProfit Margin Average: {profit_margin_average}\n")
 
 
 def start_purchase_script():
