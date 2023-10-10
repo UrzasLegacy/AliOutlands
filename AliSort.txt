@@ -41,10 +41,27 @@ while skill "lumberjacking" > 50 and findtype 7133 as logs
     wait 650
 endwhile
 
-if findtype 5356 as map and findtype 29104 ground any 1 2 as myTreasureMapBook
-    menu myTreasureMapBook
-    wait 650
+if findtype 5356 as map and findtype 29104 ground 2990 1 2 as myTreasureMapBook
+    menu myTreasureMapBook 0
 endif
+
+if findtype "scroll of calling" as scroll and findtype 29104 ground 2963 1 2 as myScrollBook
+    menu myScrollBook 0
+endif
+
+if findtype 5981 as cloth and findtype 29104 ground 1495 1 2 as myClothBook
+    menu myClothBook 0
+endif
+
+if findtype 3838|3839|3842|3843|15297|29025|29036 as dye and findtype 29104 ground 1494 1 2 as myDyeBook
+    menu myDyeBook 0
+endif
+
+if findtype 27612 as dye and findtype 29104 ground 2910 1 2 as myLorePageBook
+    menu myLorePageBook 0
+endif
+
+wait 250
 
 if findtype 'storage shelf' ground 0 1 2 as myStorageShelf
     menu myStorageShelf 0
@@ -52,15 +69,15 @@ if findtype 'storage shelf' ground 0 1 2 as myStorageShelf
     target self
     waitforgump 3232825965
     gumpclose 
-    wait 650
 endif
 
 if findtype 'resource container' ground 0 1 2 as myResourceContainer
     menu myResourceContainer 0
     wft 1000
     target self
-    wait 650
 endif
+
+wait 250
 
 #Valuables
 while findtype 22326|51078|15296|45259|29030|2539|3821|5360|16898|576|2472|2475|2594|2744|2750|2760|2771|2778|2799|3648|3649|3650|3651|3708|3712|3827|3836|3838|3839|3842|3843|3985|4248|5359|5981|8826|12686|15297|17087|17686|19717|22244|22336|23996|23997|24343|24434|29025|29036|29832|29833|43166|43179|43206|48405|48407 backpack as item
