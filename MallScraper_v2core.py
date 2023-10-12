@@ -337,33 +337,36 @@ my_locations = {
 def item_scorer(item,quantity,buy_price,sell_price,total_profit,discount_ratio,liquidity_sore):
    pass
 
-def junk_filter(item_name,item_quantity):
+def is_junk(item_name,item_quantity):
     # Check if the 'forbidden_words_set' attribute exists. If not, create it.
-    if not hasattr(junk_filter, "general_forbidden"):
-        junk_filter.general_forbidden = {
-        "potion keg","blank scroll","common plant","common seed","unidentified"," phylactery","durable ","substantial ","massive ","fortified ","exceptional ","accurate ",
+    item_name = item_name.lower()
+    if not hasattr(is_junk, "general_forbidden"):
+        is_junk.general_forbidden = {
+        "potion keg","common plant","common seed","unidentified"," phylactery","durable ","substantial ","massive ","fortified ","exceptional ","accurate ",
         "ruin ","might ","force ","slaying ","mastercrafted "," defense ","guarding ","hardening ","fortification ","potent ","melodious ","boarding rope",
-        "blank map","large ship bomb","(delectable)","skinning knife","fishing pole","fishing map","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA",
-        "AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA"
+        "blank map","large ship bomb","(delectable)","skinning knife","fishing pole","fishing map"," uses remaining)","cannon shot","recall scroll","hops seed","a disguise kit",
+        "veterinary supplies","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA"
         }
 
-    if not hasattr(junk_filter, "singleton_forbidden"):
-        junk_filter.singleton_forbidden = {
-        "ingot","board","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA"
-        }
+    if not hasattr(is_junk, "strict_forbidden"):
+        is_junk.strict_forbidden = [
+        "bow","buckler","crossbow","kryss","martial manual","platemail chest","quarter staff","shepherd's crook","war mace","longsword"
+        ]
         
-    if not hasattr(junk_filter, "graphic_forbidden"):
-        junk_filter.graphic_forbidden = { # gems, boards, ingots, leather,
-        "AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA"
+    if not hasattr(is_junk, "singleton_forbidden"):
+        is_junk.singleton_forbidden = {
+        "ingot","board","leather","gems","bottle","bow","buckler","crossbow","kryss","martial manual","platemail chest","quarter staff","shepherd's crook","war mace","blank scroll",
+
         }
-    
-    general_check = not any(word in item_name for word in junk_filter.general_forbidden)
-    #singleton_check = not any(word in item_name for word in junk_filter.singleton_forbidden) and item_quantity == 1 #TODO
-    #graphic_check = not any(item_graphic in junk_filter.graphic_forbidden) #TODO
+    #singleton_check
+    # if item_quantity == 1 and any(word in item_name for word in is_junk.singleton_forbidden):
+    #     pass #TODO
+    if item_name in is_junk.strict_forbidden: #returns true if item is junk
+        return True 
+    general_check = any(word in item_name for word in is_junk.general_forbidden) #returns true if item is junk
     return general_check
 
  
-
 
 def multi_parse_wide(in_tuple):
     item = in_tuple[0]
@@ -444,11 +447,13 @@ def multi_parse_wide(in_tuple):
                         threshold = 0
                 else:
                     threshold = float(prices_obj.get(name_string, 0))
-                if threshold > 0: #TODO add 999 and junk_filter
+                if threshold > 0:
                     cost_to_price_ratio = round(price / threshold,2)
+                elif price == 999 and not is_junk(name_string,quantity_string):
+                    cost_to_price_ratio = 1001
                 else:
                     cost_to_price_ratio = 1000
-                if cost_to_price_ratio > cutoff_threshold and price_depth != 2:
+                if cost_to_price_ratio != 1001 and cost_to_price_ratio > cutoff_threshold and price_depth != 2:
                     continue
                 if(price <= threshold or price_depth == 2): #self.search_pricedepth.get()
                     format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
@@ -626,7 +631,7 @@ def sort_key_tuple(item):
                 else:
                     primary_key = float(primary_val)
                     if primary_key > 10000.0:
-                        print(f'Vendor name convertable to float {primary_val}:{primary_key}')
+                        print(f'Vendor name convertable to float in primary check {primary_val}:{primary_key}:{result}')
                         raise Exception('Vendor name convertable to float')
                     #print(primary_key)
             except Exception as e:
@@ -647,7 +652,7 @@ def sort_key_tuple(item):
                 else:
                     secondary_key = float(secondary_val)
                     if secondary_key > 1000.0:
-                        print(f'Vendor name convertable to float {secondary_val}:{secondary_key}')
+                        print(f'Vendor name convertable to float in secondary check {secondary_val}:{secondary_key}:{result}')
                         raise Exception('Vendor name convertable to float')
                     #print(primary_key)
             except Exception as e:
@@ -658,9 +663,9 @@ def sort_key_tuple(item):
     #print(f"primary_key:{primary_key}, secondary_key:{secondary_key}")
     return (primary_key, secondary_key)  # Return a tuple for multi-level sorting
 
-def delete_most_recent_log():
-    folder_path = "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\Client\\JournalLogs\\"
-
+def delete_most_recent_log(event=None):
+    file = get_most_recent_log()
+    os.remove(file)
 
 def get_most_recent_log():
     folder_path = "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\Client\\JournalLogs\\"
@@ -726,7 +731,6 @@ def parse_log_to_object():
                         "quantity": item_quantity,
                         'location': location,
                         'location_name': location_name
-                        #TODO add location name
                     }
                     pass_flag = True
                     current_vendor["items"].append(item)
@@ -755,7 +759,7 @@ def parse_log_to_object():
                 if match:
                     x1 = match.group(1)
                     y1 = match.group(2)
-                    location = f"{x1}, {y1}" #todo
+                    location = f"{x1}, {y1}"
                     check_dist = float('inf')
                     closest = None
                     for location_name, tuple_loc in my_locations.items():
@@ -965,6 +969,7 @@ class AliApp:
         self.root.bind("<Return>", self.ParseMostRecentJournalLog)
         self.root.bind("<Control-Return>", self.ScrapeOutlandMall)
         self.root.bind("<F1>", self.sort_tree_density)
+        self.root.bind("<Control-F1>", delete_most_recent_log)
         self.root.grid_columnconfigure(0, weight=10)
         self.root.grid_columnconfigure(1, weight=0)
         self.root.grid_columnconfigure(2, weight=0)
@@ -1449,7 +1454,6 @@ endwhile"""
             if not bool:
                 continue
             name = step[0]
-            self.queue_append.put(name)
             tuple_list.append((name,price_depth,seconds_threshold,cutoff_threshold))
 
         elapsed_time = round(time.time() - start_time,2)
@@ -1517,12 +1521,12 @@ endwhile"""
                 else:
                     threshold = float(self_parse_prices.get(name_string, 0))
                 if threshold > 0:
-                    ratio = round(price / threshold,2)
-                elif price == 999 and junk_filter(name_string,item['quantity']):
-                    ratio = 1001
+                    cost_to_price_ratio = round(price / threshold,2)
+                elif price == 999 and not is_junk(name_string,item['quantity']):
+                    cost_to_price_ratio = 1001
                 else:
-                    ratio = 1000
-                if ratio != 1001 and ratio > cutoff_threshold and price_depth != 2:
+                    cost_to_price_ratio = 1000
+                if cost_to_price_ratio != 1001 and cost_to_price_ratio > cutoff_threshold and price_depth != 2:
                     continue
                 if(price <= threshold or price_depth == 2 or price == 999):
                     location_coordinates = item['location']
@@ -1533,7 +1537,7 @@ endwhile"""
                     location_link = f"https://www.exploreoutlands.com/#pos:{location_coordinates_cleaned},13"
                     location_link_split = location_link.split('#')
                     formatted_location_link = f"{location_link_split[0]}?{vendor_id}?{item['id']}?{int(price * quantity_int)}#{location_link_split[1]}"
-                    out_data.append((f"{name_string}",f"{price}/{threshold}",f"{ratio}",f"{quantity_int}",f"{vendor_string}",f"{location_coordinates}\t{location_name}",f"{out_string}",f"{formatted_location_link}",f"{format_url}"))
+                    out_data.append((f"{name_string}",f"{price}/{threshold}",f"{cost_to_price_ratio}",f"{quantity_int}",f"{vendor_string}",f"{location_coordinates}\t{location_name}",f"{out_string}",f"{formatted_location_link}",f"{format_url}"))
         self.queue_append.put(out_data)
 
     def ParseMostRecentJournalLog(self,event=''):
