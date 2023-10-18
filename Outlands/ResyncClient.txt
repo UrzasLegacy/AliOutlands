@@ -1,0 +1,7 @@
+hotkey 'Resynchronize Client'
+hotkey 'Clear Drag/Drop Queue'
+hotkey 'Drop What You are Currently Holding'
+wait 650
+dclick backpack
+wait 650
+hotkey 'Recount Counters'

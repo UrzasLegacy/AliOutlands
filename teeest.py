@@ -1,7 +1,7 @@
 from collections import defaultdict
 import json
 
-hues = {
+hue_list = {
     'Shimmer Oxide':         {'rare cloth': 175000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1483},
     'Shimmer Cardinal':      {'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1476},
     'Shimmer Evergreen':     {'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1479},
@@ -140,25 +140,36 @@ hues = {
 #backpack dye (hue 2804: dark forest)
 
 #dark forest mount gear dye
-def alter_hue_dict(self_parse=False, item_type="rare cloth"): #TODO switch from list to obj elements, type cloth or dye
+def alter_hue_dict(self_parse=False, item_type="rare cloth"):
+    shoe_list = ['cloth shoes', 'shoes', 'cloth boots', 'cloth thigh boots', 'cloth sandals']
     out_dict = defaultdict(int)
     if self_parse:
-        for k, v in hues.items():
-            new_k = f"{item_type} (hue {v['hue']}: {k.lower()})"
-            out_dict[new_k] = v[item_type]
-            if 'hair dye' in item_type:
-                out_dict[f"rare {new_k}"] = v[item_type]
+        for hue_name, hue_data in hue_list.items():
+            lower = hue_name.lower()
+            if item_type == 'rare cloth':
+                new_k = f"{item_type} (hue {hue_data['hue']}: {lower})"
+                out_dict[new_k] = hue_data[item_type]
+                shoe_price = hue_data['rare cloth'] * 6
+                for shoe in shoe_list:
+                    new_k = f"{lower} {shoe} (hue {hue_data['hue']})"
+                    out_dict[new_k] = shoe_price
+            else:
+                new_k = f"{item_type} (hue {hue_data['hue']}: {lower})"
+                out_dict[new_k] = hue_data[item_type]
+                if 'hair dye' in item_type:
+                    out_dict[f"rare {new_k}"] = hue_data[item_type]
+
     else:
-        for k, v in hues.items():
-            lower = k.lower()
+        for hue_name, hue_data in hue_list.items():
+            lower = hue_name.lower()
             if "metallic lemon-lime" in lower:
-                new_k = f"{item_type} (hue {v['hue']}: {lower})"
+                new_k = f"{item_type} (hue {hue_data['hue']}: {lower})"
             else:
                 new_k = f"{lower} {item_type}"
-            out_dict[new_k] = v[item_type]
+            out_dict[new_k] = hue_data[item_type]
             if 'hair dye' in item_type:
-                out_dict[f"rare {new_k}"] = v[item_type]
+                out_dict[f"rare {new_k}"] = hue_data[item_type]
     return out_dict
+    print(json.dumps(out_dict, indent=4))
 
-
-print(json.dumps(alter_hue_dict(self_parse=False, item_type="runebook dye"), indent=4))
+print(json.dumps(alter_hue_dict(self_parse=True, item_type="accessory dye"), indent=4))
