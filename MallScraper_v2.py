@@ -611,31 +611,33 @@ def is_junk(item_name,item_quantity):
         "potion keg","common plant","common seed","unidentified"," phylactery","durable ","substantial ","massive ","fortified ","exceptional ","accurate ",
         "ruin ","might ","force "," power","slaying ","mastercrafted "," defense ","guarding ","hardening ","fortification ","potent ","melodious ","boarding rope",
         "blank map","large ship bomb","(delectable)","skinning knife","fishing pole","fishing map"," uses remaining)","cannon shot","recall scroll","hops seed","a disguise kit",
-        "veterinary supplies","fertility serum","AAAAAAAAAAA","poison charges)","bottle of grog","(700 base doubloon cost)","carpet dye"
+        "veterinary supplies","fertility serum","poison charges)","bottle of grog","(700 base doubloon cost)","carpet dye","(double click to place)","common black goods","(meagre)"
         }
 
     if not hasattr(is_junk, "strict_forbidden"):
         is_junk.strict_forbidden = {
         "bow","buckler","crossbow","kryss","martial manual","platemail chest","quarter staff","shepherd's crook","war mace","longsword","katana","metal kite shield",
-        "beverage bottle it's full.","wooden chest","dullhide skinning map (undeciphered)","shadowhide skinning map (undeciphered)",
+        "beverage bottle it's full.","wooden chest","dullhide skinning map (undeciphered)","shadowhide skinning map (undeciphered)","cutlass","raw fish","doubloons",
+        "gold coin","magic mushroom","dyes","blank recall rune"
         }
         
-    # if not hasattr(is_junk, "singleton_general_forbidden"):
-    #     is_junk.singleton_general_forbidden = {
-    #         
-            
-    #         }
+    if not hasattr(is_junk, "singleton_general_forbidden"):
+        is_junk.singleton_general_forbidden = {
+            "potion"
+            }
+        
     if not hasattr(is_junk, "singleton_strict_forbidden"): #for ignoring stackables of quantity 1
         is_junk.singleton_strict_forbidden = {
             "avarhide","verehide", "valehide", "rosehide", "goldenhide", "bronzehide","copperhide", "shadowhide", "dullhide","leather",
             "avarite ingot","valorite ingot","verite ingot","agapite ingot", "gold ingot", "bronze ingot","copper ingot", "shadow iron ingot", "dull copper ingot","iron ingot",
             "avarwood board","valewood board", "rosewood board", "goldenwood board", "bronzewood board","copperwood board", "shadowwood board", "dullwood board","board",
-            "board","amethyst","citrine","diamond","emerald","ruby","sapphire","star sapphire","tourmaline","bottle","blank scroll"
+            "board","amethyst","citrine","diamond","emerald","ruby","sapphire","star sapphire","tourmaline","bottle","blank scroll","black pearl","bloodmoss","garlic","ginseng",
+            "mandrake root", "nightshade", "spider's silk", "sulfurous ash"
             }
 
     if item_quantity == 1: 
-        # if any(word in item_name for word in is_junk.singleton_general_forbidden):  #returns true if item quantity is 1 and item name contains any string in singleton forbidden list
-        #     return True
+        if any(word in item_name for word in is_junk.singleton_general_forbidden):  #returns true if item quantity is 1 and item name contains any string in singleton forbidden list
+            return True
         if item_name in is_junk.singleton_strict_forbidden: #returns true if item quantity is 1 and item name is in singleton strict forbidden list
             return True
     if item_name in is_junk.strict_forbidden: #returns true if item name is in strict forbidden list
@@ -933,7 +935,7 @@ def sort_key_tuple(item):
             try:
                 result = get_seconds_from_string(secondary_val)
                 if result:
-                    primary_key = float(result)
+                    secondary_key = float(result)
                 else:
                     secondary_key = float(secondary_val)
                     if secondary_key > 10000.0:
@@ -1826,7 +1828,7 @@ endwhile"""
                 if response.status_code != 200:
                     print(f"Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")
                     continue
-                print(f"start request: {searchString}: {elapsed_time}")
+                #print(f"start misc request: {searchString}: {elapsed_time}")
                 yield (response.content,searchPrice,page_url,seconds_threshold,price_depth,cutoff_threshold)
 
 
@@ -1966,6 +1968,7 @@ endwhile"""
                     location_link_split = location_link.split('#')
                     formatted_location_link = f"{location_link_split[0]}?{vendor_id}?{item['id']}?{int(price * quantity_int)}#{location_link_split[1]}"
                     out_data.append((f"{name_string}",f"{price}/{threshold}",f"{cost_to_price_ratio}",f"{quantity_int}",f"{vendor_string}",f"{location_coordinates}\t{location_name}",f"{out_string}",f"{formatted_location_link}",f"{format_url}"))
+        print(f"items: {len(out_data)}")
         self.queue_append.put(out_data)
 
     def ParseMostRecentJournalLog(self,event=''):
