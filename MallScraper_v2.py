@@ -305,6 +305,7 @@ link_prices = { #exact chain type string MATTERS
     "Gold/Doubloon Drop Increase": [60000,500000,2300000],
     "Special/Rare Loot Chance": [60000,500000,2300000],
     "reforging tool": [85000,180000,350000],
+    "corrupted_link_price_threshold": 175000
 }
 
 hue_list = {
@@ -412,7 +413,7 @@ hue_list = {
     'Powder Seafoam':        {'rare cloth': 30000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 150000, 'carpet dye': 4000, 'furniture dye': 100000, 'hair dye': 300000, 'facial hair dye': 200000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 2246},
     'Powder Spring':         {'rare cloth': 30000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 150000, 'carpet dye': 9000, 'furniture dye': 100000, 'hair dye': 200000, 'facial hair dye': 200000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 1381},
     'Powder Lapis':          {'rare cloth': 55000, 'runebook dye': 80000, 'accessory dye': 15000, 'headwear dye': 500000, 'carpet dye': 5000, 'furniture dye': 100000, 'hair dye': 400000, 'facial hair dye': 300000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 2255},
-    'Powder Cyan':           {'rare cloth': 40000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 150000, 'carpet dye': 5000, 'furniture dye': 100000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 2877},
+    'Powder Cyan':           {'rare cloth': 40000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 150000, 'carpet dye': 5000, 'furniture dye': 75000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 2877},
     'Powder Azure':          {'rare cloth': 175000, 'runebook dye': 80000, 'accessory dye': 30000, 'headwear dye': 1200000, 'carpet dye': 8000, 'furniture dye': 100000, 'hair dye': 800000, 'facial hair dye': 800000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1384},
     'Powder Orchid':         {'rare cloth': 55000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 500000, 'carpet dye': 5000, 'furniture dye': 80000, 'hair dye': 200000, 'facial hair dye': 200000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1462},
     'Powder Iris':           {'rare cloth': 400000, 'runebook dye': 100000, 'accessory dye': 50000, 'headwear dye': 1300000, 'carpet dye': 20000, 'furniture dye': 250000, 'hair dye': 800000, 'facial hair dye': 800000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2173},
@@ -608,27 +609,39 @@ def is_junk(item_name,item_quantity):
     if not hasattr(is_junk, "general_forbidden"):
         is_junk.general_forbidden = {
         "potion keg","common plant","common seed","unidentified"," phylactery","durable ","substantial ","massive ","fortified ","exceptional ","accurate ",
-        "ruin ","might ","force ","slaying ","mastercrafted "," defense ","guarding ","hardening ","fortification ","potent ","melodious ","boarding rope",
+        "ruin ","might ","force "," power","slaying ","mastercrafted "," defense ","guarding ","hardening ","fortification ","potent ","melodious ","boarding rope",
         "blank map","large ship bomb","(delectable)","skinning knife","fishing pole","fishing map"," uses remaining)","cannon shot","recall scroll","hops seed","a disguise kit",
-        "veterinary supplies","fertility serum","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA","AAAAAAAAAAA"
+        "veterinary supplies","fertility serum","AAAAAAAAAAA","poison charges)","bottle of grog","(700 base doubloon cost)","carpet dye"
         }
 
     if not hasattr(is_junk, "strict_forbidden"):
-        is_junk.strict_forbidden = [
-        "bow","buckler","crossbow","kryss","martial manual","platemail chest","quarter staff","shepherd's crook","war mace","longsword"
-        ]
-        
-    if not hasattr(is_junk, "singleton_forbidden"):
-        is_junk.singleton_forbidden = {
-        "ingot","board","leather","gems","bottle","blank scroll",
+        is_junk.strict_forbidden = {
+        "bow","buckler","crossbow","kryss","martial manual","platemail chest","quarter staff","shepherd's crook","war mace","longsword","katana","metal kite shield",
+        "beverage bottle it's full.","wooden chest","dullhide skinning map (undeciphered)","shadowhide skinning map (undeciphered)",
         }
-    #singleton_check
-    # if item_quantity == 1 and any(word in item_name for word in is_junk.singleton_forbidden):
-    #     pass #TODO
-    if item_name in is_junk.strict_forbidden: #returns true if item is junk
+        
+    # if not hasattr(is_junk, "singleton_general_forbidden"):
+    #     is_junk.singleton_general_forbidden = {
+    #         
+            
+    #         }
+    if not hasattr(is_junk, "singleton_strict_forbidden"): #for ignoring stackables of quantity 1
+        is_junk.singleton_strict_forbidden = {
+            "avarhide","verehide", "valehide", "rosehide", "goldenhide", "bronzehide","copperhide", "shadowhide", "dullhide","leather",
+            "avarite ingot","valorite ingot","verite ingot","agapite ingot", "gold ingot", "bronze ingot","copper ingot", "shadow iron ingot", "dull copper ingot","iron ingot",
+            "avarwood board","valewood board", "rosewood board", "goldenwood board", "bronzewood board","copperwood board", "shadowwood board", "dullwood board","board",
+            "board","amethyst","citrine","diamond","emerald","ruby","sapphire","star sapphire","tourmaline","bottle","blank scroll"
+            }
+
+    if item_quantity == 1: 
+        # if any(word in item_name for word in is_junk.singleton_general_forbidden):  #returns true if item quantity is 1 and item name contains any string in singleton forbidden list
+        #     return True
+        if item_name in is_junk.singleton_strict_forbidden: #returns true if item quantity is 1 and item name is in singleton strict forbidden list
+            return True
+    if item_name in is_junk.strict_forbidden: #returns true if item name is in strict forbidden list
         return True 
-    general_check = any(word in item_name for word in is_junk.general_forbidden) #returns true if item is junk
-    return general_check
+    if any(word in item_name for word in is_junk.general_forbidden): #returns true if item name contains any string in general forbidden list
+        return True
 
 def multi_parse_wide(in_tuple):
     item = in_tuple[0]
@@ -1047,7 +1060,8 @@ def parse_log_to_object():
             if len(my_vendor_objs):
                 handle_my_vendors(my_vendor_objs)
             return (vendors, latest_log, character_name)
-    return (latest_log, character_name)
+    if character_name:
+        return (latest_log, character_name)
     
 def handle_my_vendors(vendor_obj_list):
     initialize_db()
@@ -1239,10 +1253,16 @@ class AliApp:
         self.root.minsize(1160, 870)  # Minimum size
         #self.root.maxsize(900, 700)  # Maximum size
         self.root.bind("<Return>", self.ParseMostRecentJournalLog)
+        self.root.bind("`", self.ParseMostRecentJournalLog)
         self.root.bind("<Control-Return>", self.ScrapeOutlandMall)
+        self.root.bind("<Control-`>", self.ScrapeOutlandMall)
         self.root.bind("<Control-Alt-Return>", self.PriorityScrapeOutlandMall)
+        self.root.bind("<Shift-Alt-Return>", self.set_all_checkboxes)
+        self.root.bind("<KeyPress-3>", self.set_all_checkboxes)
         self.root.bind("<Alt-Return>", self.set_hp_variables)
+        self.root.bind("<KeyPress-1>", self.set_hp_variables)
         self.root.bind("<Shift-Return>", self.set_lp_variables)
+        self.root.bind("<KeyPress-2>", self.set_lp_variables)
         self.root.bind("<F1>", self.sort_tree_density)
         self.root.bind("<Control-F1>", delete_most_recent_log)
         self.root.grid_columnconfigure(0, weight=10)
@@ -1502,7 +1522,7 @@ class AliApp:
         self.check_board_var.set(True)
         self.check_leather_var.set(True)
 
-    def set_all_checkboxes(self):
+    def set_all_checkboxes(self,event=None):
         self.check_core_var.set(True)
         self.check_extract_var.set(True)
         self.check_distil_var.set(True)
@@ -1519,7 +1539,7 @@ class AliApp:
         self.check_board_var.set(True)
         self.check_leather_var.set(True)
 
-    def set_none_checkboxes(self):
+    def set_none_checkboxes(self,event=None):
         self.check_core_var.set(False)
         self.check_extract_var.set(False)
         self.check_distil_var.set(False)
@@ -1865,7 +1885,6 @@ endwhile"""
         async_bot.start()
 
     def search_self_parse_obj(self,parse_obj):
-        corrupted_link_price_threshold = 200000
         cutoff_threshold = self.cutoff_threshold.get()
         price_depth = self.search_pricedepth.get()
         bools = [
@@ -1924,7 +1943,7 @@ endwhile"""
                     elif name_string.startswith('gold mastery chain link'):
                         threshold = float(self_parse_prices.get(chain_name,[0,0,0])[2])
                     elif name_string.startswith('corrupted mastery chain link'):
-                        threshold = float(corrupted_link_price_threshold)
+                        threshold = float(self_parse_prices.get("corrupted_link_price_threshold",0))
                     else:
                         threshold = 0
                 else:
@@ -1957,6 +1976,7 @@ endwhile"""
             out_string_date = '/'.join(file_info[1:3])
             out_string_time = ':'.join(file_info[3:5])
             out_string = f"{out_string_date} {out_string_time}"
+
             self.queue_append.put(f"X: {obj[1][:6]}: {out_string}")
             return
         self.search_self_parse_obj(obj)
@@ -2333,6 +2353,22 @@ def switch_focus():
     window.set_focus()
     win32api.SetCursorPos(mouse_pos)
 
+def focus_scraper():
+    window_name = rf"Ali's OutlandMalls Scraper"
+    scraper_window = None
+    for window in gw.getAllWindows():
+        if window_name in window.title:
+            scraper_window = window
+            break
+    if not scraper_window:
+        print("Couldn't find scraper window!")
+        return
+    scraper = connect_to_window(scraper_window._hWnd)
+    if not scraper:
+        print("Couldn't connect to scraper app!")
+        return
+    scraper.set_focus()
+
 def focus_named_assistant(name):
     # Save the current mouse position
     regex_assistant = rf"(?:\] - )?{name} \(\[None\]\)"
@@ -2391,6 +2427,7 @@ keyboard.add_hotkey("ctrl+alt+`", switch_focus)
 keyboard.add_hotkey("ctrl+alt+1", lambda: focus_named_assistant('a lost girl'))
 keyboard.add_hotkey("ctrl+alt+2", lambda: focus_named_assistant('Vendor Police'))
 keyboard.add_hotkey("ctrl+alt+3", lambda: focus_named_assistant('Aproctoflecticus'))
+keyboard.add_hotkey("alt+shift+`", lambda: focus_scraper())
 
 def main():
     root = tk.Tk()
