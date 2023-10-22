@@ -1,42 +1,55 @@
-@setvar! owner 0
-if name = "Thessaly" or name = "Ballsby Jiglin" or name = "Paper Dragon"
-    @setvar! owner 1
+@clearignore
+createlist "npcs"
+clearlist "npcs"
+@setvar! "pass" 0
+
+if findtypelist "npcs" 400 ground any 1 18
+    foreach "npc" in "npcs"
+        getlabel "npc" desc
+        if "innkeeper" in desc
+            @setvar! pass 1
+            break
+        else
+            @ignore "npc"
+        endif
+    endfor
 endif
 
-if skill 'Chivalry' > 80
-    while not findtype 30528 ground 2091 -1 1
-        say '[SacredJourney'
+if "pass" = 1
+    overhead "Innkeeper found"
+elseif skill "Chivalry" > 80
+    while not findtype 30528 ground 2091 1 1
+        say "[SacredJourney"
         waitforgump 1482653814 500
         gumpresponse 4 1482653814
-        overhead 'Waiting for gate'
+        overhead "Waiting for gate"
         wait 1000
     endwhile
-    dclicktype 30528 ground 2091 -1 1
+    dclicktype 30528 ground 2091 1 1
     waitforgump 3899019871
     gumpresponse 2
-elseif skill 'Magery' > 50
-    @setvar! pass 0
-    removelist 'runebookList'
-    createlist 'runebookList'
-    if findtypelist 'runebookList' "29103|8901" backpack
-        foreach 'myBook' in 'runebookList'
-            #overhead 'myBook'
-            getlabel myBook desc
-            if 'Home' in desc
+    wait 1000
+elseif skill "Magery" > 50
+    removelist "runebookList"
+    createlist "runebookList"
+    if findtypelist "runebookList" "29103|8901" backpack
+        foreach "myBook" in "runebookList"
+            getlabel "myBook" desc
+            if "runebook: Home" in desc
                 while pass = 0
-                    hotkey 'Recall'
+                    hotkey "Recall"
                     wft 5000
-                    target myBook
+                    target "myBook"
                     wait 500
-                    overhead 'Looking for innkeeper'
-                    clearignore
-                    createlist 'npcs'
-                    clearlist 'npcs'
-                    if findtypelist 'npcs' 400 ground any 1 18
-                        foreach npc in 'npcs'
-                            getlabel npc desc
-                            if "innkeeper" in desc
-                                overhead 'Innkeeper found'
+                    overhead "Looking for innkeeper" 1159
+                    @clearignore
+                    createlist "npcs"
+                    clearlist "npcs"
+                    if findtypelist "npcs" 400 ground any 1 18
+                        foreach "npc" in "npcs"
+                            getlabel "npc" "desc"
+                            if "innkeeper" in "desc"
+                                overhead "Innkeeper found" 1159
                                 @setvar! pass 1
                                 break
                             else
@@ -49,32 +62,27 @@ elseif skill 'Magery' > 50
             endif
         endfor
     else
-        overhead 'Runebook missing'
-        if findtype 3701 backpack as pack
-            dclick pack
+        overhead "Runebook named 'Home' missing" 1159
+        if findtype 2472|2473|2474|2475|2476|2480|2481|2482|2604|2605|2606|2607|2608|2609|2610|2611|2612|2613|2614|2615|2616|2617|2618|2619|2620|2621|2622|2623|2624|2625|2626|2627|2628|2629|2630|2631|2632|2633|2634|2635|2636|2637|2638|2639|2640|2641|2642|2643|2711|2712|2713|2714|2715|2716|2717|2718|3644|3645|3646|3647|3648|3649|3650|3651|3701|3702|3703|3704|3705|3706|3708|3709|3710|3711|3712|7808|7809|9002|9003|11010|11011|12657|29833|29832 "backpack" as "subContainer"
+            dclick "subContainer"
             wait 300
         endif
-        if findtypelist 'runebookList' "29103|8901" backpack
+        if findtypelist "runebookList" 29103|8901 "backpack"
             loop
         endif
         stop
     endif
-    if pass = 0
-        overhead "Runebook named 'Home' missing"
-        stop
-    endif
 endif
 
-wait 500
-say 'Escort me to my room please'
+say "Escort me to my room please"
 waitforgump 2393832411
-
-if owner = 0
+if not gumpexists 2393832411
+    overhead "Room gump not found!" 1159
+elseif ingump "Enter Your Room"
+    gumpresponse 4
+elseif ingump "Rent This Room"
     gumpresponse 5
     waitforgump 2393832411
     gumpresponse 100
-elseif owner = 1
-    gumpresponse 4
 endif
-
 stop
