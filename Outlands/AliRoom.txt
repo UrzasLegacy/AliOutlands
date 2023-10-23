@@ -1,18 +1,10 @@
-@clearignore
-createlist "npcs"
-clearlist "npcs"
-@setvar! "pass" 0
+@setvar! "innkeeperSerial" 0x5B0
 
-if findtypelist "npcs" 400 ground any 1 18
-    foreach "npc" in "npcs"
-        getlabel "npc" desc
-        if "innkeeper" in desc
-            @setvar! pass 1
-            break
-        else
-            @ignore "npc"
-        endif
-    endfor
+//No Edit
+@clearignore
+@setvar! "pass" 0
+if find "innkeeperSerial" ground any any 12
+    @setvar! "pass" 1
 endif
 
 if "pass" = 1
@@ -27,7 +19,7 @@ elseif skill "Chivalry" > 80
     endwhile
     dclicktype 30528 ground 2091 1 1
     waitforgump 3899019871
-    gumpresponse 2
+    gumpresponse 2 3899019871
     wait 1000
 elseif skill "Magery" > 50
     removelist "runebookList"
@@ -43,28 +35,19 @@ elseif skill "Magery" > 50
                     wait 500
                     overhead "Looking for innkeeper" 1159
                     @clearignore
-                    createlist "npcs"
-                    clearlist "npcs"
-                    if findtypelist "npcs" 400 ground any 1 18
-                        foreach "npc" in "npcs"
-                            getlabel "npc" "desc"
-                            if "innkeeper" in "desc"
-                                overhead "Innkeeper found" 1159
-                                @setvar! pass 1
-                                break
-                            else
-                                @ignore npc
-                            endif
-                        endfor
+                    if find "innkeeperSerial"
+                        overhead "Innkeeper found" 1159
+                        @setvar! pass 1
+                    else
+                        overhead "Not near enough to innkeeper, trying again" 1159
                     endif
                 endwhile
-                break
             endif
         endfor
     else
-        overhead "Runebook named 'Home' missing" 1159
-        if findtype 2472|2473|2474|2475|2476|2480|2481|2482|2604|2605|2606|2607|2608|2609|2610|2611|2612|2613|2614|2615|2616|2617|2618|2619|2620|2621|2622|2623|2624|2625|2626|2627|2628|2629|2630|2631|2632|2633|2634|2635|2636|2637|2638|2639|2640|2641|2642|2643|2711|2712|2713|2714|2715|2716|2717|2718|3644|3645|3646|3647|3648|3649|3650|3651|3701|3702|3703|3704|3705|3706|3708|3709|3710|3711|3712|7808|7809|9002|9003|11010|11011|12657|29833|29832 "backpack" as "subContainer"
-            dclick "subContainer"
+        overhead "Runebook missing" 1159
+        if findtype 3701 "backpack" as "pack"
+            dclick "pack"
             wait 300
         endif
         if findtypelist "runebookList" 29103|8901 "backpack"
@@ -72,17 +55,22 @@ elseif skill "Magery" > 50
         endif
         stop
     endif
+    if pass = 0
+        overhead "Runebook named 'Home' missing" 1159
+        stop
+    endif
 endif
 
 say "Escort me to my room please"
 waitforgump 2393832411
 if not gumpexists 2393832411
-    overhead "Room gump not found!" 1159
+    overhead "Room gump not found! Trying again" 1159
+    loop
 elseif ingump "Enter Your Room"
-    gumpresponse 4
+    gumpresponse 4 2393832411
 elseif ingump "Rent This Room"
-    gumpresponse 5
+    gumpresponse 5 2393832411
     waitforgump 2393832411
-    gumpresponse 100
+    gumpresponse 100 2393832411
 endif
 stop

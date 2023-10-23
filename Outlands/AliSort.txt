@@ -1,7 +1,6 @@
-
 @setvar! harvestingContainer 0x46075D38
 @setvar! magicContainer 0x4E707A91
-@setvar! EDCContainer 0x5882CC0B
+@setvar! EDCContainer 0x554F6F54
 @setvar! valuablesContainer 0x554F6F54
 @setvar! globalTimeout 650
 
@@ -86,14 +85,14 @@ if findtype 'resource container' ground 0 1 2 as myResourceContainer
     target self
 endif
 
-wait 250
+wait 500
 
 #Valuables
 while findtype 22326|51078|15296|45259|29030|2539|3821|5360|16898|576|2472|2475|2594|2744|2750|2760|2771|2778|2799|3648|3649|3650|3651|3708|3712|3827|3836|3838|3839|3842|3843|3985|4248|5359|5981|8826|12686|15297|17087|17686|19717|22244|22336|23996|23997|24343|24434|29025|29036|29832|29833|43166|43179|43206|48405|48407 backpack as item
     getlabel item desc
     overhead "Organize {{desc}} to Valuable Items" 53
     lift item 60000
-    drop valuablesContainer -1 -1 -1
+    drop EDCContainer -1 -1 -1
     wait globalTimeout
     endif
 endwhile
@@ -113,7 +112,7 @@ while findtype 9917|5056|5059|5060|5061|5063|5070|5074|5075|5076|5078|5085|5089|
     getlabel item desc
     overhead "Organize {{desc}} to Magic Items" 53
     lift item 60000
-    drop magicContainer -1 -1 -1
+    drop EDCContainer -1 -1 -1
     wait globalTimeout
     endif
 endwhile

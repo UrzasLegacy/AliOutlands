@@ -48,16 +48,16 @@ core_prices = { #exact string MATTERS
 
 extract_prices = { #exact string MATTERS
     "Blood Aspect Extract": 2000,
-    "Holy Aspect Extract": 2000,
-    "Earth Aspect Extract": 2500,
-    "Death Aspect Extract": 2500,
+    "Holy Aspect Extract": 3000,
+    "Earth Aspect Extract": 3000,
+    "Death Aspect Extract": 3000,
     "Water Aspect Extract": 4000,
-    "Gadget Aspect Extract": 2000,
+    "Gadget Aspect Extract": 4000,
     "Shadow Aspect Extract": 4000,
     "Void Aspect Extract": 4000,
     "Fire Aspect Extract": 3000,
     "Discipline Aspect Extract": 3000,
-    "Lyric Aspect Extract": 4000,
+    "Lyric Aspect Extract": 3000,
     "Poison Aspect Extract": 6000,
     "Eldritch Aspect Extract": 8000,
     "Fortune Aspect Extract": 7000,
@@ -69,16 +69,16 @@ extract_prices = { #exact string MATTERS
 
 distil_prices = { #exact string MATTERS
     "Blood Aspect Distillation": 2000,
-    "Holy Aspect Distillation": 2000,
-    "Earth Aspect Distillation": 2000,
-    "Death Aspect Distillation": 2000,
+    "Holy Aspect Distillation": 3000,
+    "Earth Aspect Distillation": 3000,
+    "Death Aspect Distillation": 3000,
     "Water Aspect Distillation": 4000,
-    "Gadget Aspect Distillation": 2000,
+    "Gadget Aspect Distillation": 4000,
     "Shadow Aspect Distillation": 4000,
     "Void Aspect Distillation": 4000,
-    "Fire Aspect Distillation": 2000,
-    "Discipline Aspect Distillation": 4000,
-    "Lyric Aspect Distillation": 5000,
+    "Fire Aspect Distillation": 3000,
+    "Discipline Aspect Distillation": 3000,
+    "Lyric Aspect Distillation": 3000,
     "War Aspect Distillation": 2000,
     "Poison Aspect Distillation": 6000,
     "Eldritch Aspect Distillation": 8000,
@@ -228,8 +228,8 @@ link_prices = { #exact chain type string MATTERS
     "Melee Accuracy": [100000,600000,2700000], #Melee Accuracy/Defense
     "Melee Defense": [100000,600000,2700000], #Melee Accuracy/Defense
     "Melee Accuracy/Defense": [100000,600000,2700000],
-    "Melee Special Chance/Special Damage": [90000,710000,2700000],
-    "Melee Special Chance": [90000,710000,2700000], #Melee Special Chance/Special Damage
+    "Melee Special Chance/Special Damage": [90000,650000,2700000],
+    "Melee Special Chance": [90000,650000,2700000], #Melee Special Chance/Special Damage
     "Melee Swing Speed": [100000,600000,2700000],
     "Melee Damage": [60000,500000,2300000], #Melee Damage/Ignore Armor Chance
     "Melee Ignore Armor Chance": [60000,500000,2300000], #Melee Damage/Ignore Armor Chance
@@ -515,10 +515,10 @@ my_locations = {
     "N Prevalia Sandbar": (1657,1320),
     "N Prev Clearing N": (1592,1388),
     "N Prev Clearing E": (1629,1421),
-    "N Prev Clearing Mid": (1571,1439),
-    "N Prev Clearing S": (1585,1439),
+    "N Prev Clearing Mid": (1596,1419),
+    "N Prev Clearing S": (1571,1439),
     "N Prev Clearing SW": (1554,1439),
-    "N Prev Clearing W": (1555,1404),
+    "N Prev Clearing W": (1555,1405),
     "E of Prev": (2036,1463),
     "Khal SE Prev": (2002,1795),
     "S Prev Xroad N": (1569,1729),
@@ -631,7 +631,7 @@ def is_junk(item_name,item_quantity):
             "avarite ingot","valorite ingot","verite ingot","agapite ingot", "gold ingot", "bronze ingot","copper ingot", "shadow iron ingot", "dull copper ingot","iron ingot",
             "avarwood board","valewood board", "rosewood board", "goldenwood board", "bronzewood board","copperwood board", "shadowwood board", "dullwood board","board",
             "board","amethyst","citrine","diamond","emerald","ruby","sapphire","star sapphire","tourmaline","bottle","blank scroll","black pearl","bloodmoss","garlic","ginseng",
-            "mandrake root", "nightshade", "spider's silk", "sulfurous ash"
+            "mandrake root", "nightshade", "spider's silk", "sulfurous ash", "arcane scroll"
             }
 
     if item_quantity == 1: 
@@ -977,7 +977,7 @@ def check_accessibility(file_path):
         return False
 
 def parse_log_to_object():
-    my_vendors = [4342004,1888935,3097786]
+    my_vendors = [4342004,1888935,1598057]
     vendors = {}
     current_vendor = None
     latest_log = get_most_recent_log()
@@ -1008,7 +1008,7 @@ def parse_log_to_object():
                     item_suffix = match.group(5) if match.group(5) else ''
                     if(item_suffix):
                         item_description += item_suffix
-                    item_unitprice = round(item_price / item_quantity,1)
+                    item_unitprice = round(item_price / item_quantity,4)
                     # If a match was found, return the matched number as an integer
                     item = {
                         'id': item_id,
@@ -1245,6 +1245,37 @@ def record_sale(snapshot_time, id, price, description, quantity):
          #   print(f"Item with ID {id} already exists in sales_history. Skipping insert.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+def shorten_number(num):
+    num = round(num,2)
+    if num >= 1000000:
+        short_num = f"{num / 1000000:.1f}"
+    elif num >= 1000:
+        short_num = f"{num / 1000:.1f}"
+    else:
+        return str(num)
+    return short_num.rstrip('0').rstrip('.') + ('m' if num >= 1000000 else 'k')
+
+def categorize_and_sort_aggregated_items(aggregated_items):
+    categories = {
+        'Aspect Stuff': ['aspect core','aspect extract','aspect distillation'],
+        'Treasure Maps/Tmaps' : ['treasure map'], 
+        'Skill Mastery Scrolls': ['skill mastery scroll'], 
+        'Links': ['chain link'],
+        'Materials': ['research material', 'arcane scroll', 'rare cloth', 'board','ingot','leather','dullhide, shadowhide, copperhide, bronzehide, goldenhide, rosehide, verehide, valehide, avarhide'],
+        'Dyes': ['dye'],
+        }
+    category_dict = defaultdict(dict)
+    for (description, price), quantity in aggregated_items.items():
+        for category, keywords in categories.items():
+            for keyword in keywords:
+                if keyword in description.lower():
+                    category_dict[category][(description, price)] = quantity
+                    break
+    for category, items in category_dict.items():
+        sorted_items = {k: v for k, v in sorted(items.items(), key=lambda item: item[0][0].lower())}
+        category_dict[category] = sorted_items
+    return category_dict
 
 class AliApp:
     def __init__(self,root):
@@ -1796,7 +1827,6 @@ endwhile"""
         self.root.update()
         self.tree.selection_set(row_id)
         #self.context_menu.post(event.x_self.root, event.y_self.root)
-        self.queue_append.put(location_name)
 
     def async_scraping(self):
         start_time = time.time()
@@ -1932,7 +1962,7 @@ endwhile"""
             vendor_items = vendor_data["items"]
             for item in vendor_items:
                 name_string = item['description']
-                price = item['price']
+                price = round(item['price'],1)
                 if 'chain link' in name_string:
                     if name_string.startswith('a '):
                         name_string = name_string[2:]
@@ -2088,6 +2118,8 @@ endwhile"""
             return []
         
     def read_db_current_inventory(self):
+
+        
         try:
             rows = get_most_recent_inventory_snapshot()
             if not rows:
@@ -2102,17 +2134,61 @@ endwhile"""
             self.scrollbar.config(command=listbox.yview)
             self.scrollbar.pack(side="right", fill="y")
             listbox.pack(side="left", fill="both", expand=True)
+            aggregated_items = {}
             columns = ['snapshot_time', 'id', 'price', 'description', 'quantity']
             for row in rows:
                 row_dict = dict(zip(columns, row))
-                total_price = row_dict['price'] * row_dict['quantity']
-                result = f"ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
-                listbox.insert(tk.END, result)
-                #print(result)
+                stackSize = int(row_dict['quantity'])
+                if stackSize > 1:
+                    key = (f"{row_dict['description']}$${stackSize}", row_dict['price'])  # Create a unique key for each item type at a given price
+                else:
+                    key = (f"{row_dict['description']}", row_dict['price'])  # Create a unique key for each item type at a given price
+                if key not in aggregated_items:
+                    aggregated_items[key] = 0
+                aggregated_items[key] += 1
+
+            
+            
+            #category_dict_example_categories =  # create an example of the output of categorize_and_sort_aggregated_items() for testing
+            
+
+            #category_dict_example['Treasure Maps/Tmaps'] = {('Treasure Map', 100): 1}
+            #category_dict_example['Skill Mastery Scrolls'] = {('Skill Mastery Scroll', 100): 1}
+
+            category_dict_example = {
+                'Aspect Stuff': { ('Aspect Core', 100): 1, ('Aspect Extract', 100): 1, ('Aspect Distillation', 100): 1 },
+                'Treasure Maps/Tmaps': { ('Treasure Map', 100): 1 },
+                'Skill Mastery Scrolls': { ('Skill Mastery Scroll', 100): 1 },
+                }
+            sorted_items = categorize_and_sort_aggregated_items(aggregated_items)
+            out_str = 'WTS\n'
+            for index, (category_name, category_items) in enumerate(sorted_items.items()): # q: how do i refer to the index of this loop? a: use enumerate to get the index and the item
+                out_str += f"{category_name}\n"
+                for (description, price), quantity in category_items.items():
+                    #total_price = int(price) * int(quantity)
+                    desc_split = description.split('$$')
+                    item_name = desc_split[0] if len(desc_split) > 0 else description
+                    stack_size = int(desc_split[1]) if len(desc_split) > 1 else 1 
+                    fprice = shorten_number(price)
+                    ftotal = shorten_number(price * stack_size)     
+                    if stack_size == 1:
+                        if quantity == 1:
+                            result = f"1x {item_name} @ {fprice}"
+                        else:
+                            result = f"{quantity}x {item_name} @ {fprice} each"
+                    elif quantity == 1:
+                        result = f"{quantity} set of {stack_size}x {item_name} @ {ftotal}"
+                    else:
+                        result = f"{quantity} sets of {stack_size}x {item_name} @ {ftotal} per set"
+                    listbox.insert(tk.END, result)
+                    out_str += f"{result}\n"
+                    #print(result)
+
             #print("-End Report-")
         except Exception as e:
             print(f"An error occurred: {e}")
             return []
+        
     #------------------------------ GUI Updates---------------------------
     def queue_daemon(self,event=None):
         cases = {
