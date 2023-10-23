@@ -1277,6 +1277,11 @@ def categorize_and_sort_aggregated_items(aggregated_items):
         category_dict[category] = sorted_items
     return category_dict
 
+def discord_truncate(string):
+    if len(string) > 1000:
+        string = string[:1000] + '...'
+    return string
+
 class AliApp:
     def __init__(self,root):
         self.root = root
@@ -2118,15 +2123,11 @@ endwhile"""
             return []
         
     def read_db_current_inventory(self):
-
-        
         try:
             rows = get_most_recent_inventory_snapshot()
             if not rows:
                 print("No inventory snapshot available.")
                 return []
-            #snapshot_time = rows[0][0]
-            #print(f'-Inventory Report- {snapshot_time}')
             inventory_window = tk.Toplevel(self.root)
             inventory_window.title("Inventory")
             self.scrollbar = tk.Scrollbar(inventory_window, orient="vertical")
@@ -2146,28 +2147,17 @@ endwhile"""
                 if key not in aggregated_items:
                     aggregated_items[key] = 0
                 aggregated_items[key] += 1
-
             
-            
-            #category_dict_example_categories =  # create an example of the output of categorize_and_sort_aggregated_items() for testing
-            
-
-            #category_dict_example['Treasure Maps/Tmaps'] = {('Treasure Map', 100): 1}
-            #category_dict_example['Skill Mastery Scrolls'] = {('Skill Mastery Scroll', 100): 1}
-
-            category_dict_example = {
-                'Aspect Stuff': { ('Aspect Core', 100): 1, ('Aspect Extract', 100): 1, ('Aspect Distillation', 100): 1 },
-                'Treasure Maps/Tmaps': { ('Treasure Map', 100): 1 },
-                'Skill Mastery Scrolls': { ('Skill Mastery Scroll', 100): 1 },
-                }
             sorted_items = categorize_and_sort_aggregated_items(aggregated_items)
-            out_str = 'WTS\n'
-            for index, (category_name, category_items) in enumerate(sorted_items.items()): # q: how do i refer to the index of this loop? a: use enumerate to get the index and the item
-                out_str += f"{category_name}\n"
+
+            out_str = 'WTS'
+            for category_name, category_items in sorted_items.items(): 
+                out_str += f"\n{category_name}\n"
                 for (description, price), quantity in category_items.items():
                     #total_price = int(price) * int(quantity)
                     desc_split = description.split('$$')
                     item_name = desc_split[0] if len(desc_split) > 0 else description
+                    trunc_name = discord_truncate(item_name)
                     stack_size = int(desc_split[1]) if len(desc_split) > 1 else 1 
                     fprice = shorten_number(price)
                     ftotal = shorten_number(price * stack_size)     
@@ -2181,9 +2171,11 @@ endwhile"""
                     else:
                         result = f"{quantity} sets of {stack_size}x {item_name} @ {ftotal} per set"
                     listbox.insert(tk.END, result)
-                    out_str += f"{result}\n"
+                    out_str += f"\t{result}\n"
                     #print(result)
-
+            print(out_str)
+            self.root.clipboard_clear()
+            self.root.clipboard_append(out_str)
             #print("-End Report-")
         except Exception as e:
             print(f"An error occurred: {e}")
