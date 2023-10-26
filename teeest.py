@@ -1,11 +1,27 @@
-def shorten_number(num):
-    if num >= 1000000:
-        short_num = f"{num / 1000000:.1f}"
-    elif num >= 1000:
-        short_num = f"{num / 1000:.1f}"
-    else:
-        return str(num)
+import tkinter as tk
 
-    return short_num.rstrip('0').rstrip('.') + ('m' if num >= 1000000 else 'k')
+root = tk.Tk()
 
-print(round(2.5616165235125125))
+outer_frame = tk.Frame(root, bg='red')
+outer_frame.grid(row=0, column=0, columnspan=2)
+#outer_frame.grid_propagate(0)  # Disable resizing to fit content
+
+label1 = tk.Label(outer_frame, text="Label 1")
+label1.grid(row=0, column=0)
+
+label2 = tk.Label(outer_frame, text="Label 2")
+label2.grid(row=0, column=1)
+
+inner_frame = tk.Frame(outer_frame, bg='blue')
+inner_frame.grid(row=1, column=0, columnspan=2)
+
+inner_label1 = tk.Label(inner_frame, text="Inner 1")
+inner_label1.grid(row=0, column=0)
+
+inner_label2 = tk.Label(inner_frame, text="Inner 2")
+inner_label2.grid(row=0, column=1)
+
+inner_label3 = tk.Label(inner_frame, text="Inner 3")
+inner_label3.grid(row=0, column=2)
+
+root.mainloop()
