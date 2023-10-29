@@ -91,10 +91,10 @@ distil_prices = { #exact string MATTERS
 
 map_prices = { #exact string MATTERS
     "plainly drawn treasure map: level 1 (undeciphered)": 5000,
-    "expertly drawn treasure map: level 2 (undeciphered)": 10000,
-    "adeptly drawn treasure map: level 3 (undeciphered)": 26000,
-    "cleverly drawn treasure map: level 4 (undeciphered)": 32000,
-    "deviously drawn treasure map: level 5 (undeciphered)": 45000,
+    "expertly drawn treasure map: level 2 (undeciphered)": 16000, #10000
+    "adeptly drawn treasure map: level 3 (undeciphered)": 35000, #26000
+    "cleverly drawn treasure map: level 4 (undeciphered)": 42000, #35000
+    "deviously drawn treasure map: level 5 (undeciphered)": 50000, #45000
     "ingeniously drawn treasure map: level 6 (undeciphered)": 75000,
     "diabolically drawn treasure map: level 7 (undeciphered)": 100000,
     "legendarily drawn treasure map: level 8 (undeciphered)": 300000,
@@ -111,10 +111,10 @@ map_prices = { #exact string MATTERS
     
     "copper ore map (undeciphered)": 3000,
     "bronze ore map (undeciphered)": 6000,
-    "gold ore map (undeciphered)": 12000,
+    "gold ore map (undeciphered)": 17000,
     "agapite ore map (undeciphered)": 20000,
-    "verite ore map (undeciphered)": 40000,
-    "valorite ore map (undeciphered)": 50000,
+    "verite ore map (undeciphered)": 35000,
+    "valorite ore map (undeciphered)": 60000,
     "avarite ore map (undeciphered)": 80000,
 }
 
@@ -188,6 +188,27 @@ leather_prices = { #https://outlandmalls.com/?item=&search_category_id=1&search_
     "avarhide commodity (2,500 total)": 850000,
 }
 
+commodity_2500_prices = {
+    "bottle commodity (500 total)": 2700, #500
+    "blank scroll commodity (2,500 total)": 8000,
+    "feather commodity (2,500 total)": 1500,
+    "raw fish steak commodity (2,500 total)": 5000,
+}
+
+commodity_5000_prices = {
+    "black pearl commodity (5,000 total)": 16000,
+    "bloodmoss commodity (5,000 total)": 16000,
+    "garlic commodity (5,000 total)": 16000,
+    "ginseng commodity (5,000 total)": 16000,
+    "mandrake root commodity (5,000 total)": 16000,
+    "nightshade commodity (5,000 total)": 17000,
+    "spiders silk commodity (5,000 total)": 17000,
+    "sulfurous ash commodity (5,000 total)": 16000,
+    "arrow commodity (5,000 total)": 11000,
+    "bolt commodity (5,000 total)": 11000,
+    "cannon shot commodity (5,000 total)": 12500,
+}
+
 scroll_prices = { #exact string MATTERS
     "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 25000, #alchemy skill mastery scroll : 3 (used to increase a player's skill cap for a skill by 1)
     "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 17000,
@@ -203,7 +224,7 @@ scroll_prices = { #exact string MATTERS
     "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
     "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 16000,
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
-    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 17000,
     "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
@@ -309,43 +330,43 @@ link_prices = { #exact chain type string MATTERS
 }
 
 hue_list = {
-    'Shimmer Oxide':         {'rare cloth': 175000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1483},
-    'Shimmer Cardinal':      {'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1476},
-    'Shimmer Evergreen':     {'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1479},
-    'Shimmer Valentine':     {'rare cloth': 150000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2916},
-    'Shimmer Periwinkle':    {'rare cloth': 175000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2251},
-    'Shimmer Shamrock':      {'rare cloth': 175000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2664},
-    'Shimmer Lunar':         {'rare cloth': 150000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2342},
-    'Shimmer Solstice':      {'rare cloth': 75000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 500000, 'facial hair dye': 500000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1967},
-    'Shimmer Dahlia':        {'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1956},
-    'Shimmer Paradox':       {'rare cloth': 600000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 1000000, 'facial hair dye': 1000000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2346},
-    'Shimmer Redux':         {'rare cloth': 300000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1957},
-    'Shimmer Spice':         {'rare cloth': 500000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1557},
-    'Shimmer Garnet':        {'rare cloth': 500000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 1000000, 'facial hair dye': 1000000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1571},
-    'Shimmer Equinox':       {'rare cloth': 100000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1574},
-    'Shimmer Moonlight':     {'rare cloth': 150000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2284},
-    'Shimmer Gala':          {'rare cloth': 100000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2074},
-    'Shimmer Spirit':        {'rare cloth': 100000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1181},
-    'Shimmer Tempest':       {'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1180},
-    'Shimmer Borealis':      {'rare cloth': 60000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1179},
-    'Shimmer Passion':       {'rare cloth': 60000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1184},
-    'Shimmer Celestial':     {'rare cloth': 60000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1186},
-    'Shimmer Nightfall':     {'rare cloth': 60000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2260},
-    'Shimmer Toil':          {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1499},
-    'Shimmer Crystal':       {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1059},
-    'Shimmer Aurora':        {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1063},
-    'Shimmer Candy':         {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1188},
-    'Shimmer Fen':           {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1400},
-    'Shimmer Blossom':       {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1070},
-    'Shimmer Mirage':        {'rare cloth': 35000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1575},
-    'Shimmer Gore':          {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1069},
-    'Shimmer Flora':         {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1071},
-    'Shimmer Rime':          {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1074},
-    'Shimmer Serenity':      {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1081},
-    'Shimmer Zephyr':        {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1480},
-    'Shimmer Bloom':         {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1577},
-    'Shimmer Tidal':         {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1083},
-    'Shimmer Comet':         {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 100000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1099},
+    'Shimmer Oxide':         {'rare cloth': 175000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 1050000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1483},
+    'Shimmer Cardinal':      {'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 900000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1476},
+    'Shimmer Evergreen':     {'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 900000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1479},
+    'Shimmer Valentine':     {'rare cloth': 150000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 1050000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2916},
+    'Shimmer Periwinkle':    {'rare cloth': 175000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 1050000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2251},
+    'Shimmer Shamrock':      {'rare cloth': 175000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 1050000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2664},
+    'Shimmer Lunar':         {'rare cloth': 150000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 900000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2342},
+    'Shimmer Solstice':      {'rare cloth': 75000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 450000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 500000, 'facial hair dye': 500000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1967},
+    'Shimmer Dahlia':        {'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 750000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1956},
+    'Shimmer Paradox':       {'rare cloth': 600000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 3600000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 1000000, 'facial hair dye': 1000000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2346},
+    'Shimmer Redux':         {'rare cloth': 300000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 1800000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1957},
+    'Shimmer Spice':         {'rare cloth': 500000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 3000000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1557},
+    'Shimmer Garnet':        {'rare cloth': 500000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 3000000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 1000000, 'facial hair dye': 1000000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1571},
+    'Shimmer Equinox':       {'rare cloth': 100000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 600000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1574},
+    'Shimmer Moonlight':     {'rare cloth': 150000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 900000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2284},
+    'Shimmer Gala':          {'rare cloth': 100000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 600000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2074},
+    'Shimmer Spirit':        {'rare cloth': 100000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 600000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1181},
+    'Shimmer Tempest':       {'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 700000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1180},
+    'Shimmer Borealis':      {'rare cloth': 60000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 360000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1179},
+    'Shimmer Passion':       {'rare cloth': 60000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 360000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1184},
+    'Shimmer Celestial':     {'rare cloth': 60000, 'runebook dye': 250000, 'accessory dye': 50000, 'headwear dye': 360000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 600000,  'hue': 1186},
+    'Shimmer Nightfall':     {'rare cloth': 60000, 'runebook dye': 200000, 'accessory dye': 50000, 'headwear dye': 360000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2260},
+    'Shimmer Toil':          {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1499},
+    'Shimmer Crystal':       {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1059},
+    'Shimmer Aurora':        {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1063},
+    'Shimmer Candy':         {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1188},
+    'Shimmer Fen':           {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1400},
+    'Shimmer Blossom':       {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1070},
+    'Shimmer Mirage':        {'rare cloth': 35000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 210000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 300000, 'mount gear dye': 600000,  'hue': 1575},
+    'Shimmer Gore':          {'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1069},
+    'Shimmer Flora':         {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1071},
+    'Shimmer Rime':          {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1074},
+    'Shimmer Serenity':      {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1081},
+    'Shimmer Zephyr':        {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1480},
+    'Shimmer Bloom':         {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1577},
+    'Shimmer Tidal':         {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1083},
+    'Shimmer Comet':         {'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1099},
     'Arena Black':           {'rare cloth': 500000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2056},
     'Strangelands':          {'rare cloth': 40000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2752},
     'Thief':                 {'rare cloth': 80000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1067},
@@ -354,7 +375,7 @@ hue_list = {
     'Freedom Cloth':         {'rare cloth': 50000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2944},
     'Corpse Creek Contest':  {'rare cloth': 80000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1197},
     'Stygian Rifts':         {'rare cloth': 150000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1198},
-    'Town Struggles':        {'rare cloth': 80000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1199},
+    'Town Struggle':        {'rare cloth': 80000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1199},
     'Dungeon Flashpoints':   {'rare cloth': 80000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1200},
     'Prevalia Faction':      {'rare cloth': 1000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1076},
     'Andaria Faction':       {'rare cloth': 1000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1078},
@@ -367,69 +388,71 @@ hue_list = {
     'Seafarer League':       {'rare cloth': 50000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 250000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2906},
     'Artificer\'s Enclave':  {'rare cloth': 50000, 'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 250000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2875},
     'Aegis Keep':            {'rare cloth': 4000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 4000, 'furniture dye': 20000, 'hair dye': 60000, 'facial hair dye': 60000, 'backpack dye': 40000, 'mount gear dye': 5000,  'hue': 1779},
-    'Inferno':               {'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 75000, 'mount gear dye': 10000,  'hue': 1909},
+    'Inferno':               {'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 30000, 'facial hair dye': 25000, 'backpack dye': 75000, 'mount gear dye': 5000,  'hue': 1909},
     'Ossuary':               {'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 50000, 'mount gear dye': 5000,  'hue': 2091},
-    'Darkmire Temple':       {'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 25000, 'facial hair dye': 20000, 'backpack dye': 50000, 'mount gear dye': 5000,  'hue': 2099},
-    'Pulma':                 {'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 90000, 'facial hair dye': 90000, 'backpack dye': 50000, 'mount gear dye': 5000,  'hue': 2085},
-    'The Mausoleum':         {'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 60000, 'facial hair dye': 60000, 'backpack dye': 50000, 'mount gear dye': 5000,  'hue': 2092},
-    'Mount Petram':          {'rare cloth': 4000, 'runebook dye': 15000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 40000, 'facial hair dye': 40000, 'backpack dye': 50000, 'mount gear dye': 5000,  'hue': 2089},
-    'Nusero':                {'rare cloth': 4000, 'runebook dye': 15000, 'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 25000, 'mount gear dye': 5000,  'hue': 2796},
-    'Cavernam':              {'rare cloth': 18000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 300000, 'facial hair dye': 300000, 'backpack dye': 50000, 'mount gear dye': 10000,  'hue': 2338},
-    'Shadowspire Cathedral': {'rare cloth': 13000, 'runebook dye': 15000, 'accessory dye': 1250, 'headwear dye': 30000, 'carpet dye': 14000, 'furniture dye': 50000, 'hair dye': 40000, 'facial hair dye': 40000, 'backpack dye': 50000, 'mount gear dye': 10000,  'hue': 2093},
+    'Darkmire Temple':       {'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 25000, 'facial hair dye': 20000, 'backpack dye': 45000, 'mount gear dye': 5000,  'hue': 2099},
+    'Pulma':                 {'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 90000, 'facial hair dye': 90000, 'backpack dye': 50000, 'mount gear dye': 5000,  'hue': 2085},
+    'Mausoleum':             {'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 60000, 'facial hair dye': 60000, 'backpack dye': 50000, 'mount gear dye': 5000,  'hue': 2092},
+    'Mount Petram':          {'rare cloth': 4000, 'runebook dye': 15000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 30000, 'facial hair dye': 20000, 'backpack dye': 50000, 'mount gear dye': 5000,  'hue': 2089},
+    'Nusero':                {'rare cloth': 4000, 'runebook dye': 15000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 25000, 'mount gear dye': 5000,  'hue': 2796},
+    'Cavernam':              {'rare cloth': 18000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 120000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 300000, 'facial hair dye': 300000, 'backpack dye': 50000, 'mount gear dye': 10000,  'hue': 2338},
+    'Shadowspire Cathedral': {'rare cloth': 13000, 'runebook dye': 15000, 'accessory dye': 1250, 'headwear dye': 40000, 'carpet dye': 12000, 'furniture dye': 50000, 'hair dye': 40000, 'facial hair dye': 40000, 'backpack dye': 50000, 'mount gear dye': 10000,  'hue': 2093},
     'Wilderness':            {'rare cloth': 4000, 'runebook dye': 15000, 'accessory dye': 500, 'headwear dye': 20000, 'carpet dye': 100, 'furniture dye': 15000, 'hair dye': 15000, 'facial hair dye': 15000, 'backpack dye': 35000, 'mount gear dye': 4000,  'hue': 1182},
-    'Ocean':                 {'rare cloth': 12500, 'runebook dye': 120000, 'accessory dye': 2000, 'headwear dye': 50000, 'carpet dye': 4000, 'furniture dye': 120000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 70000, 'mount gear dye': 4000,  'hue': 1183},
-    'Metallic Cherry':       {'rare cloth': 50000, 'runebook dye': 40000, 'accessory dye': 10000, 'headwear dye': 200000, 'carpet dye': 4000, 'furniture dye': 50000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 100000, 'mount gear dye': 600000,  'hue': 2380},
-    'Metallic Orange':       {'rare cloth': 10000, 'runebook dye': 30000, 'accessory dye': 6000, 'headwear dye': 50000, 'carpet dye': 3000, 'furniture dye': 40000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 100000, 'mount gear dye': 600000,  'hue': 1989},
+    'Ocean':                 {'rare cloth': 11000, 'runebook dye': 125000, 'accessory dye': 2000, 'headwear dye': 50000, 'carpet dye': 4000, 'furniture dye': 100000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 70000, 'mount gear dye': 4000,  'hue': 1183},
+    'Metallic Cherry':       {'rare cloth': 40000, 'runebook dye': 40000, 'accessory dye': 10000, 'headwear dye': 200000, 'carpet dye': 4000, 'furniture dye': 50000, 'hair dye': 80000, 'facial hair dye': 100000, 'backpack dye': 100000, 'mount gear dye': 600000,  'hue': 2380},
+    'Metallic Orange':       {'rare cloth': 10000, 'runebook dye': 30000, 'accessory dye': 6000, 'headwear dye': 50000, 'carpet dye': 3000, 'furniture dye': 40000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 90000, 'mount gear dye': 600000,  'hue': 1989},
     'Metallic Amber':        {'rare cloth': 7000, 'runebook dye': 25000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 50000, 'facial hair dye': 50000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 1990},
     'Metallic Lemon-Lime':   {'rare cloth': 5000, 'runebook dye': 25000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 2653},
     'Metallic Olive':        {'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 2398},
     'Metallic Pickle':       {'rare cloth': 8000, 'runebook dye': 30000, 'accessory dye': 5000, 'headwear dye': 30000, 'carpet dye': 3000, 'furniture dye': 20000, 'hair dye': 50000, 'facial hair dye': 50000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 2828},
     'Metallic Juniper':      {'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 500, 'furniture dye': 2000, 'hair dye': 10000, 'facial hair dye': 7000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 2845},
     'Metallic Mint':         {'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 15000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 2827},
-    'Metallic Sky':          {'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 2000, 'headwear dye': 30000, 'carpet dye': 2000, 'furniture dye': 20000, 'hair dye': 30000, 'facial hair dye': 20000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 2826},
-    'Metallic Sapphire':     {'rare cloth': 8000, 'runebook dye': 30000, 'accessory dye': 2000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 30000, 'facial hair dye': 20000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 2379},
+    'Metallic Sky':          {'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 1500, 'headwear dye': 30000, 'carpet dye': 2000, 'furniture dye': 20000, 'hair dye': 30000, 'facial hair dye': 20000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 2826},
+    'Metallic Sapphire':     {'rare cloth': 8000, 'runebook dye': 30000, 'accessory dye': 1500, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 30000, 'facial hair dye': 20000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 2379},
     'Metallic Cerulean':     {'rare cloth': 8000, 'runebook dye': 40000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 1484},
     'Metallic Eggplant':     {'rare cloth': 13000, 'runebook dye': 40000, 'accessory dye': 5000, 'headwear dye': 70000, 'carpet dye': 5000, 'furniture dye': 20000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 2898},
-    'Metallic Raspberry':    {'rare cloth': 5000, 'runebook dye': 25000, 'accessory dye': 2000, 'headwear dye': 30000, 'carpet dye': 2000, 'furniture dye': 20000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 1489},
-    'Metallic Wine':         {'rare cloth': 5000, 'runebook dye': 25000, 'accessory dye': 2000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 1995},
+    'Metallic Raspberry':    {'rare cloth': 5000, 'runebook dye': 25000, 'accessory dye': 1500, 'headwear dye': 30000, 'carpet dye': 2000, 'furniture dye': 20000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 1489},
+    'Metallic Wine':         {'rare cloth': 5000, 'runebook dye': 25000, 'accessory dye': 1500, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 1995},
     'Metallic Pewter':       {'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 10000, 'facial hair dye': 10000, 'backpack dye': 25000, 'mount gear dye': 600000,  'hue': 2167},
     'Metallic Chalk':        {'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 600000,  'hue': 2928},
-    'Metallic Umber':        {'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 2000, 'headwear dye': 30000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 25000, 'mount gear dye': 600000,  'hue': 1470},
-    'Dark Coffee':           {'rare cloth': 60000, 'runebook dye': 50000, 'accessory dye': 2000, 'headwear dye': 100000, 'carpet dye': 5000, 'furniture dye': 75000, 'hair dye': 70000, 'facial hair dye': 70000, 'backpack dye': 200000, 'mount gear dye': 600000,  'hue': 1467},
-    'Dark Rust':             {'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 15000, 'facial hair dye': 10000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 2807},
-    'Dark Crimson':          {'rare cloth': 4000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 20000, 'facial hair dye': 15000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 1939},
-    'Dark Blood':            {'rare cloth': 10000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 20000, 'carpet dye': 4000, 'furniture dye': 30000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 1465},
-    'Dark Salmon':           {'rare cloth': 4000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 20000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 15000, 'facial hair dye': 15000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 2174},
-    'Dark Forest':           {'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 2804},
-    'Dark Peacock':          {'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 20000, 'carpet dye': 3000, 'furniture dye': 30000, 'hair dye': 25000, 'facial hair dye': 25000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 2226},
-    'Dark Denim':            {'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 100000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 15000, 'facial hair dye': 10000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 2801},
-    'Dark Blueberry':        {'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 25000, 'facial hair dye': 25000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 1156},
-    'Dark Jam':              {'rare cloth': 50000, 'runebook dye': 50000, 'accessory dye': 12000, 'headwear dye': 200000, 'carpet dye': 20000, 'furniture dye': 80000, 'hair dye': 150000, 'facial hair dye': 150000, 'backpack dye': 200000, 'mount gear dye': 600000,  'hue': 2230},
-    'Powder Ruby':           {'rare cloth': 110000, 'runebook dye': 80000, 'accessory dye': 30000, 'headwear dye': 600000, 'carpet dye': 20000, 'furniture dye': 250000, 'hair dye': 400000, 'facial hair dye': 300000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2227},
+    'Metallic Umber':        {'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 1500, 'headwear dye': 30000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 25000, 'mount gear dye': 600000,  'hue': 1470},
+    'Dark Coffee':           {'rare cloth': 60000, 'runebook dye': 50000, 'accessory dye': 10000, 'headwear dye': 100000, 'carpet dye': 5000, 'furniture dye': 75000, 'hair dye': 70000, 'facial hair dye': 70000, 'backpack dye': 200000, 'mount gear dye': 600000,  'hue': 1467},
+    'Dark Rust':             {'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 15000, 'facial hair dye': 10000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 2807},
+    'Dark Crimson':          {'rare cloth': 4000, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 20000, 'facial hair dye': 15000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 1939},
+    'Dark Blood':            {'rare cloth': 8000, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 20000, 'carpet dye': 4000, 'furniture dye': 30000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 1465},
+    'Dark Salmon':           {'rare cloth': 3500, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 20000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 15000, 'facial hair dye': 15000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 2174},
+    'Dark Forest':           {'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 2804},
+    'Dark Peacock':          {'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 20000, 'carpet dye': 3000, 'furniture dye': 30000, 'hair dye': 25000, 'facial hair dye': 25000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 2226},
+    'Dark Denim':            {'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 100000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 15000, 'facial hair dye': 10000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 2801},
+    'Dark Blueberry':        {'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 15000, 'facial hair dye': 10000, 'backpack dye': 40000, 'mount gear dye': 600000,  'hue': 1156},
+    'Dark Jam':              {'rare cloth': 50000, 'runebook dye': 50000, 'accessory dye': 10000, 'headwear dye': 200000, 'carpet dye': 15000, 'furniture dye': 80000, 'hair dye': 100000, 'facial hair dye': 90000, 'backpack dye': 200000, 'mount gear dye': 600000,  'hue': 2230},
+    'Powder Ruby':           {'rare cloth': 110000, 'runebook dye': 80000, 'accessory dye': 30000, 'headwear dye': 600000, 'carpet dye': 20000, 'furniture dye': 250000, 'hair dye': 350000, 'facial hair dye': 300000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2227},
     'Powder Coral':          {'rare cloth': 20000, 'runebook dye': 30000, 'accessory dye': 7000, 'headwear dye': 150000, 'carpet dye': 9000, 'furniture dye': 100000, 'hair dye': 100000, 'facial hair dye': 70000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 1495},
     'Powder Peach':          {'rare cloth': 15000, 'runebook dye': 30000, 'accessory dye': 10000, 'headwear dye': 150000, 'carpet dye': 2000, 'furniture dye': 100000, 'hair dye': 150000, 'facial hair dye': 150000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 1496},
     'Powder Lemon':          {'rare cloth': 65000, 'runebook dye': 50000, 'accessory dye': 15000, 'headwear dye': 500000, 'carpet dye': 8000, 'furniture dye': 100000, 'hair dye': 300000, 'facial hair dye': 200000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1382},
     'Powder Pistachio':      {'rare cloth': 20000, 'runebook dye': 30000, 'accessory dye': 10000, 'headwear dye': 150000, 'carpet dye': 4000, 'furniture dye': 100000, 'hair dye': 75000, 'facial hair dye': 75000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 1494},
-    'Powder Seafoam':        {'rare cloth': 30000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 150000, 'carpet dye': 4000, 'furniture dye': 100000, 'hair dye': 300000, 'facial hair dye': 200000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 2246},
+    'Powder Seafoam':        {'rare cloth': 30000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 150000, 'carpet dye': 4000, 'furniture dye': 100000, 'hair dye': 250000, 'facial hair dye': 200000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 2246},
     'Powder Spring':         {'rare cloth': 30000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 150000, 'carpet dye': 9000, 'furniture dye': 100000, 'hair dye': 200000, 'facial hair dye': 200000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 1381},
     'Powder Lapis':          {'rare cloth': 55000, 'runebook dye': 80000, 'accessory dye': 15000, 'headwear dye': 500000, 'carpet dye': 5000, 'furniture dye': 100000, 'hair dye': 400000, 'facial hair dye': 300000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 2255},
     'Powder Cyan':           {'rare cloth': 40000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 150000, 'carpet dye': 5000, 'furniture dye': 75000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 150000, 'mount gear dye': 600000,  'hue': 2877},
     'Powder Azure':          {'rare cloth': 175000, 'runebook dye': 80000, 'accessory dye': 30000, 'headwear dye': 1200000, 'carpet dye': 8000, 'furniture dye': 100000, 'hair dye': 800000, 'facial hair dye': 800000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1384},
     'Powder Orchid':         {'rare cloth': 55000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 500000, 'carpet dye': 5000, 'furniture dye': 80000, 'hair dye': 200000, 'facial hair dye': 200000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 1462},
-    'Powder Iris':           {'rare cloth': 400000, 'runebook dye': 100000, 'accessory dye': 50000, 'headwear dye': 1300000, 'carpet dye': 20000, 'furniture dye': 250000, 'hair dye': 800000, 'facial hair dye': 800000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2173},
-    'Powder Cloud':          {'rare cloth': 200000, 'runebook dye': 80000, 'accessory dye': 40000, 'headwear dye': 600000, 'carpet dye': 9000, 'furniture dye': 100000, 'hair dye': 800000, 'facial hair dye': 800000, 'backpack dye': 800000, 'mount gear dye': 600000,  'hue': 2903},
+    'Powder Iris':           {'rare cloth': 400000, 'runebook dye': 100000, 'accessory dye': 35000, 'headwear dye': 1300000, 'carpet dye': 20000, 'furniture dye': 250000, 'hair dye': 800000, 'facial hair dye': 800000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2173},
+    'Powder Cloud':          {'rare cloth': 180000, 'runebook dye': 80000, 'accessory dye': 40000, 'headwear dye': 600000, 'carpet dye': 9000, 'furniture dye': 100000, 'hair dye': 800000, 'facial hair dye': 800000, 'backpack dye': 800000, 'mount gear dye': 600000,  'hue': 2903},
     'Powder Blush':          {'rare cloth': 35000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 150000, 'carpet dye': 5000, 'furniture dye': 100000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 500000, 'mount gear dye': 600000,  'hue': 2808},
     'Powder Bubblegum':      {'rare cloth': 125000, 'runebook dye': 50000, 'accessory dye': 40000, 'headwear dye': 400000, 'carpet dye': 18000, 'furniture dye': 250000, 'hair dye': 600000, 'facial hair dye': 600000, 'backpack dye': 800000, 'mount gear dye': 600000,  'hue': 1952},
 }
-
-def alter_hue_dict(self_parse=False, item_type="rare cloth"): #todo handle double tagged named dyes
+#todo mastery chain dye
+def alter_hue_dict(self_parse=False, item_type="rare cloth"):
     shoe_list = ['cloth shoes', 'shoes', 'cloth boots', 'cloth thigh boots', 'cloth sandals']
     out_dict = defaultdict(int)
     if self_parse:
         for hue_name, hue_data in hue_list.items():
             lower = hue_name.lower()
             if item_type == 'rare cloth':
-                new_k = f"{item_type} (hue {hue_data['hue']}: {lower})"
+                new_k = f"{item_type} (hue {hue_data['hue']}: {lower})" #rare cloth (hue 1074: shimmer rime)
+                out_dict[new_k] = hue_data[item_type]
+                new_k = f"{lower} cloth (hue {hue_data['hue']}: {lower})" #shimmer rime cloth (hue 1074: shimmer rime)
                 out_dict[new_k] = hue_data[item_type]
                 shoe_price = hue_data['rare cloth'] * 6
                 for shoe in shoe_list:
@@ -440,7 +463,6 @@ def alter_hue_dict(self_parse=False, item_type="rare cloth"): #todo handle doubl
                 out_dict[new_k] = hue_data[item_type]
                 if 'hair dye' in item_type:
                     out_dict[f"rare {new_k}"] = hue_data[item_type]
-
     else:
         for hue_name, hue_data in hue_list.items():
             lower = hue_name.lower()
@@ -490,96 +512,106 @@ misc_lp_prices = { #exact string matters
     "dyeable gilded gold carpet tile": 20000
 }
 
+
+
 my_locations = {
     # Vendor Police
-    "N Prevalia Sandbar": (1657,1320),
-    "N Prev Sandbar W":(1551,1315),
-    "N Prev Clearing N": (1592,1388),
-    "N Prev Clearing E": (1629,1421),
-    "N Prev Clearing Mid": (1596,1419),
-    "N Prev Clearing S": (1571,1439),
-    "N Prev Clearing SW": (1554,1439),
-    "N Prev Clearing W": (1555,1405),
-    "E of Prev": (2036,1463),
-    "Khal SE Prev": (2002,1795),
-    "S Prev Xroad N": (1569,1729),
-    "S Prev Xroad E": (1647,1745),
-    "S Prev Xroad S": (1545,1772),
-    "S Prev Xroad Far S": (1531,1833),
-    "S Prev Xroad W": (1499,1757),
-    "SW Prev Clearing NE": (1544,1623),
-    "SW Prev Clearing SE": (1547,1653),
-    "SW Prev Clearing SW": (1510,1657),
-    "SW Prev Clearing NW": (1486,1588),
-    "Prev Gate": (1475,1488),
-    "W of Prev Gate": (1425,1483),
-    "N of Anchor's Rest": (3756,347),
-    "S of Anchor's Rest": (3747,740),
-    "S of Anchor's Rest 2": (3752,671),
-    "Far S Anchor's Rest": (3715, 872),
-    "E of GH": (3976,853),
+    "N Prevalia Sandbar": (1657,1320, ('Vendor Police',2089,100,10)),
+    "N Prev Sandbar W":(1551,1315, ('Vendor Police',2089,101,20)),
+    "N Prev Clearing N": (1592,1388, ('Vendor Police',2089,102,10)),
+    "N Prev Clearing E": (1629,1421, ('Vendor Police',2089,103,20)),
+    "N Prev Clearing Mid": (1596,1419, ('Vendor Police',2089,104,10)),
+    "N Prev Clearing S": (1571,1439, ('Vendor Police',2089,105,20)),
+    "N Prev Clearing SW": (1554,1439, ('Vendor Police',2089,106,10)),
+    "N Prev Clearing W": (1555,1405, ('Vendor Police',2089,107,20)),
+    "E of Prev": (2036,1463, ('Vendor Police',2089,108,10)),
+    "Khal SE Prev": (2002,1795, ('Vendor Police',2089,109,20)),
+    "S Prev Xroad N": (1569,1729, ('Vendor Police',2089,110,10)),
+    "S Prev Xroad E": (1647,1745, ('Vendor Police',2089,111,20)),
+    "S Prev Xroad S": (1545,1772, ('Vendor Police',2089,112,10)),
+    "S Prev Xroad Far S": (1531,1833, ('Vendor Police',2089,113,20)),
+    "S Prev Xroad W": (1499,1757, ('Vendor Police',2089,114,10)),
+    "SW Prev Clearing NE": (1544,1623, ('Vendor Police',2089,115,20)),
+    "SW Prev Clearing SE": (1547,1653, ('Vendor Police',2089,116,10)),
+    "SW Prev Clearing SW": (1510,1657, ('Vendor Police',2089,117,20)),
+    "SW Prev Clearing NW": (1486,1588, ('Vendor Police',2089,118,10)),
+    "Prev Gate": (1475,1488, ('Vendor Police',2089,119,20)),
+    "W of Prev Gate": (1425,1483, ('Vendor Police',2089,120,10)),
+    "N of Anchor's Rest": (3756,347, ('Vendor Police',2089,121,20)),
+    "S of Anchor's Rest": (3747,740, ('Vendor Police',2089,122,10)),
+    "S of Anchor's Rest 2": (3752,671, ('Vendor Police',2089,123,20)),
+    "Far S Anchor's Rest": (3715, 872, ('Vendor Police',2089,124,10)),
+    "E of GH": (3976,853, ('Vendor Police',2089,125,20)),
 
     # a lost girl
-    "N Cambria Gate": (1706,3129),
-    "SE Cambria Gate": (1753,3176),
-    "S Cambria Gate": (1709,3182),
-    "SW Cambria Gate": (1669,3177),
-    "NW Cambria Gate": (1670,3138),
-    "N Outpost Gate": (2980,579),
-    "N Outpost Gate 2": (2976,555),
-    "N Outpost Gate 3": (3001,496),
-    "NW Outpost Gate": (2940,563),
-    "NE Outpost Close": (3387,377),
-    "NE Outpost Close 2":(3364,408),
-    "NE Outpost Far": (3406,165),
-    "NE Outpost Far NW": (3252,294),
-    "Frost Forest": (3622,447),
-    "Frozen Ruins SE":(1612,780),
-    "Frozen Ruins SW":(1546,753),
-    "N Andaria Gate": (2334,591),
-    "E Andaria Gate":(2398,648),
-    "W Andaria Gate": (2315,639),
-    "Minotaur Island": (3967,1736),
-    "Minotaur Island E": (4067,1766),
-    "N Terran Clearing": (869,1381),
-    "S Terran Clearing": (930,1473),
-    "SW Terran Clearing": (893,1517),
-    "Terran Gate":(885,1573),
-    "TRT":(1759,2351),
+    "N Cambria Gate": (1706,3129, ('a lost girl',2093,100,10)),
+    "SE Cambria Gate": (1753,3176, ('a lost girl',2093,101,20)),
+    "S Cambria Gate": (1709,3182, ('a lost girl',2093,102,10)),
+    "SW Cambria Gate": (1669,3177, ('a lost girl',2093,103,20)),
+    "NW Cambria Gate": (1670,3138, ('a lost girl',2093,104,10)),
+    "N Outpost Gate": (2980,579, ('a lost girl',2093,105,20)),
+    "N Outpost Gate 2": (2976,555, ('a lost girl',2093,106,10)),
+    "N Outpost Gate 3": (3001,496, ('a lost girl',2093,107,20)),
+    "NW Outpost Gate": (2940,563, ('a lost girl',2093,108,10)),
+    "NE Outpost Close": (3387,377, ('a lost girl',2093,109,20)),
+    "NE Outpost Close 2":(3364,408, ('a lost girl',2093,110,10)),
+    "NE Outpost Far": (3406,165, ('a lost girl',2093,111,20)),
+    "NE Outpost Far NW": (3252,294, ('a lost girl',2093,112,10)),
+    "Frost Forest": (3622,447, ('a lost girl',2093,113,20)),
+    "Frozen Ruins SE":(1612,780, ('a lost girl',2093,114,10)),
+    "Frozen Ruins SW":(1546,753, ('a lost girl',2093,115,20)),
+    "N Andaria Gate": (2334,591, ('a lost girl',2093,116,10)),
+    "E Andaria Gate":(2398,648, ('a lost girl',2093,117,20)),
+    "W Andaria Gate": (2315,639, ('a lost girl',2093,118,10)), 
+    "Minotaur Island": (3967,1736, ('a lost girl',2093,119,20)),
+    "Minotaur Island E": (4067,1766, ('a lost girl',2093,120,10)),
+    "N Terran Clearing": (869,1381, ('a lost girl',2093,121,20)),
+    "S Terran Clearing": (930,1473, ('a lost girl',2093,122,10)),
+    "SW Terran Clearing": (893,1517, ('a lost girl',2093,123,20)),
+    "Terran Gate":(885,1573, ('a lost girl',2093,124,10)),
+    "TRT":(1759,2351, ('a lost girl',2093,125,20)),
 
     # Aproctoflecticus
-    "Mine": (4009,475),
-    "AR0": (3962,477),
-    "AR1": (3961,559),
-    "AR2": (3962,477),
-    "AR3": (4002,554),
-    "AR4": (4010,509),
-    "AR5": (4050,540),
-    "AR6": (4050,508), 
-    "AR7": (4055,463),
-    "S of Pulma": (1780,1048),
-    "S of Pulma 2":(1739,1059),
-    "W of SSC": (3267,689),
-    "Cedar Island Mall":(3985,349),
-    "Cedar Island Center":(4025,305),
-    "Shelter Haven": (1588,2550),
-    "MyKruelz":(1634,1136),
-    "Western Camp Island": (3495,1467),
-    "Pwnstar":(4218,1090),
-    "Far S Prev W":(1765,1740),
-    "Far S Prev SW":(1730,1782),
-
+    "AR1": (3946,565, ('Aproctoflecticus',1156,100,10)),
+    "AR2": (3947,496, ('Aproctoflecticus',1156,101,20)),
+    "AR3": (3961,553, ('Aproctoflecticus',1156,102,10)),
+    "AR4": (3962,456, ('Aproctoflecticus',1156,103,20)),
+    "AR5": (3976,585, ('Aproctoflecticus',1156,104,10)),
+    "AR6": (3978,493, ('Aproctoflecticus',1156,105,20)), 
+    "AR7": (4001,555, ('Aproctoflecticus',1156,106,10)),
+    "AR8": (3993,460, ('Aproctoflecticus',1156,107,20)),
+    "AR9": (4009,589, ('Aproctoflecticus',1156,108,10)),
+    "AR10": (4010,497, ('Aproctoflecticus',1156,109,20)),
+    "AR11": (4032,525, ('Aproctoflecticus',1156,110,10)),
+    "AR12": (4026,462, ('Aproctoflecticus',1156,111,20)),
+    "AR14": (4041,495, ('Aproctoflecticus',1156,112,10)),
+    "AR15": (4055,448, ('Aproctoflecticus',1156,113,20)),
+    "AR16": (4069,538, ('Aproctoflecticus',1156,114,10)),
+    "AR17": (4071,510, ('Aproctoflecticus',1156,115,20)),
+    "AR18": (4071,472, ('Aproctoflecticus',1156,116,10)),
+    "S of Pulma": (1780,1048, ('Aproctoflecticus',1156,117,20)),
+    "S of Pulma 2":(1739,1059, ('Aproctoflecticus',1156,118,10)),
+    "Shelter Haven": (1588,2550, ('Aproctoflecticus',1156,119,20)),
+    "Cedar Island Mall":(3985,349, ('Aproctoflecticus',1156,120,10)),
+    "Cedar Island Center":(4025,305, ('Aproctoflecticus',1156,121,20)),
+    "Western Camp Island": (3495,1467, ('Aproctoflecticus',1156,122,10)),
+    "Far S Prev W":(1765,1740, ('Aproctoflecticus',1156,123,20)),
+    "Far S Prev SW":(1730,1782, ('Aproctoflecticus',1156,124,10)),
+    "Pwnstar":(4218,1090, ('Aproctoflecticus',1156,125,20)),
 
     # Unassigned
-    "Farming Finds":(1436,1029),
-    "NW of Cambria":(1599,2833),
-    "N of Horseshoe":(1981,2100),
-    "S of TRT": (1778,2389),
-    "81a Xroad":(1262,1907),
-    "Winterspire":(3571,198),
-    "W of Urukton":(1899,1163),
+    "AR13": (4037,591,('Misc')),
+    "81a Xroad":(1262,1907,('Misc')),
+    "Winterspire":(3571,198,('Misc')),
+    "W of Urukton":(1899,1163,('Misc')),
+    "W of SSC": (3267,689,('Misc')),
+    "Farming Finds":(1436,1029,('Misc')),
+    "NW of Cambria":(1599,2833,('Misc')),
+    "N of Horseshoe":(1981,2100,('Misc')),
+    "S of TRT": (1778,2389,('Misc')),
+    "MyKruelz":(1634,1136,('Misc')),
 
-    "SOF Island Mall": (3571,198),
+    "SOF Island Mall": (3571,198,('Misc')),
 }
 
 def is_junk(item_name,item_quantity):
@@ -611,7 +643,7 @@ def is_junk(item_name,item_quantity):
             "avarite ingot","valorite ingot","verite ingot","agapite ingot", "gold ingot", "bronze ingot","copper ingot", "shadow iron ingot", "dull copper ingot","iron ingot",
             "avarwood board","valewood board", "rosewood board", "goldenwood board", "bronzewood board","copperwood board", "shadowwood board", "dullwood board","board",
             "board","amethyst","citrine","diamond","emerald","ruby","sapphire","star sapphire","tourmaline","bottle","blank scroll","black pearl","bloodmoss","garlic","ginseng",
-            "mandrake root", "nightshade", "spider's silk", "sulfurous ash", "arcane scroll"
+            "mandrake root", "nightshade", "spider's silk", "sulfurous ash", "an arcane scroll"
             }
 
     if item_quantity == 1: 
@@ -681,7 +713,8 @@ def multi_parse_wide(in_tuple):
                 check_dist = float('inf')
                 closest = None
                 for location_name, tuple_loc in my_locations.items():
-                    x2, y2 = map(int,tuple_loc)
+                    x2 = int(tuple_loc[0])
+                    y2 = int(tuple_loc[1])
                     distance = get_distance(x1,y1,x2,y2)
                     if distance < check_dist:
                         check_dist = distance
@@ -773,7 +806,8 @@ def multi_parse_misc(in_tuple):
                     check_dist = float('inf')
                     closest = None
                     for location_name, tuple_loc in my_locations.items():
-                        x2, y2 = map(int,tuple_loc)
+                        x2 = int(tuple_loc[0])
+                        y2 = int(tuple_loc[1])
                         distance = get_distance(x1,y1,x2,y2)
                         if distance < check_dist:
                             check_dist = distance
@@ -850,18 +884,6 @@ def send_to_discord(content):
     }
     response = requests.post(webhook_url, json=data)
     time.sleep(0.2)
-    return response.status_code
-
-def sort_floats_key(item):
-    #print('sort_floats_key')
-    val = item[0]  # The value from the tuple
-    if val == '':
-        return 1000.0
-    try:
-        return float(val)
-    except Exception as e:
-        print(f"Unexpected error: {e}")
-        return 1000.0  # Default to 1000 if conversion fails
 
 def sort_timestring_key(item):
     val = item[0]  # The value from the tuple
@@ -879,54 +901,23 @@ def sort_timestring_key(item):
     else:
         raise ValueError(f"Unknown time format: {val}")
 
-def sort_key_tuple(item):
-    primary_val, secondary_val = item[0], item[1]  # Extract the values from the tuple
-    #print(f"primary_val:{primary_val}, secondary_val:{secondary_val}")
-    primary_key = 1000.0
-    secondary_key = 1000.0
-    # Handling the primary value 
-    try:
-        if len(primary_val) == 0:
-            #print('primary: no length')
-            pass
+def sort_key_tuple(item,column1,column2):
+    def handle_value(value, column):
+        if column == 'Item':
+            return value.lower()
+        elif column == "Ratio":
+            return float(value)
+        elif column == "Vendor":
+            return value.lower()
+        elif column == "Time":
+            return get_seconds_from_string(value)
         else:
-            try:
-                result = get_seconds_from_string(primary_val)
-                if result:
-                    primary_key = float(result)
-                else:
-                    primary_key = float(primary_val)
-                    if primary_key > 10000.0:
-                        print(f'Vendor name convertable to float in primary check {primary_val}:{primary_key}:{result}')
-                        raise Exception('Vendor name convertable to float')
-                    #print(primary_key)
-            except Exception as e:
-                #print(f"Couldn't parse seconds from string: {e}")
-                primary_key = primary_val.lower()
-    except Exception as e:
-        print(f"Unexpected error for primary column: {e}")
-    # Handling the secondary value
-    try:
-        if len(secondary_val) == 0:
-            #print('secondary: no length')
-            pass
-        else:
-            try:
-                result = get_seconds_from_string(secondary_val)
-                if result:
-                    secondary_key = float(result)
-                else:
-                    secondary_key = float(secondary_val)
-                    if secondary_key > 10000.0:
-                        print(f'Vendor name convertable to float in secondary check {secondary_val}:{secondary_key}:{result}')
-                        raise Exception('Vendor name convertable to float')
-                    #print(primary_key)
-            except Exception as e:
-                #print(f"Couldn't parse seconds from string: {e}")
-                secondary_key = secondary_val.lower()
-    except Exception as e:
-        print(f"Unexpected error for secondary column: {e}")
-    #print(f"primary_key:{primary_key}, secondary_key:{secondary_key}")
+            print('waduhek')
+            return
+    primary_val, secondary_val = item[0], item[1]
+    primary_key = handle_value(primary_val,column1)
+    secondary_key = handle_value(secondary_val,column2)
+    #print(f"\nprimary_key:{primary_key}, type: {type(primary_key)}\nsecondary_key:{secondary_key}, type: {type(secondary_key)}\n")
     return (primary_key, secondary_key)  # Return a tuple for multi-level sorting
 
 def delete_most_recent_log(event=None):
@@ -968,29 +959,24 @@ def parse_log_to_object():
     pass_flag = False
     my_vendor_objs = []
     with open(latest_log, 'r', encoding='utf-8') as lines:
-        # Iterate through each line
-
         for line in lines:
             if "System: Welcome" in line:
                 match = re.search(r'System: Welcome (.+)!', line)
                 character_name = match.group(1) if match else 'Invalid Name'
-                pass
             elif "…item" in line and current_vendor is not None:
                 if "Not for sale" in line:
                     continue
-                #item_id = re.search(r'ID:(\d+) (.+?)(?: : (\d+)(.*))?$', line)
                 match = re.search(r'ID:(\d+) Price: (\d+) (.+?)(?: : (\d+)(.*))?$', line)
                 if match:
                     item_id = int(match.group(1))
                     item_price = int(match.group(2))
-                    item_description = match.group(3)
+                    item_description = match.group(3)  #todo fix double descriptions on some dyes
                     #print(item_description)
                     item_quantity = int(match.group(4)) if match.group(4) else 1
                     item_suffix = match.group(5) if match.group(5) else ''
                     if(item_suffix):
                         item_description += item_suffix
                     item_unitprice = round(item_price / item_quantity,4)
-                    # If a match was found, return the matched number as an integer
                     item = {
                         'id': item_id,
                         "price": item_unitprice,
@@ -1030,7 +1016,8 @@ def parse_log_to_object():
                     check_dist = float('inf')
                     closest = None
                     for location_name, tuple_loc in my_locations.items():
-                        x2, y2 = map(int,tuple_loc)
+                        x2 = int(tuple_loc[0])
+                        y2 = int(tuple_loc[1])
                         distance = get_distance(int(x1),int(y1),x2,y2)
                         if distance < check_dist:
                             check_dist = distance
@@ -1248,7 +1235,7 @@ def categorize_and_sort_aggregated_items(aggregated_items):
         'Boards': ['board'],
         'Ingots': ['ingot'],
         'Leather': ['leather','dullhide', 'shadowhide', 'copperhide', 'bronzehide', 'goldenhide', 'rosehide', 'verehide', 'valehide', 'avarhide'],
-        'Materials': ('research material', 'an arcane scroll','mastercrafting diagram'),
+        'Misc': ('research material', 'an arcane scroll','mastercrafting diagram','skill mastery orb'),
         'Dyes': ['dye'],
         }
     category_dict = defaultdict(dict)
@@ -1274,7 +1261,8 @@ def discord_truncate(s):
     transformer = {
         'Aspect Core': (' Aspect Core',''),
         'Aspect Extract': (' Aspect Extract',''),
-        'Aspect Distillation': (' Aspect Distillation',''),
+        'Aspect Distillation': (' Aspect Distillation',''), 
+        'skill mastery orb': ("a skill mastery orb \(used to increase a player's total skill cap by 1\)",'skill mastery orb'), #a skill mastery orb (used to increase a player's total skill cap by 1)
         'skill mastery scroll': (" skill mastery scroll \(used to increase a player's skill cap for a skill by 1\)",""), 
         'mastery chain link': (r'(\w+) mastery chain link (.+) \(.+\)',r'\1 \2'),
         'rare cloth': (r'rare cloth \(hue \d+: ([\w\s-]+)\)',r'\1'),
@@ -1300,8 +1288,8 @@ class AliApp:
         self.root.bind("<Return>", self.ParseMostRecentJournalLog)
         self.root.bind("<Control-Return>", self.ScrapeOutlandMall)
         self.root.bind("<Control-Alt-Return>", self.PriorityScrapeOutlandMall)
-        self.root.bind("<Shift-Alt-Return>", self.set_all_checkboxes)
         self.root.bind("<KeyPress-3>", self.set_all_checkboxes)
+        self.root.bind("<KeyPress-4>", self.set_none_checkboxes)
         self.root.bind("<Alt-Return>", self.set_hp_variables)
         self.root.bind("<KeyPress-1>", self.set_hp_variables)
         self.root.bind("<Shift-Return>", self.set_lp_variables)
@@ -1381,12 +1369,10 @@ class AliApp:
         self.check_tmaps_var = tk.BooleanVar(self.root)
         self.check_skillscrolls_var = tk.BooleanVar(self.root)
         self.check_chainlinks_var = tk.BooleanVar(self.root)
-        #self.check_misc_var = tk.BooleanVar(self.root)
         self.check_hp_misc_var = tk.BooleanVar(self.root)
         self.check_lp_misc_var = tk.BooleanVar(self.root)
         self.check_cloth_var = tk.BooleanVar(self.root)
         self.check_dye_var = tk.BooleanVar(self.root)
-        self.check_misc_crafting_var = tk.BooleanVar(self.root)
         self.check_ingot_var = tk.BooleanVar(self.root)
         self.check_board_var = tk.BooleanVar(self.root)
         self.check_leather_var = tk.BooleanVar(self.root) 
@@ -1405,8 +1391,6 @@ class AliApp:
         self.check_chainlinks_search = ttk.Checkbutton(self.checkbox_frame, text="Search Chain Links", variable=self.check_chainlinks_var)
         self.check_chainlinks_search.grid(row=5, column=0,sticky='ew', padx=(27,0),columnspan=2)
 
-        # self.check_misc_search = ttk.Checkbutton(self.checkbox_frame, text="Search Misc", variable=self.check_misc_var)
-        # self.check_misc_search.grid(row=6, column=0,sticky='w')
         self.check_lp_misc_search = ttk.Checkbutton(self.checkbox_frame, text="Search LP Misc", variable=self.check_lp_misc_var)
         self.check_lp_misc_search.grid(row=6, column=0,sticky='ew', padx=(27,0),columnspan=2)
         self.check_hp_misc_search = ttk.Checkbutton(self.checkbox_frame, text="Search HP Misc", variable=self.check_hp_misc_var)
@@ -1489,7 +1473,7 @@ class AliApp:
         self.btn_visit_web.grid(row=6, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
         self.btn_open_folder = ttk.Button(self.radio_frame, text="Open Folder", command=lambda: os.system('explorer "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\\Client\\JournalLogs"'))
         self.btn_open_folder.grid(row=7, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
-        self.btn_inventory = ttk.Button(self.radio_frame, text="Inventory", command=lambda: self.read_db_current_inventory(['Materials','Links','Boards','Ingots','Leather']))
+        self.btn_inventory = ttk.Button(self.radio_frame, text="Inventory", command=lambda: self.read_db_current_inventory())
         self.btn_inventory.grid(row=8, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
         self.btn_recent_sales = ttk.Button(self.radio_frame, text="Sales", command=self.read_db_total_sales) # read_db_recent_sales
         self.btn_recent_sales.grid(row=9, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
@@ -1535,12 +1519,10 @@ class AliApp:
         self.check_tmaps_var.set(True)
         self.check_skillscrolls_var.set(True)
         self.check_chainlinks_var.set(False)
-        #self.check_misc_var.set(True)
         self.check_lp_misc_var.set(False)
         self.check_hp_misc_var.set(True)
         self.check_cloth_var.set(False)
         self.check_dye_var.set(False)
-        self.check_misc_crafting_var.set(True)
         self.check_ingot_var.set(False)
         self.check_board_var.set(False)
         self.check_leather_var.set(False)
@@ -1555,12 +1537,10 @@ class AliApp:
         self.check_tmaps_var.set(False)
         self.check_skillscrolls_var.set(False)
         self.check_chainlinks_var.set(True)
-        #self.check_misc_var.set(True)
         self.check_lp_misc_var.set(True)
         self.check_hp_misc_var.set(False)
         self.check_cloth_var.set(True)
         self.check_dye_var.set(True)
-        self.check_misc_crafting_var.set(False)
         self.check_ingot_var.set(True)
         self.check_board_var.set(True)
         self.check_leather_var.set(True)
@@ -1572,12 +1552,10 @@ class AliApp:
         self.check_tmaps_var.set(True)
         self.check_skillscrolls_var.set(True)
         self.check_chainlinks_var.set(True)
-        #self.check_misc_var.set(True)
         self.check_lp_misc_var.set(True)
         self.check_hp_misc_var.set(True)
         self.check_cloth_var.set(True)
         self.check_dye_var.set(True)
-        self.check_misc_crafting_var.set(True)
         self.check_ingot_var.set(True)
         self.check_board_var.set(True)
         self.check_leather_var.set(True)
@@ -1589,12 +1567,10 @@ class AliApp:
         self.check_tmaps_var.set(False)
         self.check_skillscrolls_var.set(False)
         self.check_chainlinks_var.set(False)
-        #self.check_misc_var.set(False)
         self.check_lp_misc_var.set(False)
         self.check_hp_misc_var.set(False)
         self.check_cloth_var.set(False)
         self.check_dye_var.set(False)
-        self.check_misc_crafting_var.set(False)
         self.check_ingot_var.set(False)
         self.check_board_var.set(False)
         self.check_leather_var.set(False)
@@ -1633,7 +1609,8 @@ class AliApp:
             found_locations.append((update_time_string,location_string.split(', '),vendor_name_string))
         out_arr = []
         for location_name, tuple_loc in my_locations.items():
-            x1, y1 = map(int,tuple_loc)
+            x1 = int(tuple_loc[0])
+            y1 = int(tuple_loc[1])
             closest = None
             min_distance = 20
             min_time = 1000000
@@ -1700,44 +1677,129 @@ class AliApp:
             vendor_serial = serial_match.group(1) if serial_match else 0
             item_serial = serial_match.group(2) if serial_match else 0
             item_price = serial_match.group(3) if serial_match else 0
-            scriptString = f"""@setvar! timeout 650
-@setvar! vendorID {vendor_serial}
+            location_raw = self.tree.item(row_id, "values")[5].split('\t')
+            location_split = location_raw[0].split(',')
+            x1, y1 = map(int,location_split)
+            check_dist = float('inf')
+            closest = None
+            for location_name, tuple_loc in my_locations.items():
+                x2 = int(tuple_loc[0])
+                y2 = int(tuple_loc[1])
+                distance = get_distance(x1,y1,x2,y2)
+                if distance < check_dist:
+                    check_dist = distance
+                    closest = location_name
+            location_name = closest if closest else 'Not found'
+            if not closest:
+                print("Somehow 'closest' is None")
+                return
+            if my_locations.get(closest) is None:
+                print(f"No match in dictionary for location name: {closest}")
+                return
+            location_data = my_locations[closest][2]
+            location_character = location_data[0]
+            book_hue = location_data[1]
+            location_recall_code = location_data[2]
+            location_button_code = location_data[3]
+            value_to_copy_raw = self.tree.item(row_id, "values")[7]
+            serial_match = re.search(r'\?(\d+)(?:\?(\d+))(?:\?(\d+))?#', value_to_copy_raw) #'https://www.exploreoutlands.com/?471890?1251126567?312345125#pos:869,1381,13'
+            second_try = re.search(r'\?(\d+)\?', value_to_copy_raw)
+            print(value_to_copy_raw)
+            vendor_serial = serial_match.group(1) if serial_match else second_try.group(1) if second_try else 0
+            item_id = serial_match.group(2) if serial_match else 0
+            item_price = serial_match.group(3) if serial_match else 0
+            int_price = int(item_price)
+            scriptString = f"""@setvar! "timeout" 650
+@setvar! "myTome" 0
 @clearignore
+
+if find {vendor_serial} ground -1 -1 20
+else
+    removelist "runetomeList"
+    createlist "runetomeList"
+    for 3
+        if findtype "runetome" backpack {book_hue} as "tome"
+            @setvar! "myTome" "tome"
+            break
+        endif
+        dclick backpack
+        wait "timeout"
+    endfor
+
+    if "myTome" = 0
+        overhead "NO TOME" 33
+        stop
+    endif
+
+    overhead "recalling to spot {location_recall_code} in {location_character}'s book" {book_hue}
+    dclick "myTome"
+    waitforgump 167090027 1000
+    if not gumpexists 167090027
+        dclick "myTome"
+        waitforgump 167090027 2000
+    endif
+    gumpresponse {location_recall_code} 167090027
+    waitforgump 167090027 2000
+    gumpresponse {location_button_code} 167090027
+    wait 500
+
+    while not dead
+        if hidden
+            break
+        endif
+        skill "hiding"
+        wait 200
+    endwhile
+endif
+
 while not dead
-    if find vendorID ground -1 -1 20
-        skill 'hiding'
-        overhead "● ▼▼ HERE ▼▼ ●" 88 vendorID
-        if findtype 3701 vendorID as pack
-            dclick pack
-            wait timeout
-            @setvar! foundItem 0
-            if find {item_serial} pack as item
-                @setvar! foundItem item
+    if find {vendor_serial} ground -1 -1 20
+        overhead "● ▼▼ HERE ▼▼ ●" 88 {vendor_serial}
+        if findtype 3701 {vendor_serial} as "pack"
+            dclick "pack"
+            wait "timeout"
+            if hidden
             else
-                while findtype 2472|2473|2474|2475|2476|2480|2481|2482|2604|2605|2606|2607|2608|2609|2610|2611|2612|2613|2614|2615|2616|2617|2618|2619|2620|2621|2622|2623|2624|2625|2626|2627|2628|2629|2630|2631|2632|2633|2634|2635|2636|2637|2638|2639|2640|2641|2642|2643|2711|2712|2713|2714|2715|2716|2717|2718|3644|3645|3646|3647|3648|3649|3650|3651|3701|3702|3703|3704|3705|3706|3708|3709|3710|3711|3712|7808|7809|9002|9003|11010|11011|12657|29833|29832 pack as subContainer
-                @ignore subContainer
-                dclick subContainer
-                wait timeout
-                if find {item_serial} pack as item
-                    @setvar! foundItem item
-                    break
-                endif
-                endwhile
-                clearignore
+                skill "hiding"
             endif
-            if foundItem != 0
-                getlabel foundItem foundItemLabel
-                sysmsg "FOUND {{{{foundItemLabel}}}}"
-                if "Description: " in foundItemLabel
-                elseif "Price: {int(item_price)} " in foundItemLabel
-                sysmsg "opening buy menu"
-                menu foundItem 0
+            if {item_id} = 0
+                overhead "No itemID" 33
+                stop
+            endif
+            @setvar! "founditem" 0
+            if find {item_id} "pack" as "item"
+                @setvar! "founditem" "item"
+            else
+                while findtype 2472|2473|2474|2475|2476|2480|2481|2482|2604|2605|2606|2607|2608|2609|2610|2611|2612|2613|2614|2615|2616|2617|2618|2619|2620|2621|2622|2623|2624|2625|2626|2627|2628|2629|2630|2631|2632|2633|2634|2635|2636|2637|2638|2639|2640|2641|2642|2643|2711|2712|2713|2714|2715|2716|2717|2718|3644|3645|3646|3647|3648|3649|3650|3651|3701|3702|3703|3704|3705|3706|3708|3709|3710|3711|3712|7808|7809|9002|9003|11010|11011|12657|29833|29832 "pack" as "subContainer"
+                    @ignore "subContainer"
+                    dclick "subContainer"
+                    wait "timeout"
+                    if find {item_id} "pack" as "item"
+                        @setvar! "founditem" "item"
+                        break
+                    endif
+                endwhile
+                @clearignore
+            endif
+            if "founditem" != 0
+                getlabel "founditem" "foundItemLabel"
+                sysmsg "FOUND {{{{"foundItemLabel"}}}}" 1159
+                if "Description: " in "foundItemLabel"
+                elseif "Price: {int_price} " in "foundItemLabel"
+                    sysmsg "opening buy menu" 1159
+                    menu "founditem" 0
+                elseif "Price: {int_price + 1} " in "foundItemLabel"
+                    sysmsg "opening buy menu" 1159
+                    menu "founditem" 0
+                elseif "Price: {int_price - 1} " in "foundItemLabel"
+                    sysmsg "opening buy menu" 1159
+                    menu "founditem" 0
                 else
-                overhead "BEWARE PRICE CHANGE" 33
-                sysmsg "BEWARE PRICE CHANGE" 33
+                    overhead "BEWARE PRICE CHANGE" 33
+                    sysmsg "BEWARE PRICE CHANGE" 33
                 endif
             else
-                sysmsg "Could not find item for sale"
+                sysmsg "Could not find item for sale" 1159
             endif
         endif
         stop
@@ -1778,55 +1840,124 @@ endwhile"""
         check_dist = float('inf')
         closest = None
         for location_name, tuple_loc in my_locations.items():
-            x2, y2 = map(int,tuple_loc)
+            x2 = int(tuple_loc[0])
+            y2 = int(tuple_loc[1])
             distance = get_distance(x1,y1,x2,y2)
             if distance < check_dist:
                 check_dist = distance
                 closest = location_name
         location_name = closest if closest else 'Not found'
+        if not closest:
+            print("Somehow 'closest' is None")
+            return
+        if my_locations.get(closest) is None:
+            print(f"No match in dictionary for location name: {closest}")
+            return
+        location_data = my_locations[closest][2]
+        location_character = location_data[0]
+        book_hue = location_data[1]
+        location_recall_code = location_data[2]
+        location_button_code = location_data[3]
         value_to_copy_raw = self.tree.item(row_id, "values")[7]
         serial_match = re.search(r'\?(\d+)(?:\?(\d+))(?:\?(\d+))?#', value_to_copy_raw) #'https://www.exploreoutlands.com/?471890?1251126567?312345125#pos:869,1381,13'
-        vendor_serial = serial_match.group(1) if serial_match else 0
+        second_try = re.search(r'\?(\d+)\?', value_to_copy_raw)
+        print(value_to_copy_raw)
+        vendor_serial = serial_match.group(1) if serial_match else second_try.group(1) if second_try else 0
         item_id = serial_match.group(2) if serial_match else 0
         item_price = serial_match.group(3) if serial_match else 0
-        scriptString = f"""@setvar! timeout 650
-@setvar! vendorID {vendor_serial}
+        int_price = int(item_price)
+        scriptString = f"""@setvar! "timeout" 650
+@setvar! "myTome" 0
+@setvar! "itemID" {item_id}
 @clearignore
+
+if find {vendor_serial} ground -1 -1 20
+else
+    removelist "runetomeList"
+    createlist "runetomeList"
+    for 3
+        if findtype "runetome" backpack {book_hue} as "tome"
+            @setvar! "myTome" "tome"
+            break
+        endif
+        dclick backpack
+        wait "timeout"
+    endfor
+
+    if "myTome" = 0
+        overhead "NO TOME" 33
+        stop
+    endif
+
+    overhead "recalling to spot {location_recall_code} in {location_character}'s book" {book_hue}
+    dclick "myTome"
+    waitforgump 167090027 1000
+    if not gumpexists 167090027
+        dclick "myTome"
+        waitforgump 167090027 2000
+    endif
+    gumpresponse {location_recall_code} 167090027
+    waitforgump 167090027 2000
+    gumpresponse {location_button_code} 167090027
+    wait 500
+
+    while not dead
+        if hidden
+            break
+        endif
+        skill "hiding"
+        wait 200
+    endwhile
+endif
+
 while not dead
-    if find vendorID ground -1 -1 20
-        skill 'hiding'
-        overhead "● ▼▼ HERE ▼▼ ●" 88 vendorID
-        if findtype 3701 vendorID as pack
-            dclick pack
-            wait timeout
-            @setvar! foundItem 0
-            if find {item_id} pack as item
-                @setvar! foundItem item
+    if find {vendor_serial} ground -1 -1 20
+        overhead "● ▼▼ HERE ▼▼ ●" 88 {vendor_serial}
+        if findtype 3701 {vendor_serial} as "pack"
+            dclick "pack"
+            wait "timeout"
+            if hidden
             else
-                while findtype 2472|2473|2474|2475|2476|2480|2481|2482|2604|2605|2606|2607|2608|2609|2610|2611|2612|2613|2614|2615|2616|2617|2618|2619|2620|2621|2622|2623|2624|2625|2626|2627|2628|2629|2630|2631|2632|2633|2634|2635|2636|2637|2638|2639|2640|2641|2642|2643|2711|2712|2713|2714|2715|2716|2717|2718|3644|3645|3646|3647|3648|3649|3650|3651|3701|3702|3703|3704|3705|3706|3708|3709|3710|3711|3712|7808|7809|9002|9003|11010|11011|12657|29833|29832 pack as subContainer
-                @ignore subContainer
-                dclick subContainer
-                wait timeout
-                if find {item_id} pack as item
-                    @setvar! foundItem item
-                    break
-                endif
-                endwhile
-                clearignore
+                skill "hiding"
             endif
-            if foundItem != 0
-                getlabel foundItem foundItemLabel
-                sysmsg "FOUND {{{{foundItemLabel}}}}"
-                if "Description: " in foundItemLabel
-                elseif "Price: {int(item_price)} " in foundItemLabel
-                sysmsg "opening buy menu"
-                menu foundItem 0
+            if {item_id} = 0
+                overhead "No itemID" 33
+                stop
+            endif
+            @setvar! "founditem" 0
+            if find {item_id} "pack" as "item"
+                @setvar! "founditem" "item"
+            else
+                while findtype 2472|2473|2474|2475|2476|2480|2481|2482|2604|2605|2606|2607|2608|2609|2610|2611|2612|2613|2614|2615|2616|2617|2618|2619|2620|2621|2622|2623|2624|2625|2626|2627|2628|2629|2630|2631|2632|2633|2634|2635|2636|2637|2638|2639|2640|2641|2642|2643|2711|2712|2713|2714|2715|2716|2717|2718|3644|3645|3646|3647|3648|3649|3650|3651|3701|3702|3703|3704|3705|3706|3708|3709|3710|3711|3712|7808|7809|9002|9003|11010|11011|12657|29833|29832 "pack" as "subContainer"
+                    @ignore "subContainer"
+                    dclick "subContainer"
+                    wait "timeout"
+                    if find {item_id} "pack" as "item"
+                        @setvar! "founditem" "item"
+                        break
+                    endif
+                endwhile
+                @clearignore
+            endif
+            if "founditem" != 0
+                getlabel "founditem" "foundItemLabel"
+                sysmsg "FOUND {{{{"foundItemLabel"}}}}" 1159
+                if "Description: " in "foundItemLabel"
+                elseif "Price: {int_price} " in "foundItemLabel"
+                    sysmsg "opening buy menu" 1159
+                    menu "founditem" 0
+                elseif "Price: {int_price + 1} " in "foundItemLabel"
+                    sysmsg "opening buy menu" 1159
+                    menu "founditem" 0
+                elseif "Price: {int_price - 1} " in "foundItemLabel"
+                    sysmsg "opening buy menu" 1159
+                    menu "founditem" 0
                 else
-                overhead "BEWARE PRICE CHANGE" 33
-                sysmsg "BEWARE PRICE CHANGE" 33
+                    overhead "BEWARE PRICE CHANGE" 33
+                    sysmsg "BEWARE PRICE CHANGE" 33
                 endif
             else
-                sysmsg "Could not find item for sale"
+                sysmsg "Could not find item for sale" 1159
             endif
         endif
         stop
@@ -1856,7 +1987,7 @@ endwhile"""
                 if bool:
                     gathered_misc_prices.update(prices)
             for searchString, searchPrice in gathered_misc_prices.items():
-                elapsed_time = time.time() - start_time
+                #elapsed_time = time.time() - start_time
                 self.queue_append.put(f"{searchString}")
                 #misc_start_time = time.time()  # Record the current time
                 page_url = "https://outlandmalls.com/?item=" + quote_plus(searchString) + "&search_category_id=0"
@@ -1927,6 +2058,13 @@ endwhile"""
         async_bot.start()
 
     def search_self_parse_obj(self,parse_obj):
+        self_parse_extra_prices = { #todo add
+            "strongbox customization unlock deed [blessed] (used to unlock 'Strongbox' customization)": 1900000,
+            "mount token": 1800000,
+            "a lore page": 20000,
+            "Aspect Triumph": 400000,
+            " tome": 170000,
+        }
         cutoff_threshold = self.cutoff_threshold.get()
         price_depth = self.search_pricedepth.get()
         bools = [
@@ -1936,15 +2074,12 @@ endwhile"""
             (self.check_tmaps_var.get(), map_prices),
             (self.check_skillscrolls_var.get(), scroll_prices),
             (self.check_chainlinks_var.get(), link_prices),
-            (self.check_cloth_var.get(), 'cloth'), #todo
-            #(True, 'cloth'), #todo
+            (self.check_cloth_var.get(), 'cloth'),
             (self.check_dye_var.get(), 'dyes'),
-            #(True, 'dyes'), #todo
-            #(self.check_misc_var.get(), misc_prices),
             (self.check_hp_misc_var.get(), misc_hp_prices),
+            (self.check_hp_misc_var.get(), self_parse_extra_prices),
             (self.check_lp_misc_var.get(), misc_lp_prices),
-            
-            (self.check_misc_crafting_var.get(), misc_crafting_prices),
+            (self.check_hp_misc_var.get(), misc_crafting_prices),
             (self.check_ingot_var.get(), ingot_prices),
             (self.check_board_var.get(), board_prices),
             (self.check_leather_var.get(), leather_prices),
@@ -2134,13 +2269,13 @@ endwhile"""
             if not rows:
                 print("No inventory snapshot available.")
                 return []
-            inventory_window = tk.Toplevel(self.root)
-            inventory_window.title("Inventory")
-            self.scrollbar = tk.Scrollbar(inventory_window, orient="vertical")
-            listbox = tk.Listbox(inventory_window, yscrollcommand=self.scrollbar.set, width=60, height=20)
-            self.scrollbar.config(command=listbox.yview)
-            self.scrollbar.pack(side="right", fill="y")
-            listbox.pack(side="left", fill="both", expand=True)
+            # inventory_window = tk.Toplevel(self.root)
+            # inventory_window.title("Inventory")
+            # self.scrollbar = tk.Scrollbar(inventory_window, orient="vertical")
+            # listbox = tk.Listbox(inventory_window, yscrollcommand=self.scrollbar.set, width=60, height=20)
+            # self.scrollbar.config(command=listbox.yview)
+            # self.scrollbar.pack(side="right", fill="y")
+            # listbox.pack(side="left", fill="both", expand=True)
             aggregated_items = {}
             columns = ['snapshot_time', 'id', 'price', 'description', 'quantity']
             for row in rows:
@@ -2154,35 +2289,34 @@ endwhile"""
                     aggregated_items[key] = 0
                 aggregated_items[key] += 1
             print('before')
+            print(aggregated_items)
             sorted_items = categorize_and_sort_aggregated_items(aggregated_items)
             print('after')
 #Animal Lore Scroll: 11 @ 18k each | 2 sets of 10 @ 180k/set
-            out_str = '**WTS**'
+            out_str = "***WTS*** *(all available on vendors MM1, MM2, and MM3 at Chopper's Shop (4008, 477) directly north of Anchor's Rest moongate*"
             for category_name, category_items in sorted_items.items(): 
                 if len(category_items) == 0:
-                    continue
-                if switch and category_name not in switch:
                     continue
                 out_str += f"\n**{category_name}**:\n"
                 for description, details in category_items.items():
                     #total_price = int(price) * int(quantity)
                     trunc_name = discord_truncate(description)
                     inline_strings = []
-                    for stack_size, price, quantity in sorted(details):   
+                    for stack_size, price, quantity in sorted(details): 
+                        fprice = shorten_number(price)    
                         if stack_size == 1:
-                            fprice = shorten_number(price)
-                            inline_strings.append(f"{quantity} @ {fprice}/i")
+                            inline_strings.append(f"{quantity} @ {fprice}/item")
                         else:
-                            ftotal = shorten_number(price * stack_size)  
+                            ftotal = shorten_number(price * stack_size)
                             if quantity == 1:
-                                inline_strings.append(f"1 set of {stack_size} @ {ftotal}/s")
+                                inline_strings.append(f"1 set of {stack_size} @ {ftotal}/set ({fprice}/item)")
                             else:
-                                inline_strings.append(f"{quantity} sets of {stack_size} @ {ftotal}/s")
-                    result = f"{trunc_name}: {' & '.join(inline_strings)}"
-                    listbox.insert(tk.END, result)
+                                inline_strings.append(f"{quantity} sets of {stack_size} @ {ftotal}/set ({fprice}/item)")
+                    result = f"{trunc_name}: {'  &  '.join(inline_strings)}"
+                    #listbox.insert(tk.END, result)
                     out_str += f"\t{result}\n"
                     #print(result)
-            print(out_str)
+            #print(out_str)
             self.root.clipboard_clear()
             self.root.clipboard_append(out_str)
             #print("-End Report-")
@@ -2208,14 +2342,19 @@ endwhile"""
             if self.queue_flag:
                 self.queue_flag = False
                 if self.search_sortmode.get() == 2:
-                    self.sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
+                    try:
+                        self.sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
+                    except Exception as e:
+                        print('sort failed: ', e)
+
+
             self.root.after(100, self.queue_daemon)  # if queue is empty, check again after a longer delay
 
     def clear_tree(self):
         # Clear the Treeview
         for row in self.tree.get_children():
             self.tree.delete(row)
-#"Item", "Price","Ratio","#","Vendor","Location","Time"
+    #"Item", "Price","Ratio","#","Vendor","Location","Time"
     def append_to_tree(self,text1='',text2='',text3='',text4='',text5='',text6='',text7='',text8='',text9='',text10=''):
         if len(text3):
             ratio = float(text3)
@@ -2251,7 +2390,10 @@ endwhile"""
         if(len(tree_children) == 0):
             return
         l = [(self.tree.set(k, col), self.tree.set(k, secondary_col), k) for k in tree_children]
-        l.sort(key=lambda x: (key(x)[0] if key else x[0], key(x)[1] if key else x[1]), reverse=reverse)
+        try:
+            l.sort(key=lambda x: (key(x,col,secondary_col)[0] if key else x[0], key(x,col,secondary_col)[1]) if key else x[1], reverse=reverse)
+        except Exception as e:
+            print('lsort e:', e)
         for index, (_, _, k) in enumerate(l):
             self.tree.move(k, '', index)
         self.tree.heading(col, command=lambda _col=col,_secondary_col = secondary_col: self.sort_column_tuple(_col, _secondary_col, not reverse, key))
@@ -2283,7 +2425,10 @@ endwhile"""
                 sale_price = int(float(price_col_split[1]))
                 quantity_int = int(item['#'])
                 ctp_ratio_float = float(item['Ratio'])
-                profit_margin = round((sale_price - my_cost) / my_cost,2)
+                try:
+                    profit_margin = round((sale_price - my_cost) / my_cost,2)
+                except ZeroDivisionError:
+                    profit_margin = 1
                 potential_profit = (sale_price - my_cost) * quantity_int
                 if ctp_ratio_float > 0.9 or profit_margin < 0.1:
                     continue
