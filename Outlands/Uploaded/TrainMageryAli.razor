@@ -36,7 +36,7 @@ createlist "shelter_checklist"
 @setvar! "in_shelter" 0
 if skill "Magery" < 80
     if "ShelterOverride" = 1
-    elseif findtypelist "shelter_checklist" 4150|3948|3703 "ground" any 1 18 and "ShelterOverride" = 0
+    elseif findtypelist "shelter_checklist" 4150|3948|3703 "ground" "any" 1 18 and "ShelterOverride" = 0
         if atlist "shelter_checklist" 0 and atlist "shelter_checklist" 5 and not atlist "shelter_checklist" 6
             @setvar! "in_shelter" 1
         else
@@ -51,8 +51,8 @@ endif
 
 @setvar! "restock_method" 0
 if "in_shelter" = 1
-elseif findtype "storage shelf" ground 0 1 2 as myStorageShelf
-    @setvar! "restock_method" myStorageShelf
+elseif findtype "storage shelf" ground 0 1 2 as "myStorageShelf"
+    @setvar! "restock_method" "myStorageShelf"
 else
     overhead "No storage shelf nearby" 1159
     overhead "Target your restock container" 1159

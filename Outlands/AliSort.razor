@@ -5,15 +5,13 @@
 @setvar! globalTimeout 650
 
 if findtype "spellbook" self 0 as mySpellBook
-    overhead "Ignoring spellbook"
-    ignore mySpellBook
+    @ignore mySpellBook
 endif
 
 if findtype 3922 self 0 as myDagger
     getlabel myDagger desc
     if "blessed" in desc
-        overhead "Ignoring blessed dagger"
-        ignore myDagger
+        @ignore myDagger
     endif
 endif
 
@@ -49,24 +47,54 @@ while findtype 5132|5135|5075|5074|5061|7610|5070|5063|7175|7179|7169|7177|5090|
     @ignore item
 endwhile
 
-if findtype 5356 as map and findtype 29104 ground 2990 1 2 as myTreasureMapBook
+if findtype 5356 backpack 0 and findtype 29104 ground 2990 1 2 as myTreasureMapBook
+    overhead "Add to Tmap Book" 1159
     menu myTreasureMapBook 0
 endif
 
-if findtype "scroll of calling" as scroll and findtype 29104 ground 2963 1 2 as myScrollBook
+if findtype 5356 backpack 2796 and findtype 29104 ground 2796 1 2 as myOreMapBook
+    overhead "Add to Ore Book" 1159
+    menu myOreMapBook 0
+endif
+
+if findtype 5356 backpack 2799 and findtype 29104 ground 2799 1 2 as myLumberMapBook
+    overhead "Add to Lumber Book" 1159
+    menu myLumberMapBook 0
+endif
+
+if findtype 5356 backpack 2651 and findtype 29104 ground 2651 1 2 as myHideMapBook
+    overhead "Add to Hide Book" 1159
+    menu myHideMapBook 0
+endif
+
+if findtype 5356 backpack 2904 and findtype 29104 ground 2904 1 2 as myFishMapBook
+    overhead "Add to Fish Book" 1159
+    menu myFishMapBook 0
+endif
+
+if findtype "scroll of calling" and findtype 29104 ground 2963 1 2 as myScrollBook
+    overhead "Add to SS Book" 1159
     menu myScrollBook 0
 endif
 
-if findtype 5981 as cloth and findtype 29104 ground 1495 1 2 as myClothBook
+if findtype 5981 and findtype 29104 ground 1495 1 2 as myClothBook
+    overhead "Add to Cloth Book" 1159
     menu myClothBook 0
 endif
 
-if findtype 3838|3839|3842|3843|15297|29025|29036 as dye and findtype 29104 ground 1494 1 2 as myDyeBook
+if findtype 3838|3839|3842|3843|15297|29025|29036 and findtype 29104 ground 1494 1 2 as myDyeBook
+    overhead "Add to Dye Book" 1159
     menu myDyeBook 0
 endif
 
-if findtype 27612 as dye and findtype 29104 ground 2910 1 2 as myLorePageBook
+if findtype 27612 and findtype 29104 ground 2910 1 2 as myLorePageBook
+    overhead "Add to Lore Book" 1159
     menu myLorePageBook 0
+endif
+
+if findtype 43206 and findtype 29104 ground 2091 1 2 as myLinkPageBook
+    overhead "Add to Link Book" 1159
+    menu myLinkPageBook 0
 endif
 
 wait 250
@@ -112,7 +140,7 @@ while findtype 9917|5056|5059|5060|5061|5063|5070|5074|5075|5076|5078|5085|5089|
     getlabel item desc
     overhead "Organize {{desc}} to Magic Items" 53
     lift item 60000
-    drop EDCContainer -1 -1 -1
+    drop magicContainer -1 -1 -1
     wait globalTimeout
     endif
 endwhile
@@ -666,17 +694,17 @@ endif
 //-----------------------------------------------------------------------------------------------------------//
 #Mount tokens - all serials: 8417|8438|8478|8479|8480|8481|8484|8488|8501|8502|8503|9052|43320
 
-    #desert ostard mount token 'desert ostard' 8501
-    #direwolf mount token 'statue' 43320
-    #forest ostard mount token 'forest ostard' 8503
-    #frenzied ostard mount token 'frenzied ostard' 8502
-    #grizzly bear mount token 'grizzly bear' 8478
-    #horse mount token 'horse' 8479|8480|8481|8484
-    #llama mount token 'llama' 8438
-    #polar bear mount token 'Polar Bear Frame' 8417
-    #skeletal mount token 'skeletal mount token' 8488
-    #tundra ostard mount token 'desert ostard' 8501
-    #unicorn mount token 'unicorn' 9052
+    #desert ostard mount token "desert ostard" 8501
+    #direwolf mount token "statue" 43320
+    #forest ostard mount token "forest ostard" 8503
+    #frenzied ostard mount token "frenzied ostard" 8502
+    #grizzly bear mount token "grizzly bear" 8478
+    #horse mount token "horse" 8479|8480|8481|8484
+    #llama mount token "llama" 8438
+    #polar bear mount token "Polar Bear Frame" 8417
+    #skeletal mount token "skeletal mount token" 8488
+    #tundra ostard mount token "desert ostard" 8501
+    #unicorn mount token "unicorn" 9052
 
 //-----------------------------------------------------------------------------------------------------------//
 #Plant items - all serials: 2323|3703|3707|3715|4090|4154|4550|4551|5344|5453|6187|6193|6327|6328|6330|6333|6334|6335|6337|6338|6341|11942|19403|20498|20499|20500|20501|20502|20503|22326|25570|28719|28741|28987|29030|29217|29343|29345|29372|29868|||||||||||||||51188||||||||

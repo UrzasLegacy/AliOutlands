@@ -1,0 +1,482 @@
+@setvar! "threshold" 50000
+@setvar! "threshold_flag" 0
+# /or "(: \d\d)(\d+)" in "item_label":/
+# /or "$1$2 " in "item_label" or "$1$$$$$" in "item_label":/
+@setvar! "item"
+getlabel "item" "item_label"
+@setvar! "bool" 0
+
+
+
+for 1
+    if "threshold" = 100000 or "threshold_flag" = 1
+        @setvar! "threshold_flag" 1
+    else
+        break
+    endif
+    if "bool" = 1
+        break
+    elseif ": 100000 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 99000 " in "item_label" or ": 99500 " in "item_label" or ": 99999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 98000 " in "item_label" or ": 98500 " in "item_label" or ": 98999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 97000 " in "item_label" or ": 97500 " in "item_label" or ": 97999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 96000 " in "item_label" or ": 96500 " in "item_label" or ": 96999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 95000 " in "item_label" or ": 95500 " in "item_label" or ": 95999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 95000 " in "item_label" or ": 95500 " in "item_label" or ": 95999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 94000 " in "item_label" or ": 94500 " in "item_label" or ": 94999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 93000 " in "item_label" or ": 93500 " in "item_label" or ": 93999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 92000 " in "item_label" or ": 92500 " in "item_label" or ": 92999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 91000 " in "item_label" or ": 91500 " in "item_label" or ": 91999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 90500 " in "item_label" or ": 90999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    endif
+endfor
+
+for 1
+    if "threshold" = 90000 or "threshold_flag" = 1
+        @setvar! "threshold_flag" 1
+    else
+        break
+    endif
+    if "bool" = 1 or "threshold" != 90000
+        break
+    elseif ": 90000 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 89000 " in "item_label" or ": 89500 " in "item_label" or ": 89999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 88000 " in "item_label" or ": 88500 " in "item_label" or ": 88999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 87000 " in "item_label" or ": 87500 " in "item_label" or ": 87999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 86000 " in "item_label" or ": 86500 " in "item_label" or ": 86999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 85000 " in "item_label" or ": 85500 " in "item_label" or ": 85999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 85000 " in "item_label" or ": 85500 " in "item_label" or ": 85999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 84000 " in "item_label" or ": 84500 " in "item_label" or ": 84999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 83000 " in "item_label" or ": 83500 " in "item_label" or ": 83999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 82000 " in "item_label" or ": 82500 " in "item_label" or ": 82999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 81000 " in "item_label" or ": 81500 " in "item_label" or ": 81999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 80500 " in "item_label" or ": 80999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    endif
+endfor
+
+for 1
+    if "threshold" = 80000 or "threshold_flag" = 1
+        @setvar! "threshold_flag" 1
+    else
+        break
+    endif
+    if "bool" = 1
+        break
+    elseif ": 80000 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 79000 " in "item_label" or ": 79500 " in "item_label" or ": 79999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 78000 " in "item_label" or ": 78500 " in "item_label" or ": 78999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 77000 " in "item_label" or ": 77500 " in "item_label" or ": 77999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 76000 " in "item_label" or ": 76500 " in "item_label" or ": 76999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 75000 " in "item_label" or ": 75500 " in "item_label" or ": 75999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 75000 " in "item_label" or ": 75500 " in "item_label" or ": 75999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 74000 " in "item_label" or ": 74500 " in "item_label" or ": 74999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 73000 " in "item_label" or ": 73500 " in "item_label" or ": 73999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 72000 " in "item_label" or ": 72500 " in "item_label" or ": 72999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 71000 " in "item_label" or ": 71500 " in "item_label" or ": 71999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 70500 " in "item_label" or ": 70999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    endif
+endfor
+
+for 1
+    if "threshold" = 70000 or "threshold_flag" = 1
+        @setvar! "threshold_flag" 1
+    else
+        break
+    endif
+    if "bool" = 1
+        break
+    elseif ": 70000 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 69000 " in "item_label" or ": 69500 " in "item_label" or ": 69999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 68000 " in "item_label" or ": 68500 " in "item_label" or ": 68999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 67000 " in "item_label" or ": 67500 " in "item_label" or ": 67999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 66000 " in "item_label" or ": 66500 " in "item_label" or ": 66999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 65000 " in "item_label" or ": 65500 " in "item_label" or ": 65999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 65000 " in "item_label" or ": 65500 " in "item_label" or ": 65999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 64000 " in "item_label" or ": 64500 " in "item_label" or ": 64999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 63000 " in "item_label" or ": 63500 " in "item_label" or ": 63999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 62000 " in "item_label" or ": 62500 " in "item_label" or ": 62999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 61000 " in "item_label" or ": 61500 " in "item_label" or ": 61999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 60500 " in "item_label" or ": 60999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    endif
+endfor
+
+for 1
+    if "threshold" = 60000 or "threshold_flag" = 1
+        @setvar! "threshold_flag" 1
+    else
+        break
+    endif
+    if "bool" = 1
+        break
+    elseif ": 60000 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 59000 " in "item_label" or ": 59500 " in "item_label" or ": 59999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 58000 " in "item_label" or ": 58500 " in "item_label" or ": 58999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 57000 " in "item_label" or ": 57500 " in "item_label" or ": 57999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 56000 " in "item_label" or ": 56500 " in "item_label" or ": 56999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 55000 " in "item_label" or ": 55500 " in "item_label" or ": 55999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 55000 " in "item_label" or ": 55500 " in "item_label" or ": 55999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 54000 " in "item_label" or ": 54500 " in "item_label" or ": 54999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 53000 " in "item_label" or ": 53500 " in "item_label" or ": 53999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 52000 " in "item_label" or ": 52500 " in "item_label" or ": 52999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 51000 " in "item_label" or ": 51500 " in "item_label" or ": 51999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 50500 " in "item_label" or ": 50999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    endif
+endfor
+
+for 1
+    if "threshold" = 50000 or "threshold_flag" = 1
+        @setvar! "threshold_flag" 1
+    else
+        break
+    endif
+    if "bool" = 1
+        break
+    elseif ": 50000 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 49000 " in "item_label" or ": 49500 " in "item_label" or ": 49999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 48000 " in "item_label" or ": 48500 " in "item_label" or ": 48999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 47000 " in "item_label" or ": 47500 " in "item_label" or ": 47999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 46000 " in "item_label" or ": 46500 " in "item_label" or ": 46999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 45000 " in "item_label" or ": 45500 " in "item_label" or ": 45999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 45000 " in "item_label" or ": 45500 " in "item_label" or ": 45999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 44000 " in "item_label" or ": 44500 " in "item_label" or ": 44999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 43000 " in "item_label" or ": 43500 " in "item_label" or ": 43999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 42000 " in "item_label" or ": 42500 " in "item_label" or ": 42999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 41000 " in "item_label" or ": 41500 " in "item_label" or ": 41999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 40500 " in "item_label" or ": 40999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    endif
+endfor
+
+for 1
+    if "threshold" = 40000 or "threshold_flag" = 1
+        @setvar! "threshold_flag" 1
+    else
+        break
+    endif
+    if "bool" = 1
+        break
+    elseif ": 40000 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 39000 " in "item_label" or ": 39500 " in "item_label" or ": 39999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 38000 " in "item_label" or ": 38500 " in "item_label" or ": 38999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 37000 " in "item_label" or ": 37500 " in "item_label" or ": 37999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 36000 " in "item_label" or ": 36500 " in "item_label" or ": 36999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 35000 " in "item_label" or ": 35500 " in "item_label" or ": 35999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 35000 " in "item_label" or ": 35500 " in "item_label" or ": 35999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 34000 " in "item_label" or ": 34500 " in "item_label" or ": 34999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 33000 " in "item_label" or ": 33500 " in "item_label" or ": 33999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 32000 " in "item_label" or ": 32500 " in "item_label" or ": 32999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 31000 " in "item_label" or ": 31500 " in "item_label" or ": 31999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 30500 " in "item_label" or ": 30999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    endif
+endfor
+
+for 1
+    if "threshold" = 30000 or "threshold_flag" = 1
+        @setvar! "threshold_flag" 1
+    else
+        break
+    endif
+    if "bool" = 1
+        break
+    elseif ": 30000 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 29000 " in "item_label" or ": 29500 " in "item_label" or ": 29999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 28000 " in "item_label" or ": 28500 " in "item_label" or ": 28999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 27000 " in "item_label" or ": 27500 " in "item_label" or ": 27999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 26000 " in "item_label" or ": 26500 " in "item_label" or ": 26999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 25000 " in "item_label" or ": 25500 " in "item_label" or ": 25999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 25000 " in "item_label" or ": 25500 " in "item_label" or ": 25999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 24000 " in "item_label" or ": 24500 " in "item_label" or ": 24999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 23000 " in "item_label" or ": 23500 " in "item_label" or ": 23999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 22000 " in "item_label" or ": 22500 " in "item_label" or ": 22999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 21000 " in "item_label" or ": 21500 " in "item_label" or ": 21999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 20500 " in "item_label" or ": 20999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    endif
+endfor
+
+for 1
+    if "threshold" = 20000 or "threshold_flag" = 1
+        @setvar! "threshold_flag" 1
+    else
+        break
+    endif
+    if "bool" = 1
+        break
+    elseif ": 20000 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 19000 " in "item_label" or ": 19500 " in "item_label" or ": 19999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 18000 " in "item_label" or ": 18500 " in "item_label" or ": 18999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 17000 " in "item_label" or ": 17500 " in "item_label" or ": 17999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 16000 " in "item_label" or ": 16500 " in "item_label" or ": 16999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 15000 " in "item_label" or ": 15500 " in "item_label" or ": 15999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 15000 " in "item_label" or ": 15500 " in "item_label" or ": 15999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 14000 " in "item_label" or ": 14500 " in "item_label" or ": 14999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 13000 " in "item_label" or ": 13500 " in "item_label" or ": 13999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 12000 " in "item_label" or ": 12500 " in "item_label" or ": 12999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 11000 " in "item_label" or ": 11500 " in "item_label" or ": 11999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 10500 " in "item_label" or ": 10999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    endif
+endfor
+
+for 1
+    if "threshold" = 10000 or "threshold_flag" = 1
+        @setvar! "threshold_flag" 1
+    else
+        break
+    endif
+    if "bool" = 1
+        break
+    elseif ": 10000 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 9000 " in "item_label" or ": 9500 " in "item_label" or ": 9999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 8000 " in "item_label" or ": 8500 " in "item_label" or ": 8999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 7000 " in "item_label" or ": 7500 " in "item_label" or ": 7999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 6000 " in "item_label" or ": 6500 " in "item_label" or ": 6999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 5000 " in "item_label" or ": 5500 " in "item_label" or ": 5999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 4000 " in "item_label" or ": 4500 " in "item_label" or ": 4999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 3000 " in "item_label" or ": 3500 " in "item_label" or ": 3999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 3000 " in "item_label" or ": 3500 " in "item_label" or ": 3999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 1000 " in "item_label" or ": 1500 " in "item_label" or ": 1999 " in "item_label"
+        @setvar! "bool" 1
+        break
+    elseif ": 950 " in "item_label" or ": 999 " in "item_label" or ": 1 " in "item_label": or ": 0 " in "item_label"
+        @setvar! "bool" 1
+        break
+    endif
+endfor
+
+if "bool" = 1
+    overhead 'true'
+else
+    overhead 'false'
+endif

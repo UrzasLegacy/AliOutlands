@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "outlands-pricesheet",
+  "private_key_id": "594e57a3357aa73f725c990fe304580f4fc11a74",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCMVjnnKPBw70fA\nsdhaudBFQUE4DvLN+Aqx2JrEPRhEcb/P2u7hpF8joMWnjZVowvlyzz7abzt6KIBA\n7d2ul1FVJujJLvpQzUMvXCJAK+PhoOOGDoIi/fKmWKxxXWPwhE32dwHMagVvS08M\nmQ4TEiXwRS95cdvp73IwS9o6p19LCuSxRfPAIBHMYp1dIlmAbC1UWKFjLasr2IiS\nWzoP2H+RdjmGG15gr4NS0VMmENOLMlqs6o11nfQkei7yN9xodKaVAjpOMQ67oCvr\ntKPZVobkriu9waHWl0bN4Y6oOd7vfRHwipiaLxSZj5x8y5iaGUthqF0d9JK7Q8RC\nxvrZlYTbAgMBAAECggEAEwkRIpdNgewa/frBn5DLvNEcoRd5/NEz1irM12h4FbSe\nMXn/ZBDxLLp+hPsx9HtZ7aZJ3sQuu6OpveTl6GwzBotYEQ3zuykUf2SOasjpSK4T\nnpfyM//hPYoSne/uge3YS2GaF1mcMhvzdYB/Rbv09HHV/jGhBErL4NwxFjqktN9q\ncxR3mSDIn8kuO93WBOzK224/rcas6w1wlJngO4FxWe8Kdw5aEKEqdbVF6t33FSt3\nZtbgvek+xBj4gBjj5cA1lMbHl4Tuo0l1SwlY7j+ixYNRfXvxCC1vWk7FDiOIrtee\nSUxcgcyS/dkK6DpEo0iFR7KkMcAseVWlQjjYXCBtgQKBgQDDc+5BsRHI4V0CwXA+\nyCof2g2NfknzUm+0cmIYLNGiMweYxybFk8YZm9MN/zD026dJZ+UfPY40i/4grBTf\n747J8fO482pN6eiCQ3GYT6vF1K1JGR15ndAaniFl+Kl+/b9jFIWPfLXwXJBWRNQj\nNfjvaHK3VS4yPM5uQPpA0eENWwKBgQC3z2iUmH9szGLsYPl7ylWOIF5Px2PgztDf\nPWCQtHvyezu3Rw9ng16Pi231qk/hlyZfhPk7dEOfednge7CSZAQphy8m0cTkJefa\nmYNlKzjUH11XXgBs7jEtX+lqgZ05TQlRPU89Q4NXkq9Hy3NdrKn/Ya04VyunMWCD\nJthqk8F+gQKBgQCubvOPKzFdH0w8HllHnqqBnMCFq9Th1Iue9op3WuCIqpQ4FFyU\n7mpZBomYr0yI6tPknlWMyQn1+Y6GqC1FIe5EaqwCPzN7b6szPm/N6CS8PS+d0k1M\n8bv9VW0nLYJPtLSu/2ynfzx81I94fpr5Bb0yJPxkhB/jdAMjwNfXK7h3iwKBgFg3\n5XucDVxMZBYLHPI61AEYq+siSV92I21had1Joktotepq4ovN0y6VvrqveRNOlg42\nJeBRFruNofJJqx83fX/o78pz10mgn7yc/SErM2UrgIMUDKQ7VcLvS3ngp3L+9D/X\naxZ+NqVrM1ED5mTJH/YADUEDJWJjIm0P0cKlE7MBAoGBALhbxXp7sNRQkv7l3UwN\nK1JEevjueJi4FXA8teiX31QfjrIooSP5v+z+Ffjmfj4eHFyjHQoxgjdaIgRBi8hF\npXl+ihHEBqpFkNZiK3+POzvLQlgB7Rl085lyB0sSN7OVxZEic38zXKiWXZEn4CP3\nmV4quOY7IUKvjWgV3hPSdioX\n-----END PRIVATE KEY-----\n",
+  "client_email": "outlandspricesheet@outlands-pricesheet.iam.gserviceaccount.com",
+  "client_id": "112844522756229895592",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/outlandspricesheet%40outlands-pricesheet.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

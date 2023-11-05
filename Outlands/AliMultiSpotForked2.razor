@@ -1,3 +1,5 @@
+//coins 6256|3876|3818|3855|3818|
+
 // OutlandMall by Sandro & Gankstar FORKED SHORT LIST
 // Set useRecallScrolls to 1 if you would rather use scrolls than reagents
 @setvar! "useRecallScrolls" 0
@@ -232,9 +234,9 @@ if "myTome" = 0
     stop
 endif
 
+removelist "vendors"
+createlist "vendors"
 while not dead
-    removelist "vendors"
-    createlist "vendors"
     if not atlist "runetomeSpotsAugmented" 0
         sysmsg "Done!" 1159
         stop

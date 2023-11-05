@@ -6,7 +6,7 @@
 
 #Set your prompt here:
 
-    @setvar! response "30000"
+    @setvar! "response" "30000"
 
 #Do not edit below
 if warmode
@@ -14,7 +14,7 @@ if warmode
 endif
 overhead "Response: {{response}}" 1159
 while not dead
-    promptresponse response
+    promptresponse "response"
     wait 500
     if warmode
         hotkey "Toggle War/Peace"
