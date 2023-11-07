@@ -1,32 +1,21 @@
-import re
-import time
+# Define the size of the grid
+rows, cols = 7, 7  # 7x7 grid
 
-# def process_item(stringExample):
-#     match = re.search(r'ID:(\d+) Price: (\d+) (.+?)(?: : (\d+)(.*))?$', stringExample)
-#     item_description = match.group(3)
-    
-#     if " dye " in item_description:
-#         # Using regex to find duplicates of the form "(hue xxxx: color)"
-#         duplicates = re.findall(r'\(hue \d+: .+?\)', item_description)
-        
-#         # Remove duplicates while keeping the first instance
-#         if len(duplicates) > 1 and duplicates[0] == duplicates[1]:
-#             item_description = item_description.replace(duplicates[0], "", 1)
-            
-#     return item_description
+# Prepare the numbers in advance
+sequence = list(range(1, rows*cols+1))
+sequence_index = 0  # Start with the first number in the sequence
 
+# Create the grid
+grid = [[None for _ in range(cols)] for _ in range(rows)]
 
-def process_item(stringExample):
-    match = re.search(r'ID:(\d+) Price: (\d+) (.+?)(?: : (\d+)(.*))?$', stringExample)
-    item_description = match.group(3)  #todo fix double descriptions on some dyes
-    if " dye " in item_description and ") (hue" in item_description:
-        item_description = item_description.split(") (hue")[0] + ")"
-    return item_description
+# Fill the grid with numbers
+for row in range(rows):
+    # Start from 'row' index as an offset for diagonal pattern
+    for col in range(row, cols):
+        if sequence_index < len(sequence):
+            grid[row][col-row] = sequence[sequence_index]
+            sequence_index += 1
 
-
-stringExample = "…item ID:1150998096 Price: 200000 rare facial hair dye (hue 1939: dark crimson)"
-# start_time = time.time()
-# for i in range (1,1000000):
-#     process_item(stringExample)
-# delta_time = time.time() - start_time
-print(process_item(stringExample)[:-1])
+# Print the grid
+for row in grid:
+    print(' '.join(['{:4}'.format(item if item is not None else '') for item in row]))

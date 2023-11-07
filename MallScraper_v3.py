@@ -1,4 +1,4 @@
-#resource maps, cloth, boat stuff (crew, upgrades)
+#boat stuff (crew, upgrades), jugglin torches n shit
 import os
 import glob
 import math
@@ -429,7 +429,7 @@ hue_list = {
     'Dark Jam':              {'hue': 2230, 'rare cloth': 50000, 'runebook dye': 50000, 'accessory dye': 10000, 'headwear dye': 200000, 'carpet dye': 15000, 'furniture dye': 80000, 'hair dye': 100000, 'facial hair dye': 90000, 'backpack dye': 200000, 'mount gear dye': 600000}, #Dark Jam
     'Powder Ruby':           {'hue': 2227, 'rare cloth': 110000, 'runebook dye': 80000, 'accessory dye': 30000, 'headwear dye': 600000, 'carpet dye': 20000, 'furniture dye': 250000, 'hair dye': 350000, 'facial hair dye': 300000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Powder Ruby
     'Powder Coral':          {'hue': 1495, 'rare cloth': 20000, 'runebook dye': 30000, 'accessory dye': 7000, 'headwear dye': 150000, 'carpet dye': 9000, 'furniture dye': 100000, 'hair dye': 100000, 'facial hair dye': 70000, 'backpack dye': 150000, 'mount gear dye': 600000}, #Powder Coral
-    'Powder Peach':          {'hue': 1496, 'rare cloth': 15000, 'runebook dye': 30000, 'accessory dye': 10000, 'headwear dye': 150000, 'carpet dye': 2000, 'furniture dye': 100000, 'hair dye': 150000, 'facial hair dye': 150000, 'backpack dye': 150000, 'mount gear dye': 600000}, #Powder Peach
+    'Powder Peach':          {'hue': 1496, 'rare cloth': 15000, 'runebook dye': 30000, 'accessory dye': 10000, 'headwear dye': 150000, 'carpet dye': 2000, 'furniture dye': 100000, 'hair dye': 125000, 'facial hair dye': 100000, 'backpack dye': 150000, 'mount gear dye': 600000}, #Powder Peach
     'Powder Lemon':          {'hue': 1382, 'rare cloth': 65000, 'runebook dye': 50000, 'accessory dye': 15000, 'headwear dye': 500000, 'carpet dye': 8000, 'furniture dye': 100000, 'hair dye': 300000, 'facial hair dye': 200000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Powder Lemon
     'Powder Pistachio':      {'hue': 1494, 'rare cloth': 20000, 'runebook dye': 30000, 'accessory dye': 10000, 'headwear dye': 150000, 'carpet dye': 4000, 'furniture dye': 100000, 'hair dye': 75000, 'facial hair dye': 75000, 'backpack dye': 150000, 'mount gear dye': 600000}, #Powder Pistachio
     'Powder Seafoam':        {'hue': 2246, 'rare cloth': 30000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 150000, 'carpet dye': 4000, 'furniture dye': 100000, 'hair dye': 200000, 'facial hair dye': 175000, 'backpack dye': 150000, 'mount gear dye': 600000}, #Powder Seafoam
@@ -628,6 +628,8 @@ my_locations = {
     "N of Horseshoe":(1981,2100,('Misc')),
     "S of TRT": (1778,2389,('Misc')),
     "MyKruelz":(1634,1136,('Misc')),
+    "Wildside":(1255,1318,('Misc')),
+    "N of Pwnstar":(4207,1026,('Misc')),
 
     "SOF Island Mall": (3571,198,('Misc')),
 }
@@ -980,7 +982,7 @@ def check_accessibility(file_path):
 
 def parse_log_to_object():
     #my_vendors = [4342004,3097786,1598057]
-    my_vendors = ["MM1","MM2","MM3"]
+    my_vendors = ["MM1","MM2","MM3","MM4"]
     vendors = {}
     current_vendor = None
     latest_log = get_most_recent_log()

@@ -82,7 +82,7 @@ if findtype 5981 and findtype 29104 ground 1495 1 2 as myClothBook
     menu myClothBook 0
 endif
 
-if findtype 3838|3839|3842|3843|15297|29025|29036 and findtype 29104 ground 1494 1 2 as myDyeBook
+if findtype 3838|3839|3842|3843|15297|29025|29036|15296 and findtype 29104 ground 1494 1 2 as myDyeBook
     overhead "Add to Dye Book" 1159
     menu myDyeBook 0
 endif
@@ -96,7 +96,7 @@ if findtype 43206 and findtype 29104 ground 2091 1 2 as myLinkPageBook
     overhead "Add to Link Book" 1159
     menu myLinkPageBook 0
 endif
-
+    
 wait 250
 
 if findtype 'storage shelf' ground 0 1 2 as myStorageShelf

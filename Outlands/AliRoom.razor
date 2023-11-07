@@ -62,15 +62,40 @@ elseif skill "Magery" > 50
 endif
 
 say "Escort me to my room please"
-waitforgump 2393832411
+waitforgump 2393832411 2500
 if not gumpexists 2393832411
-    overhead "Room gump not found! Trying again" 1159
-    loop
-elseif ingump "Enter Your Room"
+    say "Escort me to my room please"
+    waitforgump 2393832411 2500
+endif
+if not gumpexists 2393832411
+    overhead "Room gump not found! Halting" 1159
+    stop
+elseif ingump "Enter Your Room" 2393832411
     gumpresponse 4 2393832411
-elseif ingump "Rent This Room"
+elseif ingump "Rent This Room" 2393832411
     gumpresponse 5 2393832411
-    waitforgump 2393832411
+    waitforgump 2393832411 2500
+    if not gumpexists 2393832411
+        gumpresponse 5 2393832411
+        waitforgump 2393832411 2500
+    endif
     gumpresponse 100 2393832411
 endif
-stop
+timer 
+
+createtimer "waitTime"
+while not insysmsg "You enter the rental room."
+    if timer "waitTime" > 2500
+        overhead "Couldn't enter inn room! Halting" 1159
+        stop
+    endif
+endwhile
+
+settimer "waitTime" 0
+while not insysmsg "You enter the rental room."
+    if timer "waitTime" > 2500
+        overhead "Couldn't enter inn room! Halting" 1159
+        stop
+    endif
+endwhile
+#todo automatic AliSort after short delay with killswitch
