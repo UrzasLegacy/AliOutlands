@@ -91,7 +91,7 @@ distil_prices = { #exact string MATTERS
 
 map_prices = { #exact string MATTERS
     "plainly drawn treasure map: level 1 (undeciphered)": 6000,
-    "expertly drawn treasure map: level 2 (undeciphered)": 13000, #10000
+    "expertly drawn treasure map: level 2 (undeciphered)": 16000, #10000
     "adeptly drawn treasure map: level 3 (undeciphered)": 32000, #26000
     "cleverly drawn treasure map: level 4 (undeciphered)": 38000, #35000
     "deviously drawn treasure map: level 5 (undeciphered)": 45000, #45000
@@ -111,8 +111,8 @@ map_prices = { #exact string MATTERS
     
     "copper ore map (undeciphered)": 3000,
     "bronze ore map (undeciphered)": 6000,
-    "gold ore map (undeciphered)": 17000,
-    "agapite ore map (undeciphered)": 20000,
+    "gold ore map (undeciphered)": 20000,
+    "agapite ore map (undeciphered)": 25000,
     "verite ore map (undeciphered)": 35000,
     "valorite ore map (undeciphered)": 60000,
     "avarite ore map (undeciphered)": 80000,
@@ -239,7 +239,7 @@ scroll_prices = { #exact string MATTERS
     "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
     "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 40000,
-    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
     "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 8000,
     "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
@@ -506,7 +506,7 @@ misc_lp_prices = { #exact string matters
     #"supremely potent magic spellbook": 13000,
     "an ankh token":9000,
     "arcane essence": 30,
-    "a message in a bottle": 19000, 
+    "a message in a bottle": 15000, 
     "an emote deed": 200000,
     #"a battle commendation (double-click to consume and receive reward item)": 10000,
     "invulnerability leather cap": 100000,
@@ -544,7 +544,7 @@ my_locations = {
     "E of Prev": (2036,1463, ('Vendor Police',2089,108,10)),
     "Khal SE Prev": (2002,1795, ('Vendor Police',2089,109,20)),
     "S Prev Xroad N": (1569,1729, ('Vendor Police',2089,110,10)),
-    "S Prev Xroad E": (1647,1745, ('Vendor Police',2089,111,20)),
+    "S Prev Xroad E": (1653,1743, ('Vendor Police',2089,111,20)),
     "S Prev Xroad S": (1545,1772, ('Vendor Police',2089,112,10)),
     "S Prev Xroad Far S": (1531,1833, ('Vendor Police',2089,113,20)),
     "S Prev Xroad W": (1499,1757, ('Vendor Police',2089,114,10)),
@@ -630,6 +630,7 @@ my_locations = {
     "MyKruelz":(1634,1136,('Misc')),
     "Wildside":(1255,1318,('Misc')),
     "N of Pwnstar":(4207,1026,('Misc')),
+    "Far N Andaria Gate": (2362,564,('Misc')),
 
     "SOF Island Mall": (3571,198,('Misc')),
 }
@@ -845,7 +846,7 @@ def multi_parse_misc(in_tuple):
         # Extract all rows from the table body
         rows = table.tbody.find_all('tr')
         out_data = []
-        for row in rows[:7]:
+        for row in rows:
             cells = row.find_all('td')
             time_cell = cells[7]
             time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
@@ -884,12 +885,9 @@ def multi_parse_misc(in_tuple):
                     name_string = name_cell.text.strip()
                     total_profit = round((searchPrice - price) * int(quantity_string),0)
                     out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{page_url}"))
-        #for tuple in out_data:
         return out_data
-        #collected_data.append(out_data)
 
 def is_time_recent_multi(time_string,seconds_threshold):
-    #print(seconds_threshold)
     if seconds_threshold == 'All Time':
         return True
     time_seconds = get_seconds_from_string(time_string)
@@ -1340,7 +1338,7 @@ def discord_truncate(s):
         'Aspect Distillation': (' Aspect Distillation',''), 
         'skill mastery orb': ("a skill mastery orb \(used to increase a player's total skill cap by 1\)",'skill mastery orb'), #a skill mastery orb (used to increase a player's total skill cap by 1)
         'skill mastery scroll': (" skill mastery scroll \(used to increase a player's skill cap for a skill by 1\)",""), 
-        'mastery chain link': (r'(\w+) mastery chain link (.+) \(.+\)',r'\1 \2'),
+        'mastery chain link': (r'(\w)\w+ mastery chain link (.+) \(.+\)',r'\1. \2'),
         'rare cloth': (r'rare cloth \(hue \d+: ([\w\s-]+)\)',r'\1'),
         'an arcane scroll': ('an ', ''),
         ' dye ': (r' dye \(hue \d+: ([\w\s-]+)\)', r': \1'),
@@ -1836,8 +1834,11 @@ while not dead
     if find {vendor_serial} ground -1 -1 20
         overhead "● ▼▼ HERE ▼▼ ●" 88 {vendor_serial}
         if findtype 3701 {vendor_serial} as "pack"
-            dclick "pack"
-            wait "timeout"
+            if find {item_id} "pack" as "item"
+            else
+                dclick "pack"
+                wait "timeout"
+            endif
             if hidden
             else
                 skill "hiding"
@@ -1852,8 +1853,11 @@ while not dead
             else
                 while findtype 2472|2473|2474|2475|2476|2480|2481|2482|2604|2605|2606|2607|2608|2609|2610|2611|2612|2613|2614|2615|2616|2617|2618|2619|2620|2621|2622|2623|2624|2625|2626|2627|2628|2629|2630|2631|2632|2633|2634|2635|2636|2637|2638|2639|2640|2641|2642|2643|2711|2712|2713|2714|2715|2716|2717|2718|3644|3645|3646|3647|3648|3649|3650|3651|3701|3702|3703|3704|3705|3706|3708|3709|3710|3711|3712|7808|7809|9002|9003|11010|11011|12657|29833|29832 "pack" as "subContainer"
                     @ignore "subContainer"
-                    dclick "subContainer"
-                    wait "timeout"
+                    if find {item_id} "pack" as "item"
+                    else
+                        dclick "subContainer"
+                        wait "timeout"
+                    endif
                     if find {item_id} "pack" as "item"
                         @setvar! "founditem" "item"
                         break
@@ -1863,7 +1867,7 @@ while not dead
             endif
             if "founditem" != 0
                 getlabel "founditem" "foundItemLabel"
-                sysmsg "FOUND {{{{"foundItemLabel"}}}}" 1159
+                sysmsg "FOUND {{{{foundItemLabel}}}}" 1159
                 if "Description: " in "foundItemLabel"
                 elseif "Price: {int_price} " in "foundItemLabel"
                     sysmsg "opening buy menu" 1159
@@ -1997,8 +2001,11 @@ while not dead
     if find {vendor_serial} ground -1 -1 20
         overhead "● ▼▼ HERE ▼▼ ●" 88 {vendor_serial}
         if findtype 3701 {vendor_serial} as "pack"
-            dclick "pack"
-            wait "timeout"
+            if find {item_id} "pack" as "item"
+            else
+                dclick "pack"
+                wait "timeout"
+            endif
             if hidden
             else
                 skill "hiding"
@@ -2013,8 +2020,11 @@ while not dead
             else
                 while findtype 2472|2473|2474|2475|2476|2480|2481|2482|2604|2605|2606|2607|2608|2609|2610|2611|2612|2613|2614|2615|2616|2617|2618|2619|2620|2621|2622|2623|2624|2625|2626|2627|2628|2629|2630|2631|2632|2633|2634|2635|2636|2637|2638|2639|2640|2641|2642|2643|2711|2712|2713|2714|2715|2716|2717|2718|3644|3645|3646|3647|3648|3649|3650|3651|3701|3702|3703|3704|3705|3706|3708|3709|3710|3711|3712|7808|7809|9002|9003|11010|11011|12657|29833|29832 "pack" as "subContainer"
                     @ignore "subContainer"
-                    dclick "subContainer"
-                    wait "timeout"
+                    if find {item_id} "pack" as "item"
+                    else
+                        dclick "subContainer"
+                        wait "timeout"
+                    endif
                     if find {item_id} "pack" as "item"
                         @setvar! "founditem" "item"
                         break
@@ -2024,7 +2034,7 @@ while not dead
             endif
             if "founditem" != 0
                 getlabel "founditem" "foundItemLabel"
-                sysmsg "FOUND {{{{"foundItemLabel"}}}}" 1159
+                sysmsg "FOUND {{{{foundItemLabel}}}}" 1159
                 if "Description: " in "foundItemLabel"
                 elseif "Price: {int_price} " in "foundItemLabel"
                     sysmsg "opening buy menu" 1159
@@ -2131,7 +2141,7 @@ endwhile"""
 
     def ScrapeOutlandMall(self,event=''):
         self.clear_tree()
-        async_bot = threading.Thread(target=self.async_scraping)
+        async_bot = threading.Thread(target=self.async_scraping,name='AsyncScraper')
         async_bot.start()
 
     def PriorityScrapeOutlandMall(self,event=''):
@@ -2387,7 +2397,7 @@ endwhile"""
                 aggregated_items[key] += 1
             sorted_items = categorize_and_sort_aggregated_items(aggregated_items)
             #Animal Lore Scroll: 11 @ 18k each | 2 sets of 10 @ 180k/set
-            out_str = "***WTS*** *(all available on vendors MM1, MM2, and MM3 at Chopper's Shop (4008, 477) directly north of Anchor's Rest moongate*"
+            out_str = "***WTS*** *(all available on vendors MM1, MM2, MM3 and MM4 at Chopper's Shop (4008, 477) directly north of Anchor's Rest moongate*"
             for category_name, category_items in sorted_items.items(): 
                 if len(category_items) == 0:
                     continue
@@ -2556,10 +2566,9 @@ endwhile"""
 
 def start_purchase_script():
     mouse_pos = win32api.GetCursorPos()
-
+    window = None
     active_window = gw.getActiveWindow()
     active_title = active_window.title
-
     regex_client = r"UO - ([\w\s]+) - ClassicUO"
     regex_assistant = r"(?:\] - )?([\w\s]+) \(\[None\]\)"
     match_client = re.search(regex_client, active_title)
@@ -2570,7 +2579,10 @@ def start_purchase_script():
             print("Something went wrong when selecting original window")
             return
         extracted_name = match_client.group(1)
-        window = focus_named_assistant(extracted_name)
+        try:
+            window = focus_named_assistant(extracted_name)
+        except Exception as e:
+            print(f"Purchase Script Error: {e}")
     elif match_assistant: #if focus is on assistant, set assistant as target
         extracted_name = match_assistant.group(1)
         for window in gw.getAllWindows():
@@ -2586,6 +2598,7 @@ def start_purchase_script():
         return
     if not window:
         print("Error connecting to window")
+        return False
 
     tab_control = window.TabControl
     if tab_control.get_selected_tab() != 9:
@@ -2696,11 +2709,15 @@ def focus_named_assistant(name):
             break
     if not assistant_window:
         print("Couldn't find assistant window!")
-        return
-    assistant = connect_to_window(assistant_window._hWnd)
+        return False
+    try:
+        assistant = connect_to_window(assistant_window._hWnd)
+    except Exception as e:
+        print(f'Error connecting to assistant app! {e}')
+        return False
     if not assistant:
         print("Couldn't connect to assistant app!")
-        return
+        return False
     assistant.set_focus()
     return assistant
 
@@ -2715,7 +2732,11 @@ def focus_named_client(name):
     if not client_window:
         print("Couldn't find client window!")
         return
-    client = connect_to_window(client_window._hWnd)
+    try:
+        client = connect_to_window(client_window._hWnd)
+    except Exception as e:
+        print(f'Error connecting to client app! {e}')
+        return False
     if not client:
         print("Couldn't connect to client app!")
         return
@@ -2729,13 +2750,13 @@ def connect_to_window(hWnd):
         connection = app.window(handle=hWnd)
     except pywinauto.findwindows.ElementNotFoundError as e:
         print(f"Window not found: {e}")
-        return
+        return False
     except pywinauto.timings.TimeoutError as e:
         print(f"Operation timed out: {e}")
-        return
+        return False
     except Exception as e:
         print(f"Unexpected error: {e}")
-        return
+        return False
     return connection
 
 #print(f"Press ctrl+alt+` to find the Client/Assistant window for the active window...")
