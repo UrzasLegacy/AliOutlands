@@ -1,0 +1,42 @@
+removelist "tempScrollList"
+createlist "tempScrollList"
+
+clearlist "tempScrollList"
+if findtypelist "tempScrollList" 8826 self
+    foreach "tempScroll" in "tempScrollList"
+        getlabel "tempScroll" "tempDesc"
+        if {scrollName} in "tempDesc"
+            lift "tempScroll" 1
+            drop {toContainer} {x} {y} 0
+            wait 325
+            promptresponse {price}
+            wait 325
+            getlabel "tempScroll" "tempDesc"
+            if ": {price}" in "tempDesc"
+            else
+                lift "tempScroll" 60000
+                drop backpack 0 0 0
+                wait 650
+                lift "tempScroll" 1
+                drop {toContainer} {x} {y} 0
+                wait 325
+                promptresponse {price}
+                wait 325
+                getlabel "tempScroll" "tempDesc"
+                if ": {price}" in "tempDesc"
+                else
+                    lift "tempScroll" 60000
+                    drop backpack 0 0 0
+                    wait 650
+                endif
+            endif
+            @ignore "tempScroll"
+            break
+        endif
+    endfor
+endif
+
+clearlist "tempScrollList"
+if poplist "singleScrollList" "front" as "name" and poplist "singleScrollList" "front" as "price" and poplist "singleScrollList" "front" as "X" and poplist "singleScrollList" "front" as "Y"
+    
+endif

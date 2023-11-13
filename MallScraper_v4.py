@@ -41,7 +41,7 @@ core_prices = { #exact string MATTERS
     "Eldritch Aspect Core": 35000,
     "Fortune Aspect Core": 70000,
     "Command Aspect Core": 130000,
-    "Artisan Aspect Core": 65000,
+    "Artisan Aspect Core": 62500,
     "Air Aspect Core": 40000,
     "Harvest Aspect Core": 130000,
 }
@@ -120,15 +120,15 @@ map_prices = { #exact string MATTERS
 
 ingot_prices = {
     "iron ingot": 15,
-    "dull copper ingot": 17,
-    "shadow iron ingot": 23,
-    "copper ingot": 31,
-    "bronze ingot": 73,
-    "gold ingot": 115,
+    "dull copper ingot": 23,
+    "shadow iron ingot": 33,
+    "copper ingot": 40,
+    "bronze ingot": 70,
+    "gold ingot": 125,
     "agapite ingot": 170,
     "verite ingot": 330,
-    "valorite ingot": 400,
-    "avarite ingot": 870,
+    "valorite ingot": 500,
+    "avarite ingot": 825,
     "iron ingot commodity (5,000 total)": 75000,
     "dull copper ingot commodity (2,500 total)": 42500,
     "shadow iron ingot commodity (2,500 total)": 57500,
@@ -335,7 +335,7 @@ hue_list = {
     'Shimmer Evergreen':     {'hue': 1479, 'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 900000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Evergreen
     'Shimmer Valentine':     {'hue': 2916, 'rare cloth': 150000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 1050000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Valentine
     'Shimmer Periwinkle':    {'hue': 2251, 'rare cloth': 175000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 1050000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Periwinkle
-    'Shimmer Shamrock':      {'hue': 2664, 'rare cloth': 175000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 1050000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 650000, 'facial hair dye': 500000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Shamrock
+    'Shimmer Shamrock':      {'hue': 2664, 'rare cloth': 175000, 'runebook dye': 250000, 'accessory dye': 50000, 'headwear dye': 1050000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 650000, 'facial hair dye': 500000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Shamrock
     'Shimmer Lunar':         {'hue': 2342, 'rare cloth': 150000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 900000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 750000, 'facial hair dye': 750000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Lunar
     'Shimmer Solstice':      {'hue': 1967, 'rare cloth': 75000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 450000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 500000, 'facial hair dye': 500000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Solstice
     'Shimmer Dahlia':        {'hue': 1956, 'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 750000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Dahlia
@@ -350,7 +350,7 @@ hue_list = {
     'Shimmer Tempest':       {'hue': 1180, 'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 700000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Tempest
     'Shimmer Borealis':      {'hue': 1179, 'rare cloth': 60000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 360000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Borealis
     'Shimmer Passion':       {'hue': 1184, 'rare cloth': 60000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 360000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Passion
-    'Shimmer Celestial':     {'hue': 1186, 'rare cloth': 60000, 'runebook dye': 250000, 'accessory dye': 50000, 'headwear dye': 360000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 600000}, #Shimmer Celestial
+    'Shimmer Celestial':     {'hue': 1186, 'rare cloth': 60000, 'runebook dye': 250000, 'accessory dye': 50000, 'headwear dye': 360000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 300000, 'mount gear dye': 600000}, #Shimmer Celestial
     'Shimmer Nightfall':     {'hue': 2260, 'rare cloth': 60000, 'runebook dye': 200000, 'accessory dye': 50000, 'headwear dye': 360000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Nightfall
     'Shimmer Toil':          {'hue': 1499, 'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Toil
     'Shimmer Crystal':       {'hue': 1059, 'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Crystal
@@ -360,7 +360,7 @@ hue_list = {
     'Shimmer Blossom':       {'hue': 1070, 'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Blossom
     'Shimmer Mirage':        {'hue': 1575, 'rare cloth': 35000, 'runebook dye': 250000, 'accessory dye': 50000, 'headwear dye': 210000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 250000, 'mount gear dye': 600000}, #Shimmer Mirage
     'Shimmer Gore':          {'hue': 1069, 'rare cloth': 40000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Gore
-    'Shimmer Flora':         {'hue': 1071, 'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 200000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Flora
+    'Shimmer Flora':         {'hue': 1071, 'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Flora
     'Shimmer Rime':          {'hue': 1074, 'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Rime
     'Shimmer Serenity':      {'hue': 1081, 'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Serenity
     'Shimmer Zephyr':        {'hue': 1480, 'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Zephyr
@@ -390,7 +390,7 @@ hue_list = {
     "Artificer's Enclave":  {'hue': 2875, 'rare cloth': 50000,'runebook dye': 1000, 'accessory dye': 1000, 'headwear dye': 250000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #s Enclave
     'Aegis Keep':            {'hue': 1779, 'rare cloth': 4000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 4000, 'furniture dye': 20000, 'hair dye': 60000, 'facial hair dye': 60000, 'backpack dye': 40000, 'mount gear dye': 5000}, #Aegis Keep
     'Inferno':               {'hue': 1909, 'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 30000, 'facial hair dye': 25000, 'backpack dye': 75000, 'mount gear dye': 5000}, #Inferno
-    'Ossuary':               {'hue': 2091, 'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 50000, 'mount gear dye': 5000}, #Ossuary
+    'Ossuary':               {'hue': 2091, 'rare cloth': 4000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 50000, 'mount gear dye': 5000}, #Ossuary
     'Darkmire Temple':       {'hue': 2099, 'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 25000, 'facial hair dye': 20000, 'backpack dye': 45000, 'mount gear dye': 5000}, #Darkmire Temple
     'Pulma':                 {'hue': 2085, 'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 2000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 90000, 'facial hair dye': 90000, 'backpack dye': 50000, 'mount gear dye': 5000}, #Pulma
     'Mausoleum':             {'hue': 2092, 'rare cloth': 5000, 'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 60000, 'facial hair dye': 60000, 'backpack dye': 50000, 'mount gear dye': 5000}, #Mausoleum
@@ -416,7 +416,7 @@ hue_list = {
     'Metallic Wine':         {'hue': 1995, 'rare cloth': 5000, 'runebook dye': 25000, 'accessory dye': 1500, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 600000}, #Metallic Wine
     'Metallic Pewter':       {'hue': 2167, 'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 10000, 'facial hair dye': 10000, 'backpack dye': 25000, 'mount gear dye': 600000}, #Metallic Pewter
     'Metallic Chalk':        {'hue': 2928, 'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 600000}, #Metallic Chalk
-    'Metallic Umber':        {'hue': 1470, 'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 1500, 'headwear dye': 30000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 25000, 'mount gear dye': 600000}, #Metallic Umber
+    'Metallic Umber':        {'hue': 1470, 'rare cloth': 3000, 'runebook dye': 25000, 'accessory dye': 1500, 'headwear dye': 30000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 15000, 'facial hair dye': 10000, 'backpack dye': 25000, 'mount gear dye': 600000}, #Metallic Umber
     'Dark Coffee':           {'hue': 1467, 'rare cloth': 60000,'runebook dye': 50000, 'accessory dye': 10000, 'headwear dye': 100000, 'carpet dye': 5000, 'furniture dye': 75000, 'hair dye': 70000, 'facial hair dye': 70000, 'backpack dye': 200000, 'mount gear dye': 600000}, #Dark Coffee
     'Dark Rust':             {'hue': 2807, 'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 15000, 'facial hair dye': 10000, 'backpack dye': 40000, 'mount gear dye': 600000}, #Dark Rust
     'Dark Crimson':          {'hue': 1939, 'rare cloth': 4000, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 20000, 'facial hair dye': 15000, 'backpack dye': 40000, 'mount gear dye': 600000}, #Dark Crimson
@@ -427,7 +427,7 @@ hue_list = {
     'Dark Denim':            {'hue': 2801, 'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 100000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 15000, 'facial hair dye': 10000, 'backpack dye': 40000, 'mount gear dye': 600000}, #Dark Denim
     'Dark Blueberry':        {'hue': 1156, 'rare cloth': 3000, 'runebook dye': 20000, 'accessory dye': 1500, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 30000, 'hair dye': 15000, 'facial hair dye': 10000, 'backpack dye': 40000, 'mount gear dye': 600000}, #Dark Blueberry
     'Dark Jam':              {'hue': 2230, 'rare cloth': 50000, 'runebook dye': 50000, 'accessory dye': 10000, 'headwear dye': 200000, 'carpet dye': 15000, 'furniture dye': 80000, 'hair dye': 100000, 'facial hair dye': 90000, 'backpack dye': 200000, 'mount gear dye': 600000}, #Dark Jam
-    'Powder Ruby':           {'hue': 2227, 'rare cloth': 110000, 'runebook dye': 80000, 'accessory dye': 25000, 'headwear dye': 600000, 'carpet dye': 20000, 'furniture dye': 250000, 'hair dye': 350000, 'facial hair dye': 300000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Powder Ruby
+    'Powder Ruby':           {'hue': 2227, 'rare cloth': 100000, 'runebook dye': 80000, 'accessory dye': 25000, 'headwear dye': 600000, 'carpet dye': 20000, 'furniture dye': 250000, 'hair dye': 350000, 'facial hair dye': 300000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Powder Ruby
     'Powder Coral':          {'hue': 1495, 'rare cloth': 20000, 'runebook dye': 30000, 'accessory dye': 7000, 'headwear dye': 150000, 'carpet dye': 9000, 'furniture dye': 100000, 'hair dye': 100000, 'facial hair dye': 70000, 'backpack dye': 150000, 'mount gear dye': 600000}, #Powder Coral
     'Powder Peach':          {'hue': 1496, 'rare cloth': 15000, 'runebook dye': 30000, 'accessory dye': 10000, 'headwear dye': 150000, 'carpet dye': 2000, 'furniture dye': 100000, 'hair dye': 125000, 'facial hair dye': 100000, 'backpack dye': 150000, 'mount gear dye': 600000}, #Powder Peach
     'Powder Lemon':          {'hue': 1382, 'rare cloth': 65000, 'runebook dye': 50000, 'accessory dye': 15000, 'headwear dye': 500000, 'carpet dye': 8000, 'furniture dye': 100000, 'hair dye': 300000, 'facial hair dye': 200000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Powder Lemon
@@ -441,7 +441,7 @@ hue_list = {
     'Powder Iris':           {'hue': 2173, 'rare cloth': 400000, 'runebook dye': 100000, 'accessory dye': 35000, 'headwear dye': 1300000, 'carpet dye': 20000, 'furniture dye': 250000, 'hair dye': 800000, 'facial hair dye': 800000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Powder Iris
     'Powder Cloud':          {'hue': 2903, 'rare cloth': 180000, 'runebook dye': 80000, 'accessory dye': 40000, 'headwear dye': 600000, 'carpet dye': 9000, 'furniture dye': 100000, 'hair dye': 800000, 'facial hair dye': 800000, 'backpack dye': 800000, 'mount gear dye': 600000}, #Powder Cloud
     'Powder Blush':          {'hue': 2808, 'rare cloth': 35000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 150000, 'carpet dye': 5000, 'furniture dye': 100000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Powder Blush
-    'Powder Bubblegum':      {'hue': 1952, 'rare cloth': 125000, 'runebook dye': 50000, 'accessory dye': 40000, 'headwear dye': 400000, 'carpet dye': 18000, 'furniture dye': 250000, 'hair dye': 600000, 'facial hair dye': 600000, 'backpack dye': 800000, 'mount gear dye': 600000}, #Powder Bubblegum
+    'Powder Bubblegum':      {'hue': 1952, 'rare cloth': 110000, 'runebook dye': 50000, 'accessory dye': 40000, 'headwear dye': 400000, 'carpet dye': 18000, 'furniture dye': 250000, 'hair dye': 600000, 'facial hair dye': 500000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Powder Bubblegum
 }
 #todo mastery chain dye
 def alter_hue_dict(self_parse=False, item_type="rare cloth"):
@@ -510,7 +510,8 @@ misc_lp_prices = { #exact string matters
     "an emote deed": 200000,
     #"a battle commendation (double-click to consume and receive reward item)": 10000,
     "invulnerability leather cap": 100000,
-    "dyeable gilded gold carpet tile": 20000
+    "dyeable gilded gold carpet tile": 20000,
+    "bloody skull pile": 400000,
 }
 
 deed_prices = {
@@ -631,6 +632,7 @@ my_locations = {
     "Wildside":(1255,1318,('Misc')),
     "N of Pwnstar":(4207,1026,('Misc')),
     "Far N Andaria Gate": (2362,564,('Misc')),
+    "NE Outpost Mid": (3403,301,('Misc')),
 
     "SOF Island Mall": (3571,198,('Misc')),
 }
