@@ -145,10 +145,10 @@ def SkillScrollStocker():
         "detect hidden": 13000,
         "discordance": 9000,
         "fishing": 9000,
-        "forensic eval": 11000,
+        "forensic eval": 12000,
         "herding": 19000,
         "inscription": 23000,
-        "item id": 9000,
+        "item id": 10000,
         "lockpicking": 17000,
         "lumberjacking": 9000,
         "mining": 9000,
@@ -157,7 +157,7 @@ def SkillScrollStocker():
         "peacemaking": 9000,
         "poisoning": 10000,
         "provocation": 9000,
-        "spirit speak": 9000,
+        "spirit speak": 10000,
         "stealth": 16000,
         "tailoring": 40000,
         "taste id": 12000,
@@ -187,6 +187,7 @@ def SkillScrollStocker():
     i = 0
     outStr = '''removelist "tempScrollList"
 createlist "tempScrollList"
+@clearignore
 
 '''
     for name,price in scrolls.items():

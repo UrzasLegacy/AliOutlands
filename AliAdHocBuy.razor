@@ -1,0 +1,109 @@
+@setvar! "timeout" 650
+@setvar! "myTome" 0
+@setvar! "itemID" {item_id}
+@clearignore
+
+if find {vendor_serial} ground -1 -1 20
+else
+    removelist "runetomeList"
+    createlist "runetomeList"
+    for 3
+        if findtype "runetome" backpack {book_hue} as "tome"
+            @setvar! "myTome" "tome"
+            break
+        endif
+        dclick backpack
+        wait "timeout"
+    endfor
+
+    if "myTome" = 0
+        overhead "NO TOME" 33
+        stop
+    endif
+
+    overhead "recalling to spot {location_recall_code} in {location_character}'s book" 1159
+    dclick "myTome"
+    waitforgump 167090027 1000
+    if not gumpexists 167090027
+        dclick "myTome"
+        waitforgump 167090027 2000
+    endif
+    gumpresponse {location_recall_code} 167090027
+    waitforgump 167090027 2000
+    gumpresponse {location_button_code} 167090027
+    wait 500
+
+    while not dead
+        if hidden
+            break
+        endif
+        skill "hiding"
+        wait 200
+    endwhile
+endif
+
+while not dead
+    if find {vendor_serial} ground -1 -1 20
+        overhead "● ▼▼ HERE ▼▼ ●" 88 {vendor_serial}
+        if findtype 3701 {vendor_serial} as "pack"
+            if find {item_id} "pack" as "item"
+            else
+                dclick "pack"
+                wait "timeout"
+            endif
+            if hidden
+            else
+                skill "hiding"
+            endif
+            if {item_id} = 0
+                overhead "No itemID" 33
+                stop
+            endif
+            @setvar! "founditem" 0
+            if find {item_id} "pack" as "item"
+                @setvar! "founditem" "item"
+            else
+                while findtype 2472|2473|2474|2475|2476|2480|2481|2482|2604|2605|2606|2607|2608|2609|2610|2611|2612|2613|2614|2615|2616|2617|2618|2619|2620|2621|2622|2623|2624|2625|2626|2627|2628|2629|2630|2631|2632|2633|2634|2635|2636|2637|2638|2639|2640|2641|2642|2643|2711|2712|2713|2714|2715|2716|2717|2718|3644|3645|3646|3647|3648|3649|3650|3651|3701|3702|3703|3704|3705|3706|3708|3709|3710|3711|3712|7808|7809|9002|9003|11010|11011|12657|29833|29832 "pack" as "subContainer"
+                    @ignore "subContainer"
+                    if find {item_id} "pack" as "item"
+                    else
+                        dclick "subContainer"
+                        wait "timeout"
+                    endif
+                    if find {item_id} "pack" as "item"
+                        @setvar! "founditem" "item"
+                        break
+                    endif
+                endwhile
+                @clearignore
+            endif
+            if "founditem" != 0
+                getlabel "founditem" "foundItemLabel"
+                sysmsg "FOUND {{{{foundItemLabel}}}}" 1159
+                if "Description: " in "foundItemLabel"
+                elseif {PASS_IN_NAMESTRING} in 'foundItemLabel'
+                    if "Price: {int_price} " in "foundItemLabel"
+                        sysmsg "opening buy menu" 1159
+                        menu "founditem" 0
+                    elseif "Price: {int_price + 1} " in "foundItemLabel"
+                        sysmsg "opening buy menu" 1159
+                        menu "founditem" 0
+                    elseif "Price: {int_price - 1} " in "foundItemLabel"
+                        sysmsg "opening buy menu" 1159
+                        menu "founditem" 0
+                    else
+                        overhead "BEWARE PRICE CHANGE" 33
+                        sysmsg "BEWARE PRICE CHANGE" 33
+                    endif
+                        overhead "BEWARE ITEM CHANGE" 33
+                        sysmsg "BEWARE ITEM CHANGE" 33
+                else
+                endif
+            else
+                sysmsg "Could not find item for sale" 1159
+            endif
+        endif
+        stop
+    endif
+    wait 500
+endwhile

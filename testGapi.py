@@ -16,7 +16,7 @@ def send_to_outlands_pricesheet():
     # Update a range of cells using the top left corner address
     worksheet.update(values=[
             []
-        ], range_name='B3')
+        ], range_name='A2')
 
     # If you want to append rows to your sheet
     #worksheet.append_rows(values=[[5, 6], [7, 8]])
