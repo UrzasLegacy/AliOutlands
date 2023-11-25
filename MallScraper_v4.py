@@ -1837,7 +1837,7 @@ else
     wait 500
 
     while not dead
-        if hidden
+        if hidden or cooldown "skill" > 0
             break
         endif
         skill "hiding"
@@ -2013,7 +2013,7 @@ else
     wait 500
 
     while not dead
-        if hidden
+        if hidden or cooldown "skill" > 0
             break
         endif
         skill "hiding"
