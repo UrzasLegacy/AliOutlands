@@ -195,14 +195,15 @@ createlist "tempScrollList"
         for index in range(3):
             if name == "tinkering" and index == 2:
                 continue
-            coord1x, coord1y = coord_list[i]["x"], coord_list[i]["y"]
-            coord2x, coord2y = coord_list[i+1]["x"], coord_list[i+1]["y"]
-            coord3x, coord3y = coord_list[i+2]["x"], coord_list[i+2]["y"]
-            # x = coord["x"]
-            # y = coord["y"]
+            coord = coord_list[i]
+            # coord1x, coord1y = coord_list[i]["x"], coord_list[i]["y"]
+            # coord2x, coord2y = coord_list[i+1]["x"], coord_list[i+1]["y"]
+            # coord3x, coord3y = coord_list[i+2]["x"], coord_list[i+2]["y"]
+            x = coord["x"]
+            y = coord["y"]
             i += 1
-        newDict[name] = [price, coord1x, coord1y, coord2x, coord2y, coord3x,coord3y]
-        outStr += f'''
+        # newDict[name] = [price, coord1x, coord1y, coord2x, coord2y, coord3x,coord3y]
+            outStr += f'''
 clearlist "tempScrollList"
 if findtypelist "tempScrollList" 8826 self
     foreach "tempScroll" in "tempScrollList"
@@ -242,9 +243,47 @@ endif
     for k,v in newDict.items():
         print(f"{k}:{v},")      
 
+
+
+def NumberCompare(minPrice=20000,maxPrice=32000):
+    outStr = f'    if \"Price: 999 " in "desc"\n      setvar "buyThis" 1\n'
+    
+    for i in range(-maxPrice+1,-minPrice):
+        if i % 1000 == 0:
+            outStr += f'    elseif "Price: {-i} " in "desc"\n      setvar "buyThis\" 1\n'
+        elif i % 500 == 0:
+            outStr += f'    elseif "Price: {-i} " in "desc"\n      setvar "buyThis\" 1\n'     
+        elif i % 100 == 0:
+            outStr += f'    elseif "Price: {-i} " in "desc"\n      setvar "buyThis\" 1\n' 
+        elif i % 50 == 0:
+            outStr += f'    elseif "Price: {-i} " in "desc"\n      setvar "buyThis\" 1\n'
+        elif i % 5 == 0:
+            outStr += f'    elseif "Price: {-i} " in "desc"\n      setvar "buyThis\" 1\n'
+
+    for i in range(-maxPrice+1,minPrice):
+        if i % 1000 == 0:
+            for j in range(i - 3, i + 4):
+                if j % 1000 == 0 or j % 500 == 0 or j % 100 == 0 or j % 50 or j % 5:
+                    continue
+                outStr += f'    elseif "Price: {-j} " in "desc"\n      setvar "buyThis\" 1\n'  
+        elif i % 500 == 0:
+            for j in range(i - 2, i + 3):
+                if j % 1000 == 0 or j % 500 == 0 or j % 100 == 0 or j % 50 or j % 5:
+                    continue
+                outStr += f'    elseif "Price: {-j} " in "desc"\n      setvar "buyThis\" 1\n'
+        elif i % 100 == 0:
+            for j in range(i - 1, i + 2):
+                if j % 1000 == 0 or j % 500 == 0 or j % 100 == 0 or j % 50 or j % 5:
+                    continue
+                outStr += f'    elseif "Price: {-j} " in "desc"\n      setvar "buyThis\" 1\n'     
+
+    pyperclip.copy(outStr)
+
+
+
 def main():
     SkillScrollStocker()
-
+    #SimpleStocker()
 
 main()
 

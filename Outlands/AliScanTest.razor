@@ -1,0 +1,12 @@
+if "GlobalCheck" == 1
+    overhead "TestSuccess!"
+    setvar "GlobalCheck" 2
+    stop
+endif
+
+if "GlobalCheck" == 0
+    setvar "GlobalDesc" "Price: 35000 research materials (double-click to research)"
+    script "ThresholdCompare"
+elseif "GlobalCheck" == 1
+
+endif
