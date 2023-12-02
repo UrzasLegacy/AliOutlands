@@ -132,8 +132,8 @@ endwhile'''
 def SkillScrollStocker():
     scrolls = { #exact string MATTERS
         "alchemy": 30000,
-        "animal lore": 19000,
-        "animal taming": 19000,
+        "animal lore": 21000,
+        "animal taming": 21000,
         "arms lore": 9000,
         "blacksmithy": 9000,
         "begging": 9000,
@@ -146,7 +146,7 @@ def SkillScrollStocker():
         "discordance": 9000,
         "fishing": 9000,
         "forensic eval": 12000,
-        "herding": 19000,
+        "herding": 21000,
         "inscription": 23000,
         "item id": 10000,
         "lockpicking": 17000,
@@ -163,7 +163,7 @@ def SkillScrollStocker():
         "taste id": 13000,
         "tinkering": 9000,
         "tracking": 10000,
-        "veterinary": 19000,
+        "veterinary": 21000,
     }
 
     coord_list = [

@@ -1,4 +1,4 @@
-#boat stuff (crew, upgrades), jugglin torches n shit
+#TODO clothes,boat stuff (crew, upgrades), jugglin torches n shit
 import os
 import glob
 import math
@@ -38,7 +38,7 @@ core_prices = { #exact string MATTERS
     "Discipline Aspect Core": 8000,
     "Lyric Aspect Core": 22000,
     "Poison Aspect Core": 30000,
-    "Eldritch Aspect Core": 35000,
+    "Eldritch Aspect Core": 42000,
     "Fortune Aspect Core": 70000,
     "Command Aspect Core": 150000,
     "Artisan Aspect Core": 62500,
@@ -91,9 +91,9 @@ distil_prices = { #exact string MATTERS
 
 map_prices = { #exact string MATTERS
     "plainly drawn treasure map: level 1 (undeciphered)": 6000,
-    "expertly drawn treasure map: level 2 (undeciphered)": 17000, #10000
-    "adeptly drawn treasure map: level 3 (undeciphered)": 32000, #26000
-    "cleverly drawn treasure map: level 4 (undeciphered)": 38000, #35000
+    "expertly drawn treasure map: level 2 (undeciphered)": 18000, #10000
+    "adeptly drawn treasure map: level 3 (undeciphered)": 34000, #26000
+    "cleverly drawn treasure map: level 4 (undeciphered)": 40000, #35000
     "deviously drawn treasure map: level 5 (undeciphered)": 45000, #45000
     "ingeniously drawn treasure map: level 6 (undeciphered)": 75000,
     "diabolically drawn treasure map: level 7 (undeciphered)": 100000,
@@ -189,7 +189,7 @@ leather_prices = { #https://outlandmalls.com/?item=&search_category_id=1&search_
 }
 
 commodity_2500_prices = {
-    "bottle commodity (500 total)": 2700, #500
+    "bottle commodity (500 total)": 2700,
     "blank scroll commodity (2,500 total)": 8000,
     "feather commodity (2,500 total)": 1500,
     "raw fish steak commodity (2,500 total)": 5000,
@@ -482,7 +482,7 @@ misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&
     "immaculate stone": 40000,
     "an arcane scroll": 1000,
     "research materials (double-click to research)": 35000,
-    "mastercrafting diagram": 15500,
+    "mastercrafting diagram": 16500,
     "cleansing brew": 1500,
     "amber": 50,
     "amethyst": 62,
@@ -506,12 +506,17 @@ misc_lp_prices = { #exact string matters
     #"supremely potent magic spellbook": 13000,
     "an ankh token":10000,
     "arcane essence": 31,
-    "a message in a bottle": 15000, 
+    "a message in a bottle": 15000,
     "an emote deed": 200000,
     "a battle commendation (double-click to consume and receive reward item)": 10000,
     "invulnerability leather cap": 100000,
-    "dyeable gilded gold carpet tile": 20000,
+    #"dyeable gilded gold carpet tile": 20000,
+    "dyeable gilded": 20000,
     "bloody skull pile": 400000,
+}
+
+clothing_prices = { #todo
+
 }
 
 deed_prices = {
@@ -537,11 +542,11 @@ my_locations = {
     "N Prevalia Sandbar": (1657,1320, ('Vendor Police',2089,200,10)),
     "N Prev Sandbar W":(1551,1315, ('Vendor Police',2089,201,20)),
     "N Prev Clearing N": (1592,1388, ('Vendor Police',2089,202,10)),
-    "N Prev Clearing E": (1629,1421, ('Vendor Police',2089,203,20)),
+    "N Prev Clearing E": (1629,1421, ('Vendor Police',2089,203,20)), #1628,1421
     "N Prev Clearing Mid": (1596,1419, ('Vendor Police',2089,204,10)),
     "N Prev Clearing S": (1571,1439, ('Vendor Police',2089,205,20)),
     "N Prev Clearing SW": (1554,1439, ('Vendor Police',2089,206,10)),
-    "N Prev Clearing W": (1555,1405, ('Vendor Police',2089,207,20)),
+    "N Prev Clearing W": (1556,1419, ('Vendor Police',2089,207,20)),
     "E of Prev": (2036,1463, ('Vendor Police',2089,208,10)),
     "Khal SE Prev": (2002,1795, ('Vendor Police',2089,209,20)),
     "S Prev Xroad N": (1569,1729, ('Vendor Police',2089,210,10)),
@@ -557,7 +562,6 @@ my_locations = {
     "W of Prev Gate": (1425,1483, ('Vendor Police',2089,220,10)),
     "N of Anchor's Rest": (3756,347, ('Vendor Police',2089,221,20)),
     "W of SSC": (3267,689,('Vendor Police',2089,222,10)),
-    #"S of Anchor's Rest": (3747,740, ('Vendor Police',2089,222,10)),
     "S of Anchor's Rest 2": (3752,671, ('Vendor Police',2089,223,20)),
     "Far S Anchor's Rest": (3715, 872, ('Vendor Police',2089,224,10)),
     "E of GH": (3976,853, ('Vendor Police',2089,225,20)),
@@ -573,9 +577,9 @@ my_locations = {
     "N Outpost Gate 3": (3001,496, ('a lost girl',2093,207,20)),
     "NW Outpost Gate": (2940,563, ('a lost girl',2093,208,10)),
     "NE Outpost Close": (3387,377, ('a lost girl',2093,209,20)),
-    "NE Outpost Close 2":(3364,408, ('a lost girl',2093,210,10)),
+    "NE Outpost Close 2":(3364,408, ('a lost girl',2093,210,10)), #Steve's Recall Spot: 3363,407
     "NE Outpost Far": (3406,165, ('a lost girl',2093,211,20)),
-    "NE Outpost Far NW": (3252,294, ('a lost girl',2093,212,10)),
+    "JSHINE": (4224,1055, ('a lost girl',2093,212,10)),
     "Frost Forest": (3622,447, ('a lost girl',2093,213,20)),
     "Frozen Ruins SE":(1612,780, ('a lost girl',2093,214,10)),
     "Frozen Ruins SW":(1546,753, ('a lost girl',2093,215,20)),
@@ -591,49 +595,62 @@ my_locations = {
     "TRT":(1759,2351, ('a lost girl',2093,225,20)),
 
     # Aproctoflecticus
-    "AR1": (3946,565, ('Aproctoflecticus',1156,100,10)),
-    "AR2": (3947,496, ('Aproctoflecticus',1156,101,20)),
-    "AR3": (3961,553, ('Aproctoflecticus',1156,102,10)),
-    "AR4": (3962,456, ('Aproctoflecticus',1156,103,20)),
-    "AR5": (3976,585, ('Aproctoflecticus',1156,104,10)),
-    "AR6": (3978,493, ('Aproctoflecticus',1156,105,20)), 
-    "AR7": (4001,555, ('Aproctoflecticus',1156,106,10)),
-    "AR8": (3993,460, ('Aproctoflecticus',1156,107,20)),
-    "AR9": (4009,589, ('Aproctoflecticus',1156,108,10)),
-    "AR10": (4010,497, ('Aproctoflecticus',1156,109,20)),
-    "AR11": (4032,525, ('Aproctoflecticus',1156,110,10)),
-    "AR12": (4026,462, ('Aproctoflecticus',1156,111,20)),
-    "AR14": (4041,495, ('Aproctoflecticus',1156,112,10)),
-    "AR15": (4055,448, ('Aproctoflecticus',1156,113,20)),
-    "AR16": (4069,538, ('Aproctoflecticus',1156,114,10)),
-    "AR17": (4071,510, ('Aproctoflecticus',1156,115,20)),
-    "AR18": (4071,472, ('Aproctoflecticus',1156,116,10)),
-    "S of Pulma": (1780,1048, ('Aproctoflecticus',1156,117,20)),
-    "S of Pulma 2":(1739,1059, ('Aproctoflecticus',1156,118,10)),
-    "Shelter Haven": (1588,2550, ('Aproctoflecticus',1156,119,20)),
-    "Cedar Island Mall":(3985,349, ('Aproctoflecticus',1156,120,10)),
-    "Cedar Island Center":(4025,305, ('Aproctoflecticus',1156,121,20)),
-    "Western Camp Island": (3495,1467, ('Aproctoflecticus',1156,122,10)),
-    "Far S Prev W":(1765,1740, ('Aproctoflecticus',1156,123,20)),
-    "Far S Prev SW":(1730,1782, ('Aproctoflecticus',1156,124,10)),
-    "AR19": (4071,600,('Aproctoflecticus',1156,125,20)),
+    "AR1": (3946,565, ('Aproctoflecticus',1156,200,10)),
+    "AR2": (3947,496, ('Aproctoflecticus',1156,201,20)),
+    "AR3": (3961,553, ('Aproctoflecticus',1156,202,10)),
+    "AR4": (3962,456, ('Aproctoflecticus',1156,203,20)), #SS 3961,469
+    "AR5": (3976,585, ('Aproctoflecticus',1156,204,10)),
+    "AR6": (3978,493, ('Aproctoflecticus',1156,205,20)), 
+    "AR7": (4001,555, ('Aproctoflecticus',1156,206,10)),
+    "AR8": (3993,460, ('Aproctoflecticus',1156,207,20)),
+    "AR9": (4009,589, ('Aproctoflecticus',1156,208,10)),
+    "AR10": (4010,497, ('Aproctoflecticus',1156,209,20)),
+    "AR11": (4032,525, ('Aproctoflecticus',1156,210,10)),
+    "AR12": (4026,462, ('Aproctoflecticus',1156,211,20)),
+    "AR14": (4041,495, ('Aproctoflecticus',1156,212,10)),
+    "AR15": (4055,448, ('Aproctoflecticus',1156,213,20)),
+    "AR16": (4069,538, ('Aproctoflecticus',1156,214,10)),
+    "AR17": (4071,510, ('Aproctoflecticus',1156,215,20)),
+    "AR18": (4071,472, ('Aproctoflecticus',1156,216,10)),
+    "S of Pulma": (1780,1048, ('Aproctoflecticus',1156,217,20)),
+    "S of Pulma 2":(1739,1059, ('Aproctoflecticus',1156,218,10)),
+    "Shelter Haven": (1588,2550, ('Aproctoflecticus',1156,219,20)),
+    "Cedar Island Mall":(3985,349, ('Aproctoflecticus',1156,220,10)),
+    "Cedar Island Center":(4025,305, ('Aproctoflecticus',1156,221,20)),
+    "Western Camp Island": (3495,1467, ('Aproctoflecticus',1156,222,10)),
+    "Far S Prev W":(1765,1740, ('Aproctoflecticus',1156,223,20)),
+    "Far S Prev SW":(1730,1782, ('Aproctoflecticus',1156,224,10)),
+    "AR19": (4071,600,('Aproctoflecticus',1156,225,20)),
+
+    # Misc
+    "N of Pwnstar":(4207,1026,('Misc',0,200,10)),
+    "Pwnstar":(4218,1090,('Misc',0,201,20)),
+    "81a Xroad":(1262,1907,('Misc',0,202,10)),
+    "AR13": (4037,591,('Misc',0,203,20)),
+    "Far N Andaria Gate": (2362,564,('Misc',0,204,10)),
+    "NE Cambria Gate": (1746,3139, ('Misc',0,205,20)),
+    "Winterspire":(3571,198,('Misc',0,206,10)),
+    "MyKruelz":(1634,1136,('Misc',0,207,20)),
+    "NW of Cambria":(1599,2833,('Misc',0,208,10)),
+    "Wildside":(1255,1318,('Misc',0,209,20)),
+    "S of TRT": (1778,2389,('Misc',0,210,10)),
+    "S Prev Xroad N 2": (1606,1739, ('Misc',0,211,20)),
+    "Far SE Cambria Gate": (1794,3172, ('Misc',0,212,10)),
+    "HSB W": (1916,2261, ('Misc',0,213,20)),
+    "HSB N": (1961,2090, ('Misc',0,214,10)),
+    "HSB Gate": (2014,2047, ('Misc',0,215,20)),
+    "S Terran Clearing Tip": (944,1531,('Misc',0,216,10)),
+    "NE Outpost Mid": (3406,289,('Misc',0,217,20)),
+    "Dirty Dom": (3787,941, ('Misc',0,218,10)),
+    "ICE River": (3827,242, ('Misc',0,219,20)),
+    "NE Outpost Far NW": (3252,294, ('Misc',0,220,10)),
+    "Illuminated Spring": (3843,795, ('Misc',0,221,20)),
+    "SW of Harpies":(1847,2106,('Misc',0,222,10)),
+    "Farming Finds":(1436,1029,('Misc',0,223,20)),
+    "W of Urukton":(1899,1163,('Misc',0,224,10)),
+    "Ugly Bridge": (1329,1097, ('Misc',0,225,20)),
 
     # Unassigned
-    "Pwnstar":(4218,1090,('Misc')),
-    "AR13": (4037,591,('Misc')),
-    "81a Xroad":(1262,1907,('Misc')),
-    "Winterspire":(3571,198,('Misc')),
-    "W of Urukton":(1899,1163,('Misc')),
-    #"W of SSC": (3267,689,('Misc')),
-    "Farming Finds":(1436,1029,('Misc')),
-    "NW of Cambria":(1599,2833,('Misc')),
-    "N of Horseshoe":(1981,2100,('Misc')),
-    "S of TRT": (1778,2389,('Misc')),
-    "MyKruelz":(1634,1136,('Misc')),
-    "Wildside":(1255,1318,('Misc')),
-    "N of Pwnstar":(4207,1026,('Misc')),
-    "Far N Andaria Gate": (2362,564,('Misc')),
-    "NE Outpost Mid": (3403,301,('Misc')),
 
     "SOF Island Mall": (3571,198,('Misc')),
 }
@@ -706,7 +723,7 @@ def multi_parse_wide(in_tuple):
     }
     prices_obj = steps[item]
     if item == 'Misc Crafting':
-        page_url = "https://outlandmalls.com/?item=&search_category_id=21&search_sub_category_id=98"
+        page_url = "https://outlandmalls.com/?item=&search_category_id=21&search_sub_category_id=98" #temp_url = f"{page_url}&page={i}"
     else:
         page_url = "https://outlandmalls.com/?item=" + quote_plus(item) + "&search_category_id=0"
     headers = {
@@ -759,14 +776,14 @@ def multi_parse_wide(in_tuple):
     out_data = []
     for row in agg_rows:
         cells = row.find_all('td')
-        time_cell = cells[7]
+        time_cell = cells[8]
         time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
         if is_time_recent_multi(time_string,time_frame):
             vendor_cell = cells[1]
             location_cell = cells[2]
-            name_cell = cells[3]
-            quantity_cell = cells[4]
-            price_cell = cells[6]
+            name_cell = cells[4]
+            quantity_cell = cells[5]
+            price_cell = cells[7]
             vendor_string = vendor_cell.text.strip()
             vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
             item_serial = vendor_cell.find('span')['data-item_id']
@@ -900,14 +917,14 @@ def simple_parse_wide(in_tuple):
     out_data = []
     for row in agg_rows:
         cells = row.find_all('td')
-        time_cell = cells[7]
+        time_cell = cells[8]
         time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
         if is_time_recent_multi(time_string,time_frame):
             vendor_cell = cells[1]
             location_cell = cells[2]
-            name_cell = cells[3]
-            quantity_cell = cells[4]
-            price_cell = cells[6]
+            name_cell = cells[4]
+            quantity_cell = cells[5]
+            price_cell = cells[7]
             vendor_string = vendor_cell.text.strip()
             vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
             item_serial = vendor_cell.find('span')['data-item_id']
@@ -972,8 +989,17 @@ def simple_parse_wide(in_tuple):
         return (None,)
 
 def format_ingame_name(name_string, quantity_string):
-    if "skill mastery scroll" in name_string and quantity_string != '1':
-        name_string = name_string.replace("(used to increase a player's skill cap for a skill by 1)",f": {quantity_string}")
+    if quantity_string != '1':
+        if "skill mastery scroll" in name_string:
+            name_string = name_string.replace("(used to increase a player's skill cap for a skill by 1)",f": {quantity_string}")
+        elif "prevalia coins" in name_string:
+            name_string = name_string.replace("[blessed]",f": {quantity_string} [blessed]")
+        elif "research materials" in name_string:
+            name_string = name_string.replace("(double-click to research)",f": {quantity_string} (double-click to research)")
+        elif "a skill mastery orb" in name_string:
+            name_string = name_string.replace("(used to increase a player's total skill cap by 1)",f": {quantity_string} (used to increase a player's total skill cap by 1)")
+        else:
+            name_string += f" : {quantity_string}"
     return name_string
 
 def multi_parse_hue(in_tuple): #TODO
@@ -997,10 +1023,10 @@ def multi_parse_misc(in_tuple):
         out_data = []
         for row in rows:
             cells = row.find_all('td')
-            time_cell = cells[7]
+            time_cell = cells[8]
             time_string = time_cell.text.strip().lower()
             if is_time_recent_multi(time_string,time_frame):
-                price_cell = cells[6]
+                price_cell = cells[7]
                 price = float(price_cell.text.strip().replace(',', ''))
                 ratio = round(price / searchPrice,2)
                 if ratio > cutoff_threshold and price_depth != 2:
@@ -1008,8 +1034,8 @@ def multi_parse_misc(in_tuple):
                 if price <= searchPrice or price_depth == 2:
                     vendor_cell = cells[1]
                     location_cell = cells[2]
-                    name_cell = cells[3]
-                    quantity_cell = cells[4]
+                    name_cell = cells[4]
+                    quantity_cell = cells[5]
                     vendor_string = vendor_cell.text.strip()
                     vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
                     item_serial = vendor_cell.find('span')['data-item_id']
@@ -1056,13 +1082,13 @@ def simple_parse_narrow(in_tuple): #(response.content,searchPrices,page_url,60,1
         out_data = []
         for row in rows:
             cells = row.find_all('td')
-            name_cell = cells[3]
+            name_cell = cells[4]
             name_string = name_cell.text.strip()
             searchPrice = float(searchPrices.get(name_string, 0))
-            time_cell = cells[7]
+            time_cell = cells[8]
             time_string = time_cell.text.strip().lower()
             if is_time_recent_multi(time_string,time_frame):
-                price_cell = cells[6]
+                price_cell = cells[7]
                 price = float(price_cell.text.strip().replace(',', ''))
                 ratio = round(price / searchPrice,2)
                 if ratio > cutoff_threshold and price_depth != 2:
@@ -1070,7 +1096,7 @@ def simple_parse_narrow(in_tuple): #(response.content,searchPrices,page_url,60,1
                 if price <= searchPrice or price_depth == 2:
                     vendor_cell = cells[1]
                     location_cell = cells[2]
-                    quantity_cell = cells[4]
+                    quantity_cell = cells[5]
                     vendor_string = vendor_cell.text.strip()
                     vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
                     item_serial = vendor_cell.find('span')['data-item_id']
@@ -1118,6 +1144,34 @@ def clean_chainlink_string(string):
     return string[:-8]
 
 def get_seconds_from_string(time_string):
+    parse = str(time_string)
+    time_seconds = 0
+    try:
+        if 's' in parse:
+            split = parse.split('s')
+            seconds = int(split[0])
+            if seconds:
+                time_seconds += seconds
+        elif 'm' in parse:
+            split = parse.split('m')
+            minutes = int(split[0])
+            if minutes:
+                time_seconds += minutes * 60
+        elif 'h' in parse:
+            split = parse.split('h')
+            hours = int(split[0])
+            if hours:
+                time_seconds += hours * 3600
+        elif 'd' in parse:
+            time_seconds = 1000000
+        else:
+            return False
+        return time_seconds
+    except Exception as e:
+        print(f"Error: {e}: {parse}")
+
+
+def get_vendor_seconds_from_string(time_string):
     parse = str(time_string)
     time_seconds = 0
     if 'second ago' in parse or 'seconds ago' in parse:
@@ -1203,7 +1257,7 @@ def delete_most_recent_log(event=None):
     os.remove(file)
 
 def get_most_recent_log():
-    folder_path = "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\Client\\JournalLogs\\"
+    folder_path = "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\\Data\\Client\\JournalLogs\\"
     files = [f for f in glob.glob(os.path.join(folder_path, '*.txt')) if os.path.isfile(f)]
     sorted_files = sorted(files, key=os.path.getmtime, reverse=True)
     latest_files = sorted_files[:6]
@@ -1583,7 +1637,7 @@ class AliApp:
         self.root.bind("<KeyPress-1>", self.set_hp_variables)
         self.root.bind("<Shift-Return>", self.set_lp_variables)
         self.root.bind("<KeyPress-2>", self.set_lp_variables)
-        self.root.bind("<F1>", self.sort_tree_density)
+        self.root.bind("<F1>", self.sort_tree_quick) #sort_tree_quick sort_tree_density
         self.root.bind("<Control-F1>", delete_most_recent_log)
         self.root.grid_columnconfigure(0, weight=10)
         self.root.grid_columnconfigure(1, weight=0)
@@ -1600,7 +1654,7 @@ class AliApp:
         self.tree_frame.grid_rowconfigure(1, weight=0)
 
         # Create the Treeview with several columns
-        self.tree = ttk.Treeview(self.tree_frame, columns=("Item", "Price","Ratio","#","Profit","Vendor","Location","Time"),show='headings') #todo add profit column
+        self.tree = ttk.Treeview(self.tree_frame, columns=("Item", "Price","Ratio","#","Profit","Vendor","Location","Time","#9","#10","#11","#12"),show='headings') #todo add profit column
         self.tree.heading("Item", text="Item", command=lambda _col="Item",_col2 ="Ratio": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
         self.tree.heading("Price", text="Price")
         self.tree.heading("Ratio", text="%", command=lambda _col="Ratio",_col2 ="Time": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
@@ -1616,8 +1670,12 @@ class AliApp:
         self.tree.column("#", width=15)
         self.tree.column("Profit", width=70)
         self.tree.column("Vendor", width=125)
-        self.tree.column("Location", width=205)
+        self.tree.column("Location", width=205) 
         self.tree.column("Time", width=100)
+        self.tree.column("#9", width=0,stretch=False) #todo
+        self.tree.column("#10", width=0,stretch=False)
+        self.tree.column("#11", width=0,stretch=False)
+        self.tree.column("#12", width=0,stretch=False)
         self.tree.configure(height=20)
         self.tree.grid(row=0, column=0,sticky='nsew')
         self.tree.tag_configure("mistake", background="#D3D3D3")
@@ -1762,7 +1820,7 @@ class AliApp:
         self.btn_locations.grid(row=5, column=0, sticky='ew', padx=10, pady=(15,5), columnspan=2)
         self.btn_visit_web = ttk.Button(self.radio_frame, text="Open Website", command=lambda: webbrowser.open("https://outlandmalls.com/"))
         self.btn_visit_web.grid(row=6, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
-        self.btn_open_folder = ttk.Button(self.radio_frame, text="Open Folder", command=lambda: os.system('explorer "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\Data\\Client\\JournalLogs"'))
+        self.btn_open_folder = ttk.Button(self.radio_frame, text="Open Folder", command=lambda: os.system('explorer "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\\Data\\Client\\JournalLogs"'))
         self.btn_open_folder.grid(row=7, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
         self.btn_inventory = ttk.Button(self.radio_frame, text="Inventory", command=lambda: self.read_db_current_inventory())
         self.btn_inventory.grid(row=8, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
@@ -1911,7 +1969,7 @@ class AliApp:
                 distance = get_distance(x1,y1,x2,y2)
                 if distance > min_distance:
                     continue
-                sec_since_scan = get_seconds_from_string(update_time)
+                sec_since_scan = get_vendor_seconds_from_string(update_time)
                 if not sec_since_scan:
                     sec_since_scan = 1000000
                 #print(f"{vendor_name}: {update_time}")
@@ -2027,7 +2085,7 @@ else
         stop
     endif
 
-    overhead "recalling to spot {location_recall_code} in {location_character}'s book" 1159
+    overhead "recalling to spot {location_name} in {location_character}'s book" 1159
     dclick "myTome"
     waitforgump 167090027 1000
     if not gumpexists 167090027
@@ -2055,7 +2113,7 @@ while not dead
             while findtype "book|recall rune" "pack" as "decoys"
                 @ignore "decoys"
             endwhile
-            if find {item_id} "pack" as "item"
+            if find {item_id} "pack"
             else
                 dclick "pack"
                 wait "timeout"
@@ -2209,7 +2267,7 @@ else
         stop
     endif
 
-    overhead "recalling to spot {location_recall_code} in {location_character}'s book" 1159
+    overhead "recalling to spot {location_name} in {location_character}'s book" 1159
     dclick "myTome"
     waitforgump 167090027 1000
     if not gumpexists 167090027
@@ -2237,7 +2295,7 @@ while not dead
             while findtype "book|recall rune" "pack" as "decoys"
                 @ignore "decoys"
             endwhile
-            if find {item_id} "pack" as "item"
+            if find {item_id} "pack"
             else
                 dclick "pack"
                 wait "timeout"
@@ -2309,20 +2367,24 @@ endwhile"""
     def quick_scrape(self):
         start_time = time.time()
         def request_gen_simple():
-            #tuple_list = []
-            print('test')
             price_list = [
-                # ["Harvest Aspect Core",core_prices],
-                # ["Command Aspect Core",core_prices],
-                # ["Fortune Aspect Core",core_prices],
+                ("https://outlandmalls.com/?item=core&search_category_id=0",core_prices),
+                ("https://outlandmalls.com/?item=core&search_category_id=0&page=1",core_prices),
+                ("https://outlandmalls.com/?item=core&search_category_id=0&page=2",core_prices),
+                ("https://outlandmalls.com/?item=core&search_category_id=0&page=3",core_prices),
+                ("https://outlandmalls.com/?item=core&search_category_id=0&page=4",core_prices),
+                ("https://outlandmalls.com/?item=core&search_category_id=0&page=5",core_prices),
                 ("treasure undeciphered",map_prices),
                 ("research materials",misc_crafting_prices),
                 ("prevalia coins",misc_hp_prices),
             ]
             for searchString, searchPrices in price_list:
                 request_time = time.time()
-                print(f"{searchString}: start")
-                page_url = "https://outlandmalls.com/?item=" + quote_plus(searchString) + "&search_category_id=0"
+                res = re.search(r"https://outlandmalls\.com/\?item=(\w*)&",searchString)
+                match = res.group(1) if res else None
+                printable_name = match if match else searchString
+                print(f"{printable_name}: start")
+                page_url = searchString if match else "https://outlandmalls.com/?item=" + quote_plus(printable_name) + "&search_category_id=0"
                 headers = {
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 }
@@ -2330,10 +2392,10 @@ endwhile"""
                 if response.status_code != 200:
                     print(f"Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")
                     continue
-                self.queue_append.put(f"{searchString}")
+                self.queue_append.put(f"{printable_name}")
                 elapsed_time = round(time.time() - request_time,2)
                 print(f"{searchString}: {elapsed_time}")
-                yield (response.content,searchPrices,page_url,30,1,.93)
+                yield (response.content,searchPrices,page_url,30,1,.90)
         num_cores = cpu_count()
         with Pool(num_cores) as pool:
             for result in pool.imap_unordered(simple_parse_narrow,request_gen_simple()):
@@ -2719,7 +2781,7 @@ endwhile"""
                 for tuple in data:
                     self.append_to_tree(*tuple)
                 self.queue_emptySort_flag = True
-            self.root.after(50, self.queue_daemon)
+            self.root.after(25, self.queue_daemon)
         except queue.Empty:
             if self.queue_emptySort_flag or self.queue_emptyFastSort_flag:
                 self.queue_emptySort_flag = False
@@ -2797,11 +2859,11 @@ endwhile"""
             for col in self.tree["columns"]:
                 row_data[col] = self.tree.set(child, col)
             data.append(row_data)
-        items_by_location = defaultdict(list)
+        rows_by_location = defaultdict(list)
         for item in data:
-            items_by_location[item['Location'].split('\t')[1]].append(item)
+            rows_by_location[item['Location'].split('\t')[1]].append(item)
         data_by_location = []
-        for location, items in items_by_location.items():
+        for location, items in rows_by_location.items():
             profit_sum = 0
             ctp_sum = 0
             margin_sum = 0
@@ -2858,29 +2920,46 @@ endwhile"""
             for col in self.tree["columns"]:
                 row_data[col] = self.tree.set(child, col)
             data.append(row_data)
-        items_by_location = defaultdict(list)
-        for item in data:
-            items_by_location[item['Location'].split('\t')[1]].append(item)
+        rows_by_location = defaultdict(list)
+        items_by_vendor = defaultdict(list)
+        vendors_by_location = defaultdict(lambda: defaultdict(str))
+        for row in data:
+            rows_by_location[row['Location'].split('\t')[1]].append(row)
+            value_to_copy_raw = row["#9"]
+            print('v', value_to_copy_raw)
+            serial_match = re.search(r'\?(\d+)(?:\?(\d+))(?:\?(\d+))?#', value_to_copy_raw) #'https://www.exploreoutlands.com/?471890?1251126567?312345125#pos:869,1381,13'
+            second_try = re.search(r'\?(\d+)\?', value_to_copy_raw)
+            vendor_serial = serial_match.group(1) if serial_match else second_try.group(1) if second_try else 0
+            item_id = serial_match.group(2) if serial_match else 0
+            item_price = serial_match.group(3) if serial_match else 0
+            int_price = int(item_price)
+            if int_price == 999:
+                continue
+            total_cost = int(float(row["#11"]))
+            item_description_sans_price = row["#12"]
+            item_description_compare = f"Price: {total_cost} {item_description_sans_price}"
+            items_by_vendor[vendor_serial].append((item_description_compare,item_id))
+            vendors_by_location[row['Location'].split('\t')[1]][row["Vendor"]] = vendor_serial
         data_by_location = []
-        for location, items in items_by_location.items():
+        for location, rows in rows_by_location.items():
             profit_sum = 0
             ctp_sum = 0
             margin_sum = 0
             total_items_at_location = 0
-            for item in items:
-                price_col_string = item['Price']
+            for row in rows:
+                price_col_string = row['Price']
                 price_col_split = price_col_string.split('/')
                 my_cost = int(float(price_col_split[0]))
                 sale_price = int(float(price_col_split[1]))
-                quantity_int = int(item['#'])
-                ctp_ratio_float = float(item['Ratio'])
+                quantity_int = int(row['#'])
+                ctp_ratio_float = float(row['Ratio'])
                 try:
                     profit_margin = round((sale_price - my_cost) / my_cost,2)
                 except ZeroDivisionError:
                     profit_margin = 1
                 potential_profit = (sale_price - my_cost) * quantity_int
-                if ctp_ratio_float > 0.9 or profit_margin < 0.1:
-                    continue
+                # if ctp_ratio_float > 0.93 or profit_margin < 0.07:
+                #     continue
                 total_items_at_location += 1
                 profit_sum += potential_profit
                 ctp_sum += ctp_ratio_float
@@ -2894,168 +2973,169 @@ endwhile"""
                 "Margin_Average": profit_margin_average,
             }
             data_by_location.append((location,loc_data))
+
         loc_data_sorted = sorted(data_by_location,key=lambda x: (-x[1]["Profit"],x[1]["CTP_Average"],-x[1]["Margin_Average"]))
         loc_sorted = []
         for loc,data in loc_data_sorted:
             loc_sorted.append(loc)
         #print(loc_data_sorted)
 
-        loc_id_list = [(self.tree.set(k, 'Location'),self.tree.set(k, 'Ratio'), k) for k in tree_children]
+        loc_id_list = [(self.tree.set(k, 'Location'), self.tree.set(k, 'Ratio'), k) for k in tree_children]
         loc_id_list_sorted = sorted(loc_id_list,key=lambda x: (loc_sorted.index(x[0].split("\t")[1]), float(x[1])))
-        for index, (_, _, k) in enumerate(loc_id_list_sorted):
+        locationIndex = []
+        for index, (l, r, k) in enumerate(loc_id_list_sorted):
             self.tree.move(k, '', index)
+            capsule_loc_name = l.split("\t")[1]
+            if capsule_loc_name not in locationIndex and int(float(r) != 1001):
+                locationIndex.append(capsule_loc_name)
         self.tree.see(loc_id_list_sorted[0][2])
-        tree_children = self.tree.get_children("")   
-        scriptString = ""       
-        for child in tree_children:
-            value_to_copy_raw = self.tree.item(child, "values")[8]
-            serial_match = re.search(r'\?(\d+)(?:\?(\d+))(?:\?(\d+))?#', value_to_copy_raw) #'https://www.exploreoutlands.com/?471890?1251126567?312345125#pos:869,1381,13'
-            second_try = re.search(r'\?(\d+)\?', value_to_copy_raw)
-            vendor_serial = serial_match.group(1) if serial_match else second_try.group(1) if second_try else 0
-            item_id = serial_match.group(2) if serial_match else 0
-            item_price = serial_match.group(3) if serial_match else 0
-            int_price = int(item_price)
-            if int_price == 999:
-                continue
-            total_cost = int(float(self.tree.item(child, "values")[10]))
-            item_description = self.tree.item(child, "values")[11]
-            location_raw = self.tree.item(child, "values")[6].split('\t')
-            location_split = location_raw[0].split(',')
-            x1, y1 = map(int,location_split)
-            check_dist = float('inf')
-            closest = None
-            for location_name, tuple_loc in my_locations.items():
-                x2 = int(tuple_loc[0])
-                y2 = int(tuple_loc[1])
-                distance = get_distance(x1,y1,x2,y2)
-                if distance < check_dist:
-                    check_dist = distance
-                    closest = location_name
-            location_name = closest if closest else 'Not found'
-            if not closest:
-                print("Somehow 'closest' is None")
-                return
-            if my_locations.get(closest) is None:
-                print(f"No match in dictionary for location name: {closest}")
-                return
-            location_data = my_locations[closest][2]
+        self.root.update()
+        #Generate razor script
+        scriptString = '@setvar! "timeout" 650'
+        for location in locationIndex:
+            location_data = my_locations[location][2]
             location_character = location_data[0]
             book_hue = location_data[1]
             location_recall_code = location_data[2]
             location_button_code = location_data[3]
             scriptString += f"""
-
-@setvar! "timeout" 650
 @setvar! "myTome" 0
-@clearignore
-
-if find {vendor_serial} ground -1 -1 20
-else
-    removelist "runetomeList"
-    createlist "runetomeList"
-    for 3
-        if findtype "runetome" backpack {book_hue} as "tome"
-            @setvar! "myTome" "tome"
-            break
-        endif
-        dclick backpack
-        wait "timeout"
-    endfor
-
-    if "myTome" = 0
-        overhead "NO TOME" 33
-        stop
-    endif
-
-    overhead "recalling to spot {location_name} in {location_character}'s book" 1159
-    dclick "myTome"
-    waitforgump 167090027 1000
-    if not gumpexists 167090027
-        dclick "myTome"
-        waitforgump 167090027 2000
-    endif
-    gumpresponse {location_recall_code} 167090027
-    waitforgump 167090027 2000
-    gumpresponse {location_button_code} 167090027
-    wait 500
-
-    while not dead
-        if hidden or cooldown "skill" > 0
-            break
-        endif
-        skill "hiding"
-        wait 200
-    endwhile
-endif
-
-while not dead
-    if find {vendor_serial} ground -1 -1 20
-        overhead "● ▼▼ HERE ▼▼ ●" 88 {vendor_serial}
-        if findtype 3701 {vendor_serial} as "pack"
-            while findtype "book|recall rune" "pack" as "decoys"
-                @ignore "decoys"
-            endwhile
-            if find {item_id} "pack" as "item"
-            else
-                dclick "pack"
-                wait "timeout"
-            endif
-            if hidden
-            else
-                skill "hiding"
-            endif
-            if {item_id} = 0
-                overhead "No itemID" 33
-                stop
-            endif
-            @setvar! "foundItem" 0
-            if find {item_id} "pack" as "alItem"
-                @setvar! "foundItem" "alItem"
-            else
-                while findtype 2472|2473|2474|2475|2476|2480|2481|2482|2604|2605|2606|2607|2608|2609|2610|2611|2612|2613|2614|2615|2616|2617|2618|2619|2620|2621|2622|2623|2624|2625|2626|2627|2628|2629|2630|2631|2632|2633|2634|2635|2636|2637|2638|2639|2640|2641|2642|2643|2711|2712|2713|2714|2715|2716|2717|2718|3644|3645|3646|3647|3648|3649|3650|3651|3701|3702|3703|3704|3705|3706|3708|3709|3710|3711|3712|7808|7809|9002|9003|11010|11011|12657|29833|29832 "pack" as "subContainer"
-                    @ignore "subContainer"
-                    while findtype "book|recall rune" "pack" as "decoys"
-                        @ignore "decoys"
-                    endwhile
-                    if find {item_id} "pack" as "alItem"
-                        @setvar! "foundItem" "alItem"
-                        break
-                    else
-                        dclick "subContainer"
-                        wait "timeout"
-                    endif
-                endwhile
-                @clearignore
-            endif
-            if "foundItem" != 0
-                getlabel "foundItem" "foundItemLabel"
-                sysmsg "FOUND {{{{foundItemLabel}}}}" 1159
-                if "Description: " in "foundItemLabel"
-                elseif "{item_description}" in "foundItemLabel"
-                    if "Price: {int_price} " in "foundItemLabel"
-                        menu "foundItem" 0
-                        waitforgump 4274928655 1000
-                        gumpresponse 1
-                    elseif "Price: {total_cost} " in "foundItemLabel"
-                        menu "foundItem" 0
-                        waitforgump 4274928655 1000
-                        gumpresponse 1
-                    else
-                        overhead "BEWARE PRICE CHANGE" 33
-                        sysmsg "BEWARE PRICE CHANGE" 33
-                    endif
-                else
-                    overhead "BEWARE ITEM CHANGE" 33
-                    sysmsg "BEWARE ITEM CHANGE" 33
-                endif
-            else
-                sysmsg "Could not find item for sale: {item_description}" 1159
-            endif
-        endif
-        wait 650
+for 3
+    if findtype "runetome" backpack {book_hue} as "tome"
+        @setvar! "myTome" "tome"
         break
     endif
-    wait 500
+    dclick backpack
+    wait "timeout"
+endfor
+
+if "myTome" = 0
+    overhead "NO TOME" 33
+    stop
+endif
+
+overhead "recalling to spot {location} in {location_character}'s book" 1159
+dclick "myTome"
+waitforgump 167090027 1000
+if not gumpexists 167090027
+    dclick "myTome"
+    waitforgump 167090027 2000
+endif
+gumpresponse {location_recall_code} 167090027
+waitforgump 167090027 2000
+gumpresponse {location_button_code} 167090027
+wait 500
+
+while not dead
+    if hidden or cooldown "skill" > 0
+        break
+    endif
+    skill "hiding"
+    wait 200
+endwhile
+        
+        """ # todo initialize and recall portion
+            vendors = vendors_by_location[location]
+            for vendor_name, vendor_serial in vendors.items():
+                scriptString += f"""
+
+removelist "itemSerials"
+removelist "itemDescriptions"
+createlist "itemSerials"
+createlist "itemDescriptions"
+clearignore
+
+""" # find vendor and open backpack
+                items = items_by_vendor[vendor_serial]
+                
+                for item_description_compare, item_serial in items:
+                    print(item_description_compare,item_serial,vendor_serial,vendor_name)
+                    scriptString += f"""
+pushlist "itemSerials" {item_serial}
+pushlist "itemDescriptions" "{item_description_compare}"
+
+"""
+                scriptString += f"""
+while not dead
+    if find {vendor_serial} ground any any 20
+        overhead "● ▼▼ {vendor_name} ▼▼ ●" 88 {vendor_serial}
+        if findtype 3701 {vendor_serial} as "vendorPack"
+            foreach "item_description" in "itemDescriptions"
+                if poplist "itemSerials" "front" as "serial"
+                    sysmsg "item: {{{{item_description}}}}" 1159
+                    while findtype "book|recall rune" "vendorPack" as "decoys"
+                        @ignore "decoys"
+                    endwhile
+                    if find "serial" "vendorPack"
+                    else
+                        dclick "vendorPack"
+                        wait "timeout"
+                        while findtype "book|recall rune" "vendorPack" as "decoys"
+                            @ignore "decoys"
+                        endwhile
+                    endif
+                    
+                    if hidden
+                    else
+                        skill "hiding"
+                    endif
+                    
+                    if find "serial" "vendorPack" as "alItem"
+                        getlabel "alItem" "foundItemLabel"
+                        sysmsg "FOUND {{{{foundItemLabel}}}}" 1159
+                        if "Description: " in "foundItemLabel"
+                        elseif "item_description" in "foundItemLabel"
+                            menu "alItem" 0
+                            waitforgump 4274928655 1000
+                            gumpresponse 1
+                        else
+                            sysmsg "BEWARE ITEM CHANGE: {{{{foundItemLabel}}}}" 33
+                        endif
+                    else
+                        @setvar! "foundItem" 0
+                    while "foundItem" == 0 and findtype 2472|2473|2474|2475|2476|2480|2481|2482|2604|2605|2606|2607|2608|2609|2610|2611|2612|2613|2614|2615|2616|2617|2618|2619|2620|2621|2622|2623|2624|2625|2626|2627|2628|2629|2630|2631|2632|2633|2634|2635|2636|2637|2638|2639|2640|2641|2642|2643|2711|2712|2713|2714|2715|2716|2717|2718|3644|3645|3646|3647|3648|3649|3650|3651|3701|3702|3703|3704|3705|3706|3708|3709|3710|3711|3712|7808|7809|9002|9003|11010|11011|12657|29833|29832 "vendorPack" as "subContainer"
+                            @ignore "subContainer"
+                            getlabel "subContainer" "subContainerLabel"
+                            if "Price: Not for sale" in "subContainerLabel"
+                                while findtype "book|recall rune" "vendorPack" as "decoys"
+                                    @ignore "decoys"
+                                endwhile
+                                if find "serial" "vendorPack" as "aliItem"
+                                    @setvar! "foundItem" "alItem"
+                                else
+                                    dclick "subContainer"
+                                    wait "timeout"
+                                    while findtype "book|recall rune" "vendorPack" as "decoys"
+                                        @ignore "decoys"
+                                    endwhile
+                                    if find "serial" "vendorPack" as "alItem"
+                                        @setvar! "foundItem" "alItem"
+                                    endif
+                                endif
+                            endif
+                        endwhile
+                        if "foundItem" != 0
+                            getlabel "foundItem" "foundItemLabel"
+                            sysmsg "FOUND {{{{foundItemLabel}}}}" 1159
+                            if "Description: " in "foundItemLabel"
+                            elseif "item_description" in "foundItemLabel"
+                                menu "foundItem" 0
+                                waitforgump 4274928655 1000
+                                gumpresponse 1
+                            else
+                                sysmsg "BEWARE ITEM CHANGE: {{{{foundItemLabel}}}}" 33
+                            endif
+                        else
+                            sysmsg "Could not find item for sale: {{{{item_description}}}}" 1159
+                        endif
+                    endif
+                endif
+            endfor
+        endif
+        break
+    else
+        wait 500
+    endif
 endwhile"""
         self.root.clipboard_clear()
         self.root.clipboard_append(scriptString)
