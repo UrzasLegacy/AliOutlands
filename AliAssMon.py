@@ -3,52 +3,71 @@ import re
 import time 
 import tkinter as tk
 import threading
+from collections import defaultdict
 
-class BooleanGUI:
+class AssMonGui:
     def __init__(self, root):
         self.root = root
-        root.title("Boolean GUI")
+        root.title("AliAssMon")
+        root.minsize(225,80)
+        root.attributes('-topmost', True)
+        self.handles_to_monitor = catch_assistant_handles()
 
-        # Boolean Variables
-        self.bool_var1 = tk.BooleanVar()
-        self.bool_var2 = tk.BooleanVar()
-        self.bool_var3 = tk.BooleanVar()
+        self.char1 = self.handles_to_monitor[0]
+        self.char2 = self.handles_to_monitor[1]
+        self.char3 = self.handles_to_monitor[2]
 
-        # Checkboxes
-        self.checkbox1 = tk.Checkbutton(root, text="Boolean 1", variable=self.bool_var1)
-        self.checkbox1.pack()
+        self.bool1 = tk.BooleanVar()
+        self.bool2 = tk.BooleanVar()
+        self.bool3 = tk.BooleanVar()
 
-        self.checkbox2 = tk.Checkbutton(root, text="Boolean 2", variable=self.bool_var2)
-        self.checkbox2.pack()
+        self.prev_state1 = False
+        self.prev_state2 = False
+        self.prev_state3 = False
 
-        self.checkbox3 = tk.Checkbutton(root, text="Boolean 3", variable=self.bool_var3)
-        self.checkbox3.pack()
+        self.label1 = tk.Label(root, text=self.char1[0])
+        self.label1.pack()
+        self.label2 = tk.Label(root, text=self.char2[0])
+        self.label2.pack()
+        self.label3 = tk.Label(root, text=self.char3[0])
+        self.label3.pack()
 
-        # Button to Print Boolean Values
-        self.print_button = tk.Button(root, text="Print Booleans", command=self.print_booleans)
-        self.print_button.pack()
+    def update_booleans(self, bool_values):
+        # Update label text and colors based on status
+        self.label1.config(text=f"{self.char1[0]}: {'Running' if bool_values.get('bool1', False) else 'Not Running'}",
+                        bg="green" if bool_values.get('bool1', False) else "red")
+        self.label2.config(text=f"{self.char2[0]}: {'Running' if bool_values.get('bool2', False) else 'Not Running'}",
+                        bg="green" if bool_values.get('bool2', False) else "red")
+        self.label3.config(text=f"{self.char3[0]}: {'Running' if bool_values.get('bool3', False) else 'Not Running'}",
+                        bg="green" if bool_values.get('bool3', False) else "red")
 
-    def print_booleans(self):
-        print(f"Boolean 1: {self.bool_var1.get()}, Boolean 2: {self.bool_var2.get()}, Boolean 3: {self.bool_var3.get()}")
+        # Update previous states
+        self.prev_state1 = bool_values.get('bool1')
+        self.prev_state2 = bool_values.get('bool2')
+        self.prev_state3 = bool_values.get('bool3')
 
+    def monitor_daemon(self):
+        while True:
+            bool_values = defaultdict(bool)
+            bool_values['bool1'] = Check_Razor_Assistant(self.char1[1])
+            bool_values['bool2'] = Check_Razor_Assistant(self.char2[1])
+            bool_values['bool3'] = Check_Razor_Assistant(self.char3[1])
+            self.root.after(0, lambda: self.update_booleans(bool_values))
+            time.sleep(1)
+
+    def start_monitoring(self):
+        self.monitor_thread = threading.Thread(target=self.monitor_daemon, daemon=True)
+        self.monitor_thread.start()
 
 def catch_assistant_handles():
-    windows = pywinauto.Desktop(backend="win32").windows()  # or backend="win32"
-    assistant_windows = [window for window in windows if window.is_visible() and "Razor Outlands Edition" in window.window_text()]
-    handles = []
+    windows = pywinauto.Desktop(backend="win32").windows()
+    assistant_windows = [window for window in windows if window.is_visible() and "([None])" in window.window_text()]
+    assistant_list = list()
     for window in assistant_windows:
-        print(f"Title: {window.window_text()}, Handle: {window.handle}")
-        handles.append(window.handle)
-    return handles
-
-
-# import pywinauto
-
-# def Print_ActiveWindow_Handle():
-#     # active_window = pywinauto.Desktop(backend="uia").windows()
-#     regex = r".*"
-#     active_window = pywinauto.findwindows.enum_windows()
-#     #print(active_window)
+        char_name_search = re.search(r"(?:-\s)?([\w\s]+)\s\(\[",window.window_text())
+        char_name = char_name_search.group(1) if char_name_search else ""
+        assistant_list.append((char_name, window.handle))
+    return assistant_list
 
 def Check_Razor_Assistant(hWnd=329188):
     try:
@@ -56,37 +75,24 @@ def Check_Razor_Assistant(hWnd=329188):
         window = app.window(handle=hWnd)
     except Exception as e:
         print(f"Window not found. Error: {e}")
-        return
-    # tab_control = window.TabControl
-    # if tab_control.get_selected_tab() != 9:
-    #     tab_control.select("TabControlScripts")
-    # scripts_tab_control = window.child_window(auto_id="tabs")\
-    #                         .child_window(auto_id="scriptsTab")\
-    #                         .child_window(auto_id="subTabScripts", control_type="System.Windows.Forms.TabControl")
-    # if scripts_tab_control.get_selected_tab() != 0:
-    #     scripts_tab_control.select("TabControlScripts2")
+        return None
     script_editor = window.child_window(auto_id="scriptEditor", control_type="FastColoredTextBoxNS.FastColoredTextBox")
     if script_editor.is_enabled():
-        return False
+        return False #script editor is enabled and editable so script isnt running
     else:
-        return True
-
-def monitor_daemon():
-    while True:
-        handles_to_monitor = catch_assistant_handles()
-        for handle in handles_to_monitor:
-            Check_Razor_Assistant(window.handle)
-        time.sleep(.5)
-
+        return True  #script editor is disabled and not editable so script is running
 
 def main():
-    # Create the Tkinter window
     root = tk.Tk()
-    gui = BooleanGUI(root)
-    daemon_thread = threading.Thread(target=monitor_daemon)
-    daemon_thread.daemon = True  # Set the thread as a daemon
-    daemon_thread.start()
+    gui = AssMonGui(root)
+    gui.start_monitoring()  # Start the monitoring process
     root.mainloop()
-    # Check_Razor_Assistant()
+
+def example_use():
+    out_str = 'Scripts Running'
+    for char_name, handle in catch_assistant_handles():
+        out_str += f"\n {char_name}: {Check_Razor_Assistant(handle)}"
+    print(out_str)
 
 main()
+
