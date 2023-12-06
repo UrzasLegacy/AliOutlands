@@ -1,0 +1,25 @@
+@setvar! "loreTome" 0x43C4D42C
+clearsysmsg
+
+for 25
+    if insysmsg "You do not have any of that particular page"
+        menu "loreTome" 0
+        overhead "Missing pages" 32
+        stop
+    elseif "index" == 0 or "index" == 1 or "index" == 2 or "index" == 3 or "index" == 4 or "index" == 5 or "index" == 6 or "index" == 7 or "index" == 8 or "index" == 9
+    elseif "index" == 20 or "index" == 21 or "index" == 22 or "index" == 23 or "index" == 24
+        if ingump "Creatures of" 1274830955
+            gumpresponse "index" 1274830955
+            wait 50
+            waitforgump 1274830955 50
+        endif
+    else
+        gumpresponse "index" 1274830955
+        wait 50
+        waitforgump 1274830955 50
+    endif
+endfor
+overhead "Full tome ready!" 1159
+stop
+
+

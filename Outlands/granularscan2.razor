@@ -1,6 +1,17 @@
+removelist "itemDescriptions"
+createlist "itemDescriptions"
+clearignore
+
+pushlist "itemDescriptions" "{item_description_compare}"
+
+
 while findtype 24434 "container" as "foundRM" 
     getlabel "foundRM" "desc"
-    
+    if inlist "itemDescriptions" "desc"
+        #buy
+    else
+        #ignore
+    endif
 endwhile
 
 while findtype 5356 "container" 0 as "foundTmap"
