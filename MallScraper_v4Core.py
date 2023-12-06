@@ -739,6 +739,7 @@ def multi_parse_wide(in_tuple):
     
     while i < 10:
         #print(i)
+        time.sleep(1)
         if i > 0:
             temp_url = f"{page_url}&page={i}"
         else:
@@ -752,29 +753,29 @@ def multi_parse_wide(in_tuple):
             failsafe = 0
             time.sleep(.3)
             continue
-        result = None
+        # result = None
         soup = BeautifulSoup(response.content, 'lxml')
         if soup:
-            results_table = soup.find('table',style="display: block; border: none;")
-            if results_table:
-                results = results_table.find_all('em')
-                if len(results):
-                    result = results[0].text.strip().replace(',', '')
-                    try:
-                        result = int(result)
-                    except Exception as e:
-                        print(f"Error: {e}. {temp_url}:{results[0].text.strip()}")
-            else:
-                print('summit went awry, results table missing')
-                print(temp_url)
+            # results_table = soup.find('table',style="display: block; border: none;")
+            # if results_table:
+            #     results = results_table.find_all('em')
+            #     if len(results):
+            #         result = results[0].text.strip().replace(',', '')
+            #         try:
+            #             result = int(result)
+            #         except Exception as e:
+            #             print(f"Error: {e}. {temp_url}:{results[0].text.strip()}")
+            # else:
+            #     print('summit went awry, results table missing')
+            #     print(temp_url)
             table = soup.find('table', id="item-search-results")
             if not table:
                 print('Table not found')
                 break
             rows = table.tbody.find_all('tr')
             agg_rows.extend(rows)
-            if result and result < 500:
-                print(f'Premature break, results: {result}')
+            if rows and len(rows) < 500:
+                print(f'Premature break, results: {len(rows)}')
                 break
         i += 1
 
@@ -897,7 +898,7 @@ def simple_parse_wide(in_tuple):
             failsafe = 0
             time.sleep(.3)
             continue
-        result = None
+        # result = None
         soup = BeautifulSoup(response.content, 'lxml')
         if soup:
             # results_table = soup.find('table',style="display: block; border: none;")
@@ -2484,6 +2485,7 @@ endwhile"""
                 headers = {
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 }
+                time.sleep(1)
                 response = requests.get(page_url, headers=headers)
 
                 if response.status_code != 200:
