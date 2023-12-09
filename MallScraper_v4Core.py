@@ -149,7 +149,7 @@ board_prices = {
     "board": 14,
     "dullwood board": 30,
     "shadowwood board": 60,
-    "copperwood board": 25,
+    "copperwood board": 35,
     "bronzewood board": 50,
     "goldenwood board": 100,
     "rosewood board": 100,
@@ -214,8 +214,8 @@ commodity_5000_prices = {
 
 scroll_prices = { #exact string MATTERS
     "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 30000, #alchemy skill mastery scroll : 3 (used to increase a player's skill cap for a skill by 1)
-    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
-    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 21000,
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 21000,
     "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
     "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
     "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
@@ -229,7 +229,7 @@ scroll_prices = { #exact string MATTERS
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
     "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
     "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
-    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 21000,
     "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 22000,
     "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
     "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
@@ -245,7 +245,7 @@ scroll_prices = { #exact string MATTERS
     "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12500,
     "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 21000,
 }
 
 link_prices = { #exact chain type string MATTERS
@@ -512,8 +512,8 @@ misc_lp_prices = { #exact string matters
     "an emote deed": 200000,
     "a battle commendation (double-click to consume and receive reward item)": 10000,
     "invulnerability leather cap": 95000,
-    #"dyeable gilded gold carpet tile": 20000,
-    "dyeable gilded": 20000,
+    "dyeable gilded gold carpet tile": 20000,
+    "dyeable gilded blue carpet tile": 20000,
     "bloody skull pile": 400000,
 }
 
@@ -1072,6 +1072,7 @@ def multi_parse_misc(in_tuple):
         return out_data
 
 def simple_parse_narrow(in_tuple): #(response.content,searchPrices,page_url,60,1,.93)
+    # print("parse start")
     html = in_tuple[0]
     searchPrices = in_tuple[1]
     page_url = in_tuple[2]
@@ -1099,7 +1100,7 @@ def simple_parse_narrow(in_tuple): #(response.content,searchPrices,page_url,60,1
                 price = float(price_cell.text.strip().replace(',', ''))
                 ratio = round(price / searchPrice,2)
                 if ratio > cutoff_threshold and price_depth != 2:
-                        continue
+                    continue
                 if price <= searchPrice or price_depth == 2:
                     vendor_cell = cells[1]
                     location_cell = cells[2]
@@ -1129,6 +1130,7 @@ def simple_parse_narrow(in_tuple): #(response.content,searchPrices,page_url,60,1
                     total_cost = round(price * int(quantity_string),0)
                     total_profit = round(searchPrice * int(quantity_string) - total_cost,0)
                     out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{page_url}",f"{total_cost}",f"{name_check_string}"))
+        # print("parse end")
         return out_data
 
 def is_time_recent_multi(time_string,seconds_threshold):
@@ -2165,7 +2167,7 @@ endif
 while not dead
     if find {vendor_serial} ground -1 -1 20
         overhead "● ▼▼ HERE ▼▼ ●" 88 {vendor_serial}
-        if findtype 3701 {vendor_serial} as "pack"
+        if findtype 3701 {vendor_serial} 0 0 0 as "pack"
             while findtype "book|recall rune" "pack" as "decoys"
                 @ignore "decoys"
             endwhile
@@ -2347,7 +2349,7 @@ endif
 while not dead
     if find {vendor_serial} ground -1 -1 20
         overhead "● ▼▼ HERE ▼▼ ●" 88 {vendor_serial}
-        if findtype 3701 {vendor_serial} as "pack"
+        if findtype 3701 {vendor_serial} 0 0 0 as "pack"
             while findtype "book|recall rune" "pack" as "decoys"
                 @ignore "decoys"
             endwhile
@@ -2416,7 +2418,6 @@ while not dead
 endwhile"""
         self.root.clipboard_clear()
         self.root.clipboard_append(scriptString)
-        self.root.update()
         self.tree.selection_set(row_id)
         #self.context_menu.post(event.x_self.root, event.y_self.root)
 
@@ -2449,16 +2450,26 @@ endwhile"""
                 if response.status_code != 200:
                     print(f"Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")
                     continue
-                self.queue_append.put(f"{printable_name}")
+                #self.queue_append.put(f"{printable_name}")
                 elapsed_time = round(time.time() - request_time,2)
                 print(f"{searchString}: {elapsed_time}")
-                yield (response.content,searchPrices,page_url,30,1,.90)
+                try:
+                    yield (response.content,searchPrices,page_url,60,1,.90)
+                except Exception as e:
+                    print(f"yield error: {e}")
         num_cores = cpu_count()
+        # print('quicktest1')
         with Pool(num_cores) as pool:
-            for result in pool.imap_unordered(simple_parse_narrow,request_gen_simple()):
-                self.queue_append.put(result)
+            try:
+                for result in pool.imap_unordered(simple_parse_narrow,request_gen_simple()):
+                    #print(f"inpool: {result}")
+                    self.queue_append.put(result)
+            except Exception as e:
+                print(f"Pool failed: {e}")
+        # print('quicktest2')
         elapsed_time = round(time.time() - start_time,2)
         self.queue_append.put(f"Finished FAST:{elapsed_time}")
+        # print('quicktest3')
 
 
     def async_scraping(self):
@@ -2830,32 +2841,42 @@ endwhile"""
     #------------------------------ GUI Updates---------------------------
     def queue_daemon(self,event=None):
         try:
+            #print('queue_daemon_init')
             data = self.queue_append.get_nowait()
+            #print(f"queue_daemon_start: {data}")
             if isinstance(data,str):
                 self.status_var.set(data)
                 if 'Finished FAST' in data:
+                    #print(f"queue_daemon_1a")
                     self.queue_emptyFastSort_flag = True
-            elif data:
+            elif data and len(data):
                 for tuple in data:
                     self.append_to_tree(*tuple)
+                #print(f"queue_daemon_1b")
                 self.queue_emptySort_flag = True
-            self.root.after(25, self.queue_daemon)
+            self.root.after(10, self.queue_daemon)
         except queue.Empty:
             if self.queue_emptySort_flag or self.queue_emptyFastSort_flag:
                 self.queue_emptySort_flag = False
                 if self.queue_emptyFastSort_flag:
+                    print(f"queue_daemon_2")
                     self.queue_emptyFastSort_flag = False
                     try:
-                        print('quicksort')
+                        #print('quicksort')
                         self.sort_tree_quick()
                     except Exception as e:
                         print('sort quick failed: ', e)
                 elif self.search_sortmode.get() == 2:
                     try:
+                        #print(f"queue_daemon_2")
                         self.sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
                     except Exception as e:
                         print('sort failed: ', e)
-            self.root.after(100, self.queue_daemon)
+            self.root.after(20, self.queue_daemon)
+        except Exception as e:
+            print(f"queue_daemon exception: {e}")
+            self.root.after(20, self.queue_daemon)
+        #print("daemon_queue_end")
 
     def clear_tree(self):
         # Clear the Treeview
@@ -2882,7 +2903,7 @@ endwhile"""
                 item = self.tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9, text10, text11, text12, text13), tags=("base",))
             else:
                 item = self.tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9, text10, text11, text12, text13))
-        else:
+        elif text1:
             item = self.tree.insert("", "end", values=(text1, text2, text3, text4,text5, text6, text7, text8, text9, text10, text11, text12, text13))
         #self.tree.see(item)
 
@@ -2970,8 +2991,10 @@ endwhile"""
 
     def sort_tree_quick(self, event=None):
         data = []
+        print("sort_tree_quick_test1")
         tree_children = self.tree.get_children("")          
         if(len(tree_children) == 0):
+            print("sort_tree_quick_test_early_exit")
             return
         for child in tree_children:
             row_data = {}
@@ -2981,6 +3004,7 @@ endwhile"""
         rows_by_location = defaultdict(list)
         items_by_vendor = defaultdict(list)
         vendors_by_location = defaultdict(lambda: defaultdict(str))
+        print("sort_tree_quick_test2")
         for row in data:
             rows_by_location[row['Location'].split('\t')[1]].append(row)
             value_to_copy_raw = row["#9"]
@@ -2999,6 +3023,7 @@ endwhile"""
             items_by_vendor[vendor_serial].append((item_description_compare,item_id))
             vendors_by_location[row['Location'].split('\t')[1]][row["Vendor"]] = vendor_serial
         data_by_location = []
+        print("sort_tree_quick_test3")
         for location, rows in rows_by_location.items():
             profit_sum = 0
             ctp_sum = 0
@@ -3031,6 +3056,7 @@ endwhile"""
                 "Margin_Average": profit_margin_average,
             }
             data_by_location.append((location,loc_data))
+        print("sort_tree_quick_test4")
 
         loc_data_sorted = sorted(data_by_location,key=lambda x: (-x[1]["Profit"],x[1]["CTP_Average"],-x[1]["Margin_Average"]))
         loc_sorted = []
@@ -3046,8 +3072,10 @@ endwhile"""
             capsule_loc_name = l.split("\t")[1]
             if capsule_loc_name not in locationIndex and int(float(r) != 1001):
                 locationIndex.append(capsule_loc_name)
+        print("sort_tree_quick_test5")
         self.tree.see(loc_id_list_sorted[0][2])
         self.root.update()
+        print("sort_tree_quick_test6")
         #Generate razor script
         scriptString = '@setvar! "timeout" 650'
         for location in locationIndex:
@@ -3114,7 +3142,7 @@ pushlist "itemDescriptions" "{item_description_compare}"
 while not dead
     if find {vendor_serial} ground any any 20
         overhead "● ▼▼ {vendor_name} ▼▼ ●" 88 {vendor_serial}
-        if findtype 3701 {vendor_serial} as "mainBackpack"
+        if findtype 3701 {vendor_serial} 0 0 0 as "mainBackpack"
             @setvar! "searching" 0
             dclick "mainBackpack"
             wait "timeout"
@@ -3279,10 +3307,11 @@ while not dead
         wait "timeout"
     endif
 endwhile"""
+        print("sort_tree_quick_test7")
         self.root.clipboard_clear()
         self.root.clipboard_append(scriptString)
         self.root.update()
-        print('done')
+        print("sort_tree_quick_test_done")
 
 def catch_assistant_handles():
     windows = pywinauto.Desktop(backend="win32").windows()

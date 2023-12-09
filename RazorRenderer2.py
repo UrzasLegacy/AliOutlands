@@ -282,8 +282,8 @@ def NumberCompare(minPrice=20000,maxPrice=32000):
 
 
 def main():
-    SkillScrollStocker()
-    #SimpleStocker()
+    #SkillScrollStocker()
+    SimpleStocker()
 
 main()
 
