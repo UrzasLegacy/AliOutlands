@@ -93,10 +93,10 @@ distil_prices = { #exact string MATTERS
 }
 
 map_prices = { #exact string MATTERS
-    "plainly drawn treasure map: level 1 (undeciphered)": 6000,
-    "expertly drawn treasure map: level 2 (undeciphered)": 17000, #10000
-    "adeptly drawn treasure map: level 3 (undeciphered)": 34000, #26000
-    "cleverly drawn treasure map: level 4 (undeciphered)": 40000, #35000
+    "plainly drawn treasure map: level 1 (undeciphered)": 5000,
+    "expertly drawn treasure map: level 2 (undeciphered)": 15000, #10000
+    "adeptly drawn treasure map: level 3 (undeciphered)": 32000, #26000
+    "cleverly drawn treasure map: level 4 (undeciphered)": 38000, #35000
     "deviously drawn treasure map: level 5 (undeciphered)": 45000, #45000
     "ingeniously drawn treasure map: level 6 (undeciphered)": 75000,
     "diabolically drawn treasure map: level 7 (undeciphered)": 80000,
@@ -745,7 +745,8 @@ def multi_parse_wide(in_tuple):
         else:
             temp_url = page_url
         #print(temp_url)
-        response = requests.get(temp_url, headers=headers)
+        cookie = {"app": "MTcwMjI1NTEyMnwtdG9yX0h3VFpHNmVIOTlLS09BVi1ON3NaYVFEdTBBSGZmaERCRHl6NzRCbWs4S2xhWXdLUHBYcXhNSFJtTUtFVjFUS1Z2T2toTEl6MHF1UUVVZ0ZNS1l0VU5ZTjJpWlhtSHB2NnJRSUhGMFFTVjQ9fKvK8GJ5QkrcK-BCsm62ObHD_wmdG8PzxGudIIAfAaqG"}
+        response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
             print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
             if failsafe == 0:
@@ -890,7 +891,8 @@ def simple_parse_wide(in_tuple):
         else:
             temp_url = page_url
         #print(temp_url)
-        response = requests.get(temp_url, headers=headers)
+        cookie = {"app": "MTcwMjI1NTEyMnwtdG9yX0h3VFpHNmVIOTlLS09BVi1ON3NaYVFEdTBBSGZmaERCRHl6NzRCbWs4S2xhWXdLUHBYcXhNSFJtTUtFVjFUS1Z2T2toTEl6MHF1UUVVZ0ZNS1l0VU5ZTjJpWlhtSHB2NnJRSUhGMFFTVjQ9fKvK8GJ5QkrcK-BCsm62ObHD_wmdG8PzxGudIIAfAaqG"}
+        response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
             print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
             if failsafe == 0:
@@ -2446,7 +2448,8 @@ endwhile"""
                 headers = {
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 }
-                response = requests.get(page_url, headers=headers)
+                cookie = {"app": "MTcwMjI1NTEyMnwtdG9yX0h3VFpHNmVIOTlLS09BVi1ON3NaYVFEdTBBSGZmaERCRHl6NzRCbWs4S2xhWXdLUHBYcXhNSFJtTUtFVjFUS1Z2T2toTEl6MHF1UUVVZ0ZNS1l0VU5ZTjJpWlhtSHB2NnJRSUhGMFFTVjQ9fKvK8GJ5QkrcK-BCsm62ObHD_wmdG8PzxGudIIAfAaqG"}
+                response = requests.get(page_url, headers=headers, cookies=cookie)
                 if response.status_code != 200:
                     print(f"Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")
                     continue
@@ -2497,7 +2500,8 @@ endwhile"""
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 }
                 time.sleep(1)
-                response = requests.get(page_url, headers=headers)
+                cookie = {"app": "MTcwMjI1NTEyMnwtdG9yX0h3VFpHNmVIOTlLS09BVi1ON3NaYVFEdTBBSGZmaERCRHl6NzRCbWs4S2xhWXdLUHBYcXhNSFJtTUtFVjFUS1Z2T2toTEl6MHF1UUVVZ0ZNS1l0VU5ZTjJpWlhtSHB2NnJRSUhGMFFTVjQ9fKvK8GJ5QkrcK-BCsm62ObHD_wmdG8PzxGudIIAfAaqG"}
+                response = requests.get(page_url, headers=headers, cookies=cookie)
 
                 if response.status_code != 200:
                     print(f"Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")

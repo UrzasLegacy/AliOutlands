@@ -8,7 +8,7 @@ from collections import defaultdict
 class AssMonGui:
     def __init__(self, parent):
         self.top = tk.Toplevel(parent)
-        self.top.title("AliAssMon")
+        self.top.title("AssMon")
         self.top.minsize(225,80)
         self.top.attributes('-topmost', True)
         self.handles_to_monitor = catch_assistant_handles()
@@ -69,7 +69,7 @@ def catch_assistant_handles():
         assistant_list.append((char_name, window.handle))
     return assistant_list
 
-def Check_Razor_Assistant(hWnd=329188):
+def Check_Razor_Assistant(hWnd=0):
     try:
         app = pywinauto.Application().connect(handle=hWnd)
         window = app.window(handle=hWnd)

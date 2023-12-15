@@ -165,7 +165,11 @@ def SkillScrollStocker():
         "tracking": 10000,
         "veterinary": 21000,
     }
-
+ #21,22,23,24,25,26,27
+ #42,43,44,45,46,47,48
+ #63,64,65,66,67,68,69
+ #82,83,84,85,86,87,88
+ #102
     coord_list = [
         {'x': 44, 'y': 65}, {'x': 50, 'y': 71}, {'x': 56, 'y': 77}, {'x': 51, 'y': 65}, {'x': 57, 'y': 71}, {'x': 63, 'y': 77}, {'x': 58, 'y': 65}, 
         {'x': 64, 'y': 71}, {'x': 70, 'y': 77}, {'x': 65, 'y': 65}, {'x': 71, 'y': 71}, {'x': 77, 'y': 77}, {'x': 72, 'y': 65}, {'x': 78, 'y': 71}, 
@@ -192,8 +196,9 @@ createlist "tempScrollList"
 
 '''
     for name,price in scrolls.items():
-        for index in range(3):
-            if name == "tinkering" and index == 2:
+       
+        for repeat in range(3):
+            if name == "tinkering" and repeat == 2:
                 continue
             coord = coord_list[i]
             # coord1x, coord1y = coord_list[i]["x"], coord_list[i]["y"]
@@ -202,6 +207,7 @@ createlist "tempScrollList"
             x = coord["x"]
             y = coord["y"]
             i += 1
+            #x = coord_list[(index % 7) * increment + 21]["x"]
         # newDict[name] = [price, coord1x, coord1y, coord2x, coord2y, coord3x,coord3y]
             outStr += f'''
 clearlist "tempScrollList"
@@ -239,6 +245,7 @@ if findtypelist "tempScrollList" 8826 self
     endfor
 endif
 '''
+            
     pyperclip.copy(outStr)
     for k,v in newDict.items():
         print(f"{k}:{v},")      
@@ -282,8 +289,8 @@ def NumberCompare(minPrice=20000,maxPrice=32000):
 
 
 def main():
-    #SkillScrollStocker()
-    SimpleStocker()
+    SkillScrollStocker()
+    # SimpleStocker()
 
 main()
 
