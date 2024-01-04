@@ -1,11 +1,5 @@
+import re
+price_cell = "💰\n        \n        1,847"
+price_cell_sanitized = re.sub(r"\D",'',price_cell)
 
-add = 21
-for i in range(0,33):
-    print(i % 3)
-    continue
-    for column in range(7):
-        print(add)
-        #print(i)
-        for row in range(3):
-            if i % 3 == 0:
-                add += 1
+print(float(price_cell_sanitized))

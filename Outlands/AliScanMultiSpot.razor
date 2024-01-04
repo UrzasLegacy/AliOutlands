@@ -214,7 +214,7 @@ else
 endif
 
 for 3
-    if "tomeHue" = 0 and findtype "runetome" as "tome"
+    if "tomeHue" = 0 and findtype "runetome" backpack 0 as "tome"
         overhead "No bespoke tome, using any tome" 1159
         @setvar! "myTome" "tome"
         break
@@ -265,7 +265,7 @@ while not dead
         wait 200
     endwhile
 
-    sysmsg "…OutlandMall Start v1" 1159
+    sysmsg "…OutlandMall Start v2" 1159
     wait 500
     say "[coords"
     wait 500
@@ -320,7 +320,7 @@ while not dead
                             dclick "container"
                             wait "timeout"
                         elseif "Description: " in desc
-                            //sysmsg "…bag {{desc}}" 1159
+                            sysmsg "…item ID:{{container}} {{desc}}" 1159
                             continue
                         elseif "paragon" in desc
                             sysmsg "…item ID:{{container}} {{desc}}" 1159
