@@ -157,6 +157,8 @@ endwhile
 
 if findtype 'storage shelf' ground 0 1 2 as myStorageShelf
     menu myStorageShelf 1
+    wait 200
+    overhead "Locked and loaded!"
 else
     overhead 'No storage shelf nearby'
 endif

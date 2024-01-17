@@ -28,37 +28,37 @@ import pyautogui
 import socket
 
 core_prices = { #exact string MATTERS
-    "Blood Aspect Core": 5000,
-    "Holy Aspect Core": 3000,
-    "Earth Aspect Core": 3000,
+    "Blood Aspect Core": 7000,
+    "Holy Aspect Core": 7000,
+    "Earth Aspect Core": 6000,
     "War Aspect Core": 3000,
-    "Death Aspect Core": 5000,
-    "Water Aspect Core": 13000,
-    "Gadget Aspect Core": 4000,
-    "Shadow Aspect Core": 13000,
+    "Death Aspect Core": 7000,
+    "Water Aspect Core": 15000,
+    "Gadget Aspect Core": 8000,
+    "Shadow Aspect Core": 15000,
     "Void Aspect Core": 19000,
-    "Fire Aspect Core": 13000,
+    "Fire Aspect Core": 15000,
     "Discipline Aspect Core": 8000,
     "Lyric Aspect Core": 22000,
     "Poison Aspect Core": 28000,
     "Eldritch Aspect Core": 40000,
     "Fortune Aspect Core": 70000,
-    "Command Aspect Core": 150000,
+    "Command Aspect Core": 180000,
     "Artisan Aspect Core": 60000,
     "Air Aspect Core": 40000,
     "Harvest Aspect Core": 150000,
 }
 
 extract_prices = { #exact string MATTERS
-    "Blood Aspect Extract": 2000,
+    "Blood Aspect Extract": 4000,
     "Holy Aspect Extract": 3000,
     "Earth Aspect Extract": 3000,
-    "Death Aspect Extract": 3000,
+    "Death Aspect Extract": 4000,
     "Water Aspect Extract": 4000,
     "Gadget Aspect Extract": 3500,
     "Shadow Aspect Extract": 4000,
     "Void Aspect Extract": 4000,
-    "Fire Aspect Extract": 3000,
+    "Fire Aspect Extract": 4000,
     "Discipline Aspect Extract": 3000,
     "Lyric Aspect Extract": 3000,
     "Poison Aspect Extract": 5000,
@@ -71,15 +71,15 @@ extract_prices = { #exact string MATTERS
 }
 
 distil_prices = { #exact string MATTERS
-    "Blood Aspect Distillation": 2000,
+    "Blood Aspect Distillation": 4000,
     "Holy Aspect Distillation": 3000,
     "Earth Aspect Distillation": 3000,
-    "Death Aspect Distillation": 3000,
+    "Death Aspect Distillation": 4000,
     "Water Aspect Distillation": 4000,
     "Gadget Aspect Distillation": 3500,
     "Shadow Aspect Distillation": 4000,
     "Void Aspect Distillation": 4000,
-    "Fire Aspect Distillation": 3000,
+    "Fire Aspect Distillation": 4000,
     "Discipline Aspect Distillation": 3000,
     "Lyric Aspect Distillation": 3000,
     "War Aspect Distillation": 2000,
@@ -93,10 +93,10 @@ distil_prices = { #exact string MATTERS
 }
 
 map_prices = { #exact string MATTERS
-    "plainly drawn treasure map: level 1 (undeciphered)": 5000,
-    "expertly drawn treasure map: level 2 (undeciphered)": 15000, #10000
-    "adeptly drawn treasure map: level 3 (undeciphered)": 28000, #26000
-    "cleverly drawn treasure map: level 4 (undeciphered)": 35000, #35000
+    "plainly drawn treasure map: level 1 (undeciphered)": 6000,
+    "expertly drawn treasure map: level 2 (undeciphered)": 17000, #10000
+    "adeptly drawn treasure map: level 3 (undeciphered)": 34000, #26000
+    "cleverly drawn treasure map: level 4 (undeciphered)": 38000, #35000
     "deviously drawn treasure map: level 5 (undeciphered)": 42000, #45000
     "ingeniously drawn treasure map: level 6 (undeciphered)": 70000,
     "diabolically drawn treasure map: level 7 (undeciphered)": 80000,
@@ -213,7 +213,7 @@ commodity_5000_prices = {
 }
 
 scroll_prices = { #exact string MATTERS
-    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 24000, #alchemy skill mastery scroll : 3 (used to increase a player's skill cap for a skill by 1)
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 22000, #alchemy skill mastery scroll : 3 (used to increase a player's skill cap for a skill by 1)
     "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 21000,
     "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 21000,
     "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
@@ -225,7 +225,7 @@ scroll_prices = { #exact string MATTERS
     "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12500,
-    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 16000,
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
     "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
     "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
@@ -347,7 +347,7 @@ hue_list = {
     'Shimmer Spice':         {'hue': 1557, 'rare cloth': 500000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 3000000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Spice
     'Shimmer Garnet':        {'hue': 1571, 'rare cloth': 500000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 3000000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 1000000, 'facial hair dye': 1000000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Garnet
     'Shimmer Equinox':       {'hue': 1574, 'rare cloth': 100000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 600000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Equinox
-    'Shimmer Moonlight':     {'hue': 2284, 'rare cloth': 135000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 900000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Moonlight
+    'Shimmer Moonlight':     {'hue': 2284, 'rare cloth': 95000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 900000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Moonlight
     'Shimmer Gala':          {'hue': 2074, 'rare cloth': 100000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 600000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Gala
     'Shimmer Spirit':        {'hue': 1181, 'rare cloth': 100000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 600000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Spirit
     'Shimmer Tempest':       {'hue': 1180, 'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 700000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Tempest
@@ -481,7 +481,7 @@ def alter_hue_dict(self_parse=False, item_type="rare cloth"):
     print(json.dumps(out_dict, indent=4))
 
 misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&search_sub_category_id=98
-    "pristine lumber": 38000, 
+    "pristine lumber": 35000, 
     "immaculate stone": 38000,
     "an arcane scroll": 1000,
     "research materials (double-click to research)": 35000,
@@ -499,7 +499,7 @@ misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&
 }
 
 misc_hp_prices = { #exact string matters
-    "a skill mastery orb (used to increase a player's total skill cap by 1)": 17000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": 16500, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
     "plant chemicals": 2000,
     "prevalia coins [blessed]":17800, #prevalia coins : 5 [blessed]
 }
@@ -513,7 +513,7 @@ misc_lp_prices = { #exact string matters
     "a battle commendation (double-click to consume and receive reward item)": 10000,
     "invulnerability leather cap": 95000,
     "dyeable gilded gold carpet tile": 20000,
-    "dyeable gilded blue carpet tile": 11000,
+
     "bloody skull pile": 400000,
 }
 
@@ -745,7 +745,7 @@ def multi_parse_wide(in_tuple):
         else:
             temp_url = page_url
         #print(temp_url)
-        cookie = {"app": "MTcwMjI1NTEyMnwtdG9yX0h3VFpHNmVIOTlLS09BVi1ON3NaYVFEdTBBSGZmaERCRHl6NzRCbWs4S2xhWXdLUHBYcXhNSFJtTUtFVjFUS1Z2T2toTEl6MHF1UUVVZ0ZNS1l0VU5ZTjJpWlhtSHB2NnJRSUhGMFFTVjQ9fKvK8GJ5QkrcK-BCsm62ObHD_wmdG8PzxGudIIAfAaqG"}
+        cookie = {"app": "MTcwNDg1MDU5N3xMbEtOWG9UR2lyVDhaQ21qS01GR21tb2tRd1pGMVpadm5rbnhwMUdHME5SV1VXX2djTzZsZWdsSnZrcTQyRkZ2NTFWaUlPRmVuTk9YWEx4YWhyMlZRZmp5QzdIVlpjd0ZVejB5OTVNdUtmT2VpTDg9fIHW34Z_LLsGomva7DcJo1mQonDaXdxs7v0SP5jhVuw5"}
         response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
             print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
@@ -892,7 +892,7 @@ def simple_parse_wide(in_tuple):
         else:
             temp_url = page_url
         #print(temp_url)
-        cookie = {"app": "MTcwMjI1NTEyMnwtdG9yX0h3VFpHNmVIOTlLS09BVi1ON3NaYVFEdTBBSGZmaERCRHl6NzRCbWs4S2xhWXdLUHBYcXhNSFJtTUtFVjFUS1Z2T2toTEl6MHF1UUVVZ0ZNS1l0VU5ZTjJpWlhtSHB2NnJRSUhGMFFTVjQ9fKvK8GJ5QkrcK-BCsm62ObHD_wmdG8PzxGudIIAfAaqG"}
+        cookie = {"app": "MTcwNDg1MDU5N3xMbEtOWG9UR2lyVDhaQ21qS01GR21tb2tRd1pGMVpadm5rbnhwMUdHME5SV1VXX2djTzZsZWdsSnZrcTQyRkZ2NTFWaUlPRmVuTk9YWEx4YWhyMlZRZmp5QzdIVlpjd0ZVejB5OTVNdUtmT2VpTDg9fIHW34Z_LLsGomva7DcJo1mQonDaXdxs7v0SP5jhVuw5"}
         response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
             print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
@@ -1639,7 +1639,7 @@ def discord_truncate(s):
 class AliApp:
     def __init__(self,root):
         self.root = root
-        self.root.title("Ali's OutlandMalls Scraper v4")
+        self.root.title("Ali's OutlandMalls Scraper v4.2")
         self.root.geometry("1160x870")  # Initial size
         self.root.minsize(1300, 870)  # Minimum size
         #self.root.maxsize(900, 700)  # Maximum size
@@ -2452,7 +2452,7 @@ endwhile"""
                 headers = {
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 }
-                cookie = {"app": "MTcwMjI1NTEyMnwtdG9yX0h3VFpHNmVIOTlLS09BVi1ON3NaYVFEdTBBSGZmaERCRHl6NzRCbWs4S2xhWXdLUHBYcXhNSFJtTUtFVjFUS1Z2T2toTEl6MHF1UUVVZ0ZNS1l0VU5ZTjJpWlhtSHB2NnJRSUhGMFFTVjQ9fKvK8GJ5QkrcK-BCsm62ObHD_wmdG8PzxGudIIAfAaqG"}
+                cookie = {"app": "MTcwNDg1MDU5N3xMbEtOWG9UR2lyVDhaQ21qS01GR21tb2tRd1pGMVpadm5rbnhwMUdHME5SV1VXX2djTzZsZWdsSnZrcTQyRkZ2NTFWaUlPRmVuTk9YWEx4YWhyMlZRZmp5QzdIVlpjd0ZVejB5OTVNdUtmT2VpTDg9fIHW34Z_LLsGomva7DcJo1mQonDaXdxs7v0SP5jhVuw5"}
                 response = requests.get(page_url, headers=headers, cookies=cookie)
                 if response.status_code != 200:
                     print(f"Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")
@@ -2504,7 +2504,7 @@ endwhile"""
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 }
                 time.sleep(1)
-                cookie = {"app": "MTcwMjI1NTEyMnwtdG9yX0h3VFpHNmVIOTlLS09BVi1ON3NaYVFEdTBBSGZmaERCRHl6NzRCbWs4S2xhWXdLUHBYcXhNSFJtTUtFVjFUS1Z2T2toTEl6MHF1UUVVZ0ZNS1l0VU5ZTjJpWlhtSHB2NnJRSUhGMFFTVjQ9fKvK8GJ5QkrcK-BCsm62ObHD_wmdG8PzxGudIIAfAaqG"}
+                cookie = {"app": "MTcwNDg1MDU5N3xMbEtOWG9UR2lyVDhaQ21qS01GR21tb2tRd1pGMVpadm5rbnhwMUdHME5SV1VXX2djTzZsZWdsSnZrcTQyRkZ2NTFWaUlPRmVuTk9YWEx4YWhyMlZRZmp5QzdIVlpjd0ZVejB5OTVNdUtmT2VpTDg9fIHW34Z_LLsGomva7DcJo1mQonDaXdxs7v0SP5jhVuw5"}
                 response = requests.get(page_url, headers=headers, cookies=cookie)
 
                 if response.status_code != 200:
