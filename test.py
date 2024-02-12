@@ -1,5 +1,16 @@
-import re
-price_cell = "💰\n        \n        1,847"
-price_cell_sanitized = re.sub(r"\D",'',price_cell)
+import pyperclip
+def append_recall_home_script():
+    try:
+        current_content = pyperclip.paste()
+        print(current_content)
+        append_string = """
 
-print(float(price_cell_sanitized))
+    wait 1000
+    script "AliRoom"
+    """
+        new_content = current_content + append_string
+        pyperclip.copy(new_content)
+    except Exception as e:
+        print(f"Err: {e}")
+
+append_recall_home_script()
