@@ -29,18 +29,18 @@ def RenderDistilScript():
         pass
 
 def SimpleStocker():
-    item_ID = 3827
-    item_string = 'arcane scroll'
+    item_ID = 16898
+    item_string = 'prevalia coins'
     from_container = 'backpack'
-    to_container = 0x483BE859
-    price = 10000
-    quant = 10
-    total_stacks = 20
+    to_container = 0x5633D5A4
+    price = 19000
+    quant = 1
+    total_stacks = 61
 
-    start_pos = "X=62, Y=133, Z=0"
-    end_pos = "X=107, Y=143, Z=0"
-    x_offset = 3
-    y_offset = 10
+    start_pos = "X=44, Y=82, Z=0"  #X=44, Y=75, Z=0
+    end_pos = "X=44, Y=142, Z=0"
+    x_offset = 0
+    y_offset =1
 
     start_match = re.search(r"X=(\d+), Y=(\d+), Z=(\d+)",start_pos)
     start_X = int(start_match.group(1)) if start_match else 0
@@ -125,45 +125,46 @@ while findtype {item_ID} {from_container} as "itemToMove"
         @ignore "itemToMove"
     endif
 endwhile'''
-
+    print('test')
+    print(out_str)
     pyperclip.copy(out_str)
 
 
 def SkillScrollStocker():
     scrolls = { #exact string MATTERS
-        "alchemy": 30000,
-        "animal lore": 21000,
-        "animal taming": 21000,
-        "arms lore": 9000,
-        "blacksmithy": 9000,
+        "alchemy": 65000,
+        "animal lore": 29000,
+        "animal taming": 29000,
+        "arms lore": 10000,
+        "blacksmithy": 11000,
         "begging": 9000,
-        "camping": 10000,
-        "carpentry": 9000,
-        "cartography": 11000,
-        "chivalry": 20000,
-        "cooking": 10000,
-        "detect hidden": 15000,
-        "discordance": 9000,
-        "fishing": 9000,
-        "forensic eval": 12000,
-        "herding": 23000,
-        "inscription": 23000,
-        "item id": 13000,
-        "lockpicking": 17000,
-        "lumberjacking": 10000,
-        "mining": 9000,
-        "musicianship": 9000,
-        "necromancy": 24000,
-        "peacemaking": 9000,
-        "poisoning": 10000,
-        "provocation": 9000,
-        "spirit speak": 10000,
-        "stealth": 16000,
-        "tailoring": 40000,
-        "taste id": 13000,
-        "tinkering": 9000,
-        "tracking": 9000,
-        "veterinary": 21000,
+        "camping": 14000,
+        "carpentry": 10000,
+        "cartography": 17000,
+        "chivalry": 25000,
+        "cooking": 12000,
+        "detect hidden": 28000,
+        "discordance": 11000,
+        "fishing": 12000,
+        "forensic eval": 15000,
+        "herding": 31000,
+        "inscription": 35000,
+        "item id": 20000,
+        "lockpicking": 20000,
+        "lumberjacking": 12000,
+        "mining": 11000,
+        "musicianship": 11000,
+        "necromancy": 45000,
+        "peacemaking": 11000,
+        "poisoning": 11000,
+        "provocation": 11000,
+        "spirit speak": 12000,
+        "stealth": 20000,
+        "tailoring": 55000,
+        "taste id": 15000,
+        "tinkering": 14000,
+        "tracking": 10000,
+        "veterinary": 27000,
     }
  #21,22,23,24,25,26,27
  #42,43,44,45,46,47,48
@@ -290,7 +291,7 @@ def NumberCompare(minPrice=20000,maxPrice=32000):
 
 def main():
     SkillScrollStocker()
-    # SimpleStocker()
+    #SimpleStocker()
 
 main()
 

@@ -5,7 +5,7 @@
 @setvar! "useRecallScrolls" 0
 
 // Set locationGroup to the corresponding number indicating the group of locations to visit. 10 visits all locations by default
-@setvar! "locationGroup" 6
+@setvar! "locationGroup" 10
 
 // Location 100 is the first rune in the tome. 101 is the second, and so on.
 // locationGroups
@@ -227,7 +227,7 @@ for 3
     wait "timeout"
 endfor
 
-overhead "tome: {{myTome}}"
+overhead "group: {{locationGroup}}"
 overhead "hue: {{tomeHue}}"
 if "myTome" = 0
     overhead "NO TOME" 1159
@@ -239,7 +239,7 @@ createlist "vendors"
 while not dead
     if not atlist "runetomeSpotsAugmented" 0
         sysmsg "Done!" 1159
-        stop
+        break
     elseif poplist "runetomeSpotsAugmented" front as "spot"
         overhead "recalling to spot {{spot}}"
         wait "timeout"
@@ -362,9 +362,19 @@ while not dead
                         sysmsg "…item ID:{{foundItem}} {{desc}}" 1159
                         @ignore foundItem
                     endwhile
+                    
+                    while findtype 5129|5132|5135|5138|5139|5142|5143|5144|5146|7173|5076|5085|5089|5090|7170|7610|5078|5203|5204|5205|5207 "container" as foundItem
+                        getlabel foundItem desc
+                        sysmsg "…item ID:{{foundItem}} {{desc}}" 1159
+                        @ignore foundItem
+                    endwhile
                 endwhile
                 sysmsg "…vendorEnd {{vendorID}} {{vendorName}}" 1159
             endif
         endif
     endwhile
 endwhile
+
+
+wait 1000
+script "AliRoom"

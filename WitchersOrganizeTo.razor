@@ -1,0 +1,38 @@
+unsetvar OrganizeTo
+unsetvar WhatToOrganize
+
+//Set Target Location
+    while not varexist OrganizeTo
+        overhead '[Target Destination]' 53
+        setvar! OrganizeTo
+        wait 100
+    endwhile
+
+//Set What to organize
+    while not varexist WhatToOrganize
+        overhead '[Target Object to Move]' 53
+        setvar! WhatToOrganize
+        wait 100
+    endwhile
+
+//Move object
+    while not dead
+        if find WhatToOrganize backpack
+            //Move object
+                while find WhatToOrganize backpack
+                    lift WhatToOrganize 60000
+                    drop OrganizeTo -1 -1
+                    wait 50
+                endwhile
+                unsetvar WhatToOrganize
+
+            //Set What to organize
+                while not varexist WhatToOrganize
+                    overhead '[Target Object to Move]' 53
+                    setvar! WhatToOrganize
+                    wait 100
+                endwhile
+        else 
+            stop
+        endif
+    endwhile
