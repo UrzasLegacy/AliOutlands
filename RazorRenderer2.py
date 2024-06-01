@@ -34,7 +34,7 @@ def SimpleStocker():
     from_container = 'backpack'
     to_container = 0x5633D5A4
     price = 19000
-    quant = 1
+    quantity = 1
     total_stacks = 61
 
     start_pos = "X=44, Y=82, Z=0"  #X=44, Y=75, Z=0
@@ -104,16 +104,25 @@ while findtype {item_ID} {from_container} as "itemToMove"
         endif
     endif
     if poplist "coordList" "front" as x and poplist "coordList" "front" as y
-        lift "itemToMove" {quant}
+        lift "itemToMove" {quantity}
         drop {to_container} x y 0
         wait 325
         if {price} > 0
             promptresponse {price}
             wait 325
             getlabel "itemToMove" "itemDesc"
-            if ": {price}" in "itemDesc"
+            if "Price: {price}" in "itemDesc"
+                if {quantity} == 1 or ": {quantity}" in "itemDesc"
+                else
+                    lift "itemToMove" {quantity}
+                    drop backpack 0 0 0
+                    pushlist "coordList" y "front"
+                    pushlist "coordList" x "front"
+                    @ignore "itemToMove"
+                    wait 650
+                endif
             else
-                lift "itemToMove" {quant}
+                lift "itemToMove" {quantity}
                 drop backpack 0 0 0
                 pushlist "coordList" y "front"
                 pushlist "coordList" x "front"
@@ -131,6 +140,7 @@ endwhile'''
 
 
 def SkillScrollStocker():
+    quantity = 1
     scrolls = { #exact string MATTERS
         "alchemy": 65000,
         "animal lore": 29000,
@@ -141,23 +151,23 @@ def SkillScrollStocker():
         "camping": 14000,
         "carpentry": 10000,
         "cartography": 17000,
-        "chivalry": 25000,
+        "chivalry": 29000,
         "cooking": 12000,
         "detect hidden": 28000,
         "discordance": 11000,
         "fishing": 12000,
         "forensic eval": 15000,
         "herding": 31000,
-        "inscription": 35000,
+        "inscription": 45000,
         "item id": 20000,
-        "lockpicking": 20000,
+        "lockpicking": 27000,
         "lumberjacking": 12000,
         "mining": 11000,
         "musicianship": 11000,
         "necromancy": 45000,
         "peacemaking": 11000,
         "poisoning": 11000,
-        "provocation": 11000,
+        "provocation": 13000,
         "spirit speak": 12000,
         "stealth": 20000,
         "tailoring": 55000,
@@ -197,7 +207,7 @@ createlist "tempScrollList"
 
 '''
     for name,price in scrolls.items():
-       
+        price_str = format_with_commas(price)
         for repeat in range(3):
             if name == "tinkering" and repeat == 2:
                 continue
@@ -222,7 +232,16 @@ if findtypelist "tempScrollList" 8826 self
             promptresponse {price}
             wait 325
             getlabel "tempScroll" "tempDesc"
-            if ": {price}" in "tempDesc"
+            if ": {price_str}" in "tempDesc"
+                if {quantity} == 1 or ": {quantity}" in "itemDesc"
+                else
+                    lift "itemToMove" {quantity}
+                    drop backpack 0 0 0
+                    pushlist "coordList" y "front"
+                    pushlist "coordList" x "front"
+                    @ignore "itemToMove"
+                    wait 650
+                endif
             else
                 lift "tempScroll" 60000
                 drop backpack 0 0 0
@@ -233,7 +252,16 @@ if findtypelist "tempScrollList" 8826 self
                 promptresponse {price}
                 wait 325
                 getlabel "tempScroll" "tempDesc"
-                if ": {price}" in "tempDesc"
+                if ": {price_str}" in "tempDesc"
+                    if {quantity} == 1 or ": {quantity}" in "itemDesc"
+                    else
+                        lift "itemToMove" {quantity}
+                        drop backpack 0 0 0
+                        pushlist "coordList" y "front"
+                        pushlist "coordList" x "front"
+                        @ignore "itemToMove"
+                        wait 650
+                    endif
                 else
                     lift "tempScroll" 60000
                     drop backpack 0 0 0
@@ -287,12 +315,19 @@ def NumberCompare(minPrice=20000,maxPrice=32000):
 
     pyperclip.copy(outStr)
 
-
+def format_with_commas(number_string):
+    try:
+        number = float(number_string)
+        if number.is_integer():
+            formatted_number = "{:,.0f}".format(number)
+        else:
+            formatted_number = "{:,}".format(number)
+        return formatted_number
+    except ValueError:
+        return "Invalid input"
 
 def main():
     SkillScrollStocker()
     #SimpleStocker()
 
 main()
-
-

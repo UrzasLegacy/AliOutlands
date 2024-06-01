@@ -1,0 +1,159 @@
+@clearignore
+@setvar! "delay" 700
+
+@setvar! "containerID" 0
+@setvar! "x" 0
+@setvar! "y" 0
+
+@setvar! "price1" 40000
+@setvar! "price2" 60000
+
+@clearignore
+while findtype 27612 as "lorePage"
+    getlabel "lorePage" "desc"
+    if "creatures of" in "desc"
+        @setvar! "containerID" 0x5567B728
+        @setvar! "price" "price1"
+        if "aegis keep" in "desc"
+            @setvar! "y" 51
+        elseif "cavernam" in "desc"
+            @setvar! "y" 57
+        elseif "darkmire temple" in "desc"
+            @setvar! "y" 63
+        elseif "inferno" in "desc"
+            @setvar! "y" 69
+        elseif "mount petram" in "desc"
+            @setvar! "y" 75
+        elseif "nusero" in "desc"
+            @setvar! "y" 81
+        elseif "ossuary" in "desc"
+            @setvar! "y" 87
+        elseif "pulma" in "desc"
+            @setvar! "y" 93
+        elseif "mausoleum" in "desc"
+            @setvar! "y" 99
+        endif
+    elseif "history of" in "desc"
+        @setvar! "containerID" 0x574C7507
+        @setvar! "price" "price2"
+        if "andaria" in "desc"
+            @setvar! "y" 51
+        elseif "cambria" in "desc"
+            @setvar! "y" 57
+        elseif "corpse creek" in "desc"
+            @setvar! "y" 63
+        elseif "horseshoe bay" in "desc"
+            @setvar! "y" 69
+        elseif "outpost" in "desc"
+            @setvar! "y" 75
+        elseif "prevalia" in "desc"
+            @setvar! "y" 81
+        elseif "terran" in "desc"
+            @setvar! "y" 87
+        endif
+    elseif "mythology" in "desc"
+        @setvar! "containerID" 0x5414E63F
+        @setvar! "price" "price2"
+        if "vol 1" in "desc"
+            @setvar! "y" 51
+        elseif "vol 2" in "desc"
+            @setvar! "y" 57
+        elseif "vol 3" in "desc"
+            @setvar! "y" 63
+        elseif "vol 4" in "desc"
+            @setvar! "y" 69
+        elseif "vol 5" in "desc"
+            @setvar! "y" 75
+        elseif "vol 6" in "desc"
+            @setvar! "y" 81
+        elseif "vol 7" in "desc"
+            @setvar! "y" 87
+        endif
+    elseif "tales of" in "desc"
+        @setvar! "containerID" 0x4774C43B
+        @setvar! "price" "price2"
+        if "aegis keep" in "desc"
+            @setvar! "y" 51
+        elseif "cavernam" in "desc"
+            @setvar! "y" 57
+        elseif "darkmire temple" in "desc"
+            @setvar! "y" 63
+        elseif "inferno" in "desc"
+            @setvar! "y" 69
+        elseif "mount petram" in "desc"
+            @setvar! "y" 75
+        elseif "nusero" in "desc"
+            @setvar! "y" 81
+        elseif "ossuary" in "desc"
+            @setvar! "y" 87
+        elseif "pulma" in "desc"
+            @setvar! "y" 93
+        elseif "mausoleum" in "desc"
+            @setvar! "y" 99
+        endif
+    endif
+    if "page 1 of" in "desc"
+        @setvar! "x" 16
+    elseif "page 2 of" in "desc"
+        @setvar! "x" 26
+    elseif "page 3 of" in "desc"
+        @setvar! "x" 36
+    elseif "page 4 of" in "desc"
+        @setvar! "x" 46
+    elseif "page 5 of" in "desc"
+        @setvar! "x" 56
+    elseif "page 6 of" in "desc"
+        @setvar! "x" 66
+    elseif "page 7 of" in "desc"
+        @setvar! "x" 76
+    elseif "page 8 of" in "desc"
+        @setvar! "x" 86
+    elseif "page 9 of" in "desc"
+        @setvar! "x" 96
+    elseif "page 10 of" in "desc"
+        @setvar! "x" 106
+    elseif "page 11 of" in "desc"
+        @setvar! "x" 116
+    elseif "page 12 of" in "desc"
+        @setvar! "x" 126
+    elseif "page 13 of" in "desc"
+        @setvar! "x" 136
+    elseif "page 14 of" in "desc"
+        @setvar! "x" 146
+    elseif "page 15 of" in "desc"
+        @setvar! "x" 156
+    endif
+    #sysmsg "x"
+    #sysmsg "y"
+    #sysmsg "price"
+    #sysmsg "containerID"
+ 
+    lift "lorePage" 1
+    drop "containerID" "x" "y" 0
+    wait 325
+    promptresponse "price"
+    wait 325
+    getlabel "lorePage" "tempDesc"
+    if ": 40,000" in "tempDesc" and "creatures of" in "tempDesc"
+    elseif ": 60,000" in "tempDesc"
+    else
+        lift "lorePage" 60000
+        drop backpack 0 0 0
+        wait 650
+        lift "lorePage" 1
+        drop "containerID" "x" "y" 0
+        wait 325
+        promptresponse "price"
+        wait 325
+        getlabel "lorePage" "tempDesc"
+        if ": 40,000" in "tempDesc" and "creatures of" in "tempDesc"
+        elseif ": 60,000" in "tempDesc"
+        else
+            lift "lorePage" 60000
+            drop backpack 0 0 0
+            wait 650
+        endif
+    endif
+endwhile
+
+@clearignore
