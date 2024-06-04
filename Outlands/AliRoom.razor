@@ -1,9 +1,9 @@
-@setvar! "innkeeperSerial" 0x5B0
+@setvar! "innkeeperSerial" 0x173
 
 //No Edit
 @clearignore
 @setvar! "pass" 0
-if find "innkeeperSerial" ground any any 12
+if find "innkeeperSerial" ground any any 14
     @setvar! "pass" 1
 endif
 
@@ -81,7 +81,6 @@ elseif ingump "Rent This Room" 2393832411
     endif
     gumpresponse 100 2393832411
 endif
-timer 
 
 createtimer "waitTime"
 while not insysmsg "You enter the rental room."
@@ -91,11 +90,6 @@ while not insysmsg "You enter the rental room."
     endif
 endwhile
 
-settimer "waitTime" 0
-while not insysmsg "You enter the rental room."
-    if timer "waitTime" > 2500
-        overhead "Couldn't enter inn room! Halting" 1159
-        stop
-    endif
-endwhile
-#todo automatic AliSort after short delay with killswitch
+overhead "Home sweet home" 1159
+wait 200
+script "AliSort"

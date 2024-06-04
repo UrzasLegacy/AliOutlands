@@ -27,7 +27,7 @@ locations = [
 ('S of Pulma',		        {'Profit': 12000,	'CTP_Average': 0.8,	'Margin_Average': 0.2}),
 ('AR2',		                {'Profit': 11001,	'CTP_Average': 0.8,	'Margin_Average': 0.2}),
 ('SE Cambria Gate',		    {'Profit': 8100,	'CTP_Average': 0.8,	'Margin_Average': 0.2}),
-    ('N Prev Clearing S',		{'Profit': 475000,	'CTP_Average': 0.9,	'Margin_Average': 0.2}),
+('N Prev Clearing S',		{'Profit': 475000,	'CTP_Average': 0.9,	'Margin_Average': 0.2}),
 ('AR0',		                {'Profit': 150000,	'CTP_Average': 0.9,	'Margin_Average': 0.2}),
 ('NE Outpost Close',		{'Profit': 70000,	'CTP_Average': 0.9,	'Margin_Average': 0.2}),
 ('SW Prev Clearing SW',		{'Profit': 20000,	'CTP_Average': 0.9,	'Margin_Average': 0.2}),

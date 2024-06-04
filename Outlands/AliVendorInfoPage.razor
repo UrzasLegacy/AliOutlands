@@ -1,0 +1,24 @@
+// Ez Vendor Gold Collection
+// Uses the house sign to access your vendors and opens the
+// Collect Gold gump of the vendor with the highest amount of held gold.
+// By default it searches for the closest house sign to your character
+// and uses that, but you can hardcode the sign serial below if you prefer
+
+if not gumpexists 3881363727
+    hotkey "Opens the Vendors page"
+endif
+
+if gumpexists 1957446601
+    gumpclose 1957446601
+endif
+if gumpexists 725496535
+    gumpclose 725496535
+endif
+
+waitforgump 3881363727 1000
+gumpresponse 3 3881363727
+waitforgump 3881363727 1000
+gumpresponse 100 3881363727
+waitforgump 1957446601 1000
+gumpresponse 6 1957446601
+waitforgump 725496535 1000

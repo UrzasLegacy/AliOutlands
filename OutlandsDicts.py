@@ -109,24 +109,24 @@ distil_prices = {
 }
 
 map_prices = { #exact string MATTERS
-    "plainly drawn treasure map: level 1 (undeciphered)": 10000,
-    "expertly drawn treasure map: level 2 (undeciphered)": 20000, #10000
+    "plainly drawn treasure map: level 1 (undeciphered)": 9000,
+    "expertly drawn treasure map: level 2 (undeciphered)": 19000, #10000
     "adeptly drawn treasure map: level 3 (undeciphered)": 36000, #26000
-    "cleverly drawn treasure map: level 4 (undeciphered)": 44000, #35000
-    "deviously drawn treasure map: level 5 (undeciphered)": 50000, #45000
-    "ingeniously drawn treasure map: level 6 (undeciphered)": 70000,
+    "cleverly drawn treasure map: level 4 (undeciphered)": 43000, #35000
+    "deviously drawn treasure map: level 5 (undeciphered)": 54000, #45000
+    "ingeniously drawn treasure map: level 6 (undeciphered)": 67000,
     "diabolically drawn treasure map: level 7 (undeciphered)": 80000,
-    "legendarily drawn treasure map: level 8 (undeciphered)": 290000,
+    "legendarily drawn treasure map: level 8 (undeciphered)": 325000,
 
     "avarscale fishing map (undeciphered)": 13000,
 
     "verewood lumber map (undeciphered)": 18000,
     "valewood lumber map (undeciphered)": 42000,
-    "avarwood lumber map (undeciphered)": 80000,
+    "avarwood lumber map (undeciphered)": 85000,
 
-    "verehide skinning map (undeciphered)": 7000,
-    "valehide skinning map (undeciphered)": 12000,
-    "avarhide skinning map (undeciphered)": 18000,
+    "verehide skinning map (undeciphered)": 6000,
+    "valehide skinning map (undeciphered)": 11000,
+    "avarhide skinning map (undeciphered)": 16000,
     
     "copper ore map (undeciphered)": 3000,
     "bronze ore map (undeciphered)": 5000,
@@ -134,7 +134,7 @@ map_prices = { #exact string MATTERS
     "agapite ore map (undeciphered)": 23000,
     "verite ore map (undeciphered)": 33000,
     "valorite ore map (undeciphered)": 50000,
-    "avarite ore map (undeciphered)": 90000,
+    "avarite ore map (undeciphered)": 100000,
 }
 
 ingot_prices = {
@@ -229,7 +229,7 @@ commodity_5000_prices = {
 }
 
 scroll_prices = {
-    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 55000,
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 50000,
     "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 29000,#[:7]
     "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 29000,#[:7]
     "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
@@ -238,7 +238,7 @@ scroll_prices = {
     "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
     "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,#[:4]
     "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 17000,#[:4]
-    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 32000,
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 35000,
     "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
     "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 28000,
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
@@ -251,13 +251,13 @@ scroll_prices = {
     "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
     "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
     "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
-    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 45000,
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 42000,
     "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,#[:4]
     "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
     "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
     "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
-    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,#[:4]
-    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 48000,
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 25000,#[:4]
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 45000,
     "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
     "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
