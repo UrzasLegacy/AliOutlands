@@ -1,0 +1,6395 @@
+2024-06-03 01:00:08 - my_module - DEBUG - None
+2024-06-03 01:00:08 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:00:08 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:00:08 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:00:08 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:00:08 - my_module - DEBUG - item id skill mastery scroll (used to increase a player's skill cap for a skill by 1) (1pcs) in stock: 0	To restock: 2	stack_quantities[ind]:2	adjust_quantities:(2,)
+2024-06-03 01:02:19 - my_module - DEBUG - None
+2024-06-03 01:02:19 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:02:19 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:02:19 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:02:19 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:02:19 - my_module - DEBUG - item id skill mastery scroll (used to increase a player's skill cap for a skill by 1) (1pcs) in stock: 0	To restock: 2	stack_quantities[ind]:2	adjust_quantities:(2,)
+2024-06-03 01:03:32 - my_module - DEBUG - {
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        0
+    ],
+    "an arcane scroll": [
+        0
+    ],
+    "arcane essence": [
+        0
+    ],
+    "dyeable gilded gold carpet tile": [
+        0
+    ],
+    "immaculate stone": [
+        0
+    ],
+    "mastercrafting diagram": [
+        0
+    ],
+    "plant chemicals": [
+        0
+    ],
+    "prevalia coins [blessed]": [
+        0
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        2
+    ],
+    "Blood Aspect Core": [
+        1,
+        1,
+        4,
+        4
+    ],
+    "Command Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Discipline Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Earth Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Fortune Aspect Core": [
+        1,
+        6
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        2,
+        2
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "War Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        2
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        2
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        2
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        2
+    ],
+    "Fire Aspect Distillation": [
+        2
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        2
+    ],
+    "Holy Aspect Distillation": [
+        2
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        2
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        2
+    ],
+    "Shadow Aspect Distillation": [
+        2
+    ],
+    "Void Aspect Distillation": [
+        2
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        2
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        1
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ]
+}
+2024-06-03 01:03:32 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:03:32 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:03:32 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:03:32 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:03:32 - my_module - DEBUG - item id skill mastery scroll (used to increase a player's skill cap for a skill by 1) (1pcs) in stock: 0	To restock: 2	stack_quantities[ind]:2	adjust_quantities:(2,)
+2024-06-03 01:17:52 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 01:17:52 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 47216
+2024-06-03 01:17:53 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 01:17:53 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 25997
+2024-06-03 01:17:54 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 01:17:54 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11536
+2024-06-03 01:19:42 - my_module - DEBUG - {
+    "bronze mastery chain link Chance on Stealth For 5 Extra Steps (+5.00%)": [
+        2
+    ],
+    "bronze mastery chain link Chest Success Chances/Progress (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage on Ships (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage to Barded Creatures (+2.00%)": [
+        10
+    ],
+    "bronze mastery chain link Damage to Daemonic Creatures (+2.50%)": [
+        4
+    ],
+    "bronze mastery chain link Damage to Poisoned Creatures (+2.00%)": [
+        4
+    ],
+    "bronze mastery chain link Follower Attack Speed (+1.00%)": [
+        4
+    ],
+    "bronze mastery chain link Melee Accuracy (+1.75%)": [
+        3
+    ],
+    "bronze mastery chain link Melee Accuracy/Defense (+1.50%)": [
+        9
+    ],
+    "bronze mastery chain link Spell Aspect Special Chance (+5.00%)": [
+        3
+    ],
+    "silver mastery chain link Follower Damage (+2.50%)": [
+        4
+    ],
+    "silver mastery chain link Melee Accuracy (+2.19%)": [
+        1
+    ],
+    "a lore page tome (0 pages held)": [
+        1
+    ],
+    "a ship upgrade tome (0 upgrades held)": [
+        1
+    ],
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        4,
+        9
+    ],
+    "an arcane scroll": [
+        10
+    ],
+    "arcane essence": [
+        3
+    ],
+    "dyeable gilded gold carpet tile": [
+        4
+    ],
+    "gold coin": [
+        1
+    ],
+    "immaculate stone": [
+        2
+    ],
+    "mastercrafting diagram": [
+        2
+    ],
+    "plant chemicals": [
+        0
+    ],
+    "prevalia coins [blessed]": [
+        7
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "town struggle horse mount token [blessed]": [
+        1
+    ],
+    "invulnerability leather cap": [
+        1
+    ],
+    "valehide skinning map (undeciphered)": [
+        12
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        2
+    ],
+    "Blood Aspect Core": [
+        1,
+        2,
+        2,
+        2
+    ],
+    "Command Aspect Core": [
+        2,
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Discipline Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Earth Aspect Core": [
+        1,
+        1
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Fortune Aspect Core": [
+        2,
+        2
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        2,
+        2
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "War Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        2
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        2
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        1
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        2
+    ],
+    "Fire Aspect Distillation": [
+        2
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        2
+    ],
+    "Holy Aspect Distillation": [
+        2
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        2
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        2
+    ],
+    "Shadow Aspect Distillation": [
+        2
+    ],
+    "Void Aspect Distillation": [
+        2
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        2
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        4
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "rare cloth (hue 1182: wilderness)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1183: ocean)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 1462: powder orchid)": [
+        1
+    ],
+    "rare cloth (hue 1467: dark coffee)": [
+        2
+    ],
+    "rare cloth (hue 1494: powder pistachio)": [
+        2
+    ],
+    "rare cloth (hue 1495: powder coral)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1779: aegis keep)": [
+        1,
+        4
+    ],
+    "rare cloth (hue 1952: powder bubblegum)": [
+        2
+    ],
+    "rare cloth (hue 1989: metallic orange)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2085: pulma)": [
+        1
+    ],
+    "rare cloth (hue 2091: ossuary)": [
+        2
+    ],
+    "rare cloth (hue 2092: mausoleum)": [
+        1
+    ],
+    "rare cloth (hue 2093: shadowspire cathedral)": [
+        2,
+        6
+    ],
+    "rare cloth (hue 2173: powder iris)": [
+        1
+    ],
+    "rare cloth (hue 2230: dark jam)": [
+        2
+    ],
+    "rare cloth (hue 2246: powder seafoam)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 2380: metallic cherry)": [
+        3
+    ],
+    "rare cloth (hue 2653: metallic lemon-lime)": [
+        2
+    ],
+    "rare cloth (hue 2796: nusero)": [
+        2
+    ],
+    "rare cloth (hue 2828: metallic pickle)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 2877: powder cyan)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "accessory dye (hue 1183: ocean)": [
+        2
+    ],
+    "accessory dye (hue 1484: metallic cerulean)": [
+        2
+    ],
+    "accessory dye (hue 1909: inferno)": [
+        1
+    ],
+    "accessory dye (hue 1989: metallic orange)": [
+        1
+    ],
+    "accessory dye (hue 1995: metallic wine)": [
+        1
+    ],
+    "accessory dye (hue 2653: metallic lemon-lime)": [
+        1
+    ],
+    "accessory dye (hue 2826: metallic sky)": [
+        1
+    ],
+    "accessory dye (hue 2828: metallic pickle)": [
+        2
+    ],
+    "accessory dye (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "carpet dye (hue 2338: cavernam)": [
+        1
+    ],
+    "dyeable rug tile": [
+        4
+    ],
+    "hair dye (hue 1779: aegis keep)": [
+        1
+    ],
+    "runebook dye (hue 1484: metallic cerulean)": [
+        1
+    ]
+}
+2024-06-03 01:19:42 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:19:42 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:19:42 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:19:42 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:24:24 - my_module - DEBUG - {
+    "bronze mastery chain link Chance on Stealth For 5 Extra Steps (+5.00%)": [
+        2
+    ],
+    "bronze mastery chain link Chest Success Chances/Progress (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage on Ships (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage to Barded Creatures (+2.00%)": [
+        10
+    ],
+    "bronze mastery chain link Damage to Daemonic Creatures (+2.50%)": [
+        4
+    ],
+    "bronze mastery chain link Damage to Poisoned Creatures (+2.00%)": [
+        4
+    ],
+    "bronze mastery chain link Follower Attack Speed (+1.00%)": [
+        4
+    ],
+    "bronze mastery chain link Melee Accuracy (+1.75%)": [
+        3
+    ],
+    "bronze mastery chain link Melee Accuracy/Defense (+1.50%)": [
+        9
+    ],
+    "bronze mastery chain link Spell Aspect Special Chance (+5.00%)": [
+        3
+    ],
+    "silver mastery chain link Follower Damage (+2.50%)": [
+        4
+    ],
+    "silver mastery chain link Melee Accuracy (+2.19%)": [
+        1
+    ],
+    "a lore page tome (0 pages held)": [
+        1
+    ],
+    "a ship upgrade tome (0 upgrades held)": [
+        1
+    ],
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        4,
+        9
+    ],
+    "an arcane scroll": [
+        10
+    ],
+    "arcane essence": [
+        3
+    ],
+    "dyeable gilded gold carpet tile": [
+        4
+    ],
+    "gold coin": [
+        1
+    ],
+    "immaculate stone": [
+        2
+    ],
+    "mastercrafting diagram": [
+        2
+    ],
+    "plant chemicals": [
+        0
+    ],
+    "prevalia coins [blessed]": [
+        7
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "town struggle horse mount token [blessed]": [
+        1
+    ],
+    "invulnerability leather cap": [
+        1
+    ],
+    "valehide skinning map (undeciphered)": [
+        12
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        2
+    ],
+    "Blood Aspect Core": [
+        1,
+        2,
+        2,
+        2
+    ],
+    "Command Aspect Core": [
+        2,
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Discipline Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Earth Aspect Core": [
+        1,
+        1
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Fortune Aspect Core": [
+        2,
+        2
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        2,
+        2
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "War Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        2
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        2
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        1
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        2
+    ],
+    "Fire Aspect Distillation": [
+        2
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        2
+    ],
+    "Holy Aspect Distillation": [
+        2
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        2
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        2
+    ],
+    "Shadow Aspect Distillation": [
+        2
+    ],
+    "Void Aspect Distillation": [
+        2
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        2
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        4
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "rare cloth (hue 1182: wilderness)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1183: ocean)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 1462: powder orchid)": [
+        1
+    ],
+    "rare cloth (hue 1467: dark coffee)": [
+        2
+    ],
+    "rare cloth (hue 1494: powder pistachio)": [
+        2
+    ],
+    "rare cloth (hue 1495: powder coral)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1779: aegis keep)": [
+        1,
+        4
+    ],
+    "rare cloth (hue 1952: powder bubblegum)": [
+        2
+    ],
+    "rare cloth (hue 1989: metallic orange)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2085: pulma)": [
+        1
+    ],
+    "rare cloth (hue 2091: ossuary)": [
+        2
+    ],
+    "rare cloth (hue 2092: mausoleum)": [
+        1
+    ],
+    "rare cloth (hue 2093: shadowspire cathedral)": [
+        2,
+        6
+    ],
+    "rare cloth (hue 2173: powder iris)": [
+        1
+    ],
+    "rare cloth (hue 2230: dark jam)": [
+        2
+    ],
+    "rare cloth (hue 2246: powder seafoam)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 2380: metallic cherry)": [
+        3
+    ],
+    "rare cloth (hue 2653: metallic lemon-lime)": [
+        2
+    ],
+    "rare cloth (hue 2796: nusero)": [
+        2
+    ],
+    "rare cloth (hue 2828: metallic pickle)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 2877: powder cyan)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "accessory dye (hue 1183: ocean)": [
+        2
+    ],
+    "accessory dye (hue 1484: metallic cerulean)": [
+        2
+    ],
+    "accessory dye (hue 1909: inferno)": [
+        1
+    ],
+    "accessory dye (hue 1989: metallic orange)": [
+        1
+    ],
+    "accessory dye (hue 1995: metallic wine)": [
+        1
+    ],
+    "accessory dye (hue 2653: metallic lemon-lime)": [
+        1
+    ],
+    "accessory dye (hue 2826: metallic sky)": [
+        1
+    ],
+    "accessory dye (hue 2828: metallic pickle)": [
+        2
+    ],
+    "accessory dye (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "carpet dye (hue 2338: cavernam)": [
+        1
+    ],
+    "dyeable rug tile": [
+        4
+    ],
+    "hair dye (hue 1779: aegis keep)": [
+        1
+    ],
+    "runebook dye (hue 1484: metallic cerulean)": [
+        1
+    ]
+}
+2024-06-03 01:24:24 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:24:24 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:24:24 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:24:24 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:26:23 - my_module - DEBUG - {
+    "bronze mastery chain link Chance on Stealth For 5 Extra Steps (+5.00%)": [
+        2
+    ],
+    "bronze mastery chain link Chest Success Chances/Progress (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage on Ships (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage to Barded Creatures (+2.00%)": [
+        10
+    ],
+    "bronze mastery chain link Damage to Daemonic Creatures (+2.50%)": [
+        4
+    ],
+    "bronze mastery chain link Damage to Poisoned Creatures (+2.00%)": [
+        4
+    ],
+    "bronze mastery chain link Follower Attack Speed (+1.00%)": [
+        4
+    ],
+    "bronze mastery chain link Melee Accuracy (+1.75%)": [
+        3
+    ],
+    "bronze mastery chain link Melee Accuracy/Defense (+1.50%)": [
+        9
+    ],
+    "bronze mastery chain link Spell Aspect Special Chance (+5.00%)": [
+        3
+    ],
+    "silver mastery chain link Follower Damage (+2.50%)": [
+        4
+    ],
+    "silver mastery chain link Melee Accuracy (+2.19%)": [
+        1
+    ],
+    "a lore page tome (0 pages held)": [
+        1
+    ],
+    "a ship upgrade tome (0 upgrades held)": [
+        1
+    ],
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        4,
+        9
+    ],
+    "an arcane scroll": [
+        10
+    ],
+    "arcane essence": [
+        3
+    ],
+    "dyeable gilded gold carpet tile": [
+        4
+    ],
+    "gold coin": [
+        1
+    ],
+    "immaculate stone": [
+        2
+    ],
+    "mastercrafting diagram": [
+        2
+    ],
+    "plant chemicals": [
+        0
+    ],
+    "prevalia coins [blessed]": [
+        7
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "town struggle horse mount token [blessed]": [
+        1
+    ],
+    "invulnerability leather cap": [
+        1
+    ],
+    "valehide skinning map (undeciphered)": [
+        12
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        2
+    ],
+    "Blood Aspect Core": [
+        1,
+        2,
+        2,
+        2
+    ],
+    "Command Aspect Core": [
+        2,
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Discipline Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Earth Aspect Core": [
+        1,
+        1
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Fortune Aspect Core": [
+        2,
+        2
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        2,
+        2
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "War Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        2
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        2
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        1
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        2
+    ],
+    "Fire Aspect Distillation": [
+        2
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        2
+    ],
+    "Holy Aspect Distillation": [
+        2
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        2
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        2
+    ],
+    "Shadow Aspect Distillation": [
+        2
+    ],
+    "Void Aspect Distillation": [
+        2
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        2
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        4
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "rare cloth (hue 1182: wilderness)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1183: ocean)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 1462: powder orchid)": [
+        1
+    ],
+    "rare cloth (hue 1467: dark coffee)": [
+        2
+    ],
+    "rare cloth (hue 1494: powder pistachio)": [
+        2
+    ],
+    "rare cloth (hue 1495: powder coral)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1779: aegis keep)": [
+        1,
+        4
+    ],
+    "rare cloth (hue 1952: powder bubblegum)": [
+        2
+    ],
+    "rare cloth (hue 1989: metallic orange)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2085: pulma)": [
+        1
+    ],
+    "rare cloth (hue 2091: ossuary)": [
+        2
+    ],
+    "rare cloth (hue 2092: mausoleum)": [
+        1
+    ],
+    "rare cloth (hue 2093: shadowspire cathedral)": [
+        2,
+        6
+    ],
+    "rare cloth (hue 2173: powder iris)": [
+        1
+    ],
+    "rare cloth (hue 2230: dark jam)": [
+        2
+    ],
+    "rare cloth (hue 2246: powder seafoam)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 2380: metallic cherry)": [
+        3
+    ],
+    "rare cloth (hue 2653: metallic lemon-lime)": [
+        2
+    ],
+    "rare cloth (hue 2796: nusero)": [
+        2
+    ],
+    "rare cloth (hue 2828: metallic pickle)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 2877: powder cyan)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "accessory dye (hue 1183: ocean)": [
+        2
+    ],
+    "accessory dye (hue 1484: metallic cerulean)": [
+        2
+    ],
+    "accessory dye (hue 1909: inferno)": [
+        1
+    ],
+    "accessory dye (hue 1989: metallic orange)": [
+        1
+    ],
+    "accessory dye (hue 1995: metallic wine)": [
+        1
+    ],
+    "accessory dye (hue 2653: metallic lemon-lime)": [
+        1
+    ],
+    "accessory dye (hue 2826: metallic sky)": [
+        1
+    ],
+    "accessory dye (hue 2828: metallic pickle)": [
+        2
+    ],
+    "accessory dye (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "carpet dye (hue 2338: cavernam)": [
+        1
+    ],
+    "dyeable rug tile": [
+        4
+    ],
+    "hair dye (hue 1779: aegis keep)": [
+        1
+    ],
+    "runebook dye (hue 1484: metallic cerulean)": [
+        1
+    ]
+}
+2024-06-03 01:26:23 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:26:23 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:26:23 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:26:23 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:40:45 - my_module - DEBUG - {
+    "bronze mastery chain link Chance on Stealth For 5 Extra Steps (+5.00%)": [
+        2
+    ],
+    "bronze mastery chain link Chest Success Chances/Progress (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage on Ships (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage to Barded Creatures (+2.00%)": [
+        10
+    ],
+    "bronze mastery chain link Damage to Daemonic Creatures (+2.50%)": [
+        4
+    ],
+    "bronze mastery chain link Damage to Poisoned Creatures (+2.00%)": [
+        4
+    ],
+    "bronze mastery chain link Follower Attack Speed (+1.00%)": [
+        4
+    ],
+    "bronze mastery chain link Melee Accuracy (+1.75%)": [
+        3
+    ],
+    "bronze mastery chain link Melee Accuracy/Defense (+1.50%)": [
+        9
+    ],
+    "bronze mastery chain link Spell Aspect Special Chance (+5.00%)": [
+        3
+    ],
+    "silver mastery chain link Follower Damage (+2.50%)": [
+        4
+    ],
+    "silver mastery chain link Melee Accuracy (+2.19%)": [
+        1
+    ],
+    "a lore page tome (0 pages held)": [
+        1
+    ],
+    "a ship upgrade tome (0 upgrades held)": [
+        1
+    ],
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        4,
+        8
+    ],
+    "an arcane scroll": [
+        10
+    ],
+    "arcane essence": [
+        3
+    ],
+    "dyeable gilded gold carpet tile": [
+        4
+    ],
+    "gold coin": [
+        1
+    ],
+    "immaculate stone": [
+        2
+    ],
+    "mastercrafting diagram": [
+        2
+    ],
+    "plant chemicals": [
+        0
+    ],
+    "prevalia coins [blessed]": [
+        7
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "town struggle horse mount token [blessed]": [
+        1
+    ],
+    "invulnerability leather cap": [
+        1
+    ],
+    "valehide skinning map (undeciphered)": [
+        12
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        2
+    ],
+    "Blood Aspect Core": [
+        1,
+        2,
+        2,
+        2
+    ],
+    "Command Aspect Core": [
+        2,
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Discipline Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Earth Aspect Core": [
+        1,
+        1
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Fortune Aspect Core": [
+        2,
+        2
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        2,
+        2
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "War Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        2
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        2
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        1
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        2
+    ],
+    "Fire Aspect Distillation": [
+        2
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        2
+    ],
+    "Holy Aspect Distillation": [
+        2
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        2
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        2
+    ],
+    "Shadow Aspect Distillation": [
+        2
+    ],
+    "Void Aspect Distillation": [
+        2
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        2
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        1,
+        4
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "rare cloth (hue 1182: wilderness)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1183: ocean)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 1462: powder orchid)": [
+        1
+    ],
+    "rare cloth (hue 1467: dark coffee)": [
+        2
+    ],
+    "rare cloth (hue 1494: powder pistachio)": [
+        2
+    ],
+    "rare cloth (hue 1495: powder coral)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1779: aegis keep)": [
+        1,
+        4
+    ],
+    "rare cloth (hue 1952: powder bubblegum)": [
+        2
+    ],
+    "rare cloth (hue 1989: metallic orange)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2085: pulma)": [
+        1
+    ],
+    "rare cloth (hue 2091: ossuary)": [
+        2
+    ],
+    "rare cloth (hue 2092: mausoleum)": [
+        1
+    ],
+    "rare cloth (hue 2093: shadowspire cathedral)": [
+        2,
+        6
+    ],
+    "rare cloth (hue 2173: powder iris)": [
+        1
+    ],
+    "rare cloth (hue 2230: dark jam)": [
+        2
+    ],
+    "rare cloth (hue 2246: powder seafoam)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 2380: metallic cherry)": [
+        3
+    ],
+    "rare cloth (hue 2653: metallic lemon-lime)": [
+        2
+    ],
+    "rare cloth (hue 2796: nusero)": [
+        2
+    ],
+    "rare cloth (hue 2828: metallic pickle)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 2877: powder cyan)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "accessory dye (hue 1183: ocean)": [
+        2
+    ],
+    "accessory dye (hue 1484: metallic cerulean)": [
+        2
+    ],
+    "accessory dye (hue 1909: inferno)": [
+        1
+    ],
+    "accessory dye (hue 1989: metallic orange)": [
+        1
+    ],
+    "accessory dye (hue 1995: metallic wine)": [
+        1
+    ],
+    "accessory dye (hue 2653: metallic lemon-lime)": [
+        1
+    ],
+    "accessory dye (hue 2826: metallic sky)": [
+        1
+    ],
+    "accessory dye (hue 2828: metallic pickle)": [
+        2
+    ],
+    "accessory dye (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "carpet dye (hue 2338: cavernam)": [
+        1
+    ],
+    "dyeable rug tile": [
+        4
+    ],
+    "hair dye (hue 1779: aegis keep)": [
+        1
+    ],
+    "runebook dye (hue 1484: metallic cerulean)": [
+        1
+    ]
+}
+2024-06-03 01:40:45 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:40:45 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:40:45 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 01:40:45 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 02:10:04 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 02:10:05 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 47279
+2024-06-03 02:10:06 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 02:10:06 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26216
+2024-06-03 02:10:06 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 02:10:07 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11559
+2024-06-03 02:34:20 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 02:34:20 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 46912
+2024-06-03 02:34:21 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 02:34:21 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26358
+2024-06-03 02:34:21 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 02:34:21 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11990
+2024-06-03 02:34:36 - my_module - DEBUG - {
+    "bronze mastery chain link Chance on Stealth For 5 Extra Steps (+5.00%)": [
+        2
+    ],
+    "bronze mastery chain link Chest Success Chances/Progress (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage on Ships (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage to Barded Creatures (+2.00%)": [
+        10
+    ],
+    "bronze mastery chain link Damage to Daemonic Creatures (+2.50%)": [
+        4
+    ],
+    "bronze mastery chain link Damage to Poisoned Creatures (+2.00%)": [
+        4
+    ],
+    "bronze mastery chain link Follower Attack Speed (+1.00%)": [
+        4
+    ],
+    "bronze mastery chain link Melee Accuracy (+1.75%)": [
+        3
+    ],
+    "bronze mastery chain link Melee Accuracy/Defense (+1.50%)": [
+        9
+    ],
+    "bronze mastery chain link Spell Aspect Special Chance (+5.00%)": [
+        3
+    ],
+    "silver mastery chain link Follower Damage (+2.50%)": [
+        4
+    ],
+    "silver mastery chain link Melee Accuracy (+2.19%)": [
+        1
+    ],
+    "Description: Best Hue immunity rune (15.0% chance to ignore bleed or disease damage) [double click to place]": [
+        1
+    ],
+    "a lore page (page 1 of 10) [history of cambria]": [
+        2
+    ],
+    "a lore page (page 1 of 10) [history of outpost]": [
+        1
+    ],
+    "a lore page (page 1 of 10) [outlands mythology vol 1]": [
+        1
+    ],
+    "a lore page (page 1 of 10) [outlands mythology vol 2]": [
+        5
+    ],
+    "a lore page (page 1 of 15) [creatures of mount petram]": [
+        1
+    ],
+    "a lore page (page 10 of 10) [history of cambria]": [
+        1
+    ],
+    "a lore page (page 10 of 10) [outlands mythology vol 1]": [
+        7
+    ],
+    "a lore page (page 10 of 10) [outlands mythology vol 4]": [
+        2
+    ],
+    "a lore page (page 10 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 10 of 10) [tales of mount petram]": [
+        1
+    ],
+    "a lore page (page 2 of 10) [history of cambria]": [
+        2
+    ],
+    "a lore page (page 2 of 10) [history of corpse creek]": [
+        3
+    ],
+    "a lore page (page 2 of 10) [history of prevalia]": [
+        3
+    ],
+    "a lore page (page 2 of 10) [outlands mythology vol 7]": [
+        2
+    ],
+    "a lore page (page 2 of 10) [tales of cavernam]": [
+        4
+    ],
+    "a lore page (page 3 of 10) [history of outpost]": [
+        2
+    ],
+    "a lore page (page 3 of 10) [outlands mythology vol 1]": [
+        1
+    ],
+    "a lore page (page 3 of 10) [outlands mythology vol 3]": [
+        2
+    ],
+    "a lore page (page 3 of 10) [outlands mythology vol 5]": [
+        1
+    ],
+    "a lore page (page 3 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 3 of 15) [creatures of nusero]": [
+        1
+    ],
+    "a lore page (page 4 of 10) [history of terran]": [
+        2
+    ],
+    "a lore page (page 4 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 5 of 10) [history of cambria]": [
+        3
+    ],
+    "a lore page (page 5 of 10) [history of terran]": [
+        1
+    ],
+    "a lore page (page 5 of 10) [tales of aegis keep]": [
+        1
+    ],
+    "a lore page (page 5 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 5 of 15) [creatures of darkmire temple]": [
+        1
+    ],
+    "a lore page (page 6 of 10) [history of horseshoe bay]": [
+        4
+    ],
+    "a lore page (page 6 of 10) [history of terran]": [
+        2
+    ],
+    "a lore page (page 6 of 10) [tales of cavernam]": [
+        2
+    ],
+    "a lore page (page 6 of 10) [tales of ossuary]": [
+        1
+    ],
+    "a lore page (page 7 of 10) [outlands mythology vol 6]": [
+        4
+    ],
+    "a lore page (page 7 of 10) [tales of cavernam]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [history of horseshoe bay]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [history of outpost]": [
+        2
+    ],
+    "a lore page (page 8 of 10) [outlands mythology vol 1]": [
+        2
+    ],
+    "a lore page (page 8 of 10) [outlands mythology vol 4]": [
+        7
+    ],
+    "a lore page (page 8 of 10) [outlands mythology vol 5]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [tales of cavernam]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [tales of nusero]": [
+        1
+    ],
+    "a lore page (page 8 of 15) [creatures of inferno]": [
+        1
+    ],
+    "a lore page (page 9 of 10) [history of corpse creek]": [
+        7
+    ],
+    "a lore page (page 9 of 10) [tales of aegis keep]": [
+        4
+    ],
+    "a lore page (page 9 of 10) [tales of cavernam]": [
+        2
+    ],
+    "a lore page (page 9 of 10) [tales of inferno]": [
+        1
+    ],
+    "a lore page (page 9 of 10) [tales of ossuary]": [
+        1
+    ],
+    "a lore page (page 9 of 10) [tales of the mausoleum]": [
+        1
+    ],
+    "a lore page (page 9 of 15) [creatures of nusero]": [
+        1
+    ],
+    "a lore page (page 9 of 15) [creatures of ossuary]": [
+        2
+    ],
+    "a lore page tome (0 pages held)": [
+        1
+    ],
+    "a ship upgrade tome (0 upgrades held)": [
+        1
+    ],
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        4,
+        8
+    ],
+    "an arcane scroll": [
+        10
+    ],
+    "arcane essence": [
+        3
+    ],
+    "dyeable gilded gold carpet tile": [
+        4
+    ],
+    "immaculate stone": [
+        2
+    ],
+    "mastercrafting diagram": [
+        2
+    ],
+    "plant chemicals": [
+        0
+    ],
+    "prevalia coins [blessed]": [
+        7
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "town struggle horse mount token [blessed]": [
+        1
+    ],
+    "invulnerability leather cap": [
+        1
+    ],
+    "valehide skinning map (undeciphered)": [
+        12
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        2
+    ],
+    "Blood Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Command Aspect Core": [
+        2,
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Discipline Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Earth Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Fortune Aspect Core": [
+        2,
+        2
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        2,
+        2
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "War Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        2
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        2
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        1
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        2
+    ],
+    "Fire Aspect Distillation": [
+        2
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        2
+    ],
+    "Holy Aspect Distillation": [
+        2
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        2
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        2
+    ],
+    "Shadow Aspect Distillation": [
+        2
+    ],
+    "Void Aspect Distillation": [
+        2
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        2
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "rare cloth (hue 1182: wilderness)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1183: ocean)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 1462: powder orchid)": [
+        1
+    ],
+    "rare cloth (hue 1467: dark coffee)": [
+        2
+    ],
+    "rare cloth (hue 1494: powder pistachio)": [
+        2
+    ],
+    "rare cloth (hue 1495: powder coral)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1779: aegis keep)": [
+        1,
+        4
+    ],
+    "rare cloth (hue 1952: powder bubblegum)": [
+        2
+    ],
+    "rare cloth (hue 1989: metallic orange)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2085: pulma)": [
+        1
+    ],
+    "rare cloth (hue 2091: ossuary)": [
+        2
+    ],
+    "rare cloth (hue 2092: mausoleum)": [
+        1
+    ],
+    "rare cloth (hue 2093: shadowspire cathedral)": [
+        2,
+        6
+    ],
+    "rare cloth (hue 2173: powder iris)": [
+        1
+    ],
+    "rare cloth (hue 2230: dark jam)": [
+        2
+    ],
+    "rare cloth (hue 2246: powder seafoam)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 2380: metallic cherry)": [
+        3
+    ],
+    "rare cloth (hue 2653: metallic lemon-lime)": [
+        2
+    ],
+    "rare cloth (hue 2796: nusero)": [
+        2
+    ],
+    "rare cloth (hue 2828: metallic pickle)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 2877: powder cyan)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "accessory dye (hue 1183: ocean)": [
+        2
+    ],
+    "accessory dye (hue 1484: metallic cerulean)": [
+        2
+    ],
+    "accessory dye (hue 1909: inferno)": [
+        1
+    ],
+    "accessory dye (hue 1989: metallic orange)": [
+        1
+    ],
+    "accessory dye (hue 1995: metallic wine)": [
+        1
+    ],
+    "accessory dye (hue 2653: metallic lemon-lime)": [
+        1
+    ],
+    "accessory dye (hue 2826: metallic sky)": [
+        1
+    ],
+    "accessory dye (hue 2828: metallic pickle)": [
+        2
+    ],
+    "accessory dye (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "carpet dye (hue 2338: cavernam)": [
+        1
+    ],
+    "dyeable rug tile": [
+        4
+    ],
+    "hair dye (hue 1779: aegis keep)": [
+        1
+    ],
+    "runebook dye (hue 1484: metallic cerulean)": [
+        1
+    ]
+}
+2024-06-03 02:34:36 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 02:34:36 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 02:34:36 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 02:34:36 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 02:34:50 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 02:34:52 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-06-03 02:34:52 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cpem83at62ls5gepbufg HTTP/1.1" 302 0
+2024-06-03 02:34:52 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-06-03 02:34:52 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-06-03 02:34:52 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-06-03 13:18:29 - my_module - DEBUG - {
+    "bronze mastery chain link Chance on Stealth For 5 Extra Steps (+5.00%)": [
+        2
+    ],
+    "bronze mastery chain link Chest Success Chances/Progress (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage on Ships (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage to Barded Creatures (+2.00%)": [
+        10
+    ],
+    "bronze mastery chain link Damage to Daemonic Creatures (+2.50%)": [
+        4
+    ],
+    "bronze mastery chain link Damage to Poisoned Creatures (+2.00%)": [
+        3
+    ],
+    "bronze mastery chain link Follower Attack Speed (+1.00%)": [
+        4
+    ],
+    "bronze mastery chain link Melee Accuracy (+1.75%)": [
+        3
+    ],
+    "bronze mastery chain link Melee Accuracy/Defense (+1.50%)": [
+        9
+    ],
+    "silver mastery chain link Follower Damage (+2.50%)": [
+        4
+    ],
+    "a lore page tome (0 pages held)": [
+        1
+    ],
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        4
+    ],
+    "an arcane scroll": [
+        2
+    ],
+    "arcane essence": [
+        3
+    ],
+    "dyeable gilded gold carpet tile": [
+        0
+    ],
+    "gold coin": [
+        1
+    ],
+    "immaculate stone": [
+        2
+    ],
+    "mastercrafting diagram": [
+        0
+    ],
+    "plant chemicals": [
+        0
+    ],
+    "prevalia coins [blessed]": [
+        7
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "town struggle horse mount token [blessed]": [
+        1
+    ],
+    "invulnerability leather cap": [
+        1
+    ],
+    "valehide skinning map (undeciphered)": [
+        12
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        0
+    ],
+    "Blood Aspect Core": [
+        1,
+        1,
+        1
+    ],
+    "Command Aspect Core": [
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Discipline Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Earth Aspect Core": [
+        1
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1
+    ],
+    "Fortune Aspect Core": [
+        0
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        2
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "War Aspect Core": [
+        1,
+        1,
+        1,
+        2
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        2
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        2
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        1
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        2
+    ],
+    "Fire Aspect Distillation": [
+        2
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        2
+    ],
+    "Holy Aspect Distillation": [
+        0
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        1
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        0
+    ],
+    "Shadow Aspect Distillation": [
+        2
+    ],
+    "Void Aspect Distillation": [
+        2
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        2
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        1
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "rare cloth (hue 1182: wilderness)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1183: ocean)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 1462: powder orchid)": [
+        1
+    ],
+    "rare cloth (hue 1494: powder pistachio)": [
+        2
+    ],
+    "rare cloth (hue 1495: powder coral)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1779: aegis keep)": [
+        1,
+        4
+    ],
+    "rare cloth (hue 1952: powder bubblegum)": [
+        2
+    ],
+    "rare cloth (hue 1989: metallic orange)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2085: pulma)": [
+        1
+    ],
+    "rare cloth (hue 2091: ossuary)": [
+        2
+    ],
+    "rare cloth (hue 2092: mausoleum)": [
+        1
+    ],
+    "rare cloth (hue 2093: shadowspire cathedral)": [
+        2,
+        6
+    ],
+    "rare cloth (hue 2173: powder iris)": [
+        1
+    ],
+    "rare cloth (hue 2230: dark jam)": [
+        2
+    ],
+    "rare cloth (hue 2246: powder seafoam)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 2380: metallic cherry)": [
+        3
+    ],
+    "rare cloth (hue 2653: metallic lemon-lime)": [
+        2
+    ],
+    "rare cloth (hue 2796: nusero)": [
+        2
+    ],
+    "rare cloth (hue 2828: metallic pickle)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 2877: powder cyan)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "accessory dye (hue 1183: ocean)": [
+        2
+    ],
+    "accessory dye (hue 1989: metallic orange)": [
+        1
+    ],
+    "accessory dye (hue 2826: metallic sky)": [
+        1
+    ],
+    "accessory dye (hue 2828: metallic pickle)": [
+        2
+    ],
+    "accessory dye (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "carpet dye (hue 2338: cavernam)": [
+        1
+    ],
+    "dyeable rug tile": [
+        4
+    ],
+    "hair dye (hue 1779: aegis keep)": [
+        1
+    ],
+    "runebook dye (hue 1484: metallic cerulean)": [
+        1
+    ]
+}
+2024-06-03 13:25:46 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 13:25:47 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-06-03 13:25:47 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cpevp6qt62ls5gf2f080 HTTP/1.1" 302 0
+2024-06-03 13:25:47 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-06-03 13:25:47 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-06-03 13:25:47 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-06-03 15:21:28 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:21:29 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 49045
+2024-06-03 15:21:30 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:21:30 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26858
+2024-06-03 15:21:30 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:21:30 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11312
+2024-06-03 15:39:21 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:39:21 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 49068
+2024-06-03 15:39:22 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:39:23 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26855
+2024-06-03 15:39:23 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:39:23 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11301
+2024-06-03 15:46:35 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:46:36 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 49367
+2024-06-03 15:46:36 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:46:37 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26900
+2024-06-03 15:46:37 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:46:37 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11287
+2024-06-03 15:50:11 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:50:11 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 49384
+2024-06-03 15:50:13 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:50:13 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26783
+2024-06-03 15:50:14 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 15:50:14 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11300
+2024-06-03 15:50:52 - my_module - DEBUG - {
+    "bronze mastery chain link Chance on Stealth For 5 Extra Steps (+5.00%)": [
+        2
+    ],
+    "bronze mastery chain link Chest Success Chances/Progress (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage on Ships (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage to Barded Creatures (+2.00%)": [
+        10
+    ],
+    "bronze mastery chain link Damage to Daemonic Creatures (+2.50%)": [
+        4
+    ],
+    "bronze mastery chain link Damage to Poisoned Creatures (+2.00%)": [
+        3
+    ],
+    "bronze mastery chain link Follower Attack Speed (+1.00%)": [
+        4
+    ],
+    "bronze mastery chain link Melee Accuracy (+1.75%)": [
+        3
+    ],
+    "bronze mastery chain link Melee Accuracy/Defense (+1.50%)": [
+        9
+    ],
+    "silver mastery chain link Follower Damage (+2.50%)": [
+        4
+    ],
+    "a lore page tome (0 pages held)": [
+        1
+    ],
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        2,
+        9
+    ],
+    "an arcane scroll": [
+        10
+    ],
+    "arcane essence": [
+        3
+    ],
+    "dyeable gilded gold carpet tile": [
+        0
+    ],
+    "gold coin": [
+        1
+    ],
+    "immaculate stone": [
+        2
+    ],
+    "mastercrafting diagram": [
+        2
+    ],
+    "plant chemicals": [
+        1
+    ],
+    "prevalia coins [blessed]": [
+        7
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "town struggle horse mount token [blessed]": [
+        1
+    ],
+    "invulnerability leather cap": [
+        1
+    ],
+    "valehide skinning map (undeciphered)": [
+        12
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        0
+    ],
+    "Blood Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Command Aspect Core": [
+        2,
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Discipline Aspect Core": [
+        1,
+        2
+    ],
+    "Earth Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Fortune Aspect Core": [
+        1
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        1,
+        4,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        3,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        1,
+        2
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        1,
+        1,
+        2
+    ],
+    "War Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        0
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        0
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        0
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        2
+    ],
+    "Fire Aspect Distillation": [
+        2
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        0
+    ],
+    "Holy Aspect Distillation": [
+        0
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        1
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        0
+    ],
+    "Shadow Aspect Distillation": [
+        0
+    ],
+    "Void Aspect Distillation": [
+        2
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        1
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        1
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "rare cloth (hue 1182: wilderness)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1183: ocean)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 1462: powder orchid)": [
+        1
+    ],
+    "rare cloth (hue 1494: powder pistachio)": [
+        2
+    ],
+    "rare cloth (hue 1495: powder coral)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1779: aegis keep)": [
+        1,
+        4
+    ],
+    "rare cloth (hue 1952: powder bubblegum)": [
+        2
+    ],
+    "rare cloth (hue 1989: metallic orange)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2085: pulma)": [
+        1
+    ],
+    "rare cloth (hue 2091: ossuary)": [
+        2
+    ],
+    "rare cloth (hue 2092: mausoleum)": [
+        1
+    ],
+    "rare cloth (hue 2093: shadowspire cathedral)": [
+        2,
+        6
+    ],
+    "rare cloth (hue 2173: powder iris)": [
+        1
+    ],
+    "rare cloth (hue 2230: dark jam)": [
+        2
+    ],
+    "rare cloth (hue 2246: powder seafoam)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 2380: metallic cherry)": [
+        3
+    ],
+    "rare cloth (hue 2653: metallic lemon-lime)": [
+        2
+    ],
+    "rare cloth (hue 2796: nusero)": [
+        2
+    ],
+    "rare cloth (hue 2828: metallic pickle)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 2877: powder cyan)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "accessory dye (hue 1183: ocean)": [
+        2
+    ],
+    "accessory dye (hue 1989: metallic orange)": [
+        1
+    ],
+    "accessory dye (hue 2826: metallic sky)": [
+        1
+    ],
+    "accessory dye (hue 2828: metallic pickle)": [
+        2
+    ],
+    "accessory dye (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "carpet dye (hue 2338: cavernam)": [
+        1
+    ],
+    "dyeable rug tile": [
+        4
+    ],
+    "hair dye (hue 1779: aegis keep)": [
+        1
+    ],
+    "runebook dye (hue 1484: metallic cerulean)": [
+        1
+    ]
+}
+2024-06-03 15:50:52 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 15:50:52 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 15:50:52 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 15:50:52 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 16:24:41 - my_module - DEBUG - {
+    "bronze mastery chain link Chance on Stealth For 5 Extra Steps (+5.00%)": [
+        2
+    ],
+    "bronze mastery chain link Chest Success Chances/Progress (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage on Ships (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage to Barded Creatures (+2.00%)": [
+        10
+    ],
+    "bronze mastery chain link Damage to Daemonic Creatures (+2.50%)": [
+        4
+    ],
+    "bronze mastery chain link Damage to Poisoned Creatures (+2.00%)": [
+        3
+    ],
+    "bronze mastery chain link Follower Attack Speed (+1.00%)": [
+        4
+    ],
+    "bronze mastery chain link Melee Accuracy (+1.75%)": [
+        3
+    ],
+    "bronze mastery chain link Melee Accuracy/Defense (+1.50%)": [
+        9
+    ],
+    "silver mastery chain link Follower Damage (+2.50%)": [
+        4
+    ],
+    "a lore page (page 1 of 10) [history of cambria]": [
+        2
+    ],
+    "a lore page (page 1 of 10) [history of outpost]": [
+        1
+    ],
+    "a lore page (page 1 of 10) [outlands mythology vol 1]": [
+        1
+    ],
+    "a lore page (page 1 of 10) [outlands mythology vol 2]": [
+        5
+    ],
+    "a lore page (page 1 of 15) [creatures of mount petram]": [
+        1
+    ],
+    "a lore page (page 10 of 10) [history of cambria]": [
+        1
+    ],
+    "a lore page (page 10 of 10) [outlands mythology vol 1]": [
+        7
+    ],
+    "a lore page (page 10 of 10) [outlands mythology vol 4]": [
+        2
+    ],
+    "a lore page (page 10 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 10 of 10) [tales of mount petram]": [
+        1
+    ],
+    "a lore page (page 2 of 10) [history of cambria]": [
+        2
+    ],
+    "a lore page (page 2 of 10) [history of corpse creek]": [
+        3
+    ],
+    "a lore page (page 2 of 10) [history of prevalia]": [
+        3
+    ],
+    "a lore page (page 2 of 10) [outlands mythology vol 7]": [
+        2
+    ],
+    "a lore page (page 2 of 10) [tales of cavernam]": [
+        4
+    ],
+    "a lore page (page 3 of 10) [history of outpost]": [
+        2
+    ],
+    "a lore page (page 3 of 10) [outlands mythology vol 1]": [
+        1
+    ],
+    "a lore page (page 3 of 10) [outlands mythology vol 3]": [
+        2
+    ],
+    "a lore page (page 3 of 10) [outlands mythology vol 5]": [
+        1
+    ],
+    "a lore page (page 3 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 3 of 15) [creatures of nusero]": [
+        1
+    ],
+    "a lore page (page 4 of 10) [history of terran]": [
+        2
+    ],
+    "a lore page (page 4 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 5 of 10) [history of cambria]": [
+        3
+    ],
+    "a lore page (page 5 of 10) [history of terran]": [
+        1
+    ],
+    "a lore page (page 5 of 10) [tales of aegis keep]": [
+        1
+    ],
+    "a lore page (page 5 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 5 of 15) [creatures of darkmire temple]": [
+        1
+    ],
+    "a lore page (page 6 of 10) [history of horseshoe bay]": [
+        4
+    ],
+    "a lore page (page 6 of 10) [history of terran]": [
+        2
+    ],
+    "a lore page (page 6 of 10) [tales of cavernam]": [
+        2
+    ],
+    "a lore page (page 6 of 10) [tales of ossuary]": [
+        1
+    ],
+    "a lore page (page 7 of 10) [outlands mythology vol 6]": [
+        4
+    ],
+    "a lore page (page 7 of 10) [tales of cavernam]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [history of horseshoe bay]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [history of outpost]": [
+        2
+    ],
+    "a lore page (page 8 of 10) [outlands mythology vol 1]": [
+        2
+    ],
+    "a lore page (page 8 of 10) [outlands mythology vol 4]": [
+        7
+    ],
+    "a lore page (page 8 of 10) [outlands mythology vol 5]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [tales of cavernam]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [tales of nusero]": [
+        1
+    ],
+    "a lore page (page 8 of 15) [creatures of inferno]": [
+        1
+    ],
+    "a lore page (page 9 of 10) [history of corpse creek]": [
+        7
+    ],
+    "a lore page (page 9 of 10) [tales of aegis keep]": [
+        4
+    ],
+    "a lore page (page 9 of 10) [tales of cavernam]": [
+        2
+    ],
+    "a lore page (page 9 of 10) [tales of inferno]": [
+        1
+    ],
+    "a lore page (page 9 of 10) [tales of ossuary]": [
+        1
+    ],
+    "a lore page (page 9 of 10) [tales of the mausoleum]": [
+        1
+    ],
+    "a lore page (page 9 of 15) [creatures of nusero]": [
+        1
+    ],
+    "a lore page (page 9 of 15) [creatures of ossuary]": [
+        2
+    ],
+    "a lore page tome (0 pages held)": [
+        1
+    ],
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        2,
+        9
+    ],
+    "an arcane scroll": [
+        10
+    ],
+    "arcane essence": [
+        3
+    ],
+    "dyeable gilded gold carpet tile": [
+        0
+    ],
+    "immaculate stone": [
+        2
+    ],
+    "mastercrafting diagram": [
+        2
+    ],
+    "plant chemicals": [
+        1
+    ],
+    "prevalia coins [blessed]": [
+        7
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "town struggle horse mount token [blessed]": [
+        1
+    ],
+    "invulnerability leather cap": [
+        1
+    ],
+    "valehide skinning map (undeciphered)": [
+        12
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        0
+    ],
+    "Blood Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Command Aspect Core": [
+        2,
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Discipline Aspect Core": [
+        1,
+        2
+    ],
+    "Earth Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Fortune Aspect Core": [
+        1
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        1,
+        4,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        3,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        1,
+        2
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        1,
+        1,
+        2
+    ],
+    "War Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        2
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        2
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        0
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        2
+    ],
+    "Fire Aspect Distillation": [
+        2
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        0
+    ],
+    "Holy Aspect Distillation": [
+        0
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        1
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        0
+    ],
+    "Shadow Aspect Distillation": [
+        2
+    ],
+    "Void Aspect Distillation": [
+        2
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        2
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        1
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "rare cloth (hue 1182: wilderness)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1183: ocean)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 1462: powder orchid)": [
+        1
+    ],
+    "rare cloth (hue 1494: powder pistachio)": [
+        2
+    ],
+    "rare cloth (hue 1495: powder coral)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1779: aegis keep)": [
+        1,
+        4
+    ],
+    "rare cloth (hue 1952: powder bubblegum)": [
+        2
+    ],
+    "rare cloth (hue 1989: metallic orange)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2085: pulma)": [
+        1
+    ],
+    "rare cloth (hue 2091: ossuary)": [
+        2
+    ],
+    "rare cloth (hue 2092: mausoleum)": [
+        1
+    ],
+    "rare cloth (hue 2093: shadowspire cathedral)": [
+        2,
+        6
+    ],
+    "rare cloth (hue 2173: powder iris)": [
+        1
+    ],
+    "rare cloth (hue 2230: dark jam)": [
+        2
+    ],
+    "rare cloth (hue 2246: powder seafoam)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 2380: metallic cherry)": [
+        3
+    ],
+    "rare cloth (hue 2653: metallic lemon-lime)": [
+        2
+    ],
+    "rare cloth (hue 2796: nusero)": [
+        2
+    ],
+    "rare cloth (hue 2828: metallic pickle)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 2877: powder cyan)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "accessory dye (hue 1183: ocean)": [
+        2
+    ],
+    "accessory dye (hue 1989: metallic orange)": [
+        1
+    ],
+    "accessory dye (hue 2826: metallic sky)": [
+        1
+    ],
+    "accessory dye (hue 2828: metallic pickle)": [
+        2
+    ],
+    "accessory dye (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "carpet dye (hue 2338: cavernam)": [
+        1
+    ],
+    "dyeable rug tile": [
+        4
+    ],
+    "hair dye (hue 1779: aegis keep)": [
+        1
+    ],
+    "runebook dye (hue 1484: metallic cerulean)": [
+        1
+    ]
+}
+2024-06-03 16:24:41 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 16:24:41 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 16:24:41 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 16:24:41 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 16:28:47 - my_module - DEBUG - {
+    "bronze mastery chain link Chance on Stealth For 5 Extra Steps (+5.00%)": [
+        2
+    ],
+    "bronze mastery chain link Chest Success Chances/Progress (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage on Ships (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage to Barded Creatures (+2.00%)": [
+        10
+    ],
+    "bronze mastery chain link Damage to Daemonic Creatures (+2.50%)": [
+        4
+    ],
+    "bronze mastery chain link Damage to Poisoned Creatures (+2.00%)": [
+        3
+    ],
+    "bronze mastery chain link Follower Attack Speed (+1.00%)": [
+        4
+    ],
+    "bronze mastery chain link Melee Accuracy (+1.75%)": [
+        3
+    ],
+    "bronze mastery chain link Melee Accuracy/Defense (+1.50%)": [
+        9
+    ],
+    "silver mastery chain link Follower Damage (+2.50%)": [
+        4
+    ],
+    "a lore page tome (0 pages held)": [
+        1
+    ],
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        2,
+        7
+    ],
+    "an arcane scroll": [
+        10
+    ],
+    "arcane essence": [
+        3
+    ],
+    "dyeable gilded gold carpet tile": [
+        0
+    ],
+    "gold coin": [
+        1
+    ],
+    "immaculate stone": [
+        2
+    ],
+    "mastercrafting diagram": [
+        2
+    ],
+    "plant chemicals": [
+        1
+    ],
+    "prevalia coins [blessed]": [
+        7
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "town struggle horse mount token [blessed]": [
+        1
+    ],
+    "invulnerability leather cap": [
+        1
+    ],
+    "valehide skinning map (undeciphered)": [
+        12
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        0
+    ],
+    "Blood Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Command Aspect Core": [
+        2,
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        1,
+        2
+    ],
+    "Discipline Aspect Core": [
+        1,
+        1,
+        2,
+        4
+    ],
+    "Earth Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Fortune Aspect Core": [
+        1
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        1,
+        4,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        3,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        1,
+        2
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "War Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        0
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        0
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        1
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        2
+    ],
+    "Fire Aspect Distillation": [
+        2
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        2
+    ],
+    "Holy Aspect Distillation": [
+        1
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        2
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        2
+    ],
+    "Shadow Aspect Distillation": [
+        0
+    ],
+    "Void Aspect Distillation": [
+        2
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        1
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "rare cloth (hue 1182: wilderness)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1183: ocean)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 1462: powder orchid)": [
+        1
+    ],
+    "rare cloth (hue 1494: powder pistachio)": [
+        2
+    ],
+    "rare cloth (hue 1495: powder coral)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1779: aegis keep)": [
+        1,
+        4
+    ],
+    "rare cloth (hue 1952: powder bubblegum)": [
+        2
+    ],
+    "rare cloth (hue 1989: metallic orange)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2085: pulma)": [
+        1
+    ],
+    "rare cloth (hue 2091: ossuary)": [
+        2
+    ],
+    "rare cloth (hue 2092: mausoleum)": [
+        1
+    ],
+    "rare cloth (hue 2093: shadowspire cathedral)": [
+        2,
+        6
+    ],
+    "rare cloth (hue 2173: powder iris)": [
+        1
+    ],
+    "rare cloth (hue 2230: dark jam)": [
+        2
+    ],
+    "rare cloth (hue 2246: powder seafoam)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 2380: metallic cherry)": [
+        3
+    ],
+    "rare cloth (hue 2653: metallic lemon-lime)": [
+        2
+    ],
+    "rare cloth (hue 2796: nusero)": [
+        2
+    ],
+    "rare cloth (hue 2828: metallic pickle)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 2877: powder cyan)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "accessory dye (hue 1183: ocean)": [
+        2
+    ],
+    "accessory dye (hue 1989: metallic orange)": [
+        1
+    ],
+    "accessory dye (hue 2826: metallic sky)": [
+        1
+    ],
+    "accessory dye (hue 2828: metallic pickle)": [
+        2
+    ],
+    "accessory dye (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "carpet dye (hue 2338: cavernam)": [
+        1
+    ],
+    "dyeable rug tile": [
+        4
+    ],
+    "hair dye (hue 1779: aegis keep)": [
+        1
+    ],
+    "runebook dye (hue 1484: metallic cerulean)": [
+        1
+    ]
+}
+2024-06-03 16:28:47 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 16:28:47 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 16:28:47 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 16:28:47 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 16:29:59 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:29:59 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 49076
+2024-06-03 16:30:00 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:30:00 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26723
+2024-06-03 16:30:01 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:30:01 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11305
+2024-06-03 16:31:51 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:31:51 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 49383
+2024-06-03 16:31:52 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:31:52 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26905
+2024-06-03 16:31:52 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:31:52 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11313
+2024-06-03 16:33:54 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:33:54 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 49466
+2024-06-03 16:33:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:33:55 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26974
+2024-06-03 16:33:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:33:55 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11311
+2024-06-03 16:50:49 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:50:50 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 49755
+2024-06-03 16:50:51 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:50:51 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27155
+2024-06-03 16:50:51 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 16:50:52 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11309
+2024-06-03 17:37:19 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:37:20 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 51112
+2024-06-03 17:37:21 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:37:22 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26979
+2024-06-03 17:37:22 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:37:22 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11216
+2024-06-03 17:43:25 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:43:25 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 50923
+2024-06-03 17:43:26 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:43:26 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26993
+2024-06-03 17:43:26 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:43:26 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11210
+2024-06-03 17:48:51 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:48:51 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 51216
+2024-06-03 17:48:52 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:48:52 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27151
+2024-06-03 17:48:52 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:48:52 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10910
+2024-06-03 17:50:18 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:50:18 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 51095
+2024-06-03 17:50:19 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:50:19 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27047
+2024-06-03 17:50:19 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:50:19 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11160
+2024-06-03 17:51:07 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:51:07 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 51179
+2024-06-03 17:51:08 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:51:08 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27118
+2024-06-03 17:51:08 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:51:09 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11153
+2024-06-03 17:56:40 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:56:41 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 51450
+2024-06-03 17:56:41 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:56:41 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27174
+2024-06-03 17:56:41 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 17:56:42 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11161
+2024-06-03 18:11:34 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 18:11:35 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 51940
+2024-06-03 18:11:36 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 18:11:36 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27016
+2024-06-03 18:11:37 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 18:11:37 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11576
+2024-06-03 18:25:47 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 18:25:47 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52638
+2024-06-03 18:25:48 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 18:25:48 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26887
+2024-06-03 18:25:48 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 18:25:48 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11573
+2024-06-03 18:29:03 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 18:29:03 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52092
+2024-06-03 18:29:04 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 18:29:04 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 26665
+2024-06-03 18:29:04 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 18:29:04 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11566
+2024-06-03 20:02:49 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:02:50 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52117
+2024-06-03 20:02:51 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:02:51 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27480
+2024-06-03 20:02:51 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:02:51 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 11189
+2024-06-03 20:15:18 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:15:18 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52001
+2024-06-03 20:15:20 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:15:20 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27649
+2024-06-03 20:15:20 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:15:20 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10989
+2024-06-03 20:25:29 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:25:29 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52319
+2024-06-03 20:25:31 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:25:31 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27634
+2024-06-03 20:25:31 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:25:32 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10935
+2024-06-03 20:40:16 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:40:17 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52949
+2024-06-03 20:40:20 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:40:20 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 28005
+2024-06-03 20:40:20 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:40:20 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10961
+2024-06-03 20:41:19 - my_module - DEBUG - {
+    "bronze mastery chain link Chance on Stealth For 5 Extra Steps (+5.00%)": [
+        2
+    ],
+    "bronze mastery chain link Chest Success Chances/Progress (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage on Ships (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage to Barded Creatures (+2.00%)": [
+        10
+    ],
+    "bronze mastery chain link Damage to Daemonic Creatures (+2.50%)": [
+        4
+    ],
+    "bronze mastery chain link Damage to Poisoned Creatures (+2.00%)": [
+        3
+    ],
+    "bronze mastery chain link Follower Attack Speed (+1.00%)": [
+        4
+    ],
+    "bronze mastery chain link Melee Accuracy (+1.75%)": [
+        3
+    ],
+    "bronze mastery chain link Melee Accuracy/Defense (+1.50%)": [
+        9
+    ],
+    "silver mastery chain link Follower Damage (+2.50%)": [
+        4
+    ],
+    "a lore page tome (0 pages held)": [
+        1
+    ],
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        2,
+        7
+    ],
+    "an arcane scroll": [
+        9
+    ],
+    "arcane essence": [
+        2
+    ],
+    "dyeable gilded gold carpet tile": [
+        10
+    ],
+    "gold coin": [
+        1
+    ],
+    "immaculate stone": [
+        2
+    ],
+    "mastercrafting diagram": [
+        0
+    ],
+    "plant chemicals": [
+        1
+    ],
+    "prevalia coins [blessed]": [
+        7
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "invulnerability leather cap": [
+        1
+    ],
+    "valehide skinning map (undeciphered)": [
+        12
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        0
+    ],
+    "Blood Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Command Aspect Core": [
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        1,
+        2
+    ],
+    "Discipline Aspect Core": [
+        1,
+        1,
+        2,
+        4
+    ],
+    "Earth Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1
+    ],
+    "Fortune Aspect Core": [
+        1
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        3,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        0
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        1,
+        2
+    ],
+    "War Aspect Core": [
+        1,
+        1,
+        1,
+        2
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        2
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        2
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        2
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        0
+    ],
+    "Fire Aspect Distillation": [
+        1
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        2
+    ],
+    "Holy Aspect Distillation": [
+        0
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        2
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        2
+    ],
+    "Shadow Aspect Distillation": [
+        0
+    ],
+    "Void Aspect Distillation": [
+        2
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        0
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "rare cloth (hue 1182: wilderness)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1183: ocean)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 1462: powder orchid)": [
+        1
+    ],
+    "rare cloth (hue 1494: powder pistachio)": [
+        2
+    ],
+    "rare cloth (hue 1495: powder coral)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1779: aegis keep)": [
+        1,
+        4
+    ],
+    "rare cloth (hue 1952: powder bubblegum)": [
+        2
+    ],
+    "rare cloth (hue 1989: metallic orange)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2085: pulma)": [
+        1
+    ],
+    "rare cloth (hue 2091: ossuary)": [
+        2
+    ],
+    "rare cloth (hue 2092: mausoleum)": [
+        1
+    ],
+    "rare cloth (hue 2093: shadowspire cathedral)": [
+        2,
+        6
+    ],
+    "rare cloth (hue 2173: powder iris)": [
+        1
+    ],
+    "rare cloth (hue 2230: dark jam)": [
+        2
+    ],
+    "rare cloth (hue 2246: powder seafoam)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 2380: metallic cherry)": [
+        3
+    ],
+    "rare cloth (hue 2653: metallic lemon-lime)": [
+        2
+    ],
+    "rare cloth (hue 2796: nusero)": [
+        2
+    ],
+    "rare cloth (hue 2828: metallic pickle)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 2877: powder cyan)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "accessory dye (hue 1183: ocean)": [
+        2
+    ],
+    "accessory dye (hue 1989: metallic orange)": [
+        1
+    ],
+    "accessory dye (hue 2826: metallic sky)": [
+        1
+    ],
+    "accessory dye (hue 2828: metallic pickle)": [
+        2
+    ],
+    "accessory dye (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "carpet dye (hue 2338: cavernam)": [
+        1
+    ],
+    "dyeable rug tile": [
+        4
+    ],
+    "hair dye (hue 1779: aegis keep)": [
+        1
+    ],
+    "runebook dye (hue 1484: metallic cerulean)": [
+        1
+    ]
+}
+2024-06-03 20:41:19 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 20:41:19 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 20:41:19 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 20:41:19 - my_module - DEBUG - -----------------------------------------------------
+2024-06-03 20:53:40 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:53:40 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 53266
+2024-06-03 20:53:43 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:53:43 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27664
+2024-06-03 20:53:43 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:53:44 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10960
+2024-06-03 20:53:56 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:53:56 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 53031
+2024-06-03 20:53:58 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:53:59 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27568
+2024-06-03 20:53:59 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:53:59 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10960
+2024-06-03 20:54:29 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:54:29 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52952
+2024-06-03 20:54:32 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:54:32 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27730
+2024-06-03 20:54:32 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:54:32 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10959
+2024-06-03 20:57:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 20:57:57 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-06-03 20:57:57 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cpf6d52t62ls5gfadcig HTTP/1.1" 302 0
+2024-06-03 20:57:57 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-06-03 20:57:57 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-06-03 20:57:57 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-06-03 21:03:56 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:03:56 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52975
+2024-06-03 21:03:57 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:03:57 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 27182
+2024-06-03 21:03:57 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:03:57 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10977
+2024-06-03 21:27:43 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:27:43 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52628
+2024-06-03 21:27:44 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:27:44 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 25928
+2024-06-03 21:27:45 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:27:45 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10892
+2024-06-03 21:38:02 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:38:03 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52845
+2024-06-03 21:38:04 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:38:04 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 25959
+2024-06-03 21:38:04 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:38:05 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10885
+2024-06-03 21:44:11 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:44:11 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52872
+2024-06-03 21:44:12 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:44:12 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 25948
+2024-06-03 21:44:12 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 21:44:12 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10881
+2024-06-03 22:00:53 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:00:54 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52919
+2024-06-03 22:00:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:00:55 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 25465
+2024-06-03 22:00:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:00:55 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10954
+2024-06-03 22:02:10 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:02:10 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 53889
+2024-06-03 22:02:11 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:02:11 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 25473
+2024-06-03 22:02:11 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:02:11 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10882
+2024-06-03 22:02:23 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:02:23 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 53886
+2024-06-03 22:02:24 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:02:24 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 25472
+2024-06-03 22:02:24 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:02:25 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10882
+2024-06-03 22:04:03 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:04:03 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 53868
+2024-06-03 22:04:04 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:04:04 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 25454
+2024-06-03 22:04:04 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:04:04 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10883
+2024-06-03 22:16:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:16:56 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 53890
+2024-06-03 22:16:58 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:16:59 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 24923
+2024-06-03 22:16:59 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:16:59 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10839
+2024-06-03 22:26:24 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:26:25 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 53592
+2024-06-03 22:26:25 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:26:26 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 24963
+2024-06-03 22:26:26 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:26:26 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10834
+2024-06-03 22:26:39 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:26:39 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 53830
+2024-06-03 22:26:40 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:26:40 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 25065
+2024-06-03 22:26:40 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:26:41 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10834
+2024-06-03 22:38:28 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:38:28 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 53860
+2024-06-03 22:38:29 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:38:29 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 25025
+2024-06-03 22:38:29 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:38:29 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10884
+2024-06-03 22:53:51 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:53:52 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 53722
+2024-06-03 22:53:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:53:55 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 24313
+2024-06-03 22:53:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 22:53:55 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10636
+2024-06-03 23:16:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 23:16:56 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 53565
+2024-06-03 23:16:56 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 23:16:56 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 24282
+2024-06-03 23:16:56 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 23:16:57 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10619
+2024-06-03 23:50:40 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 23:50:41 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52847
+2024-06-03 23:50:42 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 23:50:42 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 23759
+2024-06-03 23:50:42 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-03 23:50:42 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10626
+2024-06-04 00:07:19 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:07:20 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52075
+2024-06-04 00:07:21 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:07:21 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 22300
+2024-06-04 00:07:21 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:07:21 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10558
+2024-06-04 00:09:10 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:09:11 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52100
+2024-06-04 00:09:12 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:09:12 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 22171
+2024-06-04 00:09:12 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:09:12 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10556
+2024-06-04 00:34:29 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:34:30 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52326
+2024-06-04 00:34:32 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:34:33 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 22032
+2024-06-04 00:34:34 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:34:34 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10591
+2024-06-04 00:37:34 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:37:34 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52453
+2024-06-04 00:37:38 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:37:38 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 22041
+2024-06-04 00:37:38 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 00:37:38 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10590
+2024-06-04 01:15:08 - my_module - DEBUG - {
+    "bronze mastery chain link Chance on Stealth For 5 Extra Steps (+5.00%)": [
+        3
+    ],
+    "bronze mastery chain link Chest Success Chances/Progress (+3.00%)": [
+        2
+    ],
+    "bronze mastery chain link Damage on Ships (+3.00%)": [
+        5
+    ],
+    "bronze mastery chain link Damage to Barded Creatures (+2.00%)": [
+        10
+    ],
+    "bronze mastery chain link Damage to Daemonic Creatures (+2.50%)": [
+        4
+    ],
+    "bronze mastery chain link Damage to Poisoned Creatures (+2.00%)": [
+        4
+    ],
+    "bronze mastery chain link Follower Attack Speed (+1.00%)": [
+        4
+    ],
+    "bronze mastery chain link Follower Damage (+2.00%)": [
+        8
+    ],
+    "bronze mastery chain link Melee Accuracy (+1.75%)": [
+        3
+    ],
+    "bronze mastery chain link Melee Accuracy/Defense (+1.50%)": [
+        9
+    ],
+    "silver mastery chain link Follower Damage (+2.50%)": [
+        4
+    ],
+    "Description: Best Hue immunity rune (15.0% chance to ignore bleed or disease damage) [double click to place]": [
+        1
+    ],
+    "a lore page (page 1 of 10) [history of cambria]": [
+        2
+    ],
+    "a lore page (page 1 of 10) [history of outpost]": [
+        1
+    ],
+    "a lore page (page 1 of 10) [outlands mythology vol 1]": [
+        1
+    ],
+    "a lore page (page 1 of 10) [outlands mythology vol 2]": [
+        5
+    ],
+    "a lore page (page 1 of 15) [creatures of mount petram]": [
+        1
+    ],
+    "a lore page (page 10 of 10) [history of cambria]": [
+        1
+    ],
+    "a lore page (page 10 of 10) [outlands mythology vol 1]": [
+        7
+    ],
+    "a lore page (page 10 of 10) [outlands mythology vol 4]": [
+        2
+    ],
+    "a lore page (page 10 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 10 of 10) [tales of mount petram]": [
+        1
+    ],
+    "a lore page (page 2 of 10) [history of cambria]": [
+        2
+    ],
+    "a lore page (page 2 of 10) [history of corpse creek]": [
+        3
+    ],
+    "a lore page (page 2 of 10) [history of prevalia]": [
+        3
+    ],
+    "a lore page (page 2 of 10) [outlands mythology vol 7]": [
+        2
+    ],
+    "a lore page (page 2 of 10) [tales of cavernam]": [
+        4
+    ],
+    "a lore page (page 3 of 10) [history of outpost]": [
+        2
+    ],
+    "a lore page (page 3 of 10) [outlands mythology vol 1]": [
+        1
+    ],
+    "a lore page (page 3 of 10) [outlands mythology vol 3]": [
+        2
+    ],
+    "a lore page (page 3 of 10) [outlands mythology vol 5]": [
+        1
+    ],
+    "a lore page (page 3 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 3 of 15) [creatures of nusero]": [
+        1
+    ],
+    "a lore page (page 4 of 10) [history of terran]": [
+        2
+    ],
+    "a lore page (page 4 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 5 of 10) [history of cambria]": [
+        3
+    ],
+    "a lore page (page 5 of 10) [history of terran]": [
+        1
+    ],
+    "a lore page (page 5 of 10) [tales of aegis keep]": [
+        1
+    ],
+    "a lore page (page 5 of 10) [tales of cavernam]": [
+        3
+    ],
+    "a lore page (page 5 of 15) [creatures of darkmire temple]": [
+        1
+    ],
+    "a lore page (page 6 of 10) [history of horseshoe bay]": [
+        4
+    ],
+    "a lore page (page 6 of 10) [history of terran]": [
+        2
+    ],
+    "a lore page (page 6 of 10) [tales of cavernam]": [
+        2
+    ],
+    "a lore page (page 6 of 10) [tales of ossuary]": [
+        1
+    ],
+    "a lore page (page 7 of 10) [outlands mythology vol 6]": [
+        4
+    ],
+    "a lore page (page 7 of 10) [tales of cavernam]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [history of horseshoe bay]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [history of outpost]": [
+        2
+    ],
+    "a lore page (page 8 of 10) [outlands mythology vol 1]": [
+        2
+    ],
+    "a lore page (page 8 of 10) [outlands mythology vol 4]": [
+        7
+    ],
+    "a lore page (page 8 of 10) [outlands mythology vol 5]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [tales of cavernam]": [
+        1
+    ],
+    "a lore page (page 8 of 10) [tales of nusero]": [
+        1
+    ],
+    "a lore page (page 8 of 15) [creatures of inferno]": [
+        1
+    ],
+    "a lore page (page 9 of 10) [history of corpse creek]": [
+        7
+    ],
+    "a lore page (page 9 of 10) [tales of aegis keep]": [
+        4
+    ],
+    "a lore page (page 9 of 10) [tales of cavernam]": [
+        2
+    ],
+    "a lore page (page 9 of 10) [tales of inferno]": [
+        1
+    ],
+    "a lore page (page 9 of 10) [tales of ossuary]": [
+        1
+    ],
+    "a lore page (page 9 of 10) [tales of the mausoleum]": [
+        1
+    ],
+    "a lore page (page 9 of 15) [creatures of nusero]": [
+        1
+    ],
+    "a lore page (page 9 of 15) [creatures of ossuary]": [
+        2
+    ],
+    "a lore page tome (0 pages held)": [
+        1
+    ],
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": [
+        2,
+        4
+    ],
+    "an arcane scroll": [
+        19
+    ],
+    "arcane essence": [
+        1
+    ],
+    "dyeable gilded gold carpet tile": [
+        10
+    ],
+    "immaculate stone": [
+        2
+    ],
+    "mastercrafting diagram": [
+        2
+    ],
+    "plant chemicals": [
+        0
+    ],
+    "prevalia coins [blessed]": [
+        7
+    ],
+    "pristine lumber": [
+        0
+    ],
+    "invulnerability leather cap": [
+        1
+    ],
+    "valehide skinning map (undeciphered)": [
+        12
+    ],
+    "Air Aspect Core": [
+        0
+    ],
+    "Arcane Aspect Core": [
+        0
+    ],
+    "Artisan Aspect Core": [
+        0
+    ],
+    "Blood Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Command Aspect Core": [
+        2
+    ],
+    "Death Aspect Core": [
+        1,
+        1
+    ],
+    "Discipline Aspect Core": [
+        1,
+        1,
+        1,
+        4
+    ],
+    "Earth Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Eldritch Aspect Core": [
+        0
+    ],
+    "Fire Aspect Core": [
+        1,
+        1,
+        2
+    ],
+    "Fortune Aspect Core": [
+        2
+    ],
+    "Frost Aspect Core": [
+        0
+    ],
+    "Gadget Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Harvest Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Holy Aspect Core": [
+        1,
+        1,
+        2,
+        2
+    ],
+    "Lightning Aspect Core": [
+        0
+    ],
+    "Lyric Aspect Core": [
+        1,
+        3,
+        2
+    ],
+    "Madness Aspect Core": [
+        0
+    ],
+    "Poison Aspect Core": [
+        0
+    ],
+    "Shadow Aspect Core": [
+        0
+    ],
+    "Void Aspect Core": [
+        0
+    ],
+    "War Aspect Core": [
+        1
+    ],
+    "Water Aspect Core": [
+        1,
+        2,
+        2
+    ],
+    "Air Aspect Distillation": [
+        1
+    ],
+    "Arcane Aspect Distillation": [
+        0
+    ],
+    "Artisan Aspect Distillation": [
+        2
+    ],
+    "Blood Aspect Distillation": [
+        0
+    ],
+    "Command Aspect Distillation": [
+        2
+    ],
+    "Death Aspect Distillation": [
+        0
+    ],
+    "Discipline Aspect Distillation": [
+        2
+    ],
+    "Earth Aspect Distillation": [
+        2
+    ],
+    "Eldritch Aspect Distillation": [
+        2
+    ],
+    "Fire Aspect Distillation": [
+        2
+    ],
+    "Fortune Aspect Distillation": [
+        2
+    ],
+    "Frost Aspect Distillation": [
+        0
+    ],
+    "Gadget Aspect Distillation": [
+        2
+    ],
+    "Harvest Aspect Distillation": [
+        2
+    ],
+    "Holy Aspect Distillation": [
+        0
+    ],
+    "Lightning Aspect Distillation": [
+        0
+    ],
+    "Lyric Aspect Distillation": [
+        2
+    ],
+    "Madness Aspect Distillation": [
+        0
+    ],
+    "Poison Aspect Distillation": [
+        2
+    ],
+    "Shadow Aspect Distillation": [
+        1
+    ],
+    "Void Aspect Distillation": [
+        0
+    ],
+    "War Aspect Distillation": [
+        0
+    ],
+    "Water Aspect Distillation": [
+        2
+    ],
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        0
+    ],
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        1,
+        2
+    ],
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2,
+        2
+    ],
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": [
+        2
+    ],
+    "rare cloth (hue 1182: wilderness)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1183: ocean)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 1462: powder orchid)": [
+        1
+    ],
+    "rare cloth (hue 1494: powder pistachio)": [
+        2
+    ],
+    "rare cloth (hue 1495: powder coral)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 1779: aegis keep)": [
+        1,
+        4
+    ],
+    "rare cloth (hue 1952: powder bubblegum)": [
+        2
+    ],
+    "rare cloth (hue 1989: metallic orange)": [
+        3
+    ],
+    "rare cloth (hue 2085: pulma)": [
+        1
+    ],
+    "rare cloth (hue 2091: ossuary)": [
+        1
+    ],
+    "rare cloth (hue 2092: mausoleum)": [
+        1
+    ],
+    "rare cloth (hue 2093: shadowspire cathedral)": [
+        2,
+        6
+    ],
+    "rare cloth (hue 2173: powder iris)": [
+        1
+    ],
+    "rare cloth (hue 2230: dark jam)": [
+        2
+    ],
+    "rare cloth (hue 2246: powder seafoam)": [
+        1,
+        1
+    ],
+    "rare cloth (hue 2380: metallic cherry)": [
+        3
+    ],
+    "rare cloth (hue 2653: metallic lemon-lime)": [
+        2
+    ],
+    "rare cloth (hue 2796: nusero)": [
+        1
+    ],
+    "rare cloth (hue 2828: metallic pickle)": [
+        1,
+        2
+    ],
+    "rare cloth (hue 2877: powder cyan)": [
+        1,
+        3
+    ],
+    "rare cloth (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "accessory dye (hue 1183: ocean)": [
+        2
+    ],
+    "accessory dye (hue 1989: metallic orange)": [
+        1
+    ],
+    "accessory dye (hue 2826: metallic sky)": [
+        1
+    ],
+    "accessory dye (hue 2828: metallic pickle)": [
+        2
+    ],
+    "accessory dye (hue 2898: metallic eggplant)": [
+        2
+    ],
+    "carpet dye (hue 2338: cavernam)": [
+        1
+    ],
+    "dyeable rug tile": [
+        4
+    ],
+    "hair dye (hue 1779: aegis keep)": [
+        1
+    ],
+    "runebook dye (hue 1484: metallic cerulean)": [
+        1
+    ]
+}
+2024-06-04 01:15:08 - my_module - DEBUG - -----------------------------------------------------
+2024-06-04 01:15:08 - my_module - DEBUG - -----------------------------------------------------
+2024-06-04 01:15:08 - my_module - DEBUG - -----------------------------------------------------
+2024-06-04 01:15:08 - my_module - DEBUG - -----------------------------------------------------
+2024-06-04 01:20:48 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 01:20:48 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52617
+2024-06-04 01:20:49 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 01:20:49 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 21797
+2024-06-04 01:20:49 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 01:20:49 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10578
+2024-06-04 01:34:33 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 01:34:34 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=treasure+undeciphered&search_category_id=0 HTTP/1.1" 200 52816
+2024-06-04 01:34:35 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 01:34:35 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials&search_category_id=0 HTTP/1.1" 200 21870
+2024-06-04 01:34:35 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-06-04 01:34:35 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins&search_category_id=0 HTTP/1.1" 200 10433

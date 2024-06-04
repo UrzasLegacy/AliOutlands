@@ -25,6 +25,17 @@ import socket
 from OutlandsDicts import *
 from OutlandsUtils import *
 
+logging.basicConfig(
+    level=logging.DEBUG,  # Set the minimum log level
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Format for log messages
+    datefmt='%Y-%m-%d %H:%M:%S',  # Format for timestamps
+    handlers=[
+        logging.StreamHandler(),  # Output logs to console
+        logging.FileHandler('app.log')  # Output logs to a file
+    ]
+)
+logger = logging.getLogger('my_logger')
+
 clipboard_ghost = ""
 
 def multi_parse_wide(in_tuple):
@@ -475,7 +486,7 @@ def check_accessibility(file_path):
         return False
 
 def parse_log_to_object():
-    #my_vendors = [4342004,3097786,1598057]
+    #my_vendors = [4342004, 3097786, 1598057, 4205843, 3756258, 3749795]
     my_vendors = ["MM1","MM2","MM3","MM4","MM5","MM6"]
     vendors = {}
     current_vendor = None
@@ -1933,7 +1944,7 @@ endwhile"""
                     aggregated_items[key] = 0
                 aggregated_items[key] += 1
             sorted_items = categorize_and_sort_aggregated_items(aggregated_items)
-
+            #pretty_print(check_dict)
             #Animal Lore Scroll: 11 @ 18k each | 2 sets of 10 @ 180k/set
             out_str = "***WTS*** *(all available on vendors MM1, MM2, MM3 and MM4 at Chopper's Shop (4008, 477) directly north of Anchor's Rest moongate*"
             for category_name, category_items in sorted_items.items(): 
@@ -1972,9 +1983,22 @@ endwhile"""
                     #print(result)
             #print(out_str)
             
-            self.root.clipboard_clear()
-            self.root.clipboard_append(out_str)
+            #self.root.clipboard_clear()
+            #self.root.clipboard_append(out_str)
+                        
+            new_window = tk.Toplevel(self.root)
+            new_window.wm_attributes("-topmost", 1)
+            new_window.title("Restock Info")
+            self.scrollbar = tk.Scrollbar(new_window, orient="vertical")
+            textbox = tk.Text(new_window, yscrollcommand=self.scrollbar.set, width=160, height=50, font=("Consolas", 11))
+            self.scrollbar.config(command=textbox.yview)
+            self.scrollbar.pack(side="right", fill="y")
+            textbox.pack(side="left", fill="both", expand=True)
+            textbox.insert(tk.END, out_str)
+
+            render_stock_script(sorted_items)
             #print("-End Report-")
+            
             return sorted_items
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -2543,7 +2567,103 @@ class AssMonGui:
         self.monitor_thread.start()
 
 
+def start_purchase_script():
+    append_recall_home_script()
+    #mouse_pos = win32api.GetCursorPos()
+    window = None
+    active_window = gw.getActiveWindow()
+    active_title = active_window.title
+    regex_client = r"UO - ([\w\s]+) - ClassicUO"
+    regex_assistant = r"(?:\] - )?([\w\s]+) \(\[None\]\)"
+    match_client = re.search(regex_client, active_title)
+    match_assistant = re.search(regex_assistant, active_title)
+    if match_client: #if focus is on client, switch to assistant and set it as target
+        original = connect_to_window(active_window._hWnd)
+        if not original:
+            print("Something went wrong when selecting original window")
+            return
+        extracted_name = match_client.group(1)
+        try:
+            window = focus_named_assistant(extracted_name)
+        except Exception as e:
+            print(f"Purchase Script Error: {e}")
+    elif match_assistant: #if focus is on assistant, set assistant as target
+        extracted_name = match_assistant.group(1)
+        for window in gw.getAllWindows():
+            if extracted_name in window.title and window != active_window:
+                original = connect_to_window(window._hWnd)
+                break
+        if not original:
+            print("Something went wrong when selecting original window")
+            return
+        window = connect_to_window(active_window._hWnd)
+    else:
+        print("No match found in the active window's title.")
+        return
+    if not window:
+        print("Error connecting to window")
+        return False
+    tab_control = window.TabControl
+    if tab_control.get_selected_tab() != 9:
+        tab_control.select("TabControlScripts")
+    tree = window.TreeView
+    node = tree.get_item(['aaaaab'])
+    if not node.is_selected():
+        node.select()
+    try:
+        script_editor = window.child_window(auto_id="scriptEditor", control_type="FastColoredTextBoxNS.FastColoredTextBox")
+        scripts_tab = window.child_window(title="Scripts", auto_id="subScripts", control_type="System.Windows.Forms.TabPage")
+        if scripts_tab.exists():
+            scripts_tab.click()
+            time.sleep(.01)
+        if script_editor.is_enabled():
+            script_editor.set_focus()
+            time.sleep(.01)
+            script_editor.type_keys("^a")
+            time.sleep(.01)
+            script_editor.type_keys("^v")
+            time.sleep(.01)
+            play_button = window.child_window(title="Scripts", auto_id="subScripts", control_type="System.Windows.Forms.TabPage")\
+                .child_window(auto_id="tableLayoutPanel1", control_type="System.Windows.Forms.TableLayoutPanel")\
+                .child_window(auto_id="tableLayoutPanel2", control_type="System.Windows.Forms.TableLayoutPanel")\
+                .child_window(title="Play", auto_id="playScript", control_type="System.Windows.Forms.Button")
+            if play_button.exists():
+                play_button.click()
+                time.sleep(.01)
+                original.set_focus()
+            else:
+                print('Play button missing!')
+                return
+        else:
+            stop_button = window.child_window(title="Scripts", auto_id="subScripts", control_type="System.Windows.Forms.TabPage")\
+                .child_window(auto_id="tableLayoutPanel1", control_type="System.Windows.Forms.TableLayoutPanel")\
+                .child_window(auto_id="tableLayoutPanel2", control_type="System.Windows.Forms.TableLayoutPanel")\
+                .child_window(title="Stop", auto_id="playScript", control_type="System.Windows.Forms.Button")
+            if stop_button.exists():
+                stop_button.click()
+                time.sleep(.01)
+                original.set_focus()
+            else:
+                print('Stop button missing!')
+                return
+    except Exception as e:
+        print(f"error: {e}")
+    #win32api.SetCursorPos(mouse_pos)
+        
+def append_recall_home_script():
+    try:
+        current_content = root_ghost.root.clipboard_get()
 
+        print(current_content)
+        append_string = """
+wait 1000
+script 'AliRoom'
+"""
+        new_content = current_content + append_string
+        pyperclip.copy(new_content)
+
+    except Exception as e:
+        print(f"Err: {e}")
 
 #print(f"Press ctrl+alt+` to find the Client/Assistant window for the active window...")
 keyboard.add_hotkey("ctrl+alt+c", start_purchase_script)
@@ -2553,6 +2673,10 @@ keyboard.add_hotkey("ctrl+alt+2", lambda: focus_named_assistant('Vendor Police')
 keyboard.add_hotkey("ctrl+alt+3", lambda: focus_named_assistant('Aproctoflecticus'))
 keyboard.add_hotkey("alt+shift+`", lambda: focus_scraper())
 
+
+
+
+root_ghost = False
 def main():
     root = tk.Tk()
     global root_ghost

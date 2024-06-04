@@ -2,33 +2,37 @@ from collections import ChainMap,defaultdict
 import pyperclip
 import re
 import math
-
+import copy
+import logging
+import json
+# Get the logger for this module
+logger = logging.getLogger('my_module')
 #todo add hue lookup for cores/distil and for skill scrolls
 
 core_prices = { #exact string MATTERS
-    "Air Aspect Core": 80000,
+    "Air Aspect Core": 75000,
     "Arcane Aspect Core": 100000,
-    "Artisan Aspect Core": 50000,
+    "Artisan Aspect Core": 55000,
     "Blood Aspect Core": 12000,
-    "Command Aspect Core": 110000,
-    "Death Aspect Core": 20000,
-    "Discipline Aspect Core": 15000,
-    "Earth Aspect Core": 13000,
+    "Command Aspect Core": 100000,
+    "Death Aspect Core": 17000,
+    "Discipline Aspect Core": 13000,
+    "Earth Aspect Core": 11000,
     "Eldritch Aspect Core": 80000,
-    "Fire Aspect Core": 20000,
-    "Frost Aspect Core": 30000,
+    "Fire Aspect Core": 18000,
+    "Frost Aspect Core": 26000,
     "Fortune Aspect Core": 85000,
-    "Gadget Aspect Core": 25000,
+    "Gadget Aspect Core": 18000,
     "Harvest Aspect Core": 100000,
-    "Holy Aspect Core": 15000,
-    "Lightning Aspect Core": 80000,
+    "Holy Aspect Core": 12000,
+    "Lightning Aspect Core": 75000,
     "Lyric Aspect Core": 40000,
-    "Madness Aspect Core": 100000,
-    "Poison Aspect Core": 50000,
-    "Shadow Aspect Core": 38000,
+    "Madness Aspect Core": 95000,
+    "Poison Aspect Core": 55000,
+    "Shadow Aspect Core": 39000,
     "Void Aspect Core": 45000,
     "War Aspect Core": 7000,
-    "Water Aspect Core": 20000,
+    "Water Aspect Core": 15000,
 }
 ''' Pre expansion prices
     "Blood Aspect Core": 18000,
@@ -53,8 +57,8 @@ core_prices = { #exact string MATTERS
 '''
 
 extract_prices = {
-    'Air Aspect Extract': 6000,       
-    "Arcane Aspect Extract": 14000,
+    'Air Aspect Extract': 7000,       
+    "Arcane Aspect Extract": 11000,
     'Artisan Aspect Extract': 5000,   
     'Blood Aspect Extract': 5000,     
     'Command Aspect Extract': 10000,   
@@ -63,24 +67,24 @@ extract_prices = {
     'Earth Aspect Extract': 5000,     
     'Eldritch Aspect Extract': 8000,  
     'Fire Aspect Extract': 5000,    
-    "Frost Aspect Extract": 14000,  
+    "Frost Aspect Extract": 7000,  
     'Fortune Aspect Extract': 7000,   
     'Gadget Aspect Extract': 5000,
     'Harvest Aspect Extract': 10000,
     'Holy Aspect Extract': 5000,
-    "Lightning Aspect Extract": 14000,
-    'Lyric Aspect Extract': 3000,
-    "Madness Aspect Extract": 14000,
+    "Lightning Aspect Extract": 11000,
+    'Lyric Aspect Extract': 5000,
+    "Madness Aspect Extract": 11000,
     'Poison Aspect Extract': 6000,
-    'Shadow Aspect Extract': 17000,
+    'Shadow Aspect Extract': 19000,
     'Void Aspect Extract': 8000,
     'Water Aspect Extract': 5000,
 }
 
 
 distil_prices = {
-    'Air Aspect Distillation': 6000,
-    "Arcane Aspect Distillation": 14000,
+    'Air Aspect Distillation': 7000,
+    "Arcane Aspect Distillation": 11000,
     'Artisan Aspect Distillation': 5000,
     'Blood Aspect Distillation': 5000,
     'Command Aspect Distillation': 10000,
@@ -89,16 +93,16 @@ distil_prices = {
     'Earth Aspect Distillation': 5000,
     'Eldritch Aspect Distillation': 8000,
     'Fire Aspect Distillation': 5000,
-    "Frost Aspect Distillation": 14000,
+    "Frost Aspect Distillation": 7000,
     'Fortune Aspect Distillation': 7000,
     'Gadget Aspect Distillation': 5000,
     'Harvest Aspect Distillation': 10000,
     'Holy Aspect Distillation': 5000,
-    "Lightning Aspect Distillation": 14000,
+    "Lightning Aspect Distillation": 11000,
     'Lyric Aspect Distillation': 5000,
-    "Madness Aspect Distillation": 14000,
+    "Madness Aspect Distillation": 11000,
     'Poison Aspect Distillation': 6000,
-    'Shadow Aspect Distillation': 17000,
+    'Shadow Aspect Distillation': 19000,
     'Void Aspect Distillation': 8000,
     'War Aspect Distillation': 5000,
     'Water Aspect Distillation': 5000,
@@ -225,13 +229,13 @@ commodity_5000_prices = {
 }
 
 scroll_prices = {
-    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 60000,
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 55000,
     "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 29000,#[:7]
     "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 29000,#[:7]
     "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
     "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
-    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
     "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,#[:4]
     "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 17000,#[:4]
     "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 32000,
@@ -253,7 +257,7 @@ scroll_prices = {
     "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
     "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
     "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,#[:4]
-    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 50000,
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 48000,
     "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
     "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
@@ -515,7 +519,7 @@ misc_lp_prices = { #exact string matters
     "an emote deed": 200000,
     "a battle commendation (double-click to consume and receive reward item)": 11000,
     "invulnerability leather cap": 95000,
-    "dyeable gilded gold carpet tile": 20000,
+    "dyeable gilded gold carpet tile": 25000,
     "Aspect Triumph": 500000,
 
     "bloody skull pile": 400000,
@@ -658,7 +662,7 @@ my_locations = {
     "Farming Finds":(1436,1029,('Misc1',1989,222,10)),
     "W of Urukton":(1899,1163,('Misc1',1989,223,20)),
     "Ugly Bridge": (1329,1097,('Misc1',1989,224,10)),
-    "SE Terran Clearing": (966,1448,('Misc1',1989,225,10)),
+    "SE Terran Clearing": (966,1448,('Misc1',1989,225,20)),
     
     # Misc 2 2828
     "W of Prev Gate":(1425,1483,('Misc2',2828,200,10)),
@@ -680,7 +684,7 @@ my_locations = {
     "N of Ice Prison":(3966,53,('Misc2',2828,215,20)),
     "Mid Terran Clearing":(912,1414,('Misc2',2828,216,10)),
     "NW of Pwnstar":(4153,1044,('Misc2',2828,217,20)),
-    "placeholder":(0,0,('Misc2',2828,218,10)),
+    "NW of GH":(3782,753,('Misc2',2828,218,10)),
     "placeholder":(0,0,('Misc2',2828,219,20)),
     "placeholder":(0,0,('Misc2',2828,220,10)),
     "placeholder":(0,0,('Misc2',2828,221,20)),
@@ -705,6 +709,76 @@ my_locations = {
     "JSHINE": (4224,1055, ('Unlisted',0,0,0)),
 }
 
+aspect_hues = {
+        "Air": 2263,
+        "Arcane": 1560,
+        "Artisan": 2096,
+        "Blood": 2087,
+        "Command": [1428,1782],
+        "Death": 2155,
+        "Discipline": 2490,
+        "Earth": 2767,
+        "Eldritch": [2618,2615],
+        "Fire": 2635,
+        "Fortune": 2843,
+        "Frost": 2234,
+        "Gadget": 2669,
+        "Harvest": [2208,2086],
+        "Holy": 2153,
+        "Lightning": 2650,
+        "Lyric": 2241,
+        "Madness": 1060,
+        "Poison": 2897,
+        "Shadow": [1757,1790],
+        "Void": [2582, 2599],
+        "War": 2503,
+        "Water": [2592, 1788],
+}
+
+#blue 2722
+#gray 2768
+#purple 2735
+#orange 2810
+#red 2642
+#yellow 2291
+#light green 2479
+#dark green 2564
+
+scroll_hues = {
+    "alchemy": 2291,
+    "animal lore": 2479,
+    "animal taming": 2479,
+    "arms lore": 2722,
+    "begging": 2642,
+    "blacksmithy": 2291,
+    "camping": 2722,
+    "carpentry": 2291,
+    "cartography": 2768,
+    "chivalry": 2810,
+    "cooking": 2291,
+    "detect hidden": 2768,
+    "discordance": 2735,
+    "fishing": 2564,
+    "forensic eval": 2722,
+    "herding": 2479,
+    "inscription": 2291,
+    "item id": 2642,
+    "lockpicking": 2768,
+    "lumberjacking": 2564,
+    "mining": 2564,
+    "musicianship": 2735,
+    "necromancy": 2810,
+    "peacemaking": 2735,
+    "poisoning": 2291,
+    "provocation": 2735,
+    "spirit speak": 2722,
+    "stealth": 2642,
+    "tailoring": 2291,
+    "taste id": 2642,
+    "tinkering": 2291,
+    "tracking": 2722,
+    "veterinary": 2479,
+}
 
 def get_misc_price_list():
     stock_misc = [
@@ -753,41 +827,85 @@ def calculate_grid_coordinates(start_xy, end_xy, row_col):
 
 # print(grid_coordinates)
 
+def get_inventory_data_dict(sorted_category_dict):
+    transformer = {
+        "aspect cores": "Cores",
+        "distillation": "Distils",
+        "skill mastery scroll": "Skill Mastery Scrolls",
+        "llorcs yretsam lliks": "Skill Mastery Scrolls",
+    }
+    extracted_inventory_data_dict = {}
+    for category, item_dict in sorted_category_dict.items():
+        for item_name,item_data in item_dict.items():
+            extracted_inventory_data_dict[item_name] = tuple([tup[2] if len(tup) > 1 else 0 for tup in item_data])
+    
+    return extracted_inventory_data_dict
+    restock_data_dict_copy = copy.deepcopy(restock_data_dict)
+    for item_name, data in restock_data_dict.items():
+
+        item_inventory_tuple = extracted_item_data_dict.get(item_name,[]) #[(20,15000,1), (5, 15000, 2), (1, 15000, 2)]
+        item_restock_data = restock_data_dict[item_name] #{'stack_size': (20, 5, 1),'stack_quantity': (1, 2, 2),'start_xy': ((44, 74), (44, 65), (44, 83)),'end_xy': ((164, 74), (164, 65), (164, 83)),'row_col': (1, 24),'item_graphic': 3985,'container_serial': 0x511A5A6C}
+        # temp_list = []
+        # for i, item_tuple in enumerate(item_inventory_tuples):
+        #     if item_tuple[0] == item_restock_data["stack_size"][i]:
+        #         revised_quantity = max(item_restock_data["stack_quantity"][i] - item_tuple[2],0)
+        #         temp_list.append(revised_quantity)
+        # if temp_list:
+        #     restock_data_dict_copy[item_name]["stack_quantity"] = tuple(temp_list)
+    return restock_data_dict_copy
 
 
-def render_stock_script():
+
+
+def pretty_print(data, indent=0):
+    if isinstance(data, dict):
+        for key, value in data.items():
+            print(' ' * indent + str(key) + ':')
+            pretty_print(value, indent + 4)
+    elif isinstance(data, list) and all(isinstance(i, list) for i in data):
+        print(' ' * indent + '[\n' + ',\n'.join(' ' * (indent + 4) + str(sublist) for sublist in data) + '\n' + ' ' * indent + ']')
+    else:
+        print(' ' * indent + str(data))
+
+#sorted_category_dict["Cores"]["Air Aspect Core"] = [(20, 15000, 1), (5, 15000, 2), (1, 15000, 2)]
+def render_stock_script(sorted_category_dict={}):
     restock_data_dict = {
-        "a skill mastery orb (used to increase a player's total skill cap by 1)": {'stack_size': (20,5),'stack_quantity': (4, 9),'pos_xy': ((105, 142), (95, 142)),'item_graphic': 22336,'container_serial': 0x483BE859},
-        'plant chemicals': {'stack_size': (100,),'stack_quantity': (4,),'pos_xy': ((97, 122),),'item_graphic': 29030,'container_serial': 0x483BE859},
+        "a skill mastery orb (used to increase a player's total skill cap by 1)": {'stack_size': (20,5),'stack_quantity': (4, 9),'pos_xy': ((105, 144), (105, 129)),'item_graphic': 22336,'container_serial': 0x483BE859},
+        'plant chemicals': {'stack_size': (100,),'stack_quantity': (4,),'pos_xy': ((88, 138),),'item_graphic': 29030,'container_serial': 0x483BE859},
         'dyeable gilded gold carpet tile': {'stack_size': (1,),'stack_quantity': (10,),'pos_xy': ((164, 139),),'item_graphic': 43166,'container_serial': 0x483BE859},
         'pristine lumber': {'stack_size': (5,),'stack_quantity': (2,),'pos_xy': ((154, 199),),'item_graphic': 23996,'container_serial': 0x483BE859},
         'immaculate stone': {'stack_size': (5,),'stack_quantity': (2,),'pos_xy': ((164, 199),),'item_graphic': 23997,'container_serial': 0x483BE859},
         'an arcane scroll': {'stack_size': (100,),'stack_quantity': (10,),'pos_xy': ((44, 143),),'item_graphic': 3827,'container_serial': 0x483BE859},
-        'mastercrafting diagram': {'stack_size': (10,),'stack_quantity': (3,),'pos_xy': ((65, 140),),'item_graphic': 17087,'container_serial': 0x483BE859},
+        'mastercrafting diagram': {'stack_size': (10,),'stack_quantity': (3,),'pos_xy': ((63, 139),),'item_graphic': 17087,'container_serial': 0x483BE859},
         'prevalia coins [blessed]': {'stack_size': (1,),'stack_quantity': (20,),'pos_xy': ((44, 90),),'item_graphic': 16898,'container_serial': 0x483BE859},
-        'arcane essence': {'stack_size': (1000,),'stack_quantity': (1,),'pos_xy': ((108, 130),),'item_graphic': 12686,'container_serial': 0x483BE859},
+        'arcane essence': {'stack_size': (1000,),'stack_quantity': (1,),'pos_xy': ((94, 141),),'item_graphic': 12686,'container_serial': 0x483BE859},
         'aspect core': {'stack_size': (20, 5, 1),'stack_quantity': (1, 2, 2),'start_xy': ((44, 74), (44, 65), (44, 83)),'end_xy': ((164, 74), (164, 65), (164, 83)),'row_col': (1, 24),'item_graphic': 3985,'container_serial': 0x511A5A6C},
-        'distillation': {'stack_size': (20, 5),'stack_quantity': (1, 2),'start_xy': ((44, 120), (44, 105)),'end_xy': ((164, 120), (164, 105)),'row_col': (1, 24),'item_graphic': 17686,'container_serial': 0x511A5A6C},
-        'skill mastery scroll': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((44, 100), (44, 90)),'end_xy': ((164, 100), (164, 90)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC},
-        'llorcs yretsam lliks': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((44, 130), (44, 120)),'end_xy': ((164, 130), (164, 120)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC}
+        'distillation': {'stack_size': (5,),'stack_quantity': (2,),'start_xy': ((44, 105),),'end_xy': ((164, 105), ),'row_col': (1, 24),'item_graphic': 17686,'container_serial': 0x511A5A6C},
+        'skill mastery scroll': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((47, 100), (47, 90)),'end_xy': ((167, 100), (167, 90)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC},
+        'llorcs yretsam lliks': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((50, 143), (50, 133)),'end_xy': ((170, 143), (170, 133)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC}
         }
-    out_str = '''removelist "tempItemList"
+    current_inventory_data_dict = get_inventory_data_dict(sorted_category_dict)
+    logger.debug(json.dumps(current_inventory_data_dict,indent=4))
+    out_str = '''overhead "Starting Restock"
+removelist "tempItemList"
 createlist "tempItemList"
 @clearignore'''
-
+    #print(f"current_inv: {current_inventory_data_dict}")
     price_list = get_misc_price_list()
     for item_name, item_price in price_list.items():
         restock_data = restock_data_dict[item_name]
-        out_str += render_stock_script_simple(item_name, item_price, restock_data)
-    restock_data = restock_data_dict["aspect core"]
-    out_str += render_stock_script_complex("aspect core",restock_data)
-    restock_data = restock_data_dict["distillation"]
-    out_str += render_stock_script_complex("distillation",restock_data)
-    restock_data = restock_data_dict["skill mastery scroll"]
-    out_str += render_stock_script_complex("skill mastery scroll",restock_data)
-    restock_data = restock_data_dict["llorcs yretsam lliks"]
-    out_str += render_stock_script_complex("llorcs yretsam lliks",restock_data)
+        out_str += render_stock_script_simple(item_name, item_price, restock_data,current_inventory_data_dict)
+
+
+    out_str += render_stock_script_complex("aspect core",restock_data_dict["aspect core"],current_inventory_data_dict)
+    out_str += render_stock_script_complex("distillation",restock_data_dict["distillation"],current_inventory_data_dict)
+    out_str += render_stock_script_complex("skill mastery scroll",restock_data_dict["skill mastery scroll"],current_inventory_data_dict)
+    out_str += render_stock_script_complex("llorcs yretsam lliks",restock_data_dict["llorcs yretsam lliks"],current_inventory_data_dict)
+
+    out_str += 'overhead "Finished Restock"'
     pyperclip.copy(out_str)
+    return out_str
+
 
 def split_dict_in_half(d):
     items = list(d.items())
@@ -797,17 +915,21 @@ def split_dict_in_half(d):
     return dict1, dict2
 
 
-def render_stock_script_simple(item_name, price_per, restock_data):
+def render_stock_script_simple(item_name, price_per, restock_data,current_inventory_data_dict):
     import random
     stack_sizes = restock_data['stack_size']
     stack_quantities = restock_data['stack_quantity']
+    adjust_quantity = current_inventory_data_dict.get(item_name,tuple())
+    if isinstance(adjust_quantity,(list,tuple)) and any(adjust_quantity):
+        stack_quantities = tuple(max(a - b,0) for a, b in zip(stack_quantities, adjust_quantity))
     pos_coords = restock_data['pos_xy']
     container_serial = restock_data['container_serial']
     item_graphic = restock_data['item_graphic']
-    
     outStr = ""
     for ind, stack_size in enumerate(stack_sizes):
         stack_quantity = stack_quantities[ind]
+        if stack_quantity <= 0:
+            continue
         x, y = pos_coords[ind]
         x += random.randrange(-2,2)
         y += random.randrange(-2,2)
@@ -817,6 +939,8 @@ def render_stock_script_simple(item_name, price_per, restock_data):
         outStr += f'''
 @clearignore
 if findtype {item_graphic} self
+    dclick {container_serial}
+    wait 650
     for {stack_quantity}
         removelist "tempItemList"
         createlist "tempItemList"
@@ -872,8 +996,7 @@ endif
             
     return outStr
 
-def render_stock_script_complex(item_category,restock_data):
-    import random
+def render_stock_script_complex(item_category,restock_data,current_inventory_data_dict):
     half1_scroll_prices,half2_scroll_prices = split_dict_in_half(scroll_prices)
 
     price_list = {
@@ -887,7 +1010,7 @@ def render_stock_script_complex(item_category,restock_data):
     stack_quantities = restock_data['stack_quantity']
     start_coords = restock_data['start_xy']
     end_coords = restock_data['end_xy']
-    row_col = restock_data['row_col']
+    row_col = restock_data.get('row_col',(1,1))
     container_serial = restock_data['container_serial']
     item_graphic = restock_data['item_graphic']
 
@@ -898,23 +1021,39 @@ def render_stock_script_complex(item_category,restock_data):
     coord_lists = [coord_list_1,coord_list_2,coord_list_3]
 
     outStr = ""
-
+    hue = ""
     transformer = {"ani": True, "car": True, "for": True,"pea": True,"ste": True,"min":True}
+    logger.debug(f"-----------------------------------------------------")
 
     for jnd, (item_name,item_price) in enumerate(price_list.items()):
         for ind, stack_size in enumerate(stack_sizes):
             temp_name = item_name
-            stack_quantity = stack_quantities[ind]
+            adjust_quantities = current_inventory_data_dict.get(temp_name,tuple()) #empty inventory tuple fallback
+          
+            adjust_quantity = adjust_quantities[ind] if ind < len(adjust_quantities) else 0
+            stack_quantity = stack_quantities[ind] - adjust_quantity
+            if stack_quantity <= 0:
+                continue
+            if "item id" in temp_name:
+                logger.debug(f"{temp_name} ({stack_size}pcs) in stock: {adjust_quantity}\tTo restock: {stack_quantity}\tstack_quantities[ind]:{stack_quantities[ind]}\tadjust_quantities:{adjust_quantities}")
+            #print(f"{item_name} ({stack_size} stack): {stack_quantity}")
             pos_coords = coord_lists[ind][jnd]
             x, y = pos_coords
             if "aspect core" in item_category:
                 temp_name = item_name[:3]
+                type_name = item_name[:-12]
+                hue = aspect_hues[type_name]
+                if isinstance(hue,list):
+                    hue = hue[0]
                 if ind == 2:
                     x += 2
             elif "skill mastery scroll" in item_category or "llorcs yretsam lliks" in item_category:
                 temp_name = temp_name.replace(" skill mastery scroll (used to increase a player's skill cap for a skill by 1)","")
+                type_name = item_name[:-78]
+                hue = scroll_hues[type_name]
+                if isinstance(hue,list):
+                    hue = hue[0]
                 temp_name = item_name[:3]
-
                 if transformer.get(temp_name,False):
                     if "ani" in temp_name:
                         temp_name = item_name[:8]
@@ -922,6 +1061,10 @@ def render_stock_script_complex(item_category,restock_data):
                         temp_name = item_name[:4]
             elif "distillation" in item_category:
                 temp_name = item_name[:3] if "Discipline" not in item_name else item_name[:4]
+                type_name = item_name[:-20]
+                hue = aspect_hues[type_name]
+                if isinstance(hue,list):
+                    hue = hue[1]
             # x += random.randrange(-1,1)
             # y += random.randrange(-1,1)
                 
@@ -930,11 +1073,11 @@ def render_stock_script_complex(item_category,restock_data):
 
             outStr += f'''
 @clearignore
-if findtype {item_graphic} self
+if findtype {item_graphic} self {hue}
     for {stack_quantity}
         removelist "tempItemList"
         createlist "tempItemList"
-        if findtypelist "tempItemList" {item_graphic} self
+        if findtypelist "tempItemList" {item_graphic} self {hue}
             foreach "tempItem" in "tempItemList"
                 getlabel "tempItem" "itemDesc"
                 if "{normalize_name(temp_name)}" in "itemDesc"
@@ -1007,5 +1150,6 @@ def format_with_commas(number_string):
         return formatted_number
     except ValueError:
         return "Invalid input"
-    
-render_stock_script()
+
+if __name__ == "__main__":  
+    render_stock_script()
