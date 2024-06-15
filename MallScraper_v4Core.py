@@ -75,7 +75,7 @@ def multi_parse_wide(in_tuple):
         else:
             temp_url = page_url
         #print(temp_url)
-        cookie = {"app": "MTcxNTMxNjQxM3w3WnhST1VqNjJGX0ZJRXl5eFlndS1iQ3o4WTlCMmY1YUFNTGFJSVZIZnhwNWFDT25qN1pTcHljYzd0OTd0TWp4cXZxSmdDVWMtZElxOGpLaUgzNWw4YzhwVnhvdUNXZjJIaElNSWtnMmRLd2I1bTA9fNxuBg_z5OqcZth7LpuGmqGUbhKuDld5JNQeV8-Fc_F4"}
+        cookie = {"app": "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S"}
         response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
             print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
@@ -222,7 +222,7 @@ def simple_parse_wide(in_tuple):
         else:
             temp_url = page_url
         #print(temp_url)
-        cookie = {"app": "MTcxNTMxNjQxM3w3WnhST1VqNjJGX0ZJRXl5eFlndS1iQ3o4WTlCMmY1YUFNTGFJSVZIZnhwNWFDT25qN1pTcHljYzd0OTd0TWp4cXZxSmdDVWMtZElxOGpLaUgzNWw4YzhwVnhvdUNXZjJIaElNSWtnMmRLd2I1bTA9fNxuBg_z5OqcZth7LpuGmqGUbhKuDld5JNQeV8-Fc_F4"}
+        cookie = {"app": "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S"}
         response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
             print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
@@ -1580,7 +1580,7 @@ endwhile"""
                 headers = {
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 }
-                cookie = {"app": "MTcxNTMxNjQxM3w3WnhST1VqNjJGX0ZJRXl5eFlndS1iQ3o4WTlCMmY1YUFNTGFJSVZIZnhwNWFDT25qN1pTcHljYzd0OTd0TWp4cXZxSmdDVWMtZElxOGpLaUgzNWw4YzhwVnhvdUNXZjJIaElNSWtnMmRLd2I1bTA9fNxuBg_z5OqcZth7LpuGmqGUbhKuDld5JNQeV8-Fc_F4"}
+                cookie = {"app": "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S"}
                 response = requests.get(page_url, headers=headers, cookies=cookie)
                 if response.status_code != 200:
                     print(f"Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")
@@ -1632,7 +1632,7 @@ endwhile"""
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 }
                 time.sleep(1)
-                cookie = {"app": "MTcxNTMxNjQxM3w3WnhST1VqNjJGX0ZJRXl5eFlndS1iQ3o4WTlCMmY1YUFNTGFJSVZIZnhwNWFDT25qN1pTcHljYzd0OTd0TWp4cXZxSmdDVWMtZElxOGpLaUgzNWw4YzhwVnhvdUNXZjJIaElNSWtnMmRLd2I1bTA9fNxuBg_z5OqcZth7LpuGmqGUbhKuDld5JNQeV8-Fc_F4"}
+                cookie = {"app": "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S"}
                 response = requests.get(page_url, headers=headers, cookies=cookie)
 
                 if response.status_code != 200:
@@ -2160,7 +2160,7 @@ endwhile"""
         print("sort_tree_quick_test1")
         tree_children = self.tree.get_children("")          
         if(len(tree_children) == 0):
-            print("sort_tree_quick_test_early_exit")
+            #print("sort_tree_quick_test_early_exit")
             return
         for child in tree_children:
             row_data = {}
@@ -2170,11 +2170,11 @@ endwhile"""
         rows_by_location = defaultdict(list)
         items_by_vendor = defaultdict(lambda: defaultdict(str))
         vendors_by_location = defaultdict(lambda: defaultdict(str))
-        print("sort_tree_quick_test2")
+        #print("sort_tree_quick_test2")
         for row in data:
             rows_by_location[row['Location'].split('\t')[1]].append(row)
             value_to_copy_raw = row["#9"]
-            print('v', value_to_copy_raw)
+            #print('v', value_to_copy_raw)
             serial_match = re.search(r'\?(\d+)(?:\?(\d+))(?:\?(\d+))?#', value_to_copy_raw) #'https://www.exploreoutlands.com/?471890?1251126567?312345125#pos:869,1381,13'
             second_try = re.search(r'\?(\d+)\?', value_to_copy_raw)
             vendor_serial = serial_match.group(1) if serial_match else second_try.group(1) if second_try else 0
@@ -2190,7 +2190,7 @@ endwhile"""
             items_by_vendor[vendor_serial][item_description_compare] = item_id
             vendors_by_location[row['Location'].split('\t')[1]][row["Vendor"]] = vendor_serial
         data_by_location = []
-        print("sort_tree_quick_test3")
+        #print("sort_tree_quick_test3")
         for location, rows in rows_by_location.items():
             profit_sum = 0
             ctp_sum = 0
@@ -2223,7 +2223,7 @@ endwhile"""
                 "Margin_Average": profit_margin_average,
             }
             data_by_location.append((location,loc_data))
-        print("sort_tree_quick_test4")
+        #print("sort_tree_quick_test4")
 
         loc_data_sorted = sorted(data_by_location,key=lambda x: (-x[1]["Profit"],x[1]["CTP_Average"],-x[1]["Margin_Average"]))
         loc_sorted = []
@@ -2239,10 +2239,10 @@ endwhile"""
             capsule_loc_name = l.split("\t")[1]
             if capsule_loc_name not in locationIndex and int(float(r) != 1001):
                 locationIndex.append(capsule_loc_name)
-        print("sort_tree_quick_test5")
+        #print("sort_tree_quick_test5")
         self.tree.see(loc_id_list_sorted[0][2])
         self.root.update()
-        print("sort_tree_quick_test6")
+        #print("sort_tree_quick_test6")
         #Generate razor script
         scriptString = '@setvar! "timeout" 650'
         for location in locationIndex:

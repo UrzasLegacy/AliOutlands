@@ -1,0 +1,12 @@
+@clearignore
+
+removelist 'bodyArr'
+createlist 'bodyArr'
+
+if findtypelist 'bodyArr' 'corpse' ground -1 1 2
+    foreach 'body' in 'bodyArr'
+
+        dclick 'body'
+
+    endfor
+endif

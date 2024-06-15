@@ -10,29 +10,29 @@ logger = logging.getLogger('my_module')
 #todo add hue lookup for cores/distil and for skill scrolls
 
 core_prices = { #exact string MATTERS
-    "Air Aspect Core": 75000,
+    "Air Aspect Core": 80000,
     "Arcane Aspect Core": 100000,
-    "Artisan Aspect Core": 55000,
+    "Artisan Aspect Core": 60000,
     "Blood Aspect Core": 12000,
-    "Command Aspect Core": 100000,
+    "Command Aspect Core": 95000,
     "Death Aspect Core": 17000,
-    "Discipline Aspect Core": 13000,
-    "Earth Aspect Core": 11000,
+    "Discipline Aspect Core": 12000,
+    "Earth Aspect Core": 10000,
     "Eldritch Aspect Core": 80000,
-    "Fire Aspect Core": 18000,
-    "Frost Aspect Core": 26000,
-    "Fortune Aspect Core": 85000,
-    "Gadget Aspect Core": 18000,
-    "Harvest Aspect Core": 100000,
+    "Fire Aspect Core": 17000,
+    "Frost Aspect Core": 22000,
+    "Fortune Aspect Core": 80000,
+    "Gadget Aspect Core": 15000,
+    "Harvest Aspect Core": 90000,
     "Holy Aspect Core": 12000,
-    "Lightning Aspect Core": 75000,
-    "Lyric Aspect Core": 40000,
-    "Madness Aspect Core": 95000,
-    "Poison Aspect Core": 55000,
+    "Lightning Aspect Core": 55000,
+    "Lyric Aspect Core": 30000,
+    "Madness Aspect Core": 90000,
+    "Poison Aspect Core": 48000,
     "Shadow Aspect Core": 39000,
     "Void Aspect Core": 45000,
     "War Aspect Core": 7000,
-    "Water Aspect Core": 15000,
+    "Water Aspect Core": 12000,
 }
 ''' Pre expansion prices
     "Blood Aspect Core": 18000,
@@ -53,7 +53,7 @@ core_prices = { #exact string MATTERS
     "Command Aspect Core": 185000,
     "Artisan Aspect Core": 68000,
     "Air Aspect Core": 70000,
-    "Harvest Aspect Core": 180000,
+    "Harvest Aspect Core": 190000,
 '''
 
 extract_prices = {
@@ -204,7 +204,7 @@ leather_prices = { #https://outlandmalls.com/?item=&search_category_id=1&search_
     "rosehide commodity (2,500 total)": 250000,
     "verehide commodity (2,500 total)": 300000,
     "valehide commodity (2,500 total)": 400000, 
-    "avarhide commodity (2,500 total)": 800000,
+    "avarhide commodity (2,500 total)": 900000,
 }
 
 commodity_2500_prices = {
@@ -229,64 +229,64 @@ commodity_5000_prices = {
 }
 
 scroll_prices = {
-    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 50000,
-    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 29000,#[:7]
-    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 29000,#[:7]
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 46000,
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 24000,#[:7]
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 24000,#[:7]
     "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
-    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
-    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
-    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,#[:4]
-    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 17000,#[:4]
-    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 35000,
-    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
-    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 28000,
-    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
-    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
-    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,#[:4]
-    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 31000,
-    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 40000,
-    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
-    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 27000,
-    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
-    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
-    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
-    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 42000,
-    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,#[:4]
-    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
+    "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
+    "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,#[:4]
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,#[:4]
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 30000,
+    "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 27000,
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
+    "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
+    "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,#[:4]
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 28000,
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 45000,
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 24000,
+    "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
+    "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
+    "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 38000,
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,#[:4]
+    "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
     "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
-    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
-    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 25000,#[:4]
-    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 45000,
-    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
-    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
+    "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 26000,#[:4]
+    "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 42000,
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
+    "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 27000,
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
 }
 
 link_prices = { #exact chain type string MATTERS
     "Melee Accuracy": [100000,600000,2700000], #Melee Accuracy/Defense
-    "Melee Defense": [100000,500000,2700000], #Melee Accuracy/Defense
-    "Melee Accuracy/Defense": [100000,500000,2700000],
-    "Melee Special Chance/Special Damage": [80000,500000,2700000],
+    "Melee Defense": [100000,600000,2700000], #Melee Accuracy/Defense
+    "Melee Accuracy/Defense": [100000,600000,2700000],
+    "Melee Special Chance/Special Damage": [90000,600000,2700000],
     "Melee Special Chance": [90000,600000,2700000], #Melee Special Chance/Special Damage
-    "Melee Swing Speed": [100000,500000,2700000],
-    "Melee Damage": [60000,500000,2300000], #Melee Damage/Ignore Armor Chance
-    "Melee Ignore Armor Chance": [60000,500000,2300000], #Melee Damage/Ignore Armor Chance
-    "Melee Damage/Ignore Armor Chance": [60000,500000,2300000],
-    "Melee Aspect Effect Modifier": [60000,500000,2600000],
-    "Melee Aspect Effect Chance": [80000,550000,2700000],
-    "Spell Damage": [60000,500000,2300000], #Spell Damage/Ignore Resist Chance
-    "Spell Damage When No Followers":   [80000,500000,2300000],
-    "Spell Ignore Resist Chance": [60000,500000,2300000], #Spell Damage/Ignore Resist Chance
-    "Spell Damage/Ignore Resist Chance": [60000,500000,2300000],
-    "Spell Charged Chance": [60000,500000,2300000], #Spell Charged Chance/Charged Damage
-    "Spell Charged Damage": [60000,500000,2300000], #Spell Charged Chance/Charged Damage
-    "Spell Charged Chance/Charged Damage": [60000,500000,2300000],
-    "Meditation Rate": [60000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance
-    "Spell Disrupt Avoid Chance": [60000,500000,2300000], #Meditation Rate/Spell Disrupt Avoid Chance, Spell Damage When No Followers
-    "Meditation Rate/Disrupt Avoid Chance": [60000,500000,2300000], #Spell Damage When No Followers
-    "Spell Aspect Effect Modifier": [80000,500000,2300000],
+    "Melee Swing Speed": [100000,600000,2700000],
+    "Melee Damage": [170000,650000,2600000], #Melee Damage/Ignore Armor Chance
+    "Melee Ignore Armor Chance": [90000,600000,2400000], #Melee Damage/Ignore Armor Chance
+    "Melee Damage/Ignore Armor Chance": [100000,550000,2400000],
+    "Melee Aspect Effect Modifier": [90000,600000,2600000],
+    "Melee Aspect Effect Chance": [130000,550000,2700000],
+    "Spell Damage": [130000,550000,2500000], #Spell Damage/Ignore Resist Chance
+    "Spell Damage When No Followers":   [150000,550000,2500000],
+    "Spell Ignore Resist Chance": [90000,600000,2400000], #Spell Damage/Ignore Resist Chance
+    "Spell Damage/Ignore Resist Chance": [100000,600000,2400000],
+    "Spell Charged Chance": [90000,600000,2400000], #Spell Charged Chance/Charged Damage
+    "Spell Charged Damage": [90000,600000,2400000], #Spell Charged Chance/Charged Damage
+    "Spell Charged Chance/Charged Damage": [90000,600000,2400000],
+    "Meditation Rate": [90000,600000,2400000], #Meditation Rate/Spell Disrupt Avoid Chance
+    "Spell Disrupt Avoid Chance": [90000,600000,2400000], #Meditation Rate/Spell Disrupt Avoid Chance, Spell Damage When No Followers
+    "Meditation Rate/Disrupt Avoid Chance": [150000,550000,2500000], #Spell Damage When No Followers
+    "Spell Aspect Effect Modifier": [90000,600000,2400000],
     "Spell Aspect Special Chance": [130000,650000,2500000],
     "Damage to Beastial Creatures": [75000,550000,2500000], #Nusero Damage
     "Damage to Construct Creatures": [75000,550000,2500000], #Mausoleum Damage
@@ -305,47 +305,47 @@ link_prices = { #exact chain type string MATTERS
     "Darkmire Temple Damage": [75000,550000,2500000],
     "Ossuary Damage": [75000,550000,2500000],
     "Pulma Damage": [75000,550000,2500000],
-    "Shadowspire Cathedral Damage": [90000,500000,2500000],
-    "Wilderness Damage": [100000,550000,2500000],
-    "Follower Damage": [140000,700000,2700000],
+    "Shadowspire Cathedral Damage": [90000,600000,2500000],
+    "Wilderness Damage": [140000,550000,2500000],
+    "Follower Damage": [160000,700000,2700000],
     "Damage to Barded Creatures": [110000,550000,2700000],
-    "Damage to Poisoned Creatures": [120000,550000,2700000],
-    "Poison Damage/Resist Ignore": [60000,500000,2300000],
-    "Backstab Damage": [100000,550000,2500000],
+    "Damage to Poisoned Creatures": [140000,550000,2700000],
+    "Poison Damage/Resist Ignore": [90000,600000,2400000],
+    "Backstab Damage": [150000,600000,2500000],
     "Trap Damage": [100000,525000,2600000],
-    "Damage to Bosses": [80000,500000,2600000],
-    "Damage on Ships": [100000,500000,2500000],
-    "Ship Cannon Damage": [100000,500000,2600000],
-    "Damage to Creatures Above 66% HP": [60000,500000,2300000], #Damage Dealt By Player
-    "Damage to Creatures Below 33% HP": [60000,500000,2300000], #Damage Dealt By Player
-    "Damage Dealt By Player": [60000,500000,2300000],
-    "Physical Damage Resistance": [60000,500000,2300000], #Damage Resistance
-    "Spell Damage Resistance": [60000,500000,2300000], #Damage Resistance
-    "Follower Damage Resistance": [110000,500000,2700000], #Alchemy/Healing/Veterinary Skill, Follower Attack Speed
-    "Effective Parrying Skill": [60000,500000,2300000], #Damage Resistance
-    "Effective Magic Resist Skill": [60000,500000,2300000], #Damage Resistance
-    "Healing Received": [60000,500000,2300000], #Effective Alchemy/Healing/Veterinary Skill
-    "Follower Attack Speed": [100000,500000,2700000],
-    "Follower Healing Received": [100000,500000,2700000], #Effective Alchemy/Healing/Veterinary Skill, Follower Attack Speed
-    "Boss Damage Resistance": [80000,500000,2300000], #Damage Resistance
-    "Damage Resistance on Ships": [80000,500000,2300000], #Damage Resistance
-    "Damage Resistance": [80000,500000,2300000],
-    "Chest Success Chances/Progress": [80000,550000,2600000],
-    "Effective Skill on Chests": [80000,550000,2600000],
-    "Alchemy/Healing/Veterinary": [60000,500000,2300000],
-    "Effective Lockpicking Skill": [80000,550000,2600000], #Chest Success Chances/Progress
-    "Effective Poisoning Skill": [60000,500000,2300000], #Poison Damage/Resist Ignore
+    "Damage to Bosses": [90000,600000,2600000],
+    "Damage on Ships": [130000,550000,2500000],
+    "Ship Cannon Damage": [120000,550000,2600000],
+    "Damage to Creatures Above 66% HP": [100000,550000,2400000], #Damage Dealt By Player
+    "Damage to Creatures Below 33% HP": [100000,550000,2400000], #Damage Dealt By Player
+    "Damage Dealt By Player": [100000,550000,2400000],
+    "Physical Damage Resistance": [120000,550000,2400000], #Damage Resistance
+    "Spell Damage Resistance": [120000,550000,2400000], #Damage Resistance
+    "Follower Damage Resistance": [100000,600000,2400000], #Alchemy/Healing/Veterinary Skill, Follower Attack Speed
+    "Effective Parrying Skill": [120000,550000,2400000], #Damage Resistance
+    "Effective Magic Resist Skill": [120000,550000,2400000], #Damage Resistance
+    "Healing Received": [90000,600000,2400000], #Effective Alchemy/Healing/Veterinary Skill
+    "Follower Attack Speed": [100000,600000,2700000],
+    "Follower Healing Received": [100000,600000,2700000], #Effective Alchemy/Healing/Veterinary Skill, Follower Attack Speed
+    "Boss Damage Resistance": [90000,600000,2400000], #Damage Resistance
+    "Damage Resistance on Ships": [90000,600000,2400000], #Damage Resistance
+    "Damage Resistance": [120000,550000,2400000],
+    "Chest Success Chances/Progress": [90000,550000,2600000],
+    "Effective Skill on Chests": [90000,550000,2600000],
+    "Alchemy/Healing/Veterinary": [90000,600000,2400000],
+    "Effective Lockpicking Skill": [90000,550000,2600000], #Chest Success Chances/Progress
+    "Effective Poisoning Skill": [130000,550000,2400000], #Poison Damage/Resist Ignore
     "Effective Barding Skill": [110000,550000,2700000], #Bard Reset/Break Ignore Chance
-    "Chivalry Skill": [60000,500000,2300000], 
-    "Necromancy Skill": [140000,680000,2700000], #Follower Damage, Follower Damage Resistance
-    "Barding Effect Durations": [60000,500000,2600000], #Bard Reset/Break Ignore Chance
-    "Bard Reset/Break Ignore Chance": [60000,500000,2600000],
-    "Spirit Speak/Inscription": [140000,680000,2700000], #Follower Damage, Follower Damage Resistance
+    "Chivalry Skill": [90000,600000,2400000], 
+    "Necromancy Skill": [140000,690000,2700000], #Follower Damage, Follower Damage Resistance
+    "Barding Effect Durations": [90000,600000,2600000], #Bard Reset/Break Ignore Chance
+    "Bard Reset/Break Ignore Chance": [90000,600000,2600000],
+    "Spirit Speak/Inscription": [140000,690000,2700000], #Follower Damage, Follower Damage Resistance
     "Chance on Stealth For 5 Extra Steps": [90000,550000,2600000],
-    "Gold/Doubloon Drop Increase": [60000,500000,2300000],
-    "Special/Rare Loot Chance": [90000,500000,2300000],
-    "reforging tool": [90000,200000,400000],
-    "corrupted_link_price_threshold": 180000
+    "Gold/Doubloon Drop Increase": [90000,600000,2400000],
+    "Special/Rare Loot Chance": [100000,550000,2400000],
+    "reforging tool": [110000,240000,450000],
+    "corrupted_link_price_threshold": 600000
 }
 
 hue_list = {
@@ -359,7 +359,7 @@ hue_list = {
     'Shimmer Solstice':      {'hue': 1967, 'rare cloth': 75000, 'runebook dye': 300000,  'accessory dye': 50000, 'headwear dye': 450000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 500000, 'facial hair dye': 500000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Solstice
     'Shimmer Dahlia':        {'hue': 1956, 'rare cloth': 125000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 750000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Dahlia
     'Shimmer Paradox':       {'hue': 2346, 'rare cloth': 600000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 3600000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 1000000, 'facial hair dye': 1000000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Paradox
-    'Shimmer Redux':         {'hue': 1957, 'rare cloth': 300000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 1800000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Redux
+    'Shimmer Redux':         {'hue': 1957, 'rare cloth': 300000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 1900000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Redux
     'Shimmer Spice':         {'hue': 1557, 'rare cloth': 500000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 3000000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Spice
     'Shimmer Garnet':        {'hue': 1571, 'rare cloth': 500000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 3000000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 1000000, 'facial hair dye': 1000000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Shimmer Garnet
     'Shimmer Equinox':       {'hue': 1574, 'rare cloth': 100000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 600000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 500000}, #Shimmer Equinox
@@ -379,13 +379,13 @@ hue_list = {
     'Shimmer Blossom':       {'hue': 1070, 'rare cloth': 35000, 'runebook dye': 300000,  'accessory dye': 50000, 'headwear dye': 240000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 500000}, #Shimmer Blossom
     'Shimmer Mirage':        {'hue': 1575, 'rare cloth': 35000, 'runebook dye': 250000, 'accessory dye': 50000, 'headwear dye': 210000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 250000, 'mount gear dye': 500000}, #Shimmer Mirage
     'Shimmer Gore':          {'hue': 1069, 'rare cloth': 35000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 210000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 500000, 'mount gear dye': 400000}, #Shimmer Gore
-    'Shimmer Flora':         {'hue': 1071, 'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 300000, 'mount gear dye': 400000}, #Shimmer Flora
-    'Shimmer Rime':          {'hue': 1074, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 150000, 'mount gear dye': 400000}, #Shimmer Rime
-    'Shimmer Serenity':      {'hue': 1081, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Serenity
-    'Shimmer Zephyr':        {'hue': 1480, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Zephyr
-    'Shimmer Bloom':         {'hue': 1577, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Bloom
-    'Shimmer Tidal':         {'hue': 1083, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Tidal
-    'Shimmer Comet':         {'hue': 1099, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 180000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Comet
+    'Shimmer Flora':         {'hue': 1071, 'rare cloth': 30000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 190000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 300000, 'mount gear dye': 400000}, #Shimmer Flora
+    'Shimmer Rime':          {'hue': 1074, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 190000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 150000, 'mount gear dye': 400000}, #Shimmer Rime
+    'Shimmer Serenity':      {'hue': 1081, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 190000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Serenity
+    'Shimmer Zephyr':        {'hue': 1480, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 190000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Zephyr
+    'Shimmer Bloom':         {'hue': 1577, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 190000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Bloom
+    'Shimmer Tidal':         {'hue': 1083, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 190000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Tidal
+    'Shimmer Comet':         {'hue': 1099, 'rare cloth': 25000, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 190000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Comet
     'Shimmer Hex':           {'hue': 1299, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
     'Shimmer Radiant':       {'hue': 1584, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
     'Arena Black':           {'hue': 2056, 'rare cloth': 500000,'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Arena Black
@@ -421,7 +421,7 @@ hue_list = {
     'Wilderness':            {'hue': 1182, 'rare cloth': 3000,  'runebook dye': 15000, 'accessory dye': 500, 'headwear dye': 18000, 'carpet dye': 100, 'furniture dye': 15000, 'hair dye': 15000, 'facial hair dye': 15000, 'backpack dye': 25000, 'mount gear dye': 1000}, #Wilderness
     'Ocean':                 {'hue': 1183, 'rare cloth': 10000, 'runebook dye': 55000, 'accessory dye': 2000, 'headwear dye': 50000, 'carpet dye': 4000, 'furniture dye': 100000, 'hair dye': 70000, 'facial hair dye': 60000, 'backpack dye': 60000, 'mount gear dye': 4000}, #Ocean
     'Metallic Cherry':       {'hue': 2380, 'rare cloth': 35000, 'runebook dye': 40000, 'accessory dye': 6000, 'headwear dye': 200000, 'carpet dye': 4000, 'furniture dye': 50000, 'hair dye': 60000, 'facial hair dye': 50000, 'backpack dye': 100000, 'mount gear dye': 6000}, #Metallic Cherry
-    'Metallic Orange':       {'hue': 1989, 'rare cloth': 9000, 'runebook dye': 30000, 'accessory dye': 4000, 'headwear dye': 50000, 'carpet dye': 3000, 'furniture dye': 40000, 'hair dye': 55000, 'facial hair dye': 45000, 'backpack dye': 90000, 'mount gear dye': 6000}, #Metallic Orange
+    'Metallic Orange':       {'hue': 1989, 'rare cloth': 9000, 'runebook dye': 30000, 'accessory dye': 4000, 'headwear dye': 50000, 'carpet dye': 3000, 'furniture dye': 40000, 'hair dye': 55000, 'facial hair dye': 45000, 'backpack dye': 80000, 'mount gear dye': 6000}, #Metallic Orange
     'Metallic Amber':        {'hue': 1990, 'rare cloth': 4000,  'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 6000}, #Metallic Amber
     'Metallic Lemon-Lime':   {'hue': 2653, 'rare cloth': 4000,  'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 25000, 'backpack dye': 45000, 'mount gear dye': 6000}, #Metallic Lemon-Lime
     'Metallic Olive':        {'hue': 2398, 'rare cloth': 3000,  'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 18000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 10000, 'facial hair dye': 10000, 'backpack dye': 50000, 'mount gear dye': 6000}, #Metallic Olive
@@ -451,25 +451,25 @@ hue_list = {
     'Powder Coral':          {'hue': 1495, 'rare cloth': 20000, 'runebook dye': 30000, 'accessory dye': 7000, 'headwear dye': 150000, 'carpet dye': 8000, 'furniture dye': 100000, 'hair dye': 50000, 'facial hair dye': 40000, 'backpack dye': 150000, 'mount gear dye': 6000}, #Powder Coral
     'Powder Peach':          {'hue': 1496, 'rare cloth': 14000, 'runebook dye': 30000, 'accessory dye': 8000, 'headwear dye': 150000, 'carpet dye': 2000, 'furniture dye': 100000, 'hair dye': 50000, 'facial hair dye': 40000, 'backpack dye': 140000, 'mount gear dye': 6000}, #Powder Peach
     'Powder Lemon':          {'hue': 1382, 'rare cloth': 65000, 'runebook dye': 50000, 'accessory dye': 15000, 'headwear dye': 500000, 'carpet dye': 8000, 'furniture dye': 100000, 'hair dye': 300000, 'facial hair dye': 200000, 'backpack dye': 500000, 'mount gear dye': 6000}, #Powder Lemon
-    'Powder Pistachio':      {'hue': 1494, 'rare cloth': 20000, 'runebook dye': 30000, 'accessory dye': 8000, 'headwear dye': 120000, 'carpet dye': 4000, 'furniture dye': 100000, 'hair dye': 65000, 'facial hair dye': 55000, 'backpack dye': 100000, 'mount gear dye': 6000}, #Powder Pistachio
-    'Powder Seafoam':        {'hue': 2246, 'rare cloth': 30000, 'runebook dye': 30000, 'accessory dye': 9000, 'headwear dye': 160000, 'carpet dye': 4000, 'furniture dye': 80000, 'hair dye': 65000, 'facial hair dye': 55000, 'backpack dye': 150000, 'mount gear dye': 6000}, #Powder Seafoam
+    'Powder Pistachio':      {'hue': 1494, 'rare cloth': 20000, 'runebook dye': 30000, 'accessory dye': 5000, 'headwear dye': 120000, 'carpet dye': 4000, 'furniture dye': 100000, 'hair dye': 65000, 'facial hair dye': 55000, 'backpack dye': 100000, 'mount gear dye': 6000}, #Powder Pistachio
+    'Powder Seafoam':        {'hue': 2246, 'rare cloth': 30000, 'runebook dye': 30000, 'accessory dye': 5000, 'headwear dye': 160000, 'carpet dye': 4000, 'furniture dye': 80000, 'hair dye': 65000, 'facial hair dye': 55000, 'backpack dye': 150000, 'mount gear dye': 6000}, #Powder Seafoam
     'Powder Spring':         {'hue': 1381, 'rare cloth': 30000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 160000, 'carpet dye': 9000, 'furniture dye': 100000, 'hair dye': 150000, 'facial hair dye': 200000, 'backpack dye': 150000, 'mount gear dye': 6000}, #Powder Spring
     'Powder Lapis':          {'hue': 2255, 'rare cloth': 55000, 'runebook dye': 80000, 'accessory dye': 15000, 'headwear dye': 330000, 'carpet dye': 5000, 'furniture dye': 100000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 150000, 'mount gear dye': 6000}, #Powder Lapis
-    'Powder Cyan':           {'hue': 2877, 'rare cloth': 40000, 'runebook dye': 30000, 'accessory dye': 15000, 'headwear dye': 220000, 'carpet dye': 5000, 'furniture dye': 75000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 150000, 'mount gear dye': 6000}, #Powder Cyan
+    'Powder Cyan':           {'hue': 2877, 'rare cloth': 40000, 'runebook dye': 30000, 'accessory dye': 5000, 'headwear dye': 220000, 'carpet dye': 5000, 'furniture dye': 75000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 150000, 'mount gear dye': 6000}, #Powder Cyan
     'Powder Azure':          {'hue': 1384, 'rare cloth': 160000,'runebook dye': 80000, 'accessory dye': 20000, 'headwear dye': 1200000, 'carpet dye': 8000, 'furniture dye': 100000, 'hair dye': 550000, 'facial hair dye': 600000, 'backpack dye': 500000, 'mount gear dye': 6000}, #Powder Azure
     'Powder Orchid':         {'hue': 1462, 'rare cloth': 52000, 'runebook dye': 30000, 'accessory dye': 10000, 'headwear dye': 330000, 'carpet dye': 5000, 'furniture dye': 80000, 'hair dye': 160000, 'facial hair dye': 200000, 'backpack dye': 200000, 'mount gear dye': 6000}, #Powder Orchid
-    'Powder Iris':           {'hue': 2173, 'rare cloth': 400000,'runebook dye': 100000,'accessory dye': 35000, 'headwear dye': 2400000, 'carpet dye': 20000, 'furniture dye': 200000, 'hair dye': 800000, 'facial hair dye': 800000, 'backpack dye': 500000, 'mount gear dye': 6000}, #Powder Iris
-    'Powder Cloud':          {'hue': 2903, 'rare cloth': 180000,'runebook dye': 80000, 'accessory dye': 20000, 'headwear dye': 1000000, 'carpet dye': 9000, 'furniture dye': 100000, 'hair dye': 800000, 'facial hair dye': 800000, 'backpack dye': 800000, 'mount gear dye': 6000}, #Powder Cloud
-    'Powder Blush':          {'hue': 2808, 'rare cloth': 35000, 'runebook dye': 30000, 'accessory dye': 13000, 'headwear dye': 180000, 'carpet dye': 5000, 'furniture dye': 90000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 500000, 'mount gear dye': 6000}, #Powder Blush
+    'Powder Iris':           {'hue': 2173, 'rare cloth': 400000,'runebook dye': 100000,'accessory dye': 35000, 'headwear dye': 2400000, 'carpet dye': 20000, 'furniture dye': 200000, 'hair dye': 900000, 'facial hair dye': 900000, 'backpack dye': 500000, 'mount gear dye': 6000}, #Powder Iris
+    'Powder Cloud':          {'hue': 2903, 'rare cloth': 190000,'runebook dye': 80000, 'accessory dye': 20000, 'headwear dye': 1000000, 'carpet dye': 9000, 'furniture dye': 100000, 'hair dye': 900000, 'facial hair dye': 900000, 'backpack dye': 900000, 'mount gear dye': 6000}, #Powder Cloud
+    'Powder Blush':          {'hue': 2808, 'rare cloth': 35000, 'runebook dye': 30000, 'accessory dye': 13000, 'headwear dye': 190000, 'carpet dye': 5000, 'furniture dye': 80000, 'hair dye': 100000, 'facial hair dye': 100000, 'backpack dye': 500000, 'mount gear dye': 6000}, #Powder Blush
     'Powder Bubblegum':      {'hue': 1952, 'rare cloth': 100000,'runebook dye': 50000, 'accessory dye': 40000, 'headwear dye': 600000, 'carpet dye': 18000, 'furniture dye': 250000, 'hair dye': 550000, 'facial hair dye': 500000, 'backpack dye': 500000, 'mount gear dye': 6000}, #Powder Bubblegum
 }
 
 misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&search_sub_category_id=98
     "pristine lumber": 40000, 
     "immaculate stone": 50000,
-    "an arcane scroll": 1200,
+    "an arcane scroll": 1100,
     "research materials (double-click to research)": 35000,
-    "mastercrafting diagram": 22000,
+    "mastercrafting diagram": 21000,
     "cleansing brew": 1500,
     "amber": 48,
     "amethyst": 60,
@@ -483,7 +483,7 @@ misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&
 }
 
 misc_hp_prices = { #exact string matters
-    "a skill mastery orb (used to increase a player's total skill cap by 1)": 20000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": 18000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
     "plant chemicals": 2750,
     "prevalia coins [blessed]":19000, #prevalia coins : 5 [blessed]
     "a chromatic core": 110000,
@@ -520,8 +520,7 @@ misc_lp_prices = { #exact string matters
     "a battle commendation (double-click to consume and receive reward item)": 11000,
     "invulnerability leather cap": 95000,
     "dyeable gilded gold carpet tile": 25000,
-    "Aspect Triumph": 500000,
-
+    "Aspect Triumph": 1000000,
     "bloody skull pile": 400000,
 }
 
@@ -535,14 +534,14 @@ deed_prices = {
 }
 
 self_parse_extra_prices = { #todo add
-    "Aspect Triumph": 500000,
+    "Aspect Triumph": 1000000,
     "special fishing net": 4000,
     "an emote deed": 200000,
 }
 
 self_parse_extra_aliases = { #todo add
     "tome": 175000,
-    "mount token": 1800000,
+    "mount token": 1900000,
     "lore page /15": 30000,
     "lore page /10": 35000,
 }
@@ -551,7 +550,7 @@ my_locations = {
     # Vendor Police
     "N Prevalia Sandbar": (1667,1318, ('Vendor Police',2089,200,10)),
     "N Prev Clearing N": (1592,1388, ('Vendor Police',2089,201,20)),
-    "N Prev Clearing E": (1629,1421, ('Vendor Police',2089,202,10)), #1628,1421
+    "N Prev Clearing E": (1629,1421, ('Vendor Police',2089,202,10)), 
     "N Prev Clearing Mid": (1596,1419, ('Vendor Police',2089,203,20)),
     "N Prev Clearing S": (1571,1439, ('Vendor Police',2089,204,10)),
     "N Prev Clearing SW": (1554,1439, ('Vendor Police',2089,205,20)),
@@ -563,7 +562,7 @@ my_locations = {
     "S Prev Xroad E": (1653,1743, ('Vendor Police',2089,211,20)),
     "S Prev Xroad S": (1545,1772, ('Vendor Police',2089,212,10)),
 
-    "S Prev Xroad NW": (1526,1748, ('Vendor Police',2089,213,20)),
+    "S Prev Xroad NW": (1526,1748, ('Vendor Police',2089,213,20)), #1533 1752
     "S Prev Xroad W": (1499,1757, ('Vendor Police',2089,214,10)),
     "SW Prev Clearing NE": (1536,1623, ('Vendor Police',2089,215,20)),
     "SW Prev Clearing SE": (1547,1653, ('Vendor Police',2089,216,10)),
@@ -571,7 +570,7 @@ my_locations = {
     "SW Prev Clearing NW": (1473,1580, ('Vendor Police',2089,218,10)),
     "Prev Gate": (1475,1488, ('Vendor Police',2089,219,20)),
     "W of SSC": (3267,689,('Vendor Police',2089,220,10)), #!
-    "Far N of Anchor's Rest": (3693,285, ('Vendor Police',2089,221,20)), #1425,1484
+    "Far N of Anchor's Rest": (3693,285, ('Vendor Police',2089,221,20)), 
     "N of Anchor's Rest": (3751,351, ('Vendor Police',2089,222,10)),
     "S of Anchor's Rest 2": (3752,671, ('Vendor Police',2089,223,20)),
     "Far S Anchor's Rest": (3715,872, ('Vendor Police',2089,224,10)),
@@ -589,10 +588,10 @@ my_locations = {
     "N Outpost Gate 4": (3061,475, ('a lost girl',2093,208,10)),
     "NW Outpost Gate": (2940,563, ('a lost girl',2093,209,20)),
     "NE Outpost Close": (3387,377, ('a lost girl',2093,210,10)),
-    "NE Outpost Close 2":(3364,408, ('a lost girl',2093,211,20)), #Steve's Recall Spot: 3363,407
+    "NE Outpost Close 2":(3364,408, ('a lost girl',2093,211,20)), 
     "NE Outpost Far": (3406,165, ('a lost girl',2093,212,10)),
 
-    "Frozen Ruins SE":(1612,780, ('a lost girl',2093,213,20)),
+    "Frozen Ruins SE":(1612,780, ('a lost girl',2093,213,20)),#1614,767
     "Frozen Ruins SW":(1546,753, ('a lost girl',2093,214,10)),
     "Winterlands VM":(3968,51, ('a lost girl',2093,215,20)),
     "N of Andaria":(2002,547, ('a lost girl',2093,216,10)),
@@ -610,7 +609,7 @@ my_locations = {
     "AR1": (3946,565, ('Aproctoflecticus',1156,200,10)),
     "AR2": (3947,496, ('Aproctoflecticus',1156,201,20)),
     "AR3": (3961,553, ('Aproctoflecticus',1156,202,10)),
-    "AR4": (3962,456, ('Aproctoflecticus',1156,203,20)), #SS 3961,469
+    "AR4": (3962,456, ('Aproctoflecticus',1156,203,20)), 
     "AR5": (3976,585, ('Aproctoflecticus',1156,204,10)),
     "AR6": (3978,493, ('Aproctoflecticus',1156,205,20)), 
     "AR7": (4001,555, ('Aproctoflecticus',1156,206,10)),
@@ -640,7 +639,7 @@ my_locations = {
     "SW Terran Clearing 2":(887,1499,('Misc1',1989,201,20)),
     "Pwnstar":(4218,1090,('Misc1',1989,202,10)),
     "AR13": (4037,591,('Misc1',1989,203,20)),
-    "Far N Andaria Gate": (2362,564,('Misc1',1989,204,10)),
+    "Far N Andaria Gate": (2362,564,('Misc1',1989,204,10)),#2368 546
     "Terran Clearing West": (893,1486, ('Misc1',1989,205,20)),
     "Winterspire":(3571,198,('Misc1',1989,206,10)),
     "Frozen Waypost":(1650,682,('Misc1',1989,207,20)),
@@ -655,9 +654,9 @@ my_locations = {
     "HSB Gate": (2014,2047, ('Misc1',1989,215,20)),
     "S Terran Clearing Tip": (944,1531,('Misc1',1989,216,10)),
     "NE Outpost Mid": (3406,289,('Misc1',1989,217,20)),
-    "Syn Keep": (4056,325,('Misc1',1989,218,10)),
+    "Syn Keep": (4056,325,('Misc1',1989,218,10)), #4057 338
     "NE Outpost Far NW": (3252,294,('Misc1',1989,219,20)),
-    "Illuminated Spring": (3843,795,('Misc1',1989,220,10)), #3849,794
+    "Illuminated Spring": (3843,795,('Misc1',1989,220,10)), 
     "SW of Harpies":(1847,2106,('Misc1',1989,221,20)),
     "Farming Finds":(1436,1029,('Misc1',1989,222,10)),
     "W of Urukton":(1899,1163,('Misc1',1989,223,20)),
@@ -685,7 +684,7 @@ my_locations = {
     "Mid Terran Clearing":(912,1414,('Misc2',2828,216,10)),
     "NW of Pwnstar":(4153,1044,('Misc2',2828,217,20)),
     "NW of GH":(3782,753,('Misc2',2828,218,10)),
-    "placeholder":(0,0,('Misc2',2828,219,20)),
+    "PEC on the Water":(1312,2001,('Misc2',2828,219,20)),
     "placeholder":(0,0,('Misc2',2828,220,10)),
     "placeholder":(0,0,('Misc2',2828,221,20)),
     "placeholder":(0,0,('Misc2',2828,222,10)),
@@ -868,43 +867,86 @@ def pretty_print(data, indent=0):
         print(' ' * indent + str(data))
 
 #sorted_category_dict["Cores"]["Air Aspect Core"] = [(20, 15000, 1), (5, 15000, 2), (1, 15000, 2)]
-def render_stock_script(sorted_category_dict={}):
+# def render_stock_script(sorted_category_dict={}):
+#     restock_data_dict = {
+#         "a skill mastery orb (used to increase a player's total skill cap by 1)": {'stack_size': (20,5),'stack_quantity': (4, 9),'pos_xy': ((105, 144), (105, 129)),'item_graphic': 22336,'container_serial': 0x483BE859},
+#         'plant chemicals': {'stack_size': (100,),'stack_quantity': (4,),'pos_xy': ((88, 138),),'item_graphic': 29030,'container_serial': 0x483BE859},
+#         'dyeable gilded gold carpet tile': {'stack_size': (1,),'stack_quantity': (10,),'pos_xy': ((164, 139),),'item_graphic': 43166,'container_serial': 0x483BE859},
+#         'pristine lumber': {'stack_size': (5,),'stack_quantity': (2,),'pos_xy': ((154, 105),),'item_graphic': 23996,'container_serial': 0x483BE859},
+#         'immaculate stone': {'stack_size': (5,),'stack_quantity': (2,),'pos_xy': ((164, 105),),'item_graphic': 23997,'container_serial': 0x483BE859},
+#         'an arcane scroll': {'stack_size': (100,),'stack_quantity': (10,),'pos_xy': ((44, 143),),'item_graphic': 3827,'container_serial': 0x483BE859},
+#         'mastercrafting diagram': {'stack_size': (10,),'stack_quantity': (3,),'pos_xy': ((63, 139),),'item_graphic': 17087,'container_serial': 0x483BE859},
+#         'prevalia coins [blessed]': {'stack_size': (1,),'stack_quantity': (20,),'pos_xy': ((44, 90),),'item_graphic': 16898,'container_serial': 0x483BE859},
+#         'arcane essence': {'stack_size': (1000,),'stack_quantity': (1,),'pos_xy': ((94, 141),),'item_graphic': 12686,'container_serial': 0x483BE859},
+#         'aspect core': {'stack_size': (20, 5, 1),'stack_quantity': (1, 2, 2),'start_xy': ((44, 74), (44, 65), (44, 83)),'end_xy': ((164, 74), (164, 65), (164, 83)),'row_col': (1, 24),'item_graphic': 3985,'container_serial': 0x511A5A6C},
+#         'distillation': {'stack_size': (5,),'stack_quantity': (2,),'start_xy': ((44, 105),),'end_xy': ((164, 105), ),'row_col': (1, 24),'item_graphic': 17686,'container_serial': 0x511A5A6C},
+#         'skill mastery scroll': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((47, 100), (47, 90)),'end_xy': ((167, 100), (167, 90)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC},
+#         'llorcs yretsam lliks': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((50, 143), (50, 133)),'end_xy': ((170, 143), (170, 133)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC}
+#         }
+#     current_inventory_data_dict = get_inventory_data_dict(sorted_category_dict)
+#     #logger.debug(json.dumps(current_inventory_data_dict,indent=4))
+#     out_str = '''overhead "Starting Restock"
+# removelist "tempItemList"
+# createlist "tempItemList"
+# @clearignore'''
+#     #print(f"current_inv: {current_inventory_data_dict}")
+#     price_list = get_misc_price_list()
+#     for item_name, item_price in price_list.items():
+#         restock_data = restock_data_dict[item_name]
+#         out_str += render_stock_script_simple(item_name, item_price, restock_data,current_inventory_data_dict)
+
+
+#     out_str += render_stock_script_complex("aspect core",restock_data_dict["aspect core"],current_inventory_data_dict)
+#     out_str += render_stock_script_complex("distillation",restock_data_dict["distillation"],current_inventory_data_dict)
+#     out_str += render_stock_script_complex("skill mastery scroll",restock_data_dict["skill mastery scroll"],current_inventory_data_dict)
+#     out_str += render_stock_script_complex("llorcs yretsam lliks",restock_data_dict["llorcs yretsam lliks"],current_inventory_data_dict)
+
+#     out_str += 'overhead "Finished Restock"'
+#     pyperclip.copy(out_str)
+#     return out_str
+
+#sorted_category_dict["Cores"]["Air Aspect Core"] = [(20, 15000, 1), (5, 15000, 2), (1, 15000, 2)]
+def render_stock_script(sorted_category_dict={},discount_float=1.0):
     restock_data_dict = {
-        "a skill mastery orb (used to increase a player's total skill cap by 1)": {'stack_size': (20,5),'stack_quantity': (4, 9),'pos_xy': ((105, 144), (105, 129)),'item_graphic': 22336,'container_serial': 0x483BE859},
-        'plant chemicals': {'stack_size': (100,),'stack_quantity': (4,),'pos_xy': ((88, 138),),'item_graphic': 29030,'container_serial': 0x483BE859},
-        'dyeable gilded gold carpet tile': {'stack_size': (1,),'stack_quantity': (10,),'pos_xy': ((164, 139),),'item_graphic': 43166,'container_serial': 0x483BE859},
-        'pristine lumber': {'stack_size': (5,),'stack_quantity': (2,),'pos_xy': ((154, 199),),'item_graphic': 23996,'container_serial': 0x483BE859},
-        'immaculate stone': {'stack_size': (5,),'stack_quantity': (2,),'pos_xy': ((164, 199),),'item_graphic': 23997,'container_serial': 0x483BE859},
-        'an arcane scroll': {'stack_size': (100,),'stack_quantity': (10,),'pos_xy': ((44, 143),),'item_graphic': 3827,'container_serial': 0x483BE859},
-        'mastercrafting diagram': {'stack_size': (10,),'stack_quantity': (3,),'pos_xy': ((63, 139),),'item_graphic': 17087,'container_serial': 0x483BE859},
-        'prevalia coins [blessed]': {'stack_size': (1,),'stack_quantity': (20,),'pos_xy': ((44, 90),),'item_graphic': 16898,'container_serial': 0x483BE859},
-        'arcane essence': {'stack_size': (1000,),'stack_quantity': (1,),'pos_xy': ((94, 141),),'item_graphic': 12686,'container_serial': 0x483BE859},
-        'aspect core': {'stack_size': (20, 5, 1),'stack_quantity': (1, 2, 2),'start_xy': ((44, 74), (44, 65), (44, 83)),'end_xy': ((164, 74), (164, 65), (164, 83)),'row_col': (1, 24),'item_graphic': 3985,'container_serial': 0x511A5A6C},
-        'distillation': {'stack_size': (5,),'stack_quantity': (2,),'start_xy': ((44, 105),),'end_xy': ((164, 105), ),'row_col': (1, 24),'item_graphic': 17686,'container_serial': 0x511A5A6C},
-        'skill mastery scroll': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((47, 100), (47, 90)),'end_xy': ((167, 100), (167, 90)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC},
-        'llorcs yretsam lliks': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((50, 143), (50, 133)),'end_xy': ((170, 143), (170, 133)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC}
+        "a skill mastery orb (used to increase a player's total skill cap by 1)": {'stack_size': (20,5),'stack_quantity': (4, 9),'pos_xy': ((105, 144), (105, 129)),'item_graphic': 22336,'container_serial': 0x483BE859,'container_serial_alt': 0x55B47BDE},
+        'plant chemicals': {'stack_size': (100,),'stack_quantity': (4,),'pos_xy': ((88, 138),),'item_graphic': 29030,'container_serial': 0x483BE859,'container_serial_alt': 0x55B47BDE},
+        'dyeable gilded gold carpet tile': {'stack_size': (1,),'stack_quantity': (10,),'pos_xy': ((164, 139),),'item_graphic': 43166,'container_serial': 0x483BE859,'container_serial_alt': 0x55B47BDE},
+        'pristine lumber': {'stack_size': (5,),'stack_quantity': (2,),'pos_xy': ((154, 105),),'item_graphic': 23996,'container_serial': 0x483BE859,'container_serial_alt': 0x55B47BDE},
+        'immaculate stone': {'stack_size': (5,),'stack_quantity': (2,),'pos_xy': ((164, 105),),'item_graphic': 23997,'container_serial': 0x483BE859,'container_serial_alt': 0x55B47BDE},
+        'an arcane scroll': {'stack_size': (100,),'stack_quantity': (10,),'pos_xy': ((44, 143),),'item_graphic': 3827,'container_serial': 0x483BE859,'container_serial_alt': 0x55B47BDE},
+        'mastercrafting diagram': {'stack_size': (10,),'stack_quantity': (3,),'pos_xy': ((63, 139),),'item_graphic': 17087,'container_serial': 0x483BE859,'container_serial_alt': 0x55B47BDE},
+        'prevalia coins [blessed]': {'stack_size': (1,),'stack_quantity': (20,),'pos_xy': ((44, 90),),'item_graphic': 16898,'container_serial': 0x483BE859,'container_serial_alt': 0x55B47BDE},
+        'arcane essence': {'stack_size': (1000,),'stack_quantity': (1,),'pos_xy': ((94, 141),),'item_graphic': 12686,'container_serial': 0x483BE859,'container_serial_alt': 0x55B47BDE},
+        'aspect core': {'stack_size': (20, 5, 1),'stack_quantity': (1, 2, 2),'start_xy': ((44, 74), (44, 65), (44, 83)),'end_xy': ((164, 74), (164, 65), (164, 83)),'row_col': (1, 24),'item_graphic': 3985,'container_serial': 0x511A5A6C,'container_serial_alt': 0x55B44EDF},
+        'distillation': {'stack_size': (5,),'stack_quantity': (2,),'start_xy': ((44, 105),),'end_xy': ((164, 105), ),'row_col': (1, 24),'item_graphic': 17686,'container_serial': 0x511A5A6C,'container_serial_alt': 0x55B44EDF},
+        'skill mastery scroll': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((47, 100), (47, 90)),'end_xy': ((167, 100), (167, 90)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC,'container_serial_alt': 0x55B279C8},
+        'llorcs yretsam lliks': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((50, 143), (50, 133)),'end_xy': ((170, 143), (170, 133)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC,'container_serial_alt': 0x55B279C8}
         }
     current_inventory_data_dict = get_inventory_data_dict(sorted_category_dict)
-    logger.debug(json.dumps(current_inventory_data_dict,indent=4))
+    #logger.debug(json.dumps(current_inventory_data_dict,indent=4))
     out_str = '''overhead "Starting Restock"
 removelist "tempItemList"
 createlist "tempItemList"
 @clearignore'''
     #print(f"current_inv: {current_inventory_data_dict}")
-    price_list = get_misc_price_list()
+    price_list = discount_price_list(get_misc_price_list(),discount_float)
     for item_name, item_price in price_list.items():
         restock_data = restock_data_dict[item_name]
-        out_str += render_stock_script_simple(item_name, item_price, restock_data,current_inventory_data_dict)
+        out_str += render_stock_script_simple(item_name, item_price, restock_data,current_inventory_data_dict,discount_float)
 
 
-    out_str += render_stock_script_complex("aspect core",restock_data_dict["aspect core"],current_inventory_data_dict)
-    out_str += render_stock_script_complex("distillation",restock_data_dict["distillation"],current_inventory_data_dict)
-    out_str += render_stock_script_complex("skill mastery scroll",restock_data_dict["skill mastery scroll"],current_inventory_data_dict)
-    out_str += render_stock_script_complex("llorcs yretsam lliks",restock_data_dict["llorcs yretsam lliks"],current_inventory_data_dict)
+    out_str += render_stock_script_complex("aspect core",restock_data_dict["aspect core"],current_inventory_data_dict,discount_float)
+    out_str += render_stock_script_complex("distillation",restock_data_dict["distillation"],current_inventory_data_dict,discount_float)
+    out_str += render_stock_script_complex("skill mastery scroll",restock_data_dict["skill mastery scroll"],current_inventory_data_dict,discount_float)
+    out_str += render_stock_script_complex("llorcs yretsam lliks",restock_data_dict["llorcs yretsam lliks"],current_inventory_data_dict,discount_float)
 
     out_str += 'overhead "Finished Restock"'
     pyperclip.copy(out_str)
     return out_str
+
+
+def discount_price_list(price_list:dict,discount_float:float):
+    return dict([(item_name, int(float(item_price) * discount_float)) for (item_name, item_price) in price_list.items()])
 
 
 def split_dict_in_half(d):
@@ -915,7 +957,7 @@ def split_dict_in_half(d):
     return dict1, dict2
 
 
-def render_stock_script_simple(item_name, price_per, restock_data,current_inventory_data_dict):
+def render_stock_script_simple(item_name, price_per, restock_data,current_inventory_data_dict,discount_float=1.0):
     import random
     stack_sizes = restock_data['stack_size']
     stack_quantities = restock_data['stack_quantity']
@@ -923,7 +965,7 @@ def render_stock_script_simple(item_name, price_per, restock_data,current_invent
     if isinstance(adjust_quantity,(list,tuple)) and any(adjust_quantity):
         stack_quantities = tuple(max(a - b,0) for a, b in zip(stack_quantities, adjust_quantity))
     pos_coords = restock_data['pos_xy']
-    container_serial = restock_data['container_serial']
+    container_serial = restock_data['container_serial'] if discount_float == 1.0 else restock_data['container_serial_alt']
     item_graphic = restock_data['item_graphic']
     outStr = ""
     for ind, stack_size in enumerate(stack_sizes):
@@ -931,8 +973,8 @@ def render_stock_script_simple(item_name, price_per, restock_data,current_invent
         if stack_quantity <= 0:
             continue
         x, y = pos_coords[ind]
-        x += random.randrange(-2,2)
-        y += random.randrange(-2,2)
+        x += random.randrange(-4,4)
+        y += random.randrange(-4,4)
         stack_price = stack_size * price_per
         price_str = format_with_commas(stack_price)
 
@@ -996,7 +1038,7 @@ endif
             
     return outStr
 
-def render_stock_script_complex(item_category,restock_data,current_inventory_data_dict):
+def render_stock_script_complex(item_category,restock_data,current_inventory_data_dict,discount_float=1.0):
     half1_scroll_prices,half2_scroll_prices = split_dict_in_half(scroll_prices)
 
     price_list = {
@@ -1006,12 +1048,14 @@ def render_stock_script_complex(item_category,restock_data,current_inventory_dat
         "llorcs yretsam lliks": half2_scroll_prices
         }.get(item_category,{})
     
+    price_list = discount_price_list(price_list,discount_float)
+    
     stack_sizes = restock_data['stack_size']
     stack_quantities = restock_data['stack_quantity']
     start_coords = restock_data['start_xy']
     end_coords = restock_data['end_xy']
     row_col = restock_data.get('row_col',(1,1))
-    container_serial = restock_data['container_serial']
+    container_serial = restock_data['container_serial'] if discount_float == 1.0 else restock_data["container_serial_alt"]
     item_graphic = restock_data['item_graphic']
 
     coord_list_1 = calculate_grid_coordinates(start_coords[0],end_coords[0],row_col) if len(start_coords[0]) > 0 else []
@@ -1152,4 +1196,6 @@ def format_with_commas(number_string):
         return "Invalid input"
 
 if __name__ == "__main__":  
-    render_stock_script()
+    discount_float = 1.
+    render_stock_script({},discount_float)
+    print(f"Price Multiplier: {discount_float}")
