@@ -45,7 +45,6 @@ def alter_hue_dict(self_parse=False, item_type="rare cloth"):
 
 
 def is_junk(item_name,item_quantity):
-    # Check if the 'forbidden_words_set' attribute exists. If not, create it.
     item_name = item_name.lower()
 
     #auto include
@@ -203,6 +202,11 @@ def get_vendor_seconds_from_string(time_string):
 
 def get_distance(x1, y1, x2, y2):
     return round(math.sqrt((x2 - x1)**2 + (y2 - y1)**2))
+
+def get_distance_squared(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    return dx * dx + dy * dy
 
 def send_to_discord(content):
     webhook_url = "https://discord.com/api/webhooks/1145494637180633240/AR6iXN2MfdTOsldgTUcCSu_d6sCScan2vdp8zb0LwovDlB4DNq7nLcN-N_AnMHwVlIhp"
@@ -489,3 +493,67 @@ def custom_json_dumps(data, indent=4, depth=0):
             return "[\n" + ",\n".join(f'{" " * (depth * indent)}{item}' for item in items) + f'\n{" " * ((depth - 1) * indent)}]'
     else:
         return json.dumps(data)
+    
+
+def PipedListDiffer(before, after):
+    before_set = set(before.split("|"))
+    after_set = set(after.split("|"))
+    dif_set = after_set - before_set
+
+    dif_list = list(dif_set)
+    dif_list_sorted = sorted(dif_list, key= int)
+    dif_string = f"{'|'.join(dif_list_sorted)}"
+
+    print(f"Difference: {len(dif_list)}")
+
+    return dif_string
+
+def PipedListSubtract(list1, list2):
+    list1_set = set(list1.split("|"))
+    list2_set = set(list2.split("|"))
+    dif_set = list1_set - list2_set
+
+    sub_list = list(dif_set)
+    sub_list_sorted = sorted(sub_list, key= int)
+    sub_string = f"{'|'.join(sub_list_sorted)}"
+
+    print(f"Subtracted: {len(sub_string)}")
+
+    return sub_string
+
+def PipedListConcatenator(before, after):
+    before_set = set(before.split("|"))
+    after_set = set(after.split("|"))
+    concat_set = after_set | before_set
+
+    concat_list = [string for string in concat_set if string] #list(concat_set)
+    concat_list_sorted = sorted(concat_list, key= int)
+    concat_string = f"{'|'.join(concat_list_sorted)}"
+
+    print(f"Concat: {len(concat_list)}")
+
+    return concat_string
+
+def PipedListSplitter(piped_list_string,chunk_size):
+    piped_list = piped_list_string.split("|")
+    
+    chunk_list = []
+    for i in range(0, len(piped_list), chunk_size):
+        chunk_list.append(piped_list[i:i + chunk_size])
+
+    template_string = """
+                    while findtype $%$% "container" as foundItem
+                        getlabel foundItem desc
+                        sysmsg "…item ID:{{foundItem}} {{desc}}" 1159
+                        @ignore foundItem
+                    endwhile
+"""
+
+    out_string = ""
+    for chunk in chunk_list:
+        chunk_string = "|".join(chunk)
+        out_string += template_string.replace("$%$%",chunk_string)
+
+    print(f"Chunks: {len(chunk_list)}")
+
+    return out_string

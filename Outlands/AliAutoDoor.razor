@@ -1,0 +1,22 @@
+@setvar! doorOne 0x436D9ED1
+
+if not gumpexists 1777064327 and findtype 27538 as tool
+    dclick tool
+endif
+
+waitforgump 1777064327 500
+gumpresponse 9
+
+wft 100
+target doorOne
+
+waitforgump 1777064327 500
+gumpresponse 9
+wait 300
+target doorOne
+
+wft 100
+
+hotkey "Cancel Current Target"
+waitforgump 1777064327 500
+gumpresponse 15

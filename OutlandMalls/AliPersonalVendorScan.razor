@@ -3,16 +3,23 @@
 @clearignore
 removelist 'vendors'
 createlist 'vendors'
-pushlist 'vendors' 4342004
-pushlist 'vendors' 3097786
-pushlist 'vendors' 1598057
-pushlist 'vendors' 4205843
-pushlist 'vendors' 3749795
+pushlist 'vendors' 0x2A2814
+pushlist 'vendors' 0x2A280D
+pushlist 'vendors' 0x2A27FA
+pushlist 'vendors' 0x2A27F3
+pushlist 'vendors' 0x2A281C
+pushlist 'vendors' 0x2A2830
+pushlist 'vendors' 0x2A2835
+pushlist 'vendors' 0x2A283D
+
 sysmsg "…OutlandMall Start v3" 23
 say "[coords"
 //my_vendors = [4342004, 3097786, 1598057, 4205843, 3756258, 3749795]
 
-for 5
+while not dead
+    if not atlist "vendors" 0
+        break
+    endif
     if poplist "vendors" "front" as "vendorID"
         if insysmsg "The world will save in"
             while not insysmsg "World save complete."
@@ -56,7 +63,5 @@ for 5
             sysmsg "…vendorEnd {{vendorID}} {{vendorName}}" 23
         endif
     endif
-endfor
-
-wait 1000
-script "aliroom"
+endwhile
+sysmsg "…OutlandMall End" 23

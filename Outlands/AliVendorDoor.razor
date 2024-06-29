@@ -1,0 +1,42 @@
+@setvar! gumpButton 9
+@setvar! doorOne 0x436D9ED1
+@setvar! doorTwo 0x40E07EE3
+
+if find doorOne ground -1 -1 20
+    overhead "Vendor Door"
+    if not gumpexists 1777064327 and findtype 27538 as tool
+        dclick tool
+    endif
+
+    waitforgump 1777064327 500
+    gumpresponse 9
+
+    wft 100
+    target doorOne
+    gumpresponse 4
+    wait 700
+    target doorOne
+    wft 100
+
+    hotkey "Cancel Current Target"
+    waitforgump 1777064327 500
+    gumpresponse 15
+elseif find doorTwo ground -1 -1 20
+    if not gumpexists 1777064327 and findtype 27538 as tool
+        dclick tool
+    endif
+    overhead "DOWN"
+
+    waitforgump 1777064327 500
+    gumpresponse gumpButton
+
+    for 28
+        wft 50   
+        target doorTwo
+    endfor
+
+    wft 50 
+    hotkey "Cancel Current Target"
+    waitforgump 1777064327 500
+    gumpresponse 15
+endif

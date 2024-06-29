@@ -28,18 +28,30 @@ import aiohttp
 import asyncio
 from requests.cookies import RequestsCookieJar
 
+# Remove existing handlers from the root logger
+for handler in logging.root.handlers[:]:
+    logging.root.removeHandler(handler)
 logging.basicConfig(
     level=logging.DEBUG,  # Set the minimum log level
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Format for log messages
     datefmt='%Y-%m-%d %H:%M:%S',  # Format for timestamps
     handlers=[
-        logging.StreamHandler(),  # Output logs to console
         logging.FileHandler('app.log')  # Output logs to a file
     ]
 )
-logger = logging.getLogger('my_logger')
+logger = logging.getLogger('MallScraper')
 
 clipboard_ghost = ""
+
+
+master_prices = collate_master_price_dict()
+#TODO 
+# 37181 dig tools
+# 4025 chromatic core
+# 4026 distil
+# 25359 redlightning bottle
+# Small history stack for clipboard: Ctrl-z to undo script append
+
 
 def multi_parse_wide(in_tuple):
     item = in_tuple[0]
@@ -394,71 +406,163 @@ def multi_parse_misc(in_tuple):
                     out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{page_url}",f"{total_cost}",f"{name_check_string}"))
         return out_data
 
+def extract_relevant_html_part(html):
+    match = re.search(r'<table id="item-search-results">.*?</table>', html, re.DOTALL)
+    return match.group(0) if match else html
+
+
+
 def simple_parse_narrow(in_tuple): #(response.content,searchPrices,page_url,60,1,.93)
-    #print("parse start",str(in_tuple))
-    html = in_tuple[0]
-    searchPrices = in_tuple[1]
-    page_url = in_tuple[2]
-    time_frame = in_tuple[3]
-    price_depth = in_tuple[4]
-    cutoff_threshold = in_tuple[5]
-    soup = BeautifulSoup(html, 'lxml')
-    #print(f"soup: {time.time() - misc_start_time}")
-    if soup:
-        table = soup.find('table', id="item-search-results")
-        if not table:
-            print(f"No table: {page_url}")
-            return False
-        rows = table.tbody.find_all('tr')
-        out_data = []
-        for row in rows:
-            cells = row.find_all('td')
-            name_cell = cells[4]
-            name_string = name_cell.text.strip()
-            searchPrice = float(searchPrices.get(name_string, 0))
-            time_cell = cells[8]
-            time_string = time_cell.text.strip().lower()
-            if is_time_recent_multi(time_string,time_frame):
-                price_cell = cells[7]
+    from lxml import html as lxml_html
+    html, searchPrices, page_url, time_frame, price_depth, cutoff_threshold = in_tuple
+    start_time = round(time.time(),2)
 
-                price_cell_sanitized = re.sub(r"[^\d.]",'',price_cell.text)
+    tree = lxml_html.fromstring(html)
 
-                price = float(price_cell_sanitized)
-                ratio = round(price / searchPrice,2)
-                if ratio > cutoff_threshold and price_depth != 2:
-                    continue
-                if price <= searchPrice or price_depth == 2:
-                    vendor_cell = cells[1]
-                    location_cell = cells[2]
-                    quantity_cell = cells[5]
-                    vendor_string = vendor_cell.text.strip()
-                    vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
-                    item_serial = vendor_cell.find('span')['data-item_id']
-                    item_price = vendor_cell.find('span')['data-price']
-                    location_coordinates = location_cell.text.strip()
-                    location_link = location_cell.find('a')['href']
-                    location_link_split = location_link.split('#')
-                    location_split = location_coordinates.split(',')
-                    x1, y1 = map(int,location_split)
-                    check_dist = float('inf')
-                    closest = None
-                    for location_name, tuple_loc in my_locations.items():
-                        x2 = int(tuple_loc[0])
-                        y2 = int(tuple_loc[1])
-                        distance = get_distance(x1,y1,x2,y2)
-                        if distance < check_dist:
-                            check_dist = distance
-                            closest = location_name
-                    location_name = closest if closest else 'N/A'
-                    formatted_location_link = f"{location_link_split[0]}?{vendor_serial}?{item_serial}?{item_price}#{location_link_split[1]}"
-                    quantity_string = quantity_cell.text.strip()
-                    name_check_string = format_ingame_name(name_string,quantity_string)
-                    total_cost = round(price * int(quantity_string),0)
-                    total_profit = round(searchPrice * int(quantity_string) - total_cost,0)
-                    out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{page_url}",f"{total_cost}",f"{name_check_string}"))
-        # print("parse end")
-        return out_data
+    #print("soup start:",start_time)
+    elapsed_time = round(time.time() - start_time, 2)
+    table = tree.xpath('//table[@id="item-search-results"]')[0]
+
+    rows = table.xpath('.//tbody/tr')
+    print(f"tree generated {page_url[15:]}: {elapsed_time}")
+    out_data = []
+    my_fetched_locations = my_locations.items()
+
+    for row in rows:
+        cells = row.xpath('.//td')
+        name_cell = cells[4]
+        name_string = name_cell.text_content().strip()
+        searchPrice = float(searchPrices.get(name_string, 1))
+        time_cell = cells[8]
+        time_string = time_cell.text_content().strip().lower()
+
+        if not is_time_recent_multi(time_string,time_frame):
+            continue
+
+        price_cell = cells[7]
+        price_cell_sanitized = re.sub(r"[^\d.]",'',price_cell.text_content())
+        price = float(price_cell_sanitized)
+        ratio = round(price / searchPrice,2)
+
+        if ratio > cutoff_threshold and price_depth != 2:
+            continue
+        if price > searchPrice and price_depth != 2:
+            continue
+
+        vendor_cell = cells[1]
+        location_cell = cells[2]
+        quantity_cell = cells[5]
+        vendor_string = vendor_cell.text_content().strip()
+        vendor_serial = vendor_cell.xpath('.//a/@href')[0].split('/')[-1]
+        item_serial = vendor_cell.xpath('.//span/@data-item_id')[0]
+        item_price = vendor_cell.xpath('.//span/@data-price')[0]
+
+        location_coordinates = location_cell.text_content().strip()
+        location_link = location_cell.xpath('.//a/@href')[0]
+        location_link_split = location_link.split('#')
+        location_split = location_coordinates.split(',')
+
+        x1, y1 = map(int,location_split)
+
+        # check_dist = float('inf')
+        # closest = None
+        # for location_name, tuple_loc in my_fetched_locations:
+        #     x2 = int(tuple_loc[0])
+        #     y2 = int(tuple_loc[1])
+        #     distance = get_distance_squared(x1,y1,x2,y2)
+        #     if distance < check_dist:
+        #         check_dist = distance
+        #         closest = location_name
+        # location_name = closest if closest else 'N/A'
+
+        closest_location = min(my_fetched_locations, key=lambda loc: get_distance_squared(x1, y1, loc[1][0], loc[1][1]))
+        closest = closest_location[0] if closest_location else 'N/A'
+        formatted_location_link = f"{location_link_split[0]}?{vendor_serial}?{item_serial}?{item_price}#{location_link_split[1]}"
+        quantity_string = quantity_cell.text_content().strip()
+        name_check_string = format_ingame_name(name_string,quantity_string)
+        total_cost = round(price * int(quantity_string),0)
+        total_profit = round(searchPrice * int(quantity_string) - total_cost,0)
+        out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{page_url}",f"{total_cost}",f"{name_check_string}"))
+    #print("parse end: ", round(time.time() - start_time,2))
+    return out_data
     
+def simple_parse_narrowOLD(in_tuple): #(response.content,searchPrices,page_url,60,1,.93)
+    html, searchPrices, page_url, time_frame, price_depth, cutoff_threshold = in_tuple
+
+    start_time = round(time.time(),2)
+    #print("soup start:",start_time)
+    soup = BeautifulSoup(html, 'lxml')
+    elapsed_time = round(time.time() - start_time, 2)
+    print(f"Soup generated {page_url[15:]}: {elapsed_time}")
+
+    if not soup:
+        print(f"No soup: {page_url}")
+        return False
+    
+    table = soup.find('table', id="item-search-results")
+    if not table:
+        print(f"No table: {page_url}")
+        return False
+    
+    rows = table.tbody.find_all('tr')
+    out_data = []
+    my_fetched_locations = my_locations.items()
+
+    for row in rows:
+        cells = row.find_all('td')
+        name_cell = cells[4]
+        name_string = name_cell.text.strip()
+        searchPrice = float(searchPrices.get(name_string, 1))
+        time_cell = cells[8]
+        time_string = time_cell.text.strip().lower()
+        if is_time_recent_multi(time_string,time_frame):
+            price_cell = cells[7]
+            price_cell_sanitized = re.sub(r"[^\d.]",'',price_cell.text)
+            price = float(price_cell_sanitized)
+            ratio = round(price / searchPrice,2)
+            if ratio > cutoff_threshold and price_depth != 2:
+                continue
+            if price > searchPrice and price_depth != 2:
+                continue
+
+            vendor_cell = cells[1]
+            location_cell = cells[2]
+            quantity_cell = cells[5]
+            vendor_string = vendor_cell.text.strip()
+            vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
+            item_serial = vendor_cell.find('span')['data-item_id']
+            item_price = vendor_cell.find('span')['data-price']
+
+            location_coordinates = location_cell.text.strip()
+            location_link = location_cell.find('a')['href']
+            location_link_split = location_link.split('#')
+            location_split = location_coordinates.split(',')
+
+            x1, y1 = map(int,location_split)
+
+            # check_dist = float('inf')
+            # closest = None
+            # for location_name, tuple_loc in my_fetched_locations:
+            #     x2 = int(tuple_loc[0])
+            #     y2 = int(tuple_loc[1])
+            #     distance = get_distance_squared(x1,y1,x2,y2)
+            #     if distance < check_dist:
+            #         check_dist = distance
+            #         closest = location_name
+            # location_name = closest if closest else 'N/A'
+
+            closest_location = min(my_fetched_locations, key=lambda loc: get_distance_squared(x1, y1, loc[1][0], loc[1][1]))
+            closest = closest_location[0] if closest_location else 'N/A'
+            formatted_location_link = f"{location_link_split[0]}?{vendor_serial}?{item_serial}?{item_price}#{location_link_split[1]}"
+            quantity_string = quantity_cell.text.strip()
+            name_check_string = format_ingame_name(name_string,quantity_string)
+            total_cost = round(price * int(quantity_string),0)
+            total_profit = round(searchPrice * int(quantity_string) - total_cost,0)
+            out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{page_url}",f"{total_cost}",f"{name_check_string}"))
+    print("parse end: ", round(time.time() - start_time,2))
+    return out_data
+
+
 ### JOURNAL MANAGEMENT
 
 def delete_most_recent_log(event=None):
@@ -489,8 +593,8 @@ def check_accessibility(file_path):
         return False
 
 def parse_log_to_object():
-    #my_vendors = [4342004, 3097786, 1598057, 4205843, 3756258, 3749795]
-    my_vendors = ["MM1","MM2","MM3","MM4","MM5","MM6"]
+    my_vendors = [0x2A2814, 0x2A280D, 0x2A27FA, 0x2A27F3, 0x2A281C, 0x2A2830, 0x2A2835, 0x2A283D]
+    #my_vendors = ["MM1","MM2","MM3","MM4","MM5","MM6"]
     vendors = {}
     current_vendor = None
     latest_log = get_most_recent_log()
@@ -548,7 +652,7 @@ def parse_log_to_object():
                 }
                 vendors[vendor_id] = current_vendor
             elif "…vendorEnd" in line:
-                if current_vendor['name'] in my_vendors:
+                if current_vendor['id'] in my_vendors:
                     my_vendor_objs.append(current_vendor)
                     #HandleMyVendor(current_vendor)
                 current_vendor = None
@@ -1293,6 +1397,10 @@ else
         endif
         skill "hiding"
         wait 200
+        if insysmsg "You must be a friend of this house, or have a rental vendor, in order to hide here."
+            @clearsysmsg
+            break
+        endif
     endwhile
 endif
 
@@ -1437,7 +1545,7 @@ endwhile"""
         total_cost = int(float(self.tree.item(row_id, "values")[10]))
         total_cost_str = format_with_commas(total_cost)
         item_description = self.tree.item(row_id, "values")[11]
-        print(item_description)
+        #print(item_description)
         scriptString = f"""@setvar! "timeout" 650
 @setvar! "myTome" 0
 @clearignore
@@ -1478,6 +1586,10 @@ else
         endif
         skill "hiding"
         wait 200
+        
+        if insysmsg "You must be a friend of this house, or have a rental vendor, in order to hide here."
+            break
+        endif
     endwhile
 endif
 
@@ -1560,19 +1672,23 @@ endwhile"""
 
     def quick_scrape(self):
         start_time = time.time()
-        
+        temp_list = []
         async def main():
             responses = await request_gen_simple()
             num_cores = cpu_count()
             with Pool(num_cores) as pool:
                 try:
                     for result in pool.imap_unordered(simple_parse_narrow, responses):
-                        self.queue_append.put(result)
+                        temp_list.append(result)
                 except Exception as e:
                     print(f"Pool failed: {e}")
         
         asyncio.run(main())
         
+
+        filt_tmp = [tmp for tmp in temp_list if tmp]
+        for temp in filt_tmp:
+            self.queue_append.put(temp)
         elapsed_time = round(time.time() - start_time, 2)
         self.queue_append.put(f"Finished FAST:{elapsed_time}")
 
@@ -1948,7 +2064,7 @@ endwhile"""
                         out_str += f"--{result}   \n"
                     else:
                         out_str += f"\t{result}\n"
-
+            #TODO Cores/Distils Low Inventory Indicator
 
                     #print(result)
             #print(out_str)
@@ -1977,7 +2093,6 @@ endwhile"""
     #------------------------------ GUI Updates---------------------------
     def queue_daemon(self,event=None):
         try:
-            #print('queue_daemon_init')
             data = self.queue_append.get_nowait()
             #print(f"queue_daemon_start: {data}")
             if isinstance(data,str):
@@ -1990,12 +2105,14 @@ endwhile"""
                     self.append_to_tree(*tuple)
                 #print(f"queue_daemon_1b")
                 self.queue_emptySort_flag = True
+            #logging.debug(f'queue_daemon_end_append:{str(data)}')
             self.root.after(10, self.queue_daemon)
         except queue.Empty:
             if self.queue_emptySort_flag or self.queue_emptyFastSort_flag:
                 self.queue_emptySort_flag = False
                 if self.queue_emptyFastSort_flag:
-                    print(f"queue_daemon_2")
+                    #logging.debug('queue_daemon_end_sort')
+                    #print(f"queue_daemon_2")
                     self.queue_emptyFastSort_flag = False
                     try:
                         #print('quicksort')
@@ -2009,8 +2126,10 @@ endwhile"""
                     except Exception as e:
                         print('sort failed: ', e)
             self.root.after(20, self.queue_daemon)
+            
         except Exception as e:
             print(f"queue_daemon exception: {e}")
+            #logging.debug('queue_daemon_end_exception')
             self.root.after(20, self.queue_daemon)
         #print("daemon_queue_end")
 
@@ -2116,7 +2235,7 @@ endwhile"""
         loc_sorted = []
         for loc,data in loc_data_sorted:
             loc_sorted.append(loc)
-        print(loc_data_sorted)
+        #print(loc_data_sorted)
 
         loc_id_list = [(self.tree.set(k, 'Location'),self.tree.set(k, 'Ratio'), k) for k in tree_children]
         loc_id_list_sorted = sorted(loc_id_list,key=lambda x: (loc_sorted.index(x[0].split("\t")[1]), float(x[1])))
@@ -2127,7 +2246,7 @@ endwhile"""
 
     def sort_tree_quick(self, event=None):
         data = []
-        print("sort_tree_quick_test1")
+        #print("sort_tree_quick_test1")
         tree_children = self.tree.get_children("")          
         if(len(tree_children) == 0):
             #print("sort_tree_quick_test_early_exit")
@@ -2146,8 +2265,11 @@ endwhile"""
             value_to_copy_raw = row["#9"]
             #print('v', value_to_copy_raw)
             serial_match = re.search(r'\?(\d+)(?:\?(\d+))(?:\?(\d+))?#', value_to_copy_raw) #'https://www.exploreoutlands.com/?471890?1251126567?312345125#pos:869,1381,13'
-            second_try = re.search(r'\?(\d+)\?', value_to_copy_raw)
-            vendor_serial = serial_match.group(1) if serial_match else second_try.group(1) if second_try else 0
+            if serial_match:
+                vendor_serial = serial_match.group(1)
+            else:
+                second_try = re.search(r'\?(\d+)\?', value_to_copy_raw)
+                vendor_serial = second_try.group(1) if second_try else 0
             item_id = serial_match.group(2) if serial_match else 0
             item_price = serial_match.group(3) if serial_match else 0
             str_price = format_with_commas(item_price)
@@ -2166,6 +2288,7 @@ endwhile"""
             ctp_sum = 0
             margin_sum = 0
             total_items_at_location = 0
+            loc_time = ""
             for row in rows:
                 price_col_string = row['Price']
                 price_col_split = price_col_string.split('/')
@@ -2184,6 +2307,7 @@ endwhile"""
                 profit_sum += potential_profit
                 ctp_sum += ctp_ratio_float
                 margin_sum += profit_margin
+                loc_time = row["Time"]
             total_profit = profit_sum
             ctp_ratio_average = round((ctp_sum / total_items_at_location) * 10) / 10 if total_items_at_location else 1
             profit_margin_average = round((margin_sum / total_items_at_location) * 10) / 10 if total_items_at_location else 0
@@ -2191,11 +2315,13 @@ endwhile"""
                 "Profit": total_profit,
                 "CTP_Average": ctp_ratio_average,
                 "Margin_Average": profit_margin_average,
+                "Time": get_seconds_from_string(loc_time)
             }
             data_by_location.append((location,loc_data))
         #print("sort_tree_quick_test4")
 
-        loc_data_sorted = sorted(data_by_location,key=lambda x: (-x[1]["Profit"],x[1]["CTP_Average"],-x[1]["Margin_Average"]))
+        #loc_data_sorted = sorted(data_by_location,key=lambda x: (-x[1]["Profit"],x[1]["CTP_Average"],-x[1]["Margin_Average"]))
+        loc_data_sorted = sorted(data_by_location,key=lambda x: (x[1]["Time"],-x[1]["Profit"],x[1]["CTP_Average"]))
         loc_sorted = []
         for loc,data in loc_data_sorted:
             loc_sorted.append(loc)
@@ -2221,6 +2347,9 @@ endwhile"""
             book_hue = location_data[1]
             location_recall_code = location_data[2]
             location_button_code = location_data[3]
+            #vendors = vendors_by_location[location]
+            #vendorOne = vendors[0]
+            #TODO look for vendor on screen before recalling
             scriptString += f"""
 @setvar! "myTome" 0
 for 3
@@ -2255,6 +2384,9 @@ while not dead
     endif
     skill "hiding"
     wait 200
+    if insysmsg "You must be a friend of this house, or have a rental vendor, in order to hide here."
+        break
+    endif
 endwhile
         
         """ # todo initialize and recall portion
@@ -2270,7 +2402,7 @@ clearignore
                 items = items_by_vendor[vendor_serial]
                 
                 for item_description_compare, item_serial in items.items():
-                    print(item_description_compare,item_serial,vendor_serial,vendor_name)
+                    #print(item_description_compare,item_serial,vendor_serial,vendor_name)
                     scriptString += f"""
 pushlist "itemDescriptions" "{item_description_compare}"
 
@@ -2278,7 +2410,7 @@ pushlist "itemDescriptions" "{item_description_compare}"
                 scriptString += f"""
 while not dead
     if find {vendor_serial} ground any any 20
-        overhead "● ▼▼ {vendor_name} ▼▼ ●" 88 {vendor_serial}
+        overhead "● ▼▼ HERE ▼▼ ●" 88 {vendor_serial}
         if findtype 3701 {vendor_serial} 0 0 0 as "mainBackpack"
             @setvar! "searching" 0
             dclick "mainBackpack"
@@ -2444,11 +2576,11 @@ while not dead
         wait "timeout"
     endif
 endwhile"""
-        print("sort_tree_quick_test7")
+        #print("sort_tree_quick_test7")
         self.root.clipboard_clear()
         self.root.clipboard_append(scriptString)
         self.root.update()
-        print("sort_tree_quick_test_done")
+        #print("sort_tree_quick_test_done")
 
 def catch_assistant_handles():
     windows = pywinauto.Desktop(backend="win32").windows()
@@ -2476,8 +2608,37 @@ def Check_Razor_Assistant(hWnd=329188):
 async def fetch(session, url, headers, cookies):
     async with session.get(url, headers=headers, cookies=cookies) as response:
         return await response.content.read()
+    
+async def fetch_with_extra_data(session, url, headers, cookies, extra_data):
+    content = await fetch(session, url, headers, cookies)
+    return {"content": content, "url": url, "extra_data": extra_data}
 
 async def request_gen_simple():
+    string_list = [
+        #("redlightning OR survival gear OR chromatic OR clothing bless deed OR strongbox customization OR ankh token OR battle commendation OR an emote deed OR shadow aspect distillation OR mastercrafting diagram OR skill mastery orb OR plant chemicals OR arcane scroll OR treasure undeciphered OR research materials OR prevalia coins"),
+        # ("redlightning OR survival gear OR chromatic OR clothing bless deed OR strongbox customization"),
+        # ("ankh token OR battle commendation OR an emote deed OR shadow aspect distillation OR mastercrafting diagram OR skill mastery orb"),
+        #("plant chemicals OR arcane scroll"),
+        ("treasure undeciphered OR research materials OR prevalia coins OR mastercrafting diagram OR skill mastery orb", 0.9),
+    ]
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+    }
+    cookies = RequestsCookieJar()
+    cookies.set("app", "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S")
+
+    async with aiohttp.ClientSession() as session:
+        tasks = []
+        for searchString, price_ratio in string_list:
+            page_url = "https://outlandmalls.com/?item=" + quote_plus(searchString) + "&search_category_id=0"
+            tasks.append(fetch_with_extra_data(session, page_url, headers, cookies,price_ratio))
+        
+        responses = await asyncio.gather(*tasks)
+
+        return [(response["content"], master_prices, response["url"], 60, 1, response["extra_data"]) for response in responses]
+
+async def request_gen_simpleOLD():
     price_list = [
         ("treasure undeciphered", map_prices),
         ("research materials", misc_crafting_prices),
@@ -2502,8 +2663,7 @@ async def request_gen_simple():
         
         responses = await asyncio.gather(*tasks)
         return [(response, searchPrices, page_url, 60, 1, .90) for response, (_, searchPrices) in zip(responses, price_list)]
-
-
+        
 class AssMonGui:
     def __init__(self, parent):
         self.top = tk.Toplevel(parent)
@@ -2653,7 +2813,7 @@ def append_recall_home_script():
     try:
         current_content = root_ghost.root.clipboard_get()
 
-        print(current_content)
+        #print(current_content)
         append_string = """
 wait 1000
 script 'AliRoom'

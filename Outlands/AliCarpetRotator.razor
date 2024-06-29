@@ -1,0 +1,18 @@
+// Carpet Rotator
+@setvar! carpetIdToKeep 43159
+@setvar! delay 650
+
+
+@clearignore
+while not dead
+    while findtype carpetIdToKeep as goodCarpet
+        @ignore goodCarpet
+    endwhile
+    if findtype 43159|43160|43162|43163|43164|43165|43166|43167|43168|43169|43170|43171|43172|43173 as badCarpet
+        dclick badCarpet
+        wait delay
+    else
+        break
+    endif
+endwhile
+@clearignore

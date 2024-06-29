@@ -1,8 +1,13 @@
+// You dont have to follow the names, these are 
 @setvar! harvestingContainer 0x4906A4F7
 @setvar! magicContainer 0x4906A4F7
 @setvar! EDCContainer 0x56C25228
 @setvar! valuablesContainer 0x56C25228
+
 @setvar! globalTimeout 650
+
+# ---------------------------------------- #
+# Ignore these things for sorting!
 
 if findtype "spellbook" self 0 as mySpellBook
     @ignore mySpellBook
@@ -14,6 +19,10 @@ if findtype 3922 self 0 as myDagger
         @ignore myDagger
     endif
 endif
+
+# ---------------------------------------- #
+
+
 
 while skill "mining" > 50 and findtype "forge" ground -1 -1 2 and findtype "iron ore" backpack as jore
         dclick jore
@@ -47,6 +56,8 @@ while findtype 5132|5135|5075|5074|5061|7610|5070|5063|7175|7179|7169|7177|5090|
     @ignore item
 endwhile
 
+
+# Tomes
 if findtype 5356 backpack 0 and findtype 29104 ground 2990 1 2 as myTreasureMapBook
     overhead "Add to Tmap Book" 1159
     menu myTreasureMapBook 0
@@ -97,9 +108,15 @@ if findtype 43206 and findtype 29104 ground 2091 1 2 as myLinkPageBook
     menu myLinkPageBook 0
 endif
     
+if findtype 27611 and findtype 29104 ground 2141 1 2 as myCollectableCard
+    overhead "Add to Collectible Card Book" 1159
+    menu myCollectableCard 0
+endif
+
 wait 250
 
 if findtype 'storage shelf' ground 0 1 2 as myStorageShelf
+    overhead "Add to Storage Shelf" 1159
     menu myStorageShelf 0
     wft 1000
     target self
@@ -108,7 +125,15 @@ if findtype 'storage shelf' ground 0 1 2 as myStorageShelf
 endif
 
 if findtype 'resource container' ground 0 1 2 as myResourceContainer
+    overhead "Add to Resource Container" 1159
     menu myResourceContainer 0
+    wft 1000
+    target self
+endif
+
+if findtype 'magic item chest' ground 0 1 2 as myMagicItemChest or findtype 'sm magic item vault' ground 0 1 2 as myMagicItemChest
+    overhead "Add to Magic Item Chest" 1159
+    menu myMagicItemChest 0
     wft 1000
     target self
 endif
@@ -116,13 +141,12 @@ endif
 wait 500
 
 #Valuables
-while findtype 22326|51078|15296|45259|29030|2539|3821|5360|16898|576|2472|2475|2594|2744|2750|2760|2771|2778|2799|3648|3649|3650|3651|3708|3712|3827|3836|3838|3839|3842|3843|3985|4248|5359|5981|8826|12686|15297|17087|17686|19717|22244|22336|23996|23997|24343|24434|29025|29036|29832|29833|43166|43179|43206|48405|48407 backpack as item
+while findtype 4025|4026|25359|37181|22326|51078|15296|45259|29030|2539|3821|5360|16898|576|2472|2475|2594|2744|2750|2760|2771|2778|2799|3648|3649|3650|3651|3708|3712|3827|3836|3838|3839|3842|3843|3985|4248|5359|5981|8826|12686|15297|17087|17686|19717|22244|22336|23996|23997|24343|24434|29025|29036|29832|29833|43166|43179|43206|48405|48407 backpack as item
     getlabel item desc
     overhead "Organize {{desc}} to Valuable Items" 53
     lift item 60000
     drop EDCContainer -1 -1 -1
     wait globalTimeout
-    endif
 endwhile
 
 #HarvestingItems -> EDCContainer
@@ -130,9 +154,8 @@ while findtype 5990|3989|2422|2426|2489|2496|2508|2515|2545|4225|5639|5641|7121|
     getlabel item desc
     overhead "Organize {{desc}} to Harvesting Items" 53
     lift item 60000
-    drop EDCContainer -1 -1 -1
+    drop harvestingContainer -1 -1 -1
     wait globalTimeout
-    endif
 endwhile
 
 #MagicItems
@@ -142,7 +165,6 @@ while findtype 9917|5056|5059|5060|5061|5063|5070|5074|5075|5076|5078|5085|5089|
     lift item 60000
     drop magicContainer -1 -1 -1
     wait globalTimeout
-    endif
 endwhile
 
 #EDCitems
@@ -152,7 +174,6 @@ while findtype 3854|3962|3963|3972|3973|3974|3976|3980|3981|29773|29774|5356|355
     lift item 60000
     drop EDCContainer -1 -1 -1
     wait globalTimeout
-    endif
 endwhile
 
 if findtype 'storage shelf' ground 0 1 2 as myStorageShelf
