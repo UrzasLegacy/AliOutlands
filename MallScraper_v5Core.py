@@ -1,4 +1,3 @@
-#TODO clothes,boat stuff (crew, upgrades), jugglin torches n shit
 import os
 import glob
 import requests
@@ -43,15 +42,10 @@ logger = logging.getLogger('MallScraper')
 
 clipboard_ghost = ""
 
-
 master_prices = collate_master_price_dict()
-#TODO 
-# 37181 dig tools
-# 4025 chromatic core
-# 4026 distil
-# 25359 redlightning bottle
-# Small history stack for clipboard: Ctrl-z to undo script append
-
+#TODO Small history stack for clipboard: Ctrl-z to undo script append
+#TODO For image analysis of inventory, instead of screen capture, snip and use last image on clipboard
+#TODO clothes,boat stuff (crew, upgrades), jugglin torches n shit
 
 def multi_parse_wide(in_tuple):
     item = in_tuple[0]
@@ -78,7 +72,7 @@ def multi_parse_wide(in_tuple):
     }
     agg_rows = []
     i = 0
-    failsafe = 0 #todo: decide on whether to retry if time out
+    failsafe = 0 
     process_id = os.getpid()
     print(f'start: {process_id}: {item}')
     
@@ -226,7 +220,7 @@ def simple_parse_wide(in_tuple):
     }
     agg_rows = []
     i = 0
-    failsafe = 0 #todo: decide on whether to retry if time out
+    failsafe = 0 
     process_id = os.getpid()
     print(f'start: {process_id}: {item}')
     
@@ -344,8 +338,6 @@ def simple_parse_wide(in_tuple):
     else:
         return (None,)
 
-
-
 def multi_parse_misc(in_tuple):
     html = in_tuple[0]
     searchPrice = in_tuple[1]
@@ -410,8 +402,6 @@ def extract_relevant_html_part(html):
     match = re.search(r'<table id="item-search-results">.*?</table>', html, re.DOTALL)
     return match.group(0) if match else html
 
-
-
 def simple_parse_narrow(in_tuple): #(response.content,searchPrices,page_url,60,1,.93)
     from lxml import html as lxml_html
     html, searchPrices, page_url, time_frame, price_depth, cutoff_threshold = in_tuple
@@ -420,11 +410,11 @@ def simple_parse_narrow(in_tuple): #(response.content,searchPrices,page_url,60,1
     tree = lxml_html.fromstring(html)
 
     #print("soup start:",start_time)
-    elapsed_time = round(time.time() - start_time, 2)
+    #elapsed_time = round(time.time() - start_time, 2)
     table = tree.xpath('//table[@id="item-search-results"]')[0]
 
     rows = table.xpath('.//tbody/tr')
-    print(f"tree generated {page_url[15:]}: {elapsed_time}")
+    #print(f"tree generated {page_url[15:]}: {elapsed_time}")
     out_data = []
     my_fetched_locations = my_locations.items()
 
@@ -562,9 +552,7 @@ def simple_parse_narrowOLD(in_tuple): #(response.content,searchPrices,page_url,6
     print("parse end: ", round(time.time() - start_time,2))
     return out_data
 
-
 ### JOURNAL MANAGEMENT
-
 def delete_most_recent_log(event=None):
     file = get_most_recent_log()
     os.remove(file)
@@ -745,7 +733,6 @@ def take_snapshot(inventory_items):
     except Exception as e:
         print(f"Exception in take_snapshot: {e}")
 
-# Function to get the sales from the database
 def read_full_db():
     try:
         with connect_db() as conn:
@@ -764,7 +751,6 @@ def read_full_db():
     except Exception as e:
         print(f"An error occurred: {e}")
     
-# Function to get the most recent snapshot from the database
 def get_most_recent_inventory_snapshot():
     try:
         fetches = fetch_query("SELECT MAX(snapshot_time) FROM inventory_snapshots") #returns fetchall
@@ -863,8 +849,6 @@ def record_sale(snapshot_time, id, price, description, quantity):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-
-
 class AliApp:
     def __init__(self,root):
         self.root = root
@@ -898,7 +882,7 @@ class AliApp:
         self.tree_frame.grid_rowconfigure(1, weight=0)
 
         # Create the Treeview with several columns
-        self.tree = ttk.Treeview(self.tree_frame, columns=("Item", "Price","Ratio","#","Profit","Vendor","Location","Time","#9","#10","#11","#12"),show='headings') #todo add profit column
+        self.tree = ttk.Treeview(self.tree_frame, columns=("Item", "Price","Ratio","#","Profit","Vendor","Location","Time","#9","#10","#11","#12"),show='headings')
         self.tree.heading("Item", text="Item", command=lambda _col="Item",_col2 ="Ratio": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
         self.tree.heading("Price", text="Price")
         self.tree.heading("Ratio", text="%", command=lambda _col="Ratio",_col2 ="Time": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
@@ -916,7 +900,7 @@ class AliApp:
         self.tree.column("Vendor", width=125)
         self.tree.column("Location", width=205) 
         self.tree.column("Time", width=100)
-        self.tree.column("#9", width=0,stretch=False) #todo
+        self.tree.column("#9", width=0,stretch=False)
         self.tree.column("#10", width=0,stretch=False)
         self.tree.column("#11", width=0,stretch=False)
         self.tree.column("#12", width=0,stretch=False)
@@ -1068,7 +1052,9 @@ class AliApp:
         self.btn_visit_web.grid(row=6, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
         self.btn_open_folder = ttk.Button(self.radio_frame, text="Open Folder", command=lambda: os.system('explorer "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\\Data\\Client\\JournalLogs"'))
         self.btn_open_folder.grid(row=7, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
-        self.btn_inventory = ttk.Button(self.radio_frame, text="Inventory", command=lambda: self.read_db_current_inventory())
+        self.btn_inventory = ttk.Button(self.radio_frame, text="Inventory")
+        self.btn_inventory.bind("<Button-1>", lambda event: self.read_db_current_inventory(True))
+        self.btn_inventory.bind("<Control-Button-1>", lambda event: self.read_db_current_inventory(False))
         self.btn_inventory.grid(row=8, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
         self.btn_recent_sales = ttk.Button(self.radio_frame, text="Sales", command=self.read_db_total_sales) # read_db_recent_sales
         self.btn_recent_sales.grid(row=9, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
@@ -1121,8 +1107,9 @@ class AliApp:
         canvas = tk.Canvas(overlay, highlightthickness=0, bg='black')
         canvas.pack(fill='both', expand=True)
         canvas.create_rectangle(border_width // 2, border_width // 2, region[2] - border_width // 2, region[3] - border_width // 2, outline=border_color, width=border_width, fill='')
-
-    def detect_notification(self): #todo
+    
+    #TODO add discord notif detector
+    def detect_notification(self): 
         def images_are_equal(img1, img2):
             arr1 = np.array(img1)
             arr2 = np.array(img2)
@@ -2004,7 +1991,7 @@ endwhile"""
             print(f"An error occurred: {e}")
             return []
         
-    def read_db_current_inventory(self,switch=None):
+    def read_db_current_inventory(self,only_report_incorrect_inventory=False):
         try:
             rows = get_most_recent_inventory_snapshot()
             if not rows:
@@ -2032,7 +2019,9 @@ endwhile"""
             sorted_items = categorize_and_sort_aggregated_items(aggregated_items)
             #pretty_print(check_dict)
             #Animal Lore Scroll: 11 @ 18k each | 2 sets of 10 @ 180k/set
-            out_str = "***WTS*** *(all available on vendors MM1, MM2, MM3 and MM4 at Chopper's Shop (4008, 477) directly north of Anchor's Rest moongate*"
+            out_str = ""
+            if not only_report_incorrect_inventory:
+                out_str += "***WTS*** *(all available on vendors MM1 through MM8 at my shop a short walk southeast from Totem moongate*"
             for category_name, category_items in sorted_items.items(): 
                 if len(category_items) == 0:
                     continue
@@ -2055,16 +2044,20 @@ endwhile"""
                             else:
                                 inline_strings.append(f"({fprice}/item)")
 
-                        if category_name == "Skill Mastery Scrolls":
-                            check_arr.append((stack_size,quantity))
+                        check_arr.append((stack_size,quantity))
                     result = f"{trunc_name}: {' & '.join(inline_strings)}"
 
                     #listbox.insert(tk.END, result)
                     if category_name == "Skill Mastery Scrolls" and ((1,2) not in check_arr or (10,2) not in check_arr):
                         out_str += f"--{result}   \n"
-                    else:
+                    elif category_name == "Cores" and ((20,1) not in check_arr or (5,2) not in check_arr or (1,2) not in check_arr): 
+                        out_str += f"--{result}   \n"
+                    elif category_name == "Distils" and ((5,2) not in check_arr or (1,2) not in check_arr): 
+                        out_str += f"--{result}   \n"
+                    elif not only_report_incorrect_inventory:
                         out_str += f"\t{result}\n"
-            #TODO Cores/Distils Low Inventory Indicator
+
+                        
 
                     #print(result)
             #print(out_str)
@@ -2084,7 +2077,8 @@ endwhile"""
 
             render_stock_script(sorted_items)
             #print("-End Report-")
-            
+            if only_report_incorrect_inventory:
+                return "break"
             return sorted_items
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -2347,36 +2341,40 @@ endwhile"""
             book_hue = location_data[1]
             location_recall_code = location_data[2]
             location_button_code = location_data[3]
-            #vendors = vendors_by_location[location]
-            #vendorOne = vendors[0]
-            #TODO look for vendor on screen before recalling
+            vendors = vendors_by_location[location]
+            vendor_one_name,vendor_one_serial = next(iter(vendors.items()))
+            print(vendor_one_name,vendor_one_serial)
             scriptString += f"""
-@setvar! "myTome" 0
-for 3
-    if findtype "runetome" backpack {book_hue} as "tome"
-        @setvar! "myTome" "tome"
-        break
+if find {vendor_one_serial} ground any any 20
+    overhead {vendor_one_name}
+else
+    @setvar! "myTome" 0
+    for 3
+        if findtype "runetome" backpack {book_hue} as "tome"
+            @setvar! "myTome" "tome"
+            break
+        endif
+        dclick backpack
+        wait "timeout"
+    endfor
+
+    if "myTome" = 0
+        overhead "NO TOME" 33
+        stop
     endif
-    dclick backpack
-    wait "timeout"
-endfor
 
-if "myTome" = 0
-    overhead "NO TOME" 33
-    stop
-endif
-
-overhead "recalling to spot {location} in {location_character}'s book" 1159
-dclick "myTome"
-waitforgump 167090027 1000
-if not gumpexists 167090027
+    overhead "recalling to spot {location} in {location_character}'s book" 1159
     dclick "myTome"
+    waitforgump 167090027 1000
+    if not gumpexists 167090027
+        dclick "myTome"
+        waitforgump 167090027 2000
+    endif
+    gumpresponse {location_recall_code} 167090027
     waitforgump 167090027 2000
+    gumpresponse {location_button_code} 167090027
+    wait 500
 endif
-gumpresponse {location_recall_code} 167090027
-waitforgump 167090027 2000
-gumpresponse {location_button_code} 167090027
-wait 500
 
 while not dead
     if hidden or cooldown "skill" > 0
@@ -2389,7 +2387,7 @@ while not dead
     endif
 endwhile
         
-        """ # todo initialize and recall portion
+        """
             vendors = vendors_by_location[location]
             for vendor_name, vendor_serial in vendors.items():
                 scriptString += f"""
@@ -2616,9 +2614,10 @@ async def fetch_with_extra_data(session, url, headers, cookies, extra_data):
 async def request_gen_simple():
     string_list = [
         #("redlightning OR survival gear OR chromatic OR clothing bless deed OR strongbox customization OR ankh token OR battle commendation OR an emote deed OR shadow aspect distillation OR mastercrafting diagram OR skill mastery orb OR plant chemicals OR arcane scroll OR treasure undeciphered OR research materials OR prevalia coins"),
-        # ("redlightning OR survival gear OR chromatic OR clothing bless deed OR strongbox customization"),
-        # ("ankh token OR battle commendation OR an emote deed OR shadow aspect distillation OR mastercrafting diagram OR skill mastery orb"),
-        #("plant chemicals OR arcane scroll"),
+        # "(skill mastery AND (chivalry OR inscription OR tailoring OR peacemaking OR taste id)) OR (aspect core AND (arcane OR eldritch OR void OR poison OR shadow OR air OR artisan OR harvest)) OR plant chemicals OR arcane scroll",
+        #("(skill mastery AND (chivalry OR inscription OR tailoring OR peacemaking OR taste id))", 0.8),
+        #("plant chemicals OR arcane scroll", 0.8),
+        #("aspect core AND (arcane OR eldritch OR void OR poison OR shadow OR air OR artisan OR harvest)", 0.8),
         ("treasure undeciphered OR research materials OR prevalia coins OR mastercrafting diagram OR skill mastery orb", 0.9),
     ]
 
@@ -2630,7 +2629,8 @@ async def request_gen_simple():
 
     async with aiohttp.ClientSession() as session:
         tasks = []
-        for searchString, price_ratio in string_list:
+        for item in string_list:
+            searchString, price_ratio = item
             page_url = "https://outlandmalls.com/?item=" + quote_plus(searchString) + "&search_category_id=0"
             tasks.append(fetch_with_extra_data(session, page_url, headers, cookies,price_ratio))
         
@@ -2663,7 +2663,7 @@ async def request_gen_simpleOLD():
         
         responses = await asyncio.gather(*tasks)
         return [(response, searchPrices, page_url, 60, 1, .90) for response, (_, searchPrices) in zip(responses, price_list)]
-        
+
 class AssMonGui:
     def __init__(self, parent):
         self.top = tk.Toplevel(parent)
@@ -2724,7 +2724,6 @@ class AssMonGui:
     def start_monitoring(self):
         self.monitor_thread = threading.Thread(target=self.monitor_daemon, daemon=True)
         self.monitor_thread.start()
-
 
 def start_purchase_script():
     append_recall_home_script()
@@ -2831,9 +2830,6 @@ keyboard.add_hotkey("ctrl+alt+1", lambda: focus_named_assistant('a lost girl'))
 keyboard.add_hotkey("ctrl+alt+2", lambda: focus_named_assistant('Vendor Police'))
 keyboard.add_hotkey("ctrl+alt+3", lambda: focus_named_assistant('Aproctoflecticus'))
 keyboard.add_hotkey("alt+shift+`", lambda: focus_scraper())
-
-
-
 
 root_ghost = False
 def main():

@@ -9,7 +9,6 @@ import pyperclip
 import json
 from OutlandsDicts import *
 
-#todo mastery chain dye
 def alter_hue_dict(self_parse=False, item_type="rare cloth"):
     shoe_list = ['cloth shoes', 'shoes', 'cloth boots', 'cloth thigh boots', 'cloth sandals']
     out_dict = defaultdict(int)
@@ -42,7 +41,6 @@ def alter_hue_dict(self_parse=False, item_type="rare cloth"):
                 out_dict[f"rare {new_k}"] = hue_data[item_type]
     return out_dict
     #print(json.dumps(out_dict, indent=4))
-
 
 def is_junk(item_name,item_quantity):
     item_name = item_name.lower()
@@ -93,7 +91,6 @@ def is_junk(item_name,item_quantity):
         return True 
     if any(word in item_name for word in is_junk.general_forbidden): #returns true if item name contains any string in general forbidden list
         return True
-    
     
 def format_ingame_name(name_string, quantity_string):
     if quantity_string != '1':
@@ -165,7 +162,6 @@ def get_seconds_from_string(time_string):
         return time_seconds
     except Exception as e:
         print(f"Error: {e}: {parse}")
-
 
 def get_vendor_seconds_from_string(time_string):
     parse = str(time_string)
@@ -321,9 +317,7 @@ def categorize_and_sort_aggregated_items(aggregated_items):
     #pretty_print(sorted_category_dict)
 
     return sorted_category_dict
-
-#sorted_category_dict["Cores"]["Air Aspect Core"] = [(20, 15000, 1), (5, 15000, 2), (1, 15000, 2)]
-
+    #sorted_category_dict["Cores"]["Air Aspect Core"] = [(20, 15000, 1), (5, 15000, 2), (1, 15000, 2)]
 
 def pretty_print(data, indent=0):
     if isinstance(data, dict):
@@ -334,8 +328,6 @@ def pretty_print(data, indent=0):
         print(' ' * indent + '[\n' + ',\n'.join(' ' * (indent + 4) + str(sublist) for sublist in data) + '\n' + ' ' * indent + ']')
     else:
         print(' ' * indent + str(data))
-
-#Animal Lore Scroll: 11 @ 18k each, 2 sets of 10 @ 180k/set
 
 def discord_truncate(s):
     transformer = {
@@ -358,9 +350,6 @@ def discord_truncate(s):
             search_pattern, replace_pattern = re_tuple
             s = re.sub(search_pattern, replace_pattern, s)
     return s
-#bronze mastery chain link Alchemy/Healing/Veterinary (+3.00)
-
-
 
 def switch_focus():
     mouse_pos = win32api.GetCursorPos()
@@ -477,8 +466,9 @@ def connect_to_window(hWnd):
         return False
     return connection
 
-# Custom function to handle the specific indentation
 def custom_json_dumps(data, indent=4, depth=0):
+    # Custom function to handle the specific indentation
+
     if isinstance(data, dict):
         items = []
         for key, value in data.items():
@@ -494,7 +484,6 @@ def custom_json_dumps(data, indent=4, depth=0):
     else:
         return json.dumps(data)
     
-
 def PipedListDiffer(before, after):
     before_set = set(before.split("|"))
     after_set = set(after.split("|"))
@@ -504,7 +493,7 @@ def PipedListDiffer(before, after):
     dif_list_sorted = sorted(dif_list, key= int)
     dif_string = f"{'|'.join(dif_list_sorted)}"
 
-    print(f"Difference: {len(dif_list)}")
+    print(f"Difference: {dif_string}\nDif Len: {len(dif_list)}")
 
     return dif_string
 
@@ -517,7 +506,7 @@ def PipedListSubtract(list1, list2):
     sub_list_sorted = sorted(sub_list, key= int)
     sub_string = f"{'|'.join(sub_list_sorted)}"
 
-    print(f"Subtracted: {len(sub_string)}")
+    print(f"Subtracted: {sub_string}\nSub Len: {len(sub_string)}")
 
     return sub_string
 
@@ -530,7 +519,7 @@ def PipedListConcatenator(before, after):
     concat_list_sorted = sorted(concat_list, key= int)
     concat_string = f"{'|'.join(concat_list_sorted)}"
 
-    print(f"Concat: {len(concat_list)}")
+    print(f"Concat Len: {len(concat_list)}")
 
     return concat_string
 

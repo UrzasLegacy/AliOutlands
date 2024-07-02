@@ -6,61 +6,36 @@ import copy
 import logging
 import json
 # Get the logger for this module
-#todo add hue lookup for cores/distil and for skill scrolls
-#TODO change quick scrape to use "lustrous AND totem OR redlightning OR survival gear OR silver chain link NOT reforging OR gold chain link NOT reforging OR chromatic OR mount token OR clothing bless deed OR strongbox customization OR ankh token OR battle commendation OR arcane essence OR an emote deed OR shadow aspect distillation OR mastercrafting diagram OR skill mastery orb OR plant chemicals OR arcane scroll OR treasure undeciphered OR research materials OR prevalia coins OR shimmer AND cloth"
-
-#TODO make master price list
 
 def collate_master_price_dict():
     master_dict = {**core_prices,**distil_prices,**map_prices,**ingot_prices,**board_prices,**leather_prices,**commodity_2500_prices,**commodity_5000_prices,**scroll_prices,**link_prices,**misc_crafting_prices,**misc_hp_prices,**misc_lp_prices,**deed_prices}
     return master_dict
 
 core_prices = { #exact string MATTERS
-    "Air Aspect Core": 70000,
+    "Air Aspect Core": 75000,
     "Arcane Aspect Core": 80000,
-    "Artisan Aspect Core": 45000,
-    "Blood Aspect Core": 10000,
+    "Artisan Aspect Core": 50000,
+    "Blood Aspect Core": 9000,
     "Command Aspect Core": 80000,
-    "Death Aspect Core": 13000,
+    "Death Aspect Core": 12000,
     "Discipline Aspect Core": 9000,
     "Earth Aspect Core": 9000,
     "Eldritch Aspect Core": 75000,
     "Fire Aspect Core": 13000,
-    "Frost Aspect Core": 18000,
+    "Frost Aspect Core": 17000,
     "Fortune Aspect Core": 70000,
     "Gadget Aspect Core": 10000,
     "Harvest Aspect Core": 80000,
-    "Holy Aspect Core": 10000,
-    "Lightning Aspect Core": 50000,
+    "Holy Aspect Core": 11000,
+    "Lightning Aspect Core": 48000,
     "Lyric Aspect Core": 23000,
     "Madness Aspect Core": 80000,
     "Poison Aspect Core": 48000,
     "Shadow Aspect Core": 39000,
     "Void Aspect Core": 48000,
     "War Aspect Core": 7000,
-    "Water Aspect Core": 10000,
+    "Water Aspect Core": 9000,
 }
-''' Pre expansion prices
-    "Blood Aspect Core": 18000,
-    "Holy Aspect Core": 19000,
-    "Earth Aspect Core": 15000,
-    "War Aspect Core": 8000,
-    "Death Aspect Core": 18000,
-    "Water Aspect Core": 28000,
-    "Gadget Aspect Core": 30000,
-    "Shadow Aspect Core": 20000,
-    "Void Aspect Core": 42000,
-    "Fire Aspect Core": 25000,
-    "Discipline Aspect Core": 19000,
-    "Lyric Aspect Core": 43000,
-    "Poison Aspect Core": 40000,
-    "Eldritch Aspect Core": 63000,
-    "Fortune Aspect Core": 110000,
-    "Command Aspect Core": 185000,
-    "Artisan Aspect Core": 68000,
-    "Air Aspect Core": 70000,
-    "Harvest Aspect Core": 190000,
-'''
 
 extract_prices = {
     'Air Aspect Extract': 7000,       
@@ -86,7 +61,6 @@ extract_prices = {
     'Void Aspect Extract': 8000,
     'Water Aspect Extract': 5000,
 }
-
 
 distil_prices = {
     'Air Aspect Distillation': 8000,
@@ -476,7 +450,7 @@ misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&
     "immaculate stone": 50000,
     "an arcane scroll": 1000,
     "research materials (double-click to research)": 37000,
-    "mastercrafting diagram": 21000,
+    "mastercrafting diagram": 20000,
     "cleansing brew": 1500,
     "amber": 48,
     "amethyst": 60,
@@ -525,7 +499,7 @@ misc_lp_prices = { #exact string matters
     "arcane essence": 37,
     "an emote deed": 200000,
     "redlightning bottle": 45000,
-    "survival gear": 33000,
+    "survival gear": 37000,
     "a battle commendation (double-click to consume and receive reward item)": 11000,
     "invulnerability leather cap": 95000,
     "dyeable gilded gold carpet tile": 23000,
@@ -542,13 +516,13 @@ deed_prices = {
     "a clothing bless deed": 200000,
 }
 
-self_parse_extra_prices = { #todo add
+self_parse_extra_prices = { 
     "Aspect Triumph": 1000000,
     "special fishing net": 4000,
     "an emote deed": 200000,
 }
 
-self_parse_extra_aliases = { #todo add
+self_parse_extra_aliases = {
     "tome": 175000,
     "mount token": 1900000,
     "lore page /15": 30000,
@@ -600,7 +574,7 @@ my_locations = {
     "NE Outpost Close 2":(3364,408, ('a lost girl',2093,211,20)), 
     "NE Outpost Far": (3406,165, ('a lost girl',2093,212,10)),
 
-    "Frozen Ruins SE":(1612,780, ('a lost girl',2093,213,20)),#1614,767
+    "N of GH":(3886,744, ('a lost girl',2093,213,20)),
     "Frozen Ruins SW":(1546,753, ('a lost girl',2093,214,10)),
     "Winterlands VM":(3968,51, ('a lost girl',2093,215,20)),
     "N of Andaria":(2002,547, ('a lost girl',2093,216,10)),
@@ -661,7 +635,7 @@ my_locations = {
     "HSB W": (1916,2261, ('Misc1',1989,213,20)),
     "HSB N": (1961,2090, ('Misc1',1989,214,10)),
     "HSB Gate": (2014,2047, ('Misc1',1989,215,20)),
-    "S Terran Clearing Tip": (944,1531,('Misc1',1989,216,10)),
+    "E of HSB": (2229,2337,('Misc1',1989,216,10)),
     "NE Outpost Mid": (3406,289,('Misc1',1989,217,20)),
     "Syn Keep": (4056,325,('Misc1',1989,218,10)), #4057 338
     "NE Outpost Far NW": (3252,294,('Misc1',1989,219,20)),
@@ -698,7 +672,7 @@ my_locations = {
     "N Prev Sandbar Far W":(1425,1343,('Misc2',2828,221,20)),
     "Far S of Pulma":(1791,1138,('Misc2',2828,222,10)),
     "SW of Cavernam":(2668,487,('Misc2',2828,223,20)),
-    "NW of Cambria":(1570,2852,('Misc2',2828,224,10)),
+    "NW of Cambria":(1570,2852,('Misc2',2828,224,10)), #TODO exchange out
     "S Prevalia Beach":(2028,1738,('Misc2',2828,225,20)),
 
     # Misc 3 2091
@@ -717,11 +691,11 @@ my_locations = {
     "Totem Gate SW1":(3859,2818,('Misc3',2091,212,10)),
     
     "Jungle Junction":(4228,2642,('Misc3',2091,213,20)),
-    "N of GH":(3886,744,('Misc3',2091,214,10)),
+    "N Bivouac":(3405,3097,('Misc3',2091,214,10)),
     "Abandoned Island":(4344,2850,('Misc3',2091,215,20)),
     "W of Totem":(3797,2916,('Misc3',2091,216,10)),
     "Dragonfire Ring":(3815,2492,('Misc3',2091,217,20)),
-    "N Bivouac":(3405,3097,('Misc3',2091,218,10)),
+    "N of Fishkill":(4129,2180,('Misc3',2091,218,10)),
     "placeholder":(0,0,('Misc3',2091,219,20)),
     "placeholder":(0,0,('Misc3',2091,220,10)),
     "placeholder":(0,0,('Misc3',2091,221,20)),
@@ -737,8 +711,8 @@ my_locations = {
     "S of Papua":(3729,3195,('Wide Reach',1183,203,20)),
     "Wildflower Highlands":(4026,3149,('Wide Reach',1183,204,10)),
     "Whisperwood":(4012,3015,('Wide Reach',1183,205,20)),
-    "placeholder":(0,0,('Wide Reach',1183,206,10)),
-    "placeholder":(0,0,('Wide Reach',1183,207,20)),
+    "Flower Shop":(4325,1178,('Wide Reach',1183,206,10)),
+    "Whisperwood Cottage":(4115,2952,('Wide Reach',1183,207,20)),
     "placeholder":(0,0,('Wide Reach',1183,208,10)),
     "placeholder":(0,0,('Wide Reach',1183,209,20)),
     "placeholder":(0,0,('Wide Reach',1183,210,10)),
@@ -762,8 +736,8 @@ my_locations = {
     # Unassigned 
     "Asura's Shop":(1197,2851,('Unlisted',0,0,0)),
     "MyKruelz":(1634,1136,('Unlisted',0,0,0)),
-    "N of Pwnstar":(4207,1026,('Unlisted',0,200,10)),
-    "E of HSB": (2178,2346, ('Unlisted',0,200,10)),
+    "N of Pwnstar":(4207,1026,('Unlisted',0,0,0)),
+    "S Terran Clearing Tip": (944,1531,('Unlisted',0,0,0)),
 
     "Dirty Dom": (3787,941, ('Unlisted',0,0,0)),
     "ICE River": (3827,242, ('Unlisted',0,0,0)), #
@@ -772,6 +746,8 @@ my_locations = {
     "Far S Prev SW":(1730,1782, ('Unlisted',0,0,0)),
     "SOF Island Mall": (3571,198,('Unlisted',0,0,0)),
     "JSHINE": (4224,1055, ('Unlisted',0,0,0)),
+    "Frozen Ruins SE":(1612,780, ('Unlisted',0,0,0)),
+
 }
 
 aspect_hues = {
@@ -800,14 +776,6 @@ aspect_hues = {
         "Water": [2592, 1788],
 }
 
-#blue 2722
-#gray 2768
-#purple 2735
-#orange 2810
-#red 2642
-#yellow 2291
-#light green 2479
-#dark green 2564
 
 scroll_hues = {
     "alchemy": 2291,
@@ -970,7 +938,7 @@ def pretty_print(data, indent=0):
 #sorted_category_dict["Cores"]["Air Aspect Core"] = [(20, 15000, 1), (5, 15000, 2), (1, 15000, 2)]
 def render_stock_script(sorted_category_dict={},discount_float=1.0,alt_vendors=False):
     restock_data_dict = {
-        "a skill mastery orb (used to increase a player's total skill cap by 1)": {'stack_size': (20,5),'stack_quantity': (4, 9),'pos_xy': ((105, 144), (105, 129)),'item_graphic': 22336,'container_serial': 0x483BE859,'container_serial_alt': 0x4F1C1BDE},
+        "a skill mastery orb (used to increase a player's total skill cap by 1)": {'stack_size': (20,5),'stack_quantity': (4, 9),'pos_xy': ((105, 129), (105, 144)),'item_graphic': 22336,'container_serial': 0x483BE859,'container_serial_alt': 0x4F1C1BDE},
         'plant chemicals': {'stack_size': (100,),'stack_quantity': (4,),'pos_xy': ((88, 138),),'item_graphic': 29030,'container_serial': 0x483BE859,'container_serial_alt': 0x4F1C1BDE},
         'dyeable gilded gold carpet tile': {'stack_size': (1,),'stack_quantity': (10,),'pos_xy': ((164, 139),),'item_graphic': 43166,'container_serial': 0x483BE859,'container_serial_alt': 0x4F1C1BDE},
         'pristine lumber': {'stack_size': (5,),'stack_quantity': (2,),'pos_xy': ((154, 105),),'item_graphic': 23996,'container_serial': 0x483BE859,'container_serial_alt': 0x4F1C1BDE},
@@ -983,7 +951,7 @@ def render_stock_script(sorted_category_dict={},discount_float=1.0,alt_vendors=F
         'distillation': {'stack_size': (5,1),'stack_quantity': (2,2),'start_xy': ((44, 105),(44, 88),),'end_xy': ((164, 105),(164, 88),),'row_col': (1, 24),'item_graphic': 17686,'container_serial': 0x511A5A6C,'container_serial_alt': 0x4F1C01AE },
         'skill mastery scroll': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((47, 100), (47, 90)),'end_xy': ((167, 100), (167, 90)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC,'container_serial_alt': 0x4F1C1360},
         'llorcs yretsam lliks': {'stack_size': (10, 1),'stack_quantity': (2, 2),'start_xy': ((50, 143), (50, 133)),'end_xy': ((170, 143), (170, 133)),'item_graphic': 8826,'row_col': (1, 17),'container_serial': 0x589848EC,'container_serial_alt': 0x4F1C0D1B}
-        }
+        } 
     current_inventory_data_dict = get_inventory_data_dict(sorted_category_dict)
     #logger.debug(json.dumps(current_inventory_data_dict,indent=4))
     out_str = '''overhead "Starting Restock"
@@ -1006,10 +974,8 @@ createlist "tempItemList"
     pyperclip.copy(out_str)
     return out_str
 
-
 def discount_price_list(price_list:dict,discount_float:float):
     return dict([(item_name, int(float(item_price) * discount_float)) for (item_name, item_price) in price_list.items()])
-
 
 def split_dict_in_half(d):
     items = list(d.items())
@@ -1017,7 +983,6 @@ def split_dict_in_half(d):
     dict1 = dict(items[:midpoint])
     dict2 = dict(items[midpoint:])
     return dict1, dict2
-
 
 def render_stock_script_simple(item_name, price_per, restock_data,current_inventory_data_dict,discount_float=1.0,alt_vendors=False):
     import random
@@ -1129,7 +1094,6 @@ def render_stock_script_complex(item_category,restock_data,current_inventory_dat
     outStr = ""
     hue = ""
     transformer = {"ani": True, "car": True, "for": True,"pea": True,"ste": True,"min":True}
-    logger.debug(f"-----------------------------------------------------")
 
     for jnd, (item_name,item_price) in enumerate(price_list.items()):
         for ind, stack_size in enumerate(stack_sizes):
@@ -1140,8 +1104,8 @@ def render_stock_script_complex(item_category,restock_data,current_inventory_dat
             stack_quantity = stack_quantities[ind] - adjust_quantity
             if stack_quantity <= 0:
                 continue
-            if "item id" in temp_name:
-                logger.debug(f"{temp_name} ({stack_size}pcs) in stock: {adjust_quantity}\tTo restock: {stack_quantity}\tstack_quantities[ind]:{stack_quantities[ind]}\tadjust_quantities:{adjust_quantities}")
+            # if "item id" in temp_name:
+            #     logger.debug(f"{temp_name} ({stack_size}pcs) in stock: {adjust_quantity}\tTo restock: {stack_quantity}\tstack_quantities[ind]:{stack_quantities[ind]}\tadjust_quantities:{adjust_quantities}")
             #print(f"{item_name} ({stack_size} stack): {stack_quantity}")
             pos_coords = coord_lists[ind][jnd]
             x, y = pos_coords
