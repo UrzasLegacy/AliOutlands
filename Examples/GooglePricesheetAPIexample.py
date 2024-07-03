@@ -1,4 +1,4 @@
-import gspread
+#import gspread
 
 
 def send_to_outlands_pricesheet():

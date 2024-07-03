@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 def get_grid_coords(start_x=1,start_y=1,end_x=20,end_y=20,x_offset=1,y_offset=1,x_on_y_offset=0):
     start_x, start_y = [44,65]

@@ -2,7 +2,6 @@ from collections import ChainMap,defaultdict
 import pyperclip
 import re
 import math
-import copy
 import logging
 import json
 # Get the logger for this module

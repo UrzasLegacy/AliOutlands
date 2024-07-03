@@ -18,8 +18,7 @@ from collections import defaultdict
 import keyboard
 import pywinauto
 import numpy as np
-import json
-import pyautogui
+#import pyautogui
 import socket
 from OutlandsDicts import *
 from OutlandsUtils import *
@@ -27,9 +26,13 @@ import aiohttp
 import asyncio
 from requests.cookies import RequestsCookieJar
 
-# Remove existing handlers from the root logger
+#TODO Small history stack for clipboard: Ctrl-z to undo script append
+#TODO For image analysis of inventory, instead of screen capture, snip and use last image on clipboard
+#TODO add clothes,boat stuff (crew, upgrades), jugglin torches n shit
+
 for handler in logging.root.handlers[:]:
     logging.root.removeHandler(handler)
+
 logging.basicConfig(
     level=logging.DEBUG,  # Set the minimum log level
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Format for log messages
@@ -40,12 +43,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger('MallScraper')
 
-clipboard_ghost = ""
-
 master_prices = collate_master_price_dict()
-#TODO Small history stack for clipboard: Ctrl-z to undo script append
-#TODO For image analysis of inventory, instead of screen capture, snip and use last image on clipboard
-#TODO clothes,boat stuff (crew, upgrades), jugglin torches n shit
 
 def multi_parse_wide(in_tuple):
     item = in_tuple[0]
@@ -73,8 +71,8 @@ def multi_parse_wide(in_tuple):
     agg_rows = []
     i = 0
     failsafe = 0 
-    process_id = os.getpid()
-    print(f'start: {process_id}: {item}')
+    #process_id = os.getpid()
+    #print(f'start: {process_id}: {item}')
     
     while i < 10:
         #print(i)
@@ -119,7 +117,7 @@ def multi_parse_wide(in_tuple):
                 break
         i += 1
 
-    print(f'end: {process_id}: {item}')
+    #print(f'end: {process_id}: {item}')
     out_data = []
     for row in agg_rows:
         cells = row.find_all('td')
@@ -221,8 +219,8 @@ def simple_parse_wide(in_tuple):
     agg_rows = []
     i = 0
     failsafe = 0 
-    process_id = os.getpid()
-    print(f'start: {process_id}: {item}')
+    #process_id = os.getpid()
+    #print(f'start: {process_id}: {item}')
     
     while i < 10:
         #print(i)
@@ -262,7 +260,7 @@ def simple_parse_wide(in_tuple):
                 break
         i += 1
 
-    print(f'end: {process_id}: {item}')
+    #print(f'end: {process_id}: {item}')
     out_data = []
     for row in agg_rows:
         cells = row.find_all('td')
@@ -1109,24 +1107,24 @@ class AliApp:
         canvas.create_rectangle(border_width // 2, border_width // 2, region[2] - border_width // 2, region[3] - border_width // 2, outline=border_color, width=border_width, fill='')
     
     #TODO add discord notif detector
-    def detect_notification(self): 
-        def images_are_equal(img1, img2):
-            arr1 = np.array(img1)
-            arr2 = np.array(img2)
-            return np.array_equal(arr1, arr2)
-        def send_udp_message(message, target_ip, target_port):
-            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            sock.sendto(message.encode(), (target_ip, target_port))
-        x, y, width, height = 715, 1150, 782, 135  # Update these values
-        time_stamp = time.time()
-        initial_screenshot = pyautogui.screenshot(region=(x, y, width, height))
-        while True:
-            new_screenshot = pyautogui.screenshot(region=(x, y, width, height))
-            if time.time() > time_stamp and not images_are_equal(new_screenshot, initial_screenshot):
-                time_stamp = time.time() + 5
-                send_udp_message("Triggered", "10.0.0.61", 8080)  # Update IP and port
-            initial_screenshot = new_screenshot
-            time.sleep(0.2)
+    # def detect_notification(self): 
+    #     def images_are_equal(img1, img2):
+    #         arr1 = np.array(img1)
+    #         arr2 = np.array(img2)
+    #         return np.array_equal(arr1, arr2)
+    #     def send_udp_message(message, target_ip, target_port):
+    #         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    #         sock.sendto(message.encode(), (target_ip, target_port))
+    #     x, y, width, height = 715, 1150, 782, 135  # Update these values
+    #     time_stamp = time.time()
+    #     initial_screenshot = pyautogui.screenshot(region=(x, y, width, height))
+    #     while True:
+    #         new_screenshot = pyautogui.screenshot(region=(x, y, width, height))
+    #         if time.time() > time_stamp and not images_are_equal(new_screenshot, initial_screenshot):
+    #             time_stamp = time.time() + 5
+    #             send_udp_message("Triggered", "10.0.0.61", 8080)  # Update IP and port
+    #         initial_screenshot = new_screenshot
+    #         time.sleep(0.2)
 
     def udp_daemon(self,port=8080):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

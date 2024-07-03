@@ -1,6 +1,6 @@
-import cv2
+#import cv2
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 # Function to perform template matching
 def template_matching(image, template, threshold=0.8):
