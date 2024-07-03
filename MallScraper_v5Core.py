@@ -1826,6 +1826,7 @@ endwhile"""
             vendor_string = vendor_data['name']
             vendor_items = vendor_data["items"]
             for item in vendor_items:
+                threshold = 0.0
                 name_string = item['description']
                 full_description = item['full_description']
                 price = round(item['price'],4)
@@ -1842,21 +1843,48 @@ endwhile"""
                     elif name_string.startswith('corrupted mastery chain link'):
                         threshold = float(self_parse_prices.get("corrupted_link_price_threshold",0))
                     else:
-                        threshold = 0
-                elif "invulnerability" in name_string and ("bone" in name_string or "platemail" in name_string or "studded" in name_string) and not ("skirt" in name_string or "cap" in name_string):
-                    threshold = 5000.0
-                elif self_parse_extra_misc and "tome" in name_string and not "summoner's tome" in name_string and not "a rune tome" in name_string:
-                    threshold = float(self_parse_extra_aliases['tome'])
-                elif self_parse_extra_misc and "mount token" in name_string:
-                    threshold =  float(self_parse_extra_aliases['mount token'])
-                elif self_parse_extra_misc and 'a lore page' in name_string:
-                    if "of 15)" in name_string:
-                        threshold = float(self_parse_extra_aliases['lore page /15'])
-                    else:
-                        threshold = float(self_parse_extra_aliases['lore page /10'])
-                else:
+                        threshold = 0.
+                elif self_parse_extra_misc:
+                    if "invulnerability" in name_string:
+                        if ("bone" in name_string or "studded" in name_string) and not ("skirt" in name_string or "cap" in name_string or "bustier" in name_string):
+                            threshold = float(self_parse_extra_aliases.get('invulnerability studded', 0))
+                        elif "platemail" in name_string:
+                            threshold = float(self_parse_extra_aliases.get('invulnerability platemail', 0))
+                    elif "fortification" in name_string and "platemail" in name_string:
+                        threshold = float(self_parse_extra_aliases.get('fortification platemail', 0))
+                    elif "tome" in name_string and not "summoner's tome" in name_string and not "a rune tome" in name_string:
+                        threshold = float(self_parse_extra_aliases.get('tome', 0))
+                    elif "mount token" in name_string:
+                        threshold =  float(self_parse_extra_aliases.get('mount token', 0))
+                    elif 'a lore page' in name_string:
+                        if "of 15)" in name_string:
+                            threshold = float(self_parse_extra_aliases.get('lore page /15', 0))
+                        else:
+                            threshold = float(self_parse_extra_aliases.get('lore page /10', 0))
+                    elif "antiquity" in name_string:
+                        if "thief antiquity" in name_string:
+                            threshold = float(self_parse_extra_aliases.get('thief antiquity', 0))
+                        elif "harvest antiquity" in name_string:
+                            threshold = float(self_parse_extra_aliases.get('harvest antiquity', 0))
+                        elif "crafting antiquity" in name_string:
+                            threshold = float(self_parse_extra_aliases.get('crafting antiquity', 0))
+                        elif "portrait painting antiquity" in name_string:
+                            threshold = float(self_parse_extra_aliases.get('portrait painting antiquity', 0))
+                        elif "landscape painting antiquity" in name_string:
+                            threshold = float(self_parse_extra_aliases.get('landscape painting antiquity', 0))
+                        elif "large painting antiquity" in name_string:
+                            threshold = float(self_parse_extra_aliases.get('large painting antiquity', 0))
+                        elif "battle antiquity" in name_string:
+                            threshold = float(self_parse_extra_aliases.get('battle antiquity', 0))
+                        elif "ocean antiquity" in name_string:
+                            threshold = float(self_parse_extra_aliases.get('ocean antiquity', 0))
+                        elif "chest antiquity" in name_string:
+                            threshold = float(self_parse_extra_aliases.get('chest antiquity', 0))
+                    elif 'totem' in name_string and 'lustrous' in name_string:
+                        threshold = float(self_parse_extra_aliases.get('lustrous totem', 0))
+                if threshold == 0.0:
                     threshold = float(self_parse_prices.get(name_string, 0))
-                if threshold > 0:
+                if threshold > 0.0:
                     cost_to_price_ratio = round(price / threshold,2)
                 elif price == 999 and not is_junk(name_string,item['quantity']):
                     cost_to_price_ratio = 1001
@@ -2630,12 +2658,8 @@ async def fetch_with_extra_data(session, url, headers, cookies, extra_data):
 
 async def request_gen_simple():
     string_list = [
-        #("redlightning OR survival gear OR chromatic OR clothing bless deed OR strongbox customization OR ankh token OR battle commendation OR an emote deed OR shadow aspect distillation OR mastercrafting diagram OR skill mastery orb OR plant chemicals OR arcane scroll OR treasure undeciphered OR research materials OR prevalia coins"),
-        # "(skill mastery AND (chivalry OR inscription OR tailoring OR peacemaking OR taste id)) OR (aspect core AND (arcane OR eldritch OR void OR poison OR shadow OR air OR artisan OR harvest)) OR plant chemicals OR arcane scroll",
-        #("(skill mastery AND (chivalry OR inscription OR tailoring OR peacemaking OR taste id))", 0.8),
-        #("plant chemicals OR arcane scroll", 0.8),
-        #("aspect core AND (arcane OR eldritch OR void OR poison OR shadow OR air OR artisan OR harvest)", 0.8),
-        ("treasure undeciphered OR research materials OR prevalia coins OR mastercrafting diagram OR skill mastery orb", 0.9),
+        ("survival gear OR chromatic OR ankh token OR battle commendation OR mastercrafting diagram OR skill mastery orb OR plant chemicals OR arcane scroll OR (skill mastery scroll OR aspect core) AND (chivalry OR inscription OR tailoring OR peacemaking OR taste id OR arcane OR eldritch OR void OR poison aspect core OR shadow OR air aspect core OR artisan OR harvest)", 0.8),
+        ("research materials OR prevalia coins OR an emote deed OR clothing bless deed OR strongbox customization OR treasure undeciphered", 0.9),
     ]
 
     headers = {

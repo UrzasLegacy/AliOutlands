@@ -38,27 +38,28 @@ core_prices = { #exact string MATTERS
 }
 
 extract_prices = {
-    'Air Aspect Extract': 7000,       
+    'Air Aspect Extract': 8000,
     "Arcane Aspect Extract": 11000,
-    'Artisan Aspect Extract': 5000,   
-    'Blood Aspect Extract': 5000,     
-    'Command Aspect Extract': 10000,   
-    'Death Aspect Extract': 6000,     
+    'Artisan Aspect Extract': 5000,
+    'Blood Aspect Extract': 5000,
+    'Command Aspect Extract': 9000,
+    'Death Aspect Extract': 5000,
     'Discipline Aspect Extract': 5000,
-    'Earth Aspect Extract': 5000,     
-    'Eldritch Aspect Extract': 8000,  
-    'Fire Aspect Extract': 5000,    
-    "Frost Aspect Extract": 7000,  
-    'Fortune Aspect Extract': 7000,   
+    'Earth Aspect Extract': 5000,
+    'Eldritch Aspect Extract': 8000,
+    'Fire Aspect Extract': 5000,
+    "Frost Aspect Extract": 7000,
+    'Fortune Aspect Extract': 7000,
     'Gadget Aspect Extract': 5000,
-    'Harvest Aspect Extract': 10000,
-    'Holy Aspect Extract': 5000,
-    "Lightning Aspect Extract": 11000,
+    'Harvest Aspect Extract': 9000,
+    'Holy Aspect Extract': 8000,
+    "Lightning Aspect Extract": 9000,
     'Lyric Aspect Extract': 5000,
     "Madness Aspect Extract": 11000,
     'Poison Aspect Extract': 7000,
-    'Shadow Aspect Extract': 19000,
+    'Shadow Aspect Extract': 17000,
     'Void Aspect Extract': 8000,
+    'War Aspect Extract': 5000,
     'Water Aspect Extract': 5000,
 }
 
@@ -86,6 +87,29 @@ distil_prices = {
     'Void Aspect Distillation': 8000,
     'War Aspect Distillation': 5000,
     'Water Aspect Distillation': 5000,
+}
+
+phylactery_prices = {
+    "command phylactery": 10000,
+    "fortune phylactery": 10000,
+    "artisan phylactery": 10000,
+    "eldritch phylactery": 10000,
+    "harvest phylactery": 10000,
+    "earth phylactery": 10000,
+    "blood phylactery": 10000,
+    "void phylactery": 10000,
+    "air phylactery": 10000,
+    "discipline phylactery": 10000,
+    "fire phylactery": 10000,
+    "death phylactery": 10000,
+    "gadget phylactery": 10000,
+    "holy phylactery": 10000,
+    "lyric phylactery": 10000,
+    "poison phylactery": 10000,
+    "shadow phylactery": 10000,
+    "harvest phylactery": 10000,
+    "war phylactery": 10000,
+    "water phylactery": 10000,
 }
 
 map_prices = { #exact string MATTERS
@@ -380,30 +404,30 @@ hue_list = {
     'Shimmer Radiant':       {'hue': 1584, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
     'Shimmer Clover':        {'hue': 1584, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
     'Shimmer Nova':          {'hue': 1584, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
-    'Lustrous Lavender':     {'hue': 4124, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Carmine':      {'hue': 4125, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Seagrass':     {'hue': 4126, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Grass':        {'hue': 4127, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Bottleglass':  {'hue': 4128, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Star':         {'hue': 4129, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Dream':        {'hue': 4130, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Ecru':         {'hue': 4131, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Chartreuse':   {'hue': 4132, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Caramel':      {'hue': 4133, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Steel':        {'hue': 4134, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Slime':        {'hue': 4135, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Flesh':        {'hue': 4136, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Opal':         {'hue': 4137, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Ash':          {'hue': 4138, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Jade':         {'hue': 4139, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Bone':         {'hue': 4140, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
-    'Lustrous Dewdrop':      {'hue': 4141, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Lavender':     {'hue': 4124, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous Lavender
+    'Lustrous Carmine':      {'hue': 4125, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous Carmine
+    'Lustrous Seagrass':     {'hue': 4126, 'rare cloth': 120000, 'runebook dye': 200000, 'accessory dye': 20000, 'headwear dye': 600000, 'carpet dye': 25000, 'furniture dye': 300000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 100000, 'mount gear dye': 100000}, #Lustrous Seagrass
+    'Lustrous Grass':        {'hue': 4127, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous Grass
+    'Lustrous Bottleglass':  {'hue': 4128, 'rare cloth': 120000, 'runebook dye': 200000, 'accessory dye': 20000, 'headwear dye': 600000, 'carpet dye': 25000, 'furniture dye': 300000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 100000, 'mount gear dye': 100000}, #Lustrous Bottleglass
+    'Lustrous Star':         {'hue': 4129, 'rare cloth': 400000, 'runebook dye': 800000, 'accessory dye': 80000, 'headwear dye': 2400000, 'carpet dye': 80000, 'furniture dye': 500000, 'hair dye': 2000000, 'facial hair dye': 1700000, 'backpack dye': 2000000, 'mount gear dye': 1500000}, #Lustrous Star
+    'Lustrous Dream':        {'hue': 4130, 'rare cloth': 400000, 'runebook dye': 800000, 'accessory dye': 80000, 'headwear dye': 2400000, 'carpet dye': 80000, 'furniture dye': 500000, 'hair dye': 2000000, 'facial hair dye': 1700000, 'backpack dye': 2000000, 'mount gear dye': 1500000}, #Lustrous Dream
+    'Lustrous Ecru':         {'hue': 4131, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous Ecru
+    'Lustrous Chartreuse':   {'hue': 4132, 'rare cloth': 400000, 'runebook dye': 800000, 'accessory dye': 80000, 'headwear dye': 2400000, 'carpet dye': 80000, 'furniture dye': 500000, 'hair dye': 2000000, 'facial hair dye': 1700000, 'backpack dye': 2000000, 'mount gear dye': 1500000}, #Lustrous Chartreuse
+    'Lustrous Caramel':      {'hue': 4133, 'rare cloth': 120000, 'runebook dye': 200000, 'accessory dye': 20000, 'headwear dye': 600000, 'carpet dye': 25000, 'furniture dye': 300000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 100000, 'mount gear dye': 100000}, #Lustrous Caramel
+    'Lustrous Steel':        {'hue': 4134, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous Steel
+    'Lustrous Slime':        {'hue': 4135, 'rare cloth': 400000, 'runebook dye': 800000, 'accessory dye': 80000, 'headwear dye': 2400000, 'carpet dye': 80000, 'furniture dye': 500000, 'hair dye': 2000000, 'facial hair dye': 1700000, 'backpack dye': 2000000, 'mount gear dye': 1500000}, #Lustrous Slime
+    'Lustrous Flesh':        {'hue': 4136, 'rare cloth': 500000, 'runebook dye': 1000000, 'accessory dye': 100000, 'headwear dye': 3000000, 'carpet dye': 100000, 'furniture dye': 700000, 'hair dye': 3000000, 'facial hair dye': 2500000, 'backpack dye': 2500000, 'mount gear dye': 2500000}, #Lustrous Flesh
+    'Lustrous Opal':         {'hue': 4137, 'rare cloth': 500000, 'runebook dye': 1000000, 'accessory dye': 100000, 'headwear dye': 3000000, 'carpet dye': 100000, 'furniture dye': 700000, 'hair dye': 3000000, 'facial hair dye': 2500000, 'backpack dye': 2500000, 'mount gear dye': 2500000}, #Lustrous Opal
+    'Lustrous Ash':          {'hue': 4138, 'rare cloth': 120000, 'runebook dye': 200000, 'accessory dye': 20000, 'headwear dye': 600000, 'carpet dye': 25000, 'furniture dye': 300000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 100000, 'mount gear dye': 100000}, #Lustrous Ash
+    'Lustrous Jade':         {'hue': 4139, 'rare cloth': 120000, 'runebook dye': 200000, 'accessory dye': 20000, 'headwear dye': 600000, 'carpet dye': 25000, 'furniture dye': 300000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 100000, 'mount gear dye': 100000}, #Lustrous Jade
+    'Lustrous Bone':         {'hue': 4139, 'rare cloth': 120000, 'runebook dye': 200000, 'accessory dye': 20000, 'headwear dye': 600000, 'carpet dye': 25000, 'furniture dye': 300000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 100000, 'mount gear dye': 100000}, #Lustrous Bone
+    'Lustrous Dewdrop':      {'hue': 4141, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 1000000, 'facial hair dye': 700000, 'backpack dye': 500000, 'mount gear dye': 300000}, #Lustrous Dewdrop
     'Arena Black':           {'hue': 2056, 'rare cloth': 500000,'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Arena Black
     'Strangelands':          {'hue': 2752, 'rare cloth': 40000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Strangelands
     'Thief':                 {'hue': 1067, 'rare cloth': 90000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Thief
-    'Order Cloth':           {'hue': 2452, 'rare cloth': 50000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Order Cloth
-    'Chaos Cloth':           {'hue': 2719, 'rare cloth': 50000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Chaos Cloth
-    'Freedom Cloth':         {'hue': 2944, 'rare cloth': 50000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Freedom Cloth
+    'Order':                 {'hue': 2452, 'rare cloth': 50000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Order
+    'Chaos':                 {'hue': 2719, 'rare cloth': 50000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Chaos
+    'Freedom':               {'hue': 2944, 'rare cloth': 50000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Freedom
     'Corpse Creek Contest':  {'hue': 1197, 'rare cloth': 80000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Corpse Creek Contest
     'Stygian Rifts':         {'hue': 1198, 'rare cloth': 150000,'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Stygian Rifts
     'Town Struggle':         {'hue': 1199, 'rare cloth': 50000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Town Struggle
@@ -417,7 +441,7 @@ hue_list = {
     'Tradesman Union':       {'hue': 2765, 'rare cloth': 50000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 250000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Tradesman Union
     'Order of Armorers':     {'hue': 2915, 'rare cloth': 45000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 250000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Order of Armorers
     'Seafarer League':       {'hue': 2906, 'rare cloth': 50000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 250000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Seafarer League
-    "Artificer's Enclave":  {'hue': 2875, 'rare cloth': 50000,  'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 250000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #s Enclave
+    "Artificer's Enclave":   {'hue': 2875, 'rare cloth': 50000,  'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 250000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #s Enclave
     'Aegis Keep':            {'hue': 1779, 'rare cloth': 4000,  'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 3000, 'furniture dye': 20000, 'hair dye': 30000, 'facial hair dye': 20000, 'backpack dye': 40000, 'mount gear dye': 3000}, #Aegis Keep
     'Inferno':               {'hue': 1909, 'rare cloth': 4000,  'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 30000, 'facial hair dye': 25000, 'backpack dye': 50000, 'mount gear dye': 3000}, #Inferno
     'Ossuary':               {'hue': 2091, 'rare cloth': 4000,  'runebook dye': 20000, 'accessory dye': 500, 'headwear dye': 20000, 'carpet dye': 500, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 30000, 'mount gear dye': 1000}, #Ossuary
@@ -430,6 +454,8 @@ hue_list = {
     'Shadowspire Cathedral': {'hue': 2093, 'rare cloth': 19000, 'runebook dye': 15000, 'accessory dye': 1250, 'headwear dye': 100000, 'carpet dye': 10000, 'furniture dye': 50000, 'hair dye': 40000, 'facial hair dye': 35000, 'backpack dye': 50000, 'mount gear dye': 5000}, #Shadowspire Cathedral
     'Wilderness':            {'hue': 1182, 'rare cloth': 3000,  'runebook dye': 15000, 'accessory dye': 500, 'headwear dye': 18000, 'carpet dye': 100, 'furniture dye': 15000, 'hair dye': 15000, 'facial hair dye': 15000, 'backpack dye': 25000, 'mount gear dye': 1000}, #Wilderness
     'Ocean':                 {'hue': 1183, 'rare cloth': 10000, 'runebook dye': 55000, 'accessory dye': 2000, 'headwear dye': 50000, 'carpet dye': 4000, 'furniture dye': 100000, 'hair dye': 70000, 'facial hair dye': 60000, 'backpack dye': 60000, 'mount gear dye': 4000}, #Ocean
+    'Kraul Hive':            {'hue': 2841, 'rare cloth': 4000,  'runebook dye': 15000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 40000, 'mount gear dye': 1000}, #Kraul Hive
+    'Netherzone':            {'hue': 1500, 'rare cloth': 80000, 'runebook dye': 200000,  'accessory dye': 30000, 'headwear dye': 480000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 150000, 'mount gear dye': 150000}, #Netherzone
     'Metallic Cherry':       {'hue': 2380, 'rare cloth': 35000, 'runebook dye': 40000, 'accessory dye': 6000, 'headwear dye': 200000, 'carpet dye': 4000, 'furniture dye': 50000, 'hair dye': 60000, 'facial hair dye': 50000, 'backpack dye': 100000, 'mount gear dye': 6000}, #Metallic Cherry
     'Metallic Orange':       {'hue': 1989, 'rare cloth': 9000, 'runebook dye': 30000, 'accessory dye': 4000, 'headwear dye': 50000, 'carpet dye': 3000, 'furniture dye': 40000, 'hair dye': 55000, 'facial hair dye': 45000, 'backpack dye': 80000, 'mount gear dye': 6000}, #Metallic Orange
     'Metallic Amber':        {'hue': 1990, 'rare cloth': 4000,  'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 6000}, #Metallic Amber
@@ -498,46 +524,56 @@ misc_hp_prices = { #exact string matters
     "prevalia coins [blessed]": 17000, #prevalia coins : 5 [blessed]
     "a chromatic core": 75000,
     "chromatic distillation": 10000,
-    "command phylactery": 10000,
-    "fortune phylactery": 10000,
-    "artisan phylactery": 10000,
-    "eldritch phylactery": 10000,
-    "harvest phylactery": 10000,
-    "earth phylactery": 10000,
-    "blood phylactery": 10000,
-    "void phylactery": 10000,
-    "air phylactery": 10000,
-    "discipline phylactery": 10000,
-    "fire phylactery": 10000,
-    "death phylactery": 10000,
-    "gadget phylactery": 10000,
-    "holy phylactery": 10000,
-    "lyric phylactery": 10000,
-    "poison phylactery": 10000,
-    "shadow phylactery": 10000,
-    "harvest phylactery": 10000,
-    "war phylactery": 10000,
-    "water phylactery": 10000,
+    "time dungeon lore page": 80000,
 
 }
+
+
 
 misc_lp_prices = { #exact string matters
     #"exceedingly potent magic spellbook": 3500,
     #"supremely potent magic spellbook": 13000,
-    "an ankh token":11000,
+    "an ankh token": 11000,
     "arcane essence": 37,
     "an emote deed": 200000,
-    "redlightning bottle": 45000,
+    "redlightning bottle": 40000,
     "survival gear": 37000,
     "a battle commendation (double-click to consume and receive reward item)": 11000,
     "invulnerability leather cap": 95000,
     "dyeable gilded gold carpet tile": 23000,
     "Aspect Triumph": 1000000,
     "bloody skull pile": 400000,
+    "a storage shelf": 400000,
+    "a repair bench": 475000,
 }
 
-clothing_prices = { #todo
+clothing_prices = { #TODO
+    "butterfly colombina": 500000,
+    "masquerade gown": 500000,
+}
 
+ship_upgrade_prices = { #TODO
+    "destroyer outfitting": 600000,
+    "dreadnought Outfitting": 600000,
+    "explosive ammo lesser ability": 200000,
+    "fearsome totem specialty item": 200000,
+    "flak cannons greater ability": 1800000,
+    "gorgon figurehead specialty item": 800000,
+    "hellfire barrage greater ability": 500000,
+    "icebreaker ammo greater ability": 1000000,
+    "medium weaponry crew supplies": 800000,
+    "powder carts specialty item": 700000,
+    "powder specialty item ship": 700000,
+    "powdersoak ammo regular ability": 200000,
+    "routine maintenance specialty item": 200000,
+    "rum rations greater ability": 200000,
+    "signal pigeons specialty item": 1000000,
+    "silk hammocks crew supplies": 200000,
+    "smoke bombs crew supplies": 1500000,
+    "smoothbore cannonshot specialty item": 900000,
+    "stacked powderkegs specialty item": 600000,
+    "stockade crew supplies ship": 200000,
+    "storage lockers specialty item": 400000,
 }
 
 deed_prices = {
@@ -556,6 +592,20 @@ self_parse_extra_aliases = {
     "mount token": 1900000,
     "lore page /15": 30000,
     "lore page /10": 35000,
+    "lustrous totem": 300000,
+    "harvest antiquity": 300000,
+    "crafting antiquity": 300000,
+    "portrait painting antiquity": 300000,
+    "landscape painting antiquity": 300000,
+    "large painting antiquity": 700000,
+    "thief antiquity": 1000000,
+    "battle antiquity": 1000000,
+    "ocean antiquity": 1000000,
+    "chest antiquity": 1000000,
+    "invulnerability studded": 5000,
+    "invulnerability platemail": 50000,
+    "fortification platemail": 50000,
+    
 }
 
 my_locations = {
@@ -725,8 +775,8 @@ my_locations = {
     "W of Totem":(3797,2916,('Misc3',2091,216,10)),
     "Dragonfire Ring":(3815,2492,('Misc3',2091,217,20)),
     "N of Fishkill":(4129,2180,('Misc3',2091,218,10)),
-    "placeholder":(0,0,('Misc3',2091,219,20)),
-    "placeholder":(0,0,('Misc3',2091,220,10)),
+    "Totem Gate N1":(3892,2777,('Misc3',2091,219,20)),
+    "NE of Ossuary Demon":(1343,2746,('Misc3',2091,220,10)),
     "placeholder":(0,0,('Misc3',2091,221,20)),
     "placeholder":(0,0,('Misc3',2091,222,10)),
     "placeholder":(0,0,('Misc3',2091,223,20)),
