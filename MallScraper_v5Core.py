@@ -1350,6 +1350,12 @@ class AliApp:
 
 if find {vendor_serial} ground -1 -1 20
 else
+    if findtype "bank deposit safe" ground -1 -1 4 as "safe"
+        getlabel "safe" "label"
+        overhead "label"
+        sysmsg "label"
+    endif
+
     removelist "runetomeList"
     createlist "runetomeList"
     for 3
@@ -1539,6 +1545,12 @@ endwhile"""
 
 if find {vendor_serial} ground -1 -1 20
 else
+    if findtype "bank deposit safe" ground -1 -1 4 as "safe"
+        getlabel "safe" "label"
+        overhead "label"
+        sysmsg "label"
+    endif
+
     removelist "runetomeList"
     createlist "runetomeList"
     for 3
@@ -2348,6 +2360,11 @@ endwhile"""
 if find {vendor_one_serial} ground any any 20
     overhead {vendor_one_name}
 else
+    if findtype "bank deposit safe" ground -1 -1 4 as "safe"
+        getlabel "safe" "label"
+        overhead "label"
+        sysmsg "label"
+    endif
     @setvar! "myTome" 0
     for 3
         if findtype "runetome" backpack {book_hue} as "tome"

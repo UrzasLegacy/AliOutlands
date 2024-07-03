@@ -1,5 +1,6 @@
 from OutlandsUtils import *
 import pyperclip
+
 current_item_list_file = r"current_item_list.txt"
 
 def get_item_list():
@@ -20,8 +21,11 @@ def main():
     #temp = PipedListDiffer(before, after)
     #temp = PipedListSubtract(before, after)
 
-    splits = temp#PipedListSplitter(concat,250)
+    splits = PipedListSplitter(before,250)
     pyperclip.copy(splits)
 
-write_clipboard_to_item_list()
+    #write_clipboard_to_item_list()
+
+if __name__ == "__main__":
+    main()
 

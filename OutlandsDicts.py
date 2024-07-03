@@ -14,12 +14,12 @@ def collate_master_price_dict():
 core_prices = { #exact string MATTERS
     "Air Aspect Core": 75000,
     "Arcane Aspect Core": 80000,
-    "Artisan Aspect Core": 50000,
+    "Artisan Aspect Core": 55000,
     "Blood Aspect Core": 9000,
     "Command Aspect Core": 80000,
     "Death Aspect Core": 12000,
-    "Discipline Aspect Core": 9000,
-    "Earth Aspect Core": 9000,
+    "Discipline Aspect Core": 8000,
+    "Earth Aspect Core": 8000,
     "Eldritch Aspect Core": 75000,
     "Fire Aspect Core": 13000,
     "Frost Aspect Core": 17000,
@@ -29,9 +29,9 @@ core_prices = { #exact string MATTERS
     "Holy Aspect Core": 11000,
     "Lightning Aspect Core": 48000,
     "Lyric Aspect Core": 23000,
-    "Madness Aspect Core": 80000,
-    "Poison Aspect Core": 48000,
-    "Shadow Aspect Core": 39000,
+    "Madness Aspect Core": 75000,
+    "Poison Aspect Core": 55000,
+    "Shadow Aspect Core": 45000,
     "Void Aspect Core": 48000,
     "War Aspect Core": 7000,
     "Water Aspect Core": 9000,
@@ -67,30 +67,30 @@ distil_prices = {
     "Arcane Aspect Distillation": 11000,
     'Artisan Aspect Distillation': 5000,
     'Blood Aspect Distillation': 5000,
-    'Command Aspect Distillation': 10000,
+    'Command Aspect Distillation': 9000,
     'Death Aspect Distillation': 5000,
     'Discipline Aspect Distillation': 5000,
     'Earth Aspect Distillation': 5000,
     'Eldritch Aspect Distillation': 8000,
     'Fire Aspect Distillation': 5000,
-    "Frost Aspect Distillation": 6000,
+    "Frost Aspect Distillation": 7000,
     'Fortune Aspect Distillation': 7000,
     'Gadget Aspect Distillation': 5000,
-    'Harvest Aspect Distillation': 10000,
+    'Harvest Aspect Distillation': 9000,
     'Holy Aspect Distillation': 8000,
-    "Lightning Aspect Distillation": 10000,
+    "Lightning Aspect Distillation": 9000,
     'Lyric Aspect Distillation': 5000,
     "Madness Aspect Distillation": 11000,
     'Poison Aspect Distillation': 7000,
-    'Shadow Aspect Distillation': 19000,
+    'Shadow Aspect Distillation': 17000,
     'Void Aspect Distillation': 8000,
     'War Aspect Distillation': 5000,
     'Water Aspect Distillation': 5000,
 }
 
 map_prices = { #exact string MATTERS
-    "plainly drawn treasure map: level 1 (undeciphered)": 10000,
-    "expertly drawn treasure map: level 2 (undeciphered)": 20000, #10000
+    "plainly drawn treasure map: level 1 (undeciphered)": 9500,
+    "expertly drawn treasure map: level 2 (undeciphered)": 19500, #10000
     "adeptly drawn treasure map: level 3 (undeciphered)": 34000, #26000
     "cleverly drawn treasure map: level 4 (undeciphered)": 45000, #35000
     "deviously drawn treasure map: level 5 (undeciphered)": 54000, #45000
@@ -101,7 +101,7 @@ map_prices = { #exact string MATTERS
     "avarscale fishing map (undeciphered)": 13000,
 
     "verewood lumber map (undeciphered)": 15000,
-    "valewood lumber map (undeciphered)": 40000,
+    "valewood lumber map (undeciphered)": 38000,
     "avarwood lumber map (undeciphered)": 85000,
 
     "verehide skinning map (undeciphered)": 6000,
@@ -113,7 +113,7 @@ map_prices = { #exact string MATTERS
     "gold ore map (undeciphered)": 17000,
     "agapite ore map (undeciphered)": 20000,
     "verite ore map (undeciphered)": 27000,
-    "valorite ore map (undeciphered)": 50000,
+    "valorite ore map (undeciphered)": 55000,
     "avarite ore map (undeciphered)": 100000,
 }
 
@@ -209,21 +209,21 @@ commodity_5000_prices = {
 
 scroll_prices = {
     "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 42000,
-    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 19000,#[:7]
-    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 19000,#[:7]
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 16000,#[:7]
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 16000,#[:7]
     "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
     "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
     "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,#[:4]
     "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,#[:4]
     "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 35000,
     "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
-    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 20000,
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
     "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,#[:4]
-    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 19000,
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 16000,
     "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 50000,
     "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
     "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
@@ -237,39 +237,39 @@ scroll_prices = {
     "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 25000,#[:4]
     "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 50000,
-    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
     "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
 }
 
 link_prices = { #exact chain type string MATTERS
-    "Melee Accuracy": [100000,600000,2700000], #Melee Accuracy/Defense
-    "Melee Defense": [100000,600000,2700000], #Melee Accuracy/Defense
-    "Melee Accuracy/Defense": [100000,600000,2700000],
+    "Melee Accuracy": [90000,600000,2700000], #Melee Accuracy/Defense
+    "Melee Defense": [90000,600000,2700000], #Melee Accuracy/Defense
+    "Melee Accuracy/Defense": [90000,600000,2700000],
     "Melee Special Chance/Special Damage": [90000,600000,2700000],
     "Melee Special Chance": [90000,600000,2700000], #Melee Special Chance/Special Damage
     "Melee Swing Speed": [100000,600000,2700000],
-    "Melee Damage": [170000,650000,2600000], #Melee Damage/Ignore Armor Chance
+    "Melee Damage": [150000,650000,2600000], #Melee Damage/Ignore Armor Chance
     "Melee Ignore Armor Chance": [90000,600000,2400000], #Melee Damage/Ignore Armor Chance
-    "Melee Damage/Ignore Armor Chance": [100000,550000,2400000],
+    "Melee Damage/Ignore Armor Chance": [130000,550000,2400000],
     "Melee Aspect Effect Modifier": [90000,600000,2600000],
     "Melee Aspect Effect Chance": [130000,550000,2700000],
     "Spell Damage": [100000,500000,2400000], #Spell Damage/Ignore Resist Chance
-    "Spell Damage When No Followers":   [130000,550000,2500000],
-    "Spell Ignore Resist Chance": [90000,600000,2400000], #Spell Damage/Ignore Resist Chance
+    "Spell Damage When No Followers": [130000,600000,2500000],
+    "Spell Ignore Resist Chance": [100000,600000,2400000], #Spell Damage/Ignore Resist Chance
     "Spell Damage/Ignore Resist Chance": [100000,600000,2400000],
-    "Spell Charged Chance": [90000,600000,2400000], #Spell Charged Chance/Charged Damage
-    "Spell Charged Damage": [90000,600000,2400000], #Spell Charged Chance/Charged Damage
-    "Spell Charged Chance/Charged Damage": [90000,600000,2400000],
-    "Meditation Rate": [90000,600000,2400000], #Meditation Rate/Spell Disrupt Avoid Chance
-    "Spell Disrupt Avoid Chance": [90000,600000,2400000], #Meditation Rate/Spell Disrupt Avoid Chance, Spell Damage When No Followers
-    "Meditation Rate/Disrupt Avoid Chance": [130000,550000,2500000], #Spell Damage When No Followers
+    "Spell Charged Chance": [80000,550000,2400000], #Spell Charged Chance/Charged Damage
+    "Spell Charged Damage": [80000,550000,2400000], #Spell Charged Chance/Charged Damage
+    "Spell Charged Chance/Charged Damage": [80000,550000,2400000],
+    "Meditation Rate": [90000,550000,2400000], #Meditation Rate/Spell Disrupt Avoid Chance
+    "Spell Disrupt Avoid Chance": [130000,600000,2400000], #Meditation Rate/Spell Disrupt Avoid Chance, Spell Damage When No Followers
+    "Meditation Rate/Disrupt Avoid Chance": [130000,600000,2500000], #Spell Damage When No Followers
     "Spell Aspect Effect Modifier": [90000,600000,2400000],
     "Spell Aspect Special Chance": [130000,650000,2500000],
     "Damage to Beastial Creatures": [75000,550000,2500000], #Nusero Damage
     "Damage to Construct Creatures": [75000,550000,2500000], #Mausoleum Damage
-    "Damage to Daemonic Creatures": [100000,650000,2500000], #Inferno Damage
+    "Damage to Daemonic Creatures": [95000,600000,2500000], #Inferno Damage
     "Damage to Elemental Creatures": [75000,550000,2500000], #Mount Petram Damage
     "Damage to Humanoid Creatures": [75000,550000,2500000], #Aegis Keep Damage
     "Damage to Monstrous Creatures": [75000,550000,2500000], #Cavernam Damage
@@ -285,46 +285,57 @@ link_prices = { #exact chain type string MATTERS
     "Ossuary Damage": [75000,550000,2500000],
     "Pulma Damage": [75000,550000,2500000],
     "Shadowspire Cathedral Damage": [90000,600000,2500000],
-    "Wilderness Damage": [140000,550000,2500000],
-    "Follower Damage": [160000,700000,2700000],
-    "Damage to Barded Creatures": [110000,550000,2700000],
-    "Damage to Poisoned Creatures": [140000,550000,2700000],
+    "Wilderness Damage": [130000,600000,2500000],
+    "Time Dungeon Damage": [130000,600000,2500000],
+    "Netherzone Damage": [130000,600000,2500000],
+    "Kraul Hive Damage": [130000,600000,2500000],
+    "Follower Damage": [130000,600000,2600000],
+    "Follower Accuracy/Defense": [130000,600000,2500000],
+    "Damage to Barded Creatures": [100000,550000,2600000],
+    "Damage to Poisoned Creatures": [140000,600000,2700000],
+    "Damage to Diseased Creatures": [170000,670000,2700000],
     "Poison Damage/Resist Ignore": [90000,600000,2400000],
-    "Backstab Damage": [150000,600000,2500000],
-    "Trap Damage": [100000,525000,2600000],
+    "Backstab Damage": [180000,650000,2700000],
+    "Trap Damage": [110000,550000,2600000],
     "Damage to Bosses": [90000,600000,2600000],
-    "Damage on Ships": [130000,550000,2500000],
+    "Damage on Ships": [110000,550000,2500000],
     "Ship Cannon Damage": [120000,550000,2600000],
-    "Damage to Creatures Above 66% HP": [100000,550000,2400000], #Damage Dealt By Player
+    "Damage to Creatures Above 66% HP": [130000,600000,2500000], #Damage Dealt By Player
     "Damage to Creatures Below 33% HP": [100000,550000,2400000], #Damage Dealt By Player
-    "Damage Dealt By Player": [100000,550000,2400000],
-    "Physical Damage Resistance": [120000,550000,2400000], #Damage Resistance
-    "Spell Damage Resistance": [120000,550000,2400000], #Damage Resistance
+    "Damage Dealt By Player": [90000,550000,2400000],
+    "Physical Damage Resistance": [100000,550000,2400000], #Damage Resistance
+    "Spell Damage Resistance": [100000,550000,2400000], #Damage Resistance
     "Follower Damage Resistance": [100000,600000,2400000], #Alchemy/Healing/Veterinary Skill, Follower Attack Speed
-    "Effective Parrying Skill": [120000,550000,2400000], #Damage Resistance
-    "Effective Magic Resist Skill": [120000,550000,2400000], #Damage Resistance
+    "Effective Parrying Skill": [100000,550000,2400000], #Damage Resistance
+    "Effective Magic Resist Skill": [100000,550000,2400000], #Damage Resistance
     "Healing Received": [90000,600000,2400000], #Effective Alchemy/Healing/Veterinary Skill
     "Follower Attack Speed": [100000,600000,2700000],
     "Follower Healing Received": [100000,600000,2700000], #Effective Alchemy/Healing/Veterinary Skill, Follower Attack Speed
-    "Boss Damage Resistance": [90000,600000,2400000], #Damage Resistance
-    "Damage Resistance on Ships": [90000,600000,2400000], #Damage Resistance
-    "Damage Resistance": [120000,550000,2400000],
+    "Boss Damage Resistance": [100000,600000,2400000], #Damage Resistance
+    "Damage Resistance on Ships": [100000,600000,2400000], #Damage Resistance
+    "Damage Resistance": [100000,550000,2400000],
+    "Crewmember Damage Resistance": [90000,550000,2400000],
+    "Crewmember Damage": [90000,550000,2400000],
     "Chest Success Chances/Progress": [90000,550000,2600000],
-    "Effective Skill on Chests": [90000,550000,2600000],
+    "Effective Skill on Chests": [100000,550000,2600000],
     "Alchemy/Healing/Veterinary": [90000,600000,2400000],
-    "Effective Lockpicking Skill": [90000,550000,2600000], #Chest Success Chances/Progress
-    "Effective Poisoning Skill": [130000,550000,2400000], #Poison Damage/Resist Ignore
-    "Effective Barding Skill": [110000,550000,2700000], #Bard Reset/Break Ignore Chance
-    "Chivalry Skill": [90000,600000,2400000], 
-    "Necromancy Skill": [140000,690000,2700000], #Follower Damage, Follower Damage Resistance
-    "Barding Effect Durations": [90000,600000,2600000], #Bard Reset/Break Ignore Chance
-    "Bard Reset/Break Ignore Chance": [90000,600000,2600000],
-    "Spirit Speak/Inscription": [140000,690000,2700000], #Follower Damage, Follower Damage Resistance
+    "Effective Lockpicking Skill": [100000,550000,2600000], #Chest Success Chances/Progress
+    "Effective Poisoning Skill": [130000,600000,2600000], #Poison Damage/Resist Ignore
+    "Effective Barding Skill": [110000,550000,2500000], #Bard Reset/Break Ignore Chance
+    "Exceptional Quality Chance": [130000,650000,2600000],
+    "Effective Camping Skill": [120000,600000,2500000], 
+    "Effective Harvest Skill": [160000,650000,2600000],
+    "Effective Arms Lore Skill": [900000,550000,2400000], 
+    "Chivalry Skill": [130000,600000,2500000], 
+    "Necromancy Skill": [170000,670000,2700000], #Follower Damage, Follower Damage Resistance
+    "Barding Effect Durations": [90000,550000,2400000], #Bard Reset/Break Ignore Chance
+    "Bard Reset/Break Ignore Chance": [90000,550000,2400000],
+    "Spirit Speak/Inscription": [140000,650000,2600000], #Follower Damage, Follower Damage Resistance
     "Chance on Stealth For 5 Extra Steps": [90000,550000,2600000],
     "Gold/Doubloon Drop Increase": [90000,600000,2400000],
-    "Special/Rare Loot Chance": [100000,550000,2400000],
+    "Special/Rare Loot Chance": [120000,600000,2500000],
     "reforging tool": [110000,240000,450000],
-    "corrupted_link_price_threshold": 620000
+    "corrupted_link_price_threshold": 620000,
 }
 
 hue_list = {
@@ -369,6 +380,24 @@ hue_list = {
     'Shimmer Radiant':       {'hue': 1584, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
     'Shimmer Clover':        {'hue': 1584, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
     'Shimmer Nova':          {'hue': 1584, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
+    'Lustrous Lavender':     {'hue': 4124, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Carmine':      {'hue': 4125, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Seagrass':     {'hue': 4126, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Grass':        {'hue': 4127, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Bottleglass':  {'hue': 4128, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Star':         {'hue': 4129, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Dream':        {'hue': 4130, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Ecru':         {'hue': 4131, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Chartreuse':   {'hue': 4132, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Caramel':      {'hue': 4133, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Steel':        {'hue': 4134, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Slime':        {'hue': 4135, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Flesh':        {'hue': 4136, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Opal':         {'hue': 4137, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Ash':          {'hue': 4138, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Jade':         {'hue': 4139, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Bone':         {'hue': 4140, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
+    'Lustrous Dewdrop':      {'hue': 4141, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous 
     'Arena Black':           {'hue': 2056, 'rare cloth': 500000,'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Arena Black
     'Strangelands':          {'hue': 2752, 'rare cloth': 40000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Strangelands
     'Thief':                 {'hue': 1067, 'rare cloth': 90000, 'runebook dye': 1000,  'accessory dye': 1000, 'headwear dye': 1000, 'carpet dye': 1000, 'furniture dye': 1000, 'hair dye': 1000, 'facial hair dye': 1000, 'backpack dye': 500000, 'mount gear dye': 600000}, #Thief
