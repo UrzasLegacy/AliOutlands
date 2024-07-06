@@ -15,7 +15,7 @@ if %errorlevel% neq 0 (
 )
 
 :: Set the repository URL here
-set REPO_URL=https://github.com/yourusername/yourrepository.git
+set REPO_URL=https://github.com/UrzasLegacy/AliOutlands.git
 
 :: Set the repository directory to the folder containing the setup.bat
 set REPO_DIR=%~dp0
