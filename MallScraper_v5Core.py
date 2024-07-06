@@ -29,11 +29,16 @@ from OutlandsDicts import *
 from OutlandsUtils import *
 from requests.cookies import RequestsCookieJar
 
-
+outlands_key = "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S"
+upload_key = "9ec321b8-6c45-4869-aa01-c15cfc7d38be"
 #TODO Small history stack for clipboard: Ctrl-z to undo script append
 #TODO For image analysis of inventory, instead of screen capture, snip and use last image on clipboard
 #TODO add clothes,boat stuff (crew, upgrades), jugglin torches n shit
 #TODO check if antiquity is registered before buying
+#TODO remove superfluous item ids from quick buy scripts. Only need the ids of items that are searched for in quick scrape
+#TODO OR use item_serial to find item and then getlabel check against the itemDescriptions list to confirm no shenanigans.
+#TODO item id method allows buying things out of order at a location.
+#TODO fix recurse search in buy scripts to search each time a container is opened
 
 for handler in logging.root.handlers[:]:
     logging.root.removeHandler(handler)
@@ -76,41 +81,24 @@ def multi_parse_wide(in_tuple):
     agg_rows = []
     i = 0
     failsafe = 0 
-    #process_id = os.getpid()
-    #print(f'start: {process_id}: {item}')
     
     while i < 10:
-        #print(i)
         time.sleep(1)
         if i > 0:
             temp_url = f"{page_url}&page={i}"
         else:
             temp_url = page_url
-        #print(temp_url)
-        cookie = {"app": "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S"}
+        cookie = {"app": outlands_key}
         response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
-            print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
+            print(f"multi_parse_wide: Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
             if failsafe == 0:
                 break
             failsafe = 0
             time.sleep(.3)
             continue
-        # result = None
         soup = BeautifulSoup(response.content, 'lxml')
         if soup:
-            # results_table = soup.find('table',style="display: block; border: none;")
-            # if results_table:
-            #     results = results_table.find_all('em')
-            #     if len(results):
-            #         result = results[0].text.strip().replace(',', '')
-            #         try:
-            #             result = int(result)
-            #         except Exception as e:
-            #             print(f"Error: {e}. {temp_url}:{results[0].text.strip()}")
-            # else:
-            #     print('summit went awry, results table missing')
-            #     print(temp_url)
             table = soup.find('table', id="item-search-results")
             if not table:
                 print('Table not found')
@@ -122,12 +110,11 @@ def multi_parse_wide(in_tuple):
                 break
         i += 1
 
-    #print(f'end: {process_id}: {item}')
     out_data = []
     for row in agg_rows:
         cells = row.find_all('td')
         time_cell = cells[8]
-        time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
+        time_string = time_cell.text.strip().lower()
         if is_time_recent_multi(time_string,time_frame):
             vendor_cell = cells[1]
             location_cell = cells[2]
@@ -161,7 +148,7 @@ def multi_parse_wide(in_tuple):
                 price_cell_sanitized = re.sub(r"\D",'',price_cell.text)
                 price = float(price_cell_sanitized)
             except Exception as e:
-                print(f"{name_string}:{location_name}:{vendor_string}:{price_cell.text.strip()}")
+                print(f"multi_parse_wide: {name_string}:{location_name}:{vendor_string}:{price_cell.text.strip()}")
             if item == 'Mastery Chain Link':
                 if name_string.startswith('a '):
                     name_string = name_string[2:]
@@ -191,8 +178,6 @@ def multi_parse_wide(in_tuple):
                 total_profit = round(threshold * int(quantity_string) - total_cost,0)
                 format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
                 out_data.append((f"{name_string}",f"{price}/{threshold}",f"{cost_to_price_ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{format_url}",f"{total_cost}",f"{name_check_string}"))
-    #print(f"out_data length: {len(out_data)}")
-    #for tuple in out_data:
     if len(out_data) > 0:
         return (out_data,)
     else:
@@ -221,39 +206,26 @@ def simple_parse_wide(in_tuple):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
+
     agg_rows = []
     i = 0
     failsafe = 0 
-    #process_id = os.getpid()
-    #print(f'start: {process_id}: {item}')
-    
     while i < 10:
-        #print(i)
         if i > 0:
             temp_url = f"{page_url}&page={i}"
         else:
             temp_url = page_url
-        #print(temp_url)
-        cookie = {"app": "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S"}
+        cookie = {"app": outlands_key}
         response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
-            print(f"Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
+            print(f"simple_parse_wide: Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
             if failsafe == 0:
                 break
             failsafe = 0
             time.sleep(.3)
             continue
-        # result = None
         soup = BeautifulSoup(response.content, 'lxml')
         if soup:
-            # results_table = soup.find('table',style="display: block; border: none;")
-            # if results_table:
-            #     results = results_table.find_all('em')
-            #     if len(results):
-            #         result = results[0].text.strip()
-            #         result = int(result)
-            # else:
-            #     print('summit went awry, results table missing')
             table = soup.find('table', id="item-search-results")
             if not table:
                 print('Table not found')
@@ -265,12 +237,11 @@ def simple_parse_wide(in_tuple):
                 break
         i += 1
 
-    #print(f'end: {process_id}: {item}')
     out_data = []
     for row in agg_rows:
         cells = row.find_all('td')
         time_cell = cells[8]
-        time_string = time_cell.text.strip().lower()  # Convert to lowercase for consistent comparison
+        time_string = time_cell.text.strip().lower()
         if is_time_recent_multi(time_string,time_frame):
             vendor_cell = cells[1]
             location_cell = cells[2]
@@ -304,7 +275,7 @@ def simple_parse_wide(in_tuple):
                 price_cell_sanitized = re.sub(r"\D",'',price_cell.text)
                 price = float(price_cell_sanitized)
             except Exception as e:
-                print(f"{name_string}:{location_name}:{vendor_string}:{price_cell.text.strip()}")
+                print(f"simple_parse_wide: {name_string}:{location_name}:{vendor_string}:{price_cell.text.strip()}")
             if item == 'Mastery Chain Link':
                 if name_string.startswith('a '):
                     name_string = name_string[2:]
@@ -334,8 +305,6 @@ def simple_parse_wide(in_tuple):
                 total_profit = round(threshold * int(quantity_string) - total_cost,0)
                 format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
                 out_data.append((f"{name_string}",f"{price}/{threshold}",f"{cost_to_price_ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{format_url}",f"{total_cost}",f"{name_check_string}"))
-    #print(f"out_data length: {len(out_data)}")
-    #for tuple in out_data:
     if len(out_data) > 0:
         return (out_data,)
     else:
@@ -349,11 +318,10 @@ def multi_parse_misc(in_tuple):
     price_depth = in_tuple[4]
     cutoff_threshold = in_tuple[5]
     soup = BeautifulSoup(html, 'lxml')
-    #print(f"soup: {time.time() - misc_start_time}")
     if soup:
         table = soup.find('table', id="item-search-results")
         if not table:
-            print(f"No table: {page_url}")
+            print(f"multi_parse_misc: No table: {page_url}")
             return False
         rows = table.tbody.find_all('tr')
         out_data = []
@@ -401,23 +369,15 @@ def multi_parse_misc(in_tuple):
                     out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{page_url}",f"{total_cost}",f"{name_check_string}"))
         return out_data
 
-def extract_relevant_html_part(html):
-    match = re.search(r'<table id="item-search-results">.*?</table>', html, re.DOTALL)
-    return match.group(0) if match else html
-
 def simple_parse_narrow(in_tuple): #(response.content,searchPrices,page_url,60,1,.93)
     from lxml import html as lxml_html
     html, searchPrices, page_url, time_frame, price_depth, cutoff_threshold = in_tuple
-    start_time = round(time.time(),2)
 
     tree = lxml_html.fromstring(html)
 
-    #print("soup start:",start_time)
-    #elapsed_time = round(time.time() - start_time, 2)
     table = tree.xpath('//table[@id="item-search-results"]')[0]
 
     rows = table.xpath('.//tbody/tr')
-    #print(f"tree generated {page_url[15:]}: {elapsed_time}")
     out_data = []
     my_fetched_locations = my_locations.items()
 
@@ -457,17 +417,6 @@ def simple_parse_narrow(in_tuple): #(response.content,searchPrices,page_url,60,1
 
         x1, y1 = map(int,location_split)
 
-        # check_dist = float('inf')
-        # closest = None
-        # for location_name, tuple_loc in my_fetched_locations:
-        #     x2 = int(tuple_loc[0])
-        #     y2 = int(tuple_loc[1])
-        #     distance = get_distance_squared(x1,y1,x2,y2)
-        #     if distance < check_dist:
-        #         check_dist = distance
-        #         closest = location_name
-        # location_name = closest if closest else 'N/A'
-
         closest_location = min(my_fetched_locations, key=lambda loc: get_distance_squared(x1, y1, loc[1][0], loc[1][1]))
         closest = closest_location[0] if closest_location else 'N/A'
         formatted_location_link = f"{location_link_split[0]}?{vendor_serial}?{item_serial}?{item_price}#{location_link_split[1]}"
@@ -476,85 +425,8 @@ def simple_parse_narrow(in_tuple): #(response.content,searchPrices,page_url,60,1
         total_cost = round(price * int(quantity_string),0)
         total_profit = round(searchPrice * int(quantity_string) - total_cost,0)
         out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{page_url}",f"{total_cost}",f"{name_check_string}"))
-    #print("parse end: ", round(time.time() - start_time,2))
     return out_data
     
-def simple_parse_narrowOLD(in_tuple): #(response.content,searchPrices,page_url,60,1,.93)
-    html, searchPrices, page_url, time_frame, price_depth, cutoff_threshold = in_tuple
-
-    start_time = round(time.time(),2)
-    #print("soup start:",start_time)
-    soup = BeautifulSoup(html, 'lxml')
-    elapsed_time = round(time.time() - start_time, 2)
-    print(f"Soup generated {page_url[15:]}: {elapsed_time}")
-
-    if not soup:
-        print(f"No soup: {page_url}")
-        return False
-    
-    table = soup.find('table', id="item-search-results")
-    if not table:
-        print(f"No table: {page_url}")
-        return False
-    
-    rows = table.tbody.find_all('tr')
-    out_data = []
-    my_fetched_locations = my_locations.items()
-
-    for row in rows:
-        cells = row.find_all('td')
-        name_cell = cells[4]
-        name_string = name_cell.text.strip()
-        searchPrice = float(searchPrices.get(name_string, 1))
-        time_cell = cells[8]
-        time_string = time_cell.text.strip().lower()
-        if is_time_recent_multi(time_string,time_frame):
-            price_cell = cells[7]
-            price_cell_sanitized = re.sub(r"[^\d.]",'',price_cell.text)
-            price = float(price_cell_sanitized)
-            ratio = round(price / searchPrice,2)
-            if ratio > cutoff_threshold and price_depth != 2:
-                continue
-            if price > searchPrice and price_depth != 2:
-                continue
-
-            vendor_cell = cells[1]
-            location_cell = cells[2]
-            quantity_cell = cells[5]
-            vendor_string = vendor_cell.text.strip()
-            vendor_serial = vendor_cell.find('a')['href'].split('/')[-1]
-            item_serial = vendor_cell.find('span')['data-item_id']
-            item_price = vendor_cell.find('span')['data-price']
-
-            location_coordinates = location_cell.text.strip()
-            location_link = location_cell.find('a')['href']
-            location_link_split = location_link.split('#')
-            location_split = location_coordinates.split(',')
-
-            x1, y1 = map(int,location_split)
-
-            # check_dist = float('inf')
-            # closest = None
-            # for location_name, tuple_loc in my_fetched_locations:
-            #     x2 = int(tuple_loc[0])
-            #     y2 = int(tuple_loc[1])
-            #     distance = get_distance_squared(x1,y1,x2,y2)
-            #     if distance < check_dist:
-            #         check_dist = distance
-            #         closest = location_name
-            # location_name = closest if closest else 'N/A'
-
-            closest_location = min(my_fetched_locations, key=lambda loc: get_distance_squared(x1, y1, loc[1][0], loc[1][1]))
-            closest = closest_location[0] if closest_location else 'N/A'
-            formatted_location_link = f"{location_link_split[0]}?{vendor_serial}?{item_serial}?{item_price}#{location_link_split[1]}"
-            quantity_string = quantity_cell.text.strip()
-            name_check_string = format_ingame_name(name_string,quantity_string)
-            total_cost = round(price * int(quantity_string),0)
-            total_profit = round(searchPrice * int(quantity_string) - total_cost,0)
-            out_data.append((f"{name_string}",f"{price}/{searchPrice}",f"{ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{closest}",f"{time_string}",f"{formatted_location_link}",f"{page_url}",f"{total_cost}",f"{name_check_string}"))
-    print("parse end: ", round(time.time() - start_time,2))
-    return out_data
-
 ### JOURNAL MANAGEMENT
 def delete_most_recent_log(event=None):
     file = get_most_recent_log()
@@ -569,23 +441,30 @@ def get_most_recent_log():
     try:
         latest_file = max(accessible_files, key=os.path.getmtime)
     except Exception as e:
-        print(f"Unexpected error when accessing {folder_path}: {str(e)}")
+        print(f"get_most_recent_log: Unexpected error when accessing {folder_path}: {str(e)}")
         latest_file = False
-    #print('latest: ' + latest_file)
     return latest_file
 
 def check_accessibility(file_path):
     try:
-        with open(file_path):  # Using with ensures the file is closed after this block
+        with open(file_path):
             pass
         return True
     except Exception as e:
-        #print(f"2! Unexpected error when accessing {file_path}: {str(e)}")
         return False
+    
+def load_user_data():
+    filename = f"vendor_info.json"
+    if os.path.exists(filename):
+        with open(filename, "r") as file:
+            return json.load(file)
+    return {}
+
+
 
 def parse_log_to_object():
-    my_vendors = [0x2A2814, 0x2A280D, 0x2A27FA, 0x2A27F3, 0x2A281C, 0x2A2830, 0x2A2835, 0x2A283D]
-    #my_vendors = ["MM1","MM2","MM3","MM4","MM5","MM6"]
+    #my_vendors = [0x2A2814, 0x2A280D, 0x2A27FA, 0x2A27F3, 0x2A281C, 0x2A2830, 0x2A2835, 0x2A283D]
+    my_vendors = load_user_data()
     vendors = {}
     current_vendor = None
     latest_log = get_most_recent_log()
@@ -609,7 +488,6 @@ def parse_log_to_object():
                     item_description = match.group(3)
                     if " dye " in item_description and ") (hue" in item_description:
                         item_description = item_description.split(") (hue")[0] + ")"
-                        # print(item_description)
                     item_match = f"{item_description}{match.group(4)}" if match.group(4) else item_description
                     item_quantity = int(match.group(5)) if match.group(5) else 1
                     item_suffix = match.group(6) if match.group(5) else ''
@@ -628,7 +506,7 @@ def parse_log_to_object():
                     pass_flag = True
                     current_vendor["items"].append(item)
                 else:
-                    print('missing: ' + line)
+                    print('parse_log_to_object: missing: ' + line)
             elif "…vendorStart" in line:
                 parts = line.split()
                 vendor_id = int(parts[4])
@@ -681,6 +559,9 @@ def handle_my_vendors(vendor_obj_list):
             full_items.append(item)
     update_snapshots(full_items)
 
+
+
+### DATABASE
 @contextmanager
 def connect_db():
     conn = sqlite3.connect('inventory.db')
@@ -731,10 +612,9 @@ def take_snapshot(inventory_items):
                 conn.commit()
                 return inserted_rows
             else:
-                #print('Previous snapshot is identical')
                 return previous_snapshot
     except Exception as e:
-        print(f"Exception in take_snapshot: {e}")
+        print(f"take_snapshot: Exception: {e}")
 
 def read_full_db():
     try:
@@ -762,7 +642,7 @@ def get_most_recent_inventory_snapshot():
             return fetch_query("SELECT * FROM inventory_snapshots WHERE snapshot_time=?", (most_recent_time,))
         return []
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"get_most_recent_inventory_snapshot: An error occurred: {e}")
         return []
 
 def get_most_recent_sales_time():
@@ -773,7 +653,7 @@ def get_most_recent_sales_time():
             return most_recent_time
         return None
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"get_most_recent_sales_time: An error occurred: {e}")
         return None
 
 def delete_db():
@@ -798,13 +678,9 @@ def snapshots_are_identical(snapshot, inventory_items):
 
     # If their lengths are different, they can't be identical
     if len(sorted_snap1) != len(sorted_snap2):
-        #print('same length')
         return False
     for item1, item2 in zip(sorted_snap1, sorted_snap2):
-        # Compare all fields except the timestamp (assuming timestamp is at index 0)
         if item1 != item2:
-            #print('item1:',item1)
-            #print('item2:',item2)
             return False
     return True
 
@@ -814,7 +690,6 @@ def update_snapshots(inventory_items):
         take_snapshot(inventory_items)
         return    
     if snapshots_are_identical(snapshot1, inventory_items):
-        #print("The snapshots are identical, no changes detected.")
         return
     snapshot2 = take_snapshot(inventory_items)
 
@@ -831,7 +706,6 @@ def update_snapshots(inventory_items):
             if sold_quantity > 0:
                 sold_items[id] = (price1,description1,sold_quantity)
         else:
-            #print(f"Item {id} exists in the first snapshot but not in the second. All {quantity1} units may have been sold or removed.")
             sold_items[id] = item_info  # Or some other logic
     for id, item_info in sold_items.items():
         price, description, quantity = item_info
@@ -841,33 +715,28 @@ def update_snapshots(inventory_items):
 def record_sale(snapshot_time, id, price, description, quantity):
     try:
         existing_records = fetch_query("SELECT * FROM sales_history WHERE id = ?", (id,))
-        # Insert a new sale record
         if len(existing_records) == 0:
             execute_query("INSERT INTO sales_history (snapshot_time, id, price, description, quantity) VALUES (?, ?, ?, ?, ?)",
                     (snapshot_time, id, price, description, quantity))
-            #total_price = price * quantity
-            #print(f"Recorded sale: {quantity} of item {description} at {price} each, for a total price of {total_price}.")
-        #else:
-         #   print(f"Item with ID {id} already exists in sales_history. Skipping insert.")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"record_sale: An error occurred: {e}")
 
 class AliApp:
     def __init__(self,root):
         self.root = root
         self.root.title(f"Ali's OutlandMalls Scraper v{version}")
-        self.root.geometry("1160x870")  # Initial size
-        self.root.minsize(1300, 870)  # Minimum size
-        #self.root.maxsize(900, 700)  # Maximum size
+        self.root.geometry("1160x870")
+        self.root.minsize(1300, 870)
+        #self.root.maxsize(900, 700)
         self.root.bind("<Return>", self.ParseMostRecentJournalLog)
         self.root.bind("<Control-Return>", self.ScrapeOutlandMall)
         self.root.bind("<Control-Alt-Return>", self.PriorityScrapeOutlandMall)
         self.root.bind("<KeyPress-3>", self.set_all_checkboxes)
         self.root.bind("<KeyPress-4>", self.set_none_checkboxes)
-        self.root.bind("<Alt-Return>", self.set_hp_variables)
-        self.root.bind("<KeyPress-1>", self.set_hp_variables)
-        self.root.bind("<Shift-Return>", self.set_lp_variables)
-        self.root.bind("<KeyPress-2>", self.set_lp_variables)
+#        self.root.bind("<Alt-Return>", self.set_hp_variables)
+#        self.root.bind("<KeyPress-1>", self.set_hp_variables)
+#        self.root.bind("<Shift-Return>", self.set_lp_variables) 
+#       self.root.bind("<KeyPress-2>", self.set_lp_variables)
         self.root.bind("<F1>", self.sort_tree_quick) #sort_tree_quick sort_tree_density
         self.root.bind("<Control-F1>", delete_most_recent_log)
         self.root.grid_columnconfigure(0, weight=10)
@@ -884,7 +753,7 @@ class AliApp:
         self.tree_frame.grid_rowconfigure(0, weight=1)
         self.tree_frame.grid_rowconfigure(1, weight=0)
 
-        # Create the Treeview with several columns
+        # Create the Treeview
         self.tree = ttk.Treeview(self.tree_frame, columns=("Item", "Price","Ratio","#","Profit","Vendor","Location","Time","#9","#10","#11","#12"),show='headings')
         self.tree.heading("Item", text="Item", command=lambda _col="Item",_col2 ="Ratio": self.sort_column_tuple(_col, _col2, False, sort_key_tuple))
         self.tree.heading("Price", text="Price")
@@ -919,11 +788,11 @@ class AliApp:
         self.tree.bind("<Button-1>", self.on_treeview_click)
 
         # Create context menu
-        self.context_menu = tk.Menu(self.root, tearoff=0)
-        self.context_menu.add_command(label='Insert To Sales History', command=self.on_treeview_select)
+#        self.context_menu = tk.Menu(self.root, tearoff=0)
+#        self.context_menu.add_command(label='Insert To Sales History', command=self.on_treeview_select)
         #self.context_menu.add_command(label='Option 2', command=lambda: print("Option 2 clicked"))
         # Bind right-click event
-        self.tree.bind('<Button-3>', self.show_context_menu)
+        self.tree.bind('<Button-3>', self.on_treeview_right_click)
 
         # Create a Scrollbar and associate it with the Tree widget
         self.scrollbar = tk.Scrollbar(self.tree_frame,orient='vertical', command=self.tree.yview)
@@ -956,7 +825,6 @@ class AliApp:
         self.check_ingot_var = tk.BooleanVar(self.root)
         self.check_board_var = tk.BooleanVar(self.root)
         self.check_leather_var = tk.BooleanVar(self.root) 
-
 
         self.checkbox_core_search = ttk.Checkbutton(self.checkbox_frame, text="Search Cores", variable=self.check_core_var)
         self.checkbox_core_search.grid(row=0, column=0,sticky='ew', padx=(27,0),columnspan=2)
@@ -1098,20 +966,7 @@ class AliApp:
         assmon_gui = AssMonGui(self.root)
         assmon_gui.start_monitoring()
 
-    def draw_transparent_rectangle(self,x,y,width,height):
-        region = (x, y, width, height)
-        overlay = tk.Toplevel(self.root)
-        overlay.attributes('-alpha', 0.1)  # Make the window fully transparent
-        overlay.geometry(f'{region[2]}x{region[3]}+{region[0]}+{region[1]}')
-        overlay.overrideredirect(True)  # Remove window decorations
-        overlay.attributes('-topmost', True)  # Keep window on top
-        border_color = 'cyan'
-        border_width = 4
-        canvas = tk.Canvas(overlay, highlightthickness=0, bg='black')
-        canvas.pack(fill='both', expand=True)
-        canvas.create_rectangle(border_width // 2, border_width // 2, region[2] - border_width // 2, region[3] - border_width // 2, outline=border_color, width=border_width, fill='')
-    
-    #TODO add discord notif detector
+    #TODO add discord notif detector? Might be better to just interval scan
     # def detect_notification(self): 
     #     def images_are_equal(img1, img2):
     #         arr1 = np.array(img1)
@@ -1209,14 +1064,15 @@ class AliApp:
         self.check_leather_var.set(False)
 
     def scrape_vendor_updates(self):
-        start_time = time.time()
         headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
             }
+        cookie = {"app": outlands_key}
+        
         url = "https://outlandmalls.com/vendors/"
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers,cookies=cookie)
         if response.status_code != 200:
-            print(f"Failed to retrieve the webpage: {url}. Status code: {response.status_code}")
+            print(f"scrape_vendor_updates: Failed to retrieve the webpage: {url}. Status code: {response.status_code}")
             self.queue_append.put('Vendor Page Failed')
             return
         self.queue_append.put(f"Scanning Locations")
@@ -1255,7 +1111,6 @@ class AliApp:
                 sec_since_scan = get_vendor_seconds_from_string(update_time)
                 if not sec_since_scan:
                     sec_since_scan = 1000000
-                #print(f"{vendor_name}: {update_time}")
                 if sec_since_scan < min_time:
                     min_time = sec_since_scan
                     closest = (update_time,x2,y2,vendor_name)
@@ -1264,7 +1119,6 @@ class AliApp:
             scan_y = closest[2] if closest else '0'
             scan_name = closest[3] if closest else 'No Name!'
             out_arr.append((location_name,scan_time_string,min_time,scan_x,scan_y,scan_name))
-            #print(f"{location_name}: {scan_time_string}")
         out_arr.sort(key=lambda x:x[2],reverse=True)
         new_window = tk.Toplevel(self.root)
         new_window.wm_attributes("-topmost", 1)
@@ -1277,8 +1131,6 @@ class AliApp:
         for locName,scanString,minTime,x,y,name in out_arr:
             result = f"{locName}: {scanString}: {x},{y}"
             listbox.insert(tk.END, result)
-        elapsed_time = round(time.time() - start_time,2)
-        #print(f"end: {elapsed_time}")
         self.queue_append.put("Idle")
 
     def parse_combobox(self):
@@ -1304,12 +1156,6 @@ class AliApp:
                 url = self.tree.item(row_id, "values")[9]
             elif col_id == "#7":
                 url = self.tree.item(row_id, "values")[8]                
-            #print(url)
-            # value_to_copy_raw = self.tree.item(row_id, "values")[8]
-            # serial_match = re.search(r'\?(\d+)(?:\?(\d+))(?:\?(\d+))?#', value_to_copy_raw) #'https://www.exploreoutlands.com/?471890?1251126567?312345125#pos:869,1381,13'
-            # vendor_serial = serial_match.group(1) if serial_match else 0
-            # item_serial = serial_match.group(2) if serial_match else 0
-            # item_price = serial_match.group(3) if serial_match else 0
             location_raw = self.tree.item(row_id, "values")[6].split('\t')
             location_split = location_raw[0].split(',')
             x1, y1 = map(int,location_split)
@@ -1324,10 +1170,10 @@ class AliApp:
                     closest = location_name
             location_name = closest if closest else 'Not found'
             if not closest:
-                print("Somehow 'closest' is None")
+                print("on_treeview_click: Somehow 'closest' is None")
                 return
             if my_locations.get(closest) is None:
-                print(f"No match in dictionary for location name: {closest}")
+                print(f"on_treeview_click: No match in dictionary for location name: {closest}")
                 return
             location_data = my_locations[closest][2]
             location_character = location_data[0]
@@ -1337,7 +1183,6 @@ class AliApp:
             value_to_copy_raw = self.tree.item(row_id, "values")[8]
             serial_match = re.search(r'\?(\d+)(?:\?(\d+))(?:\?(\d+))?#', value_to_copy_raw) #'https://www.exploreoutlands.com/?471890?1251126567?312345125#pos:869,1381,13'
             second_try = re.search(r'\?(\d+)\?', value_to_copy_raw)
-            #print(value_to_copy_raw)
             vendor_serial = serial_match.group(1) if serial_match else second_try.group(1) if second_try else 0
             item_id = serial_match.group(2) if serial_match else 0
             item_price = serial_match.group(3) if serial_match else 0
@@ -1473,33 +1318,13 @@ while not dead
     endif
     wait 500
 endwhile"""
-            # split = value_to_copy_raw.(', ')
-            # value_to_copy = ">waypoint " + split[0] + " " + split[1]
+
             self.root.clipboard_append(scriptString)
-            # global clipboard_ghost
-            # clipboard_ghost = scriptString
             self.root.update()
             if url:
                 webbrowser.open(url)
 
-    def on_treeview_select(self):
-        item = self.tree.selection()[0]
-        row_values = self.tree.item(item,'values')
-        #snapshot_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        description = row_values[0]
-        price_string = row_values[1] #80000.0/80000.0
-        left_side_price = price_string.split('/')[0]
-        price = int(float(left_side_price))
-        quantity = row_values[3] #80000.0/80000.0
-        value_to_copy_raw = row_values[8] #'https://www.exploreoutlands.com/?471890?1251126567#pos:869,1381,13'
-        number_match = re.search(r'\?(\d+)(?:\?(\d+))?#', value_to_copy_raw)
-        vendor_serial = number_match.group(1) if number_match else 0
-        id = number_match.group(2) if number_match else 0
-        # execute_query("INSERT INTO sales_history (snapshot_time, id, price, description, quantity) VALUES (?, ?, ?, ?, ?)",
-        #                        (snapshot_time, id, price, description, quantity))
-        #print(f"You selected item: {snapshot_time}, {id}, {price}, {description}, {quantity}")
-
-    def show_context_menu(self,event=None):
+    def on_treeview_right_click(self,event=None):
         if self.tree.identify_region(event.x, event.y) == "heading":
             return
         row_id = self.tree.identify_row(event.y)
@@ -1520,10 +1345,10 @@ endwhile"""
                 closest = location_name
         location_name = closest if closest else 'Not found'
         if not closest:
-            print("Somehow 'closest' is None")
+            print("on_treeview_right_click: Somehow 'closest' is None")
             return
         if my_locations.get(closest) is None:
-            print(f"No match in dictionary for location name: {closest}")
+            print(f"on_treeview_right_click: No match in dictionary for location name: {closest}")
             return
         location_data = my_locations[closest][2]
         location_character = location_data[0]
@@ -1533,7 +1358,6 @@ endwhile"""
         value_to_copy_raw = self.tree.item(row_id, "values")[8]
         serial_match = re.search(r'\?(\d+)(?:\?(\d+))(?:\?(\d+))?#', value_to_copy_raw) #'https://www.exploreoutlands.com/?471890?1251126567?312345125#pos:869,1381,13'
         second_try = re.search(r'\?(\d+)\?', value_to_copy_raw)
-        #print(value_to_copy_raw)
         vendor_serial = serial_match.group(1) if serial_match else second_try.group(1) if second_try else 0
         item_id = serial_match.group(2) if serial_match else 0
         item_price = format_with_commas(serial_match.group(3)) if serial_match else 0
@@ -1541,7 +1365,6 @@ endwhile"""
         total_cost = int(float(self.tree.item(row_id, "values")[10]))
         total_cost_str = format_with_commas(total_cost)
         item_description = self.tree.item(row_id, "values")[11]
-        #print(item_description)
         scriptString = f"""@setvar! "timeout" 650
 @setvar! "myTome" 0
 @clearignore
@@ -1667,10 +1490,7 @@ while not dead
 endwhile"""
         self.root.clipboard_clear()
         self.root.clipboard_append(scriptString)
-        # global clipboard_ghost
-        # clipboard_ghost = scriptString
         self.tree.selection_set(row_id)
-        #self.context_menu.post(event.x_self.root, event.y_self.root)
 
     def quick_scrape(self):
         start_time = time.time()
@@ -1683,7 +1503,7 @@ endwhile"""
                     for result in pool.imap_unordered(simple_parse_narrow, responses):
                         temp_list.append(result)
                 except Exception as e:
-                    print(f"Pool failed: {e}")
+                    print(f"quick_scrape: Pool failed: {e}")
         
         asyncio.run(main())
         
@@ -1702,7 +1522,6 @@ endwhile"""
         cutoff_threshold = self.cutoff_threshold.get()
         
         def request_gen():
-            #tuple_list = []
             bools = [
                 (self.check_lp_misc_var.get(), misc_lp_prices),
                 (self.check_hp_misc_var.get(), misc_hp_prices),
@@ -1712,34 +1531,27 @@ endwhile"""
                 if bool:
                     gathered_misc_prices.update(prices)
             for searchString, searchPrice in gathered_misc_prices.items():
-                #elapsed_time = time.time() - start_time
                 self.queue_append.put(f"{searchString}")
-                #misc_start_time = time.time()  # Record the current time
                 page_url = "https://outlandmalls.com/?item=" + quote_plus(searchString) + "&search_category_id=0"
                 headers = {
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 }
                 time.sleep(1)
-                cookie = {"app": "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S"}
+                cookie = {"app": outlands_key}
                 response = requests.get(page_url, headers=headers, cookies=cookie)
 
                 if response.status_code != 200:
-                    print(f"Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")
+                    print(f"async_scraping: request_gen: Failed to retrieve the webpage: {searchString}. Status code: {response.status_code}")
                     continue
-                #print(f"start misc request: {searchString}: {elapsed_time}")
                 yield (response.content,searchPrice,page_url,seconds_threshold,price_depth,cutoff_threshold)
 
 
         if self.check_lp_misc_var.get() or self.check_hp_misc_var.get():
-            elapsed_time = round(time.time() - start_time,2)
-            print(f"misc request: {elapsed_time}")
             num_cores = cpu_count()
             with Pool(num_cores) as pool:
                 for result in pool.imap_unordered(multi_parse_misc,request_gen()):
                     self.queue_append.put(result)
 
-        elapsed_time = round(time.time() - start_time,2)
-        print(f"multi misc: {elapsed_time}")
         steps = [
             ["Aspect Core", core_prices, self.check_core_var.get()],
             #["Aspect Extract", extract_prices, self.check_extract_var.get()],
@@ -1761,15 +1573,12 @@ endwhile"""
             name = step[0]
             tuple_list.append((name,price_depth,seconds_threshold,cutoff_threshold))
 
-        elapsed_time = round(time.time() - start_time,2)
-        print(f"wide request: {elapsed_time}")
         self.queue_append.put("Searching Wide")
         num_cores = cpu_count()
         with Pool(num_cores) as pool:
             for result in pool.imap_unordered(multi_parse_wide,tuple_list):
                 self.queue_append.put(result[0])
         elapsed_time = round(time.time() - start_time,2)
-        print(f"multi wide: {elapsed_time}")
         self.queue_append.put(f"Complete: {elapsed_time}s")
 
     def ScrapeOutlandMall(self,event=''):
@@ -1817,7 +1626,6 @@ endwhile"""
                         self_parse_prices.update(alter_hue_dict(True,dye))
                 else:
                     self_parse_prices.update(prices)
-        #self_parse_prices = {**core_prices, **extract_prices, **distil_prices, **map_prices, **scroll_prices, **link_prices, **misc_prices}
         vendors = parse_obj[0]
         latest_log = parse_obj[1]
         file_info = latest_log.split('\\')[-1].split('_') #2023_09_02_17_07_16_journal.txt
@@ -1914,7 +1722,6 @@ endwhile"""
                     total_profit = round(threshold * quantity_int - total_cost,0)
                     formatted_location_link = f"{location_link_split[0]}?{vendor_id}?{item['id']}?{int(price * quantity_int)}#{location_link_split[1]}"
                     out_data.append((f"{name_string}",f"{int(price)}/{int(threshold)}",f"{cost_to_price_ratio}",f"{quantity_int}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{location_name}",f"{out_string}",f"{formatted_location_link}",f"{format_url}",f"{total_cost}",f"{full_description}"))
-        print(f"items: {len(out_data)}")
         self.queue_append.put(out_data)
 
     def ParseMostRecentJournalLog(self,event=''):
@@ -1935,27 +1742,9 @@ endwhile"""
         self.queue_append.put(f'Recent: {obj[2][:6]}')
         self.root.update()
 
-    def PriorityParseMostRecentJournalLog(self,event=''):
-        self.clear_tree()
-        self.set_hp_variables()
-        obj = parse_log_to_object()
-        if type(obj[0]) is str:
-            file_info = obj[0].split('\\')[-1].split('_') #2023_09_02_17_07_16_journal.txt
-            out_string_date = '/'.join(file_info[1:3])
-            out_string_time = ':'.join(file_info[3:5])
-            out_string = f"{out_string_date} {out_string_time}"
-            self.queue_append.put(f"X: {obj[1][:6]}: {out_string}")
-            return
-        self.search_self_parse_obj(obj)
-        tree_children = self.tree.get_children()
-        if tree_children:
-            self.tree.see(tree_children[0])
-        self.queue_append.put(f'Recent: {obj[2][:6]}')
-        self.root.update()
-
     def PostJournalLog(self,event=''):
         url = 'https://outlandmalls.com/uploads'
-        headers = {'Authorization': '9ec321b8-6c45-4869-aa01-c15cfc7d38be'}
+        headers = {'Authorization': upload_key}
         data = {'tz': 'America/New_York'}
         file_path = get_most_recent_log()
         if not file_path:
@@ -1973,7 +1762,6 @@ endwhile"""
                 c.execute("SELECT * FROM sales_history")
                 rows = c.fetchall()
                 columns = [desc[0] for desc in c.description]
-            #print('-Sales Report-')
             total_sales_window = tk.Toplevel(self.root)
             total_sales_window.title("Sales Report")
             self.scrollbar = tk.Scrollbar(total_sales_window, orient="vertical")
@@ -1988,13 +1776,11 @@ endwhile"""
                 total_revenue += total_price
                 result = f"{row_dict['snapshot_time']} ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
                 listbox.insert(tk.END, result)
-                #print(result)
             rev_string = f"Total Revenue: {total_revenue}"
             listbox.insert(tk.END, rev_string)
-            #print(f"{rev_string}\n-End Report-")
             return rows
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"read_db_total_sales: An error occurred: {e}")
             return []
 
     def read_db_recent_sales(self):
@@ -2003,13 +1789,10 @@ endwhile"""
                 c = conn.cursor()
                 c.execute("SELECT MAX(snapshot_time) FROM sales_history")
                 entries = c.fetchall()
-                #if len(entries) == 0:
-                    #print('No recent sales')
                 most_recent_time = entries[0][0]
                 c.execute("SELECT * FROM sales_history WHERE snapshot_time=?",(most_recent_time,))
                 rows = c.fetchall()
                 columns = [desc[0] for desc in c.description]
-            #print('-Sales Report-')
             sales_window = tk.Toplevel(self.root)
             sales_window.title("Sales Report")
             self.scrollbar = tk.Scrollbar(sales_window, orient="vertical")
@@ -2023,45 +1806,33 @@ endwhile"""
                 total_price = row_dict['price'] * row_dict['quantity']
                 total_revenue += total_price
                 result = f"{row_dict['snapshot_time']} ID:{row_dict['id']}, {row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
-                #result = f"{row_dict['description']}: {row_dict['quantity']}x @ {row_dict['price']} = {total_price}"
                 listbox.insert(tk.END, result)
-                #print(result)
             rev_string = f"Total Revenue: {total_revenue}"
             listbox.insert(tk.END, rev_string)
-            #print(f"{rev_string}\n-End Report-")
             return rows
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"read_db_recent_sales: An error occurred: {e}")
             return []
         
     def read_db_current_inventory(self,only_report_incorrect_inventory=False):
         try:
             rows = get_most_recent_inventory_snapshot()
             if not rows:
-                print("No inventory snapshot available.")
+                print("read_db_current_inventory: No inventory snapshot available.")
                 return []
-            # inventory_window = tk.Toplevel(self.root)
-            # inventory_window.title("Inventory")
-            # self.scrollbar = tk.Scrollbar(inventory_window, orient="vertical")
-            # listbox = tk.Listbox(inventory_window, yscrollcommand=self.scrollbar.set, width=60, height=20)
-            # self.scrollbar.config(command=listbox.yview)
-            # self.scrollbar.pack(side="right", fill="y")
-            # listbox.pack(side="left", fill="both", expand=True)
             aggregated_items = {}
             columns = ['snapshot_time', 'id', 'price', 'description', 'quantity']
             for row in rows:
                 row_dict = dict(zip(columns, row))
                 stackSize = int(row_dict['quantity'])
                 if stackSize > 1:
-                    key = (f"{row_dict['description']}", stackSize, row_dict['price'])  # Create a unique key for each item type at a given price
+                    key = (f"{row_dict['description']}", stackSize, row_dict['price'])
                 else:
-                    key = (f"{row_dict['description']}", 1, row_dict['price'])  # Create a unique key for each item type at a given price
+                    key = (f"{row_dict['description']}", 1, row_dict['price'])
                 if key not in aggregated_items:
                     aggregated_items[key] = 0
                 aggregated_items[key] += 1
             sorted_items = categorize_and_sort_aggregated_items(aggregated_items)
-            #pretty_print(check_dict)
-            #Animal Lore Scroll: 11 @ 18k each | 2 sets of 10 @ 180k/set
             out_str = ""
             if not only_report_incorrect_inventory:
                 out_str += "***WTS*** *(all available on vendors MM1 through MM8 at my shop a short walk southeast from Totem moongate*"
@@ -2070,7 +1841,6 @@ endwhile"""
                     continue
                 out_str += f"\n**{category_name}**:\n"
                 for description, details in category_items.items():
-                    #total_price = int(price) * int(quantity)
                     trunc_name = discord_truncate(description)
                     inline_strings = []
                     check_arr = []
@@ -2090,7 +1860,6 @@ endwhile"""
                         check_arr.append((stack_size,quantity))
                     result = f"{trunc_name}: {' & '.join(inline_strings)}"
 
-                    #listbox.insert(tk.END, result)
                     if category_name == "Skill Mastery Scrolls" and ((1,2) not in check_arr or (10,2) not in check_arr):
                         out_str += f"--{result}   \n"
                     elif category_name == "Cores" and ((20,1) not in check_arr or (5,2) not in check_arr or (1,2) not in check_arr): 
@@ -2100,14 +1869,6 @@ endwhile"""
                     elif not only_report_incorrect_inventory:
                         out_str += f"\t{result}\n"
 
-                        
-
-                    #print(result)
-            #print(out_str)
-            
-            #self.root.clipboard_clear()
-            #self.root.clipboard_append(out_str)
-                        
             new_window = tk.Toplevel(self.root)
             new_window.wm_attributes("-topmost", 1)
             new_window.title("Restock Info")
@@ -2119,59 +1880,47 @@ endwhile"""
             textbox.insert(tk.END, out_str)
 
             render_stock_script(sorted_items)
-            #print("-End Report-")
             if only_report_incorrect_inventory:
                 return "break"
             return sorted_items
         except Exception as e:
-            print(f"An error occurred: {e}")
+            print(f"read_db_current_inventory: An error occurred: {e}")
             return []
         
     #------------------------------ GUI Updates---------------------------
     def queue_daemon(self,event=None):
         try:
             data = self.queue_append.get_nowait()
-            #print(f"queue_daemon_start: {data}")
             if isinstance(data,str):
                 self.status_var.set(data)
                 if 'Finished FAST' in data:
-                    #print(f"queue_daemon_1a")
                     self.queue_emptyFastSort_flag = True
             elif data and len(data):
                 for tuple in data:
                     self.append_to_tree(*tuple)
-                #print(f"queue_daemon_1b")
                 self.queue_emptySort_flag = True
-            #logging.debug(f'queue_daemon_end_append:{str(data)}')
             self.root.after(10, self.queue_daemon)
         except queue.Empty:
             if self.queue_emptySort_flag or self.queue_emptyFastSort_flag:
                 self.queue_emptySort_flag = False
                 if self.queue_emptyFastSort_flag:
-                    #logging.debug('queue_daemon_end_sort')
-                    #print(f"queue_daemon_2")
                     self.queue_emptyFastSort_flag = False
                     try:
-                        #print('quicksort')
                         self.sort_tree_quick()
                     except Exception as e:
-                        print('sort quick failed: ', e)
+                        print('queue_daemon: sort quick failed: ', e)
                 elif self.search_sortmode.get() == 2:
                     try:
-                        #print(f"queue_daemon_2")
                         self.sort_column_tuple("Ratio", "Item", False, sort_key_tuple)
                     except Exception as e:
-                        print('sort failed: ', e)
+                        print('queue_daemon: sort failed: ', e)
             self.root.after(20, self.queue_daemon)
             
         except Exception as e:
             print(f"queue_daemon exception: {e}")
-            #logging.debug('queue_daemon_end_exception')
             self.root.after(20, self.queue_daemon)
-        #print("daemon_queue_end")
 
     def clear_tree(self):
-        # Clear the Treeview
         for row in self.tree.get_children():
             self.tree.delete(row)
 
@@ -2214,7 +1963,7 @@ endwhile"""
         try:
             l.sort(key=lambda x: (key(x,col,secondary_col)[0] if key else x[0], key(x,col,secondary_col)[1]) if key else x[1], reverse=reverse)
         except Exception as e:
-            print('lsort e:', e)
+            print('sort_column_tuple: Exception:', e)
         for index, (_, _, k) in enumerate(l):
             self.tree.move(k, '', index)
         self.tree.heading(col, command=lambda _col=col,_secondary_col = secondary_col: self.sort_column_tuple(_col, _secondary_col, not reverse, key))
@@ -2272,7 +2021,6 @@ endwhile"""
         loc_sorted = []
         for loc,data in loc_data_sorted:
             loc_sorted.append(loc)
-        #print(loc_data_sorted)
 
         loc_id_list = [(self.tree.set(k, 'Location'),self.tree.set(k, 'Ratio'), k) for k in tree_children]
         loc_id_list_sorted = sorted(loc_id_list,key=lambda x: (loc_sorted.index(x[0].split("\t")[1]), float(x[1])))
@@ -2283,10 +2031,8 @@ endwhile"""
 
     def sort_tree_quick(self, event=None):
         data = []
-        #print("sort_tree_quick_test1")
         tree_children = self.tree.get_children("")          
         if(len(tree_children) == 0):
-            #print("sort_tree_quick_test_early_exit")
             return
         for child in tree_children:
             row_data = {}
@@ -2296,11 +2042,9 @@ endwhile"""
         rows_by_location = defaultdict(list)
         items_by_vendor = defaultdict(lambda: defaultdict(str))
         vendors_by_location = defaultdict(lambda: defaultdict(str))
-        #print("sort_tree_quick_test2")
         for row in data:
             rows_by_location[row['Location'].split('\t')[1]].append(row)
             value_to_copy_raw = row["#9"]
-            #print('v', value_to_copy_raw)
             serial_match = re.search(r'\?(\d+)(?:\?(\d+))(?:\?(\d+))?#', value_to_copy_raw) #'https://www.exploreoutlands.com/?471890?1251126567?312345125#pos:869,1381,13'
             if serial_match:
                 vendor_serial = serial_match.group(1)
@@ -2319,7 +2063,6 @@ endwhile"""
             items_by_vendor[vendor_serial][item_description_compare] = item_id
             vendors_by_location[row['Location'].split('\t')[1]][row["Vendor"]] = vendor_serial
         data_by_location = []
-        #print("sort_tree_quick_test3")
         for location, rows in rows_by_location.items():
             profit_sum = 0
             ctp_sum = 0
@@ -2355,14 +2098,12 @@ endwhile"""
                 "Time": get_seconds_from_string(loc_time)
             }
             data_by_location.append((location,loc_data))
-        #print("sort_tree_quick_test4")
 
         #loc_data_sorted = sorted(data_by_location,key=lambda x: (-x[1]["Profit"],x[1]["CTP_Average"],-x[1]["Margin_Average"]))
         loc_data_sorted = sorted(data_by_location,key=lambda x: (x[1]["Time"],-x[1]["Profit"],x[1]["CTP_Average"]))
         loc_sorted = []
         for loc,data in loc_data_sorted:
             loc_sorted.append(loc)
-        #print(loc_data_sorted)
 
         loc_id_list = [(self.tree.set(k, 'Location'), self.tree.set(k, 'Ratio'), k) for k in tree_children]
         loc_id_list_sorted = sorted(loc_id_list,key=lambda x: (loc_sorted.index(x[0].split("\t")[1]), float(x[1])))
@@ -2372,10 +2113,9 @@ endwhile"""
             capsule_loc_name = l.split("\t")[1]
             if capsule_loc_name not in locationIndex and int(float(r) != 1001):
                 locationIndex.append(capsule_loc_name)
-        #print("sort_tree_quick_test5")
         self.tree.see(loc_id_list_sorted[0][2])
         self.root.update()
-        #print("sort_tree_quick_test6")
+
         #Generate razor script
         scriptString = '@setvar! "timeout" 650'
         for location in locationIndex:
@@ -2386,7 +2126,6 @@ endwhile"""
             location_button_code = location_data[3]
             vendors = vendors_by_location[location]
             vendor_one_name,vendor_one_serial = next(iter(vendors.items()))
-            print(vendor_one_name,vendor_one_serial)
             scriptString += f"""
 if find {vendor_one_serial} ground any any 20
     overhead {vendor_one_name}
@@ -2444,21 +2183,15 @@ removelist "itemDescriptions"
 createlist "itemDescriptions"
 clearignore
 
-""" # find vendor and open backpack
+"""
                 items = items_by_vendor[vendor_serial]
                 
                 for item_description_compare, item_serial in items.items():
-                    #print(item_description_compare,item_serial,vendor_serial,vendor_name)
                     scriptString += f"""
 pushlist "itemDescriptions" "{item_description_compare}"
 
 """
                     
-##TODO remove superfluous item ids. Only need the ids of items that are searched for in quick scrape
-##TODO OR use item_serial to find item and then getlabel check against the itemDescriptions list to confirm no shenanigans.
-##TODO item id method allows buying things out of order at a location.
-                    
-#TODO fix recurse search to search each time a container is opened
                 scriptString += f"""
 while not dead
     if find {vendor_serial} ground any any 20
@@ -2628,11 +2361,9 @@ while not dead
         wait "timeout"
     endif
 endwhile"""
-        #print("sort_tree_quick_test7")
         self.root.clipboard_clear()
         self.root.clipboard_append(scriptString)
         self.root.update()
-        #print("sort_tree_quick_test_done")
 
 def catch_assistant_handles():
     windows = pywinauto.Desktop(backend="win32").windows()
@@ -2649,13 +2380,13 @@ def Check_Razor_Assistant(hWnd=329188):
         app = pywinauto.Application().connect(handle=hWnd)
         window = app.window(handle=hWnd)
     except Exception as e:
-        print(f"Window not found. Error: {e}")
+        print(f"Check_Razor_Assistant: Window not found. Error: {e}")
         return None
     script_editor = window.child_window(auto_id="scriptEditor", control_type="FastColoredTextBoxNS.FastColoredTextBox")
     if script_editor.is_enabled():
-        return False #script editor is enabled and editable so script isnt running
+        return False
     else:
-        return True  #script editor is disabled and not editable so script is running
+        return True
 
 async def fetch(session, url, headers, cookies):
     async with session.get(url, headers=headers, cookies=cookies) as response:
@@ -2675,7 +2406,7 @@ async def request_gen_simple():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
     cookies = RequestsCookieJar()
-    cookies.set("app", "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S")
+    cookies.set("app", outlands_key)
 
     async with aiohttp.ClientSession() as session:
         tasks = []
@@ -2687,32 +2418,6 @@ async def request_gen_simple():
         responses = await asyncio.gather(*tasks)
 
         return [(response["content"], master_prices, response["url"], 60, 1, response["extra_data"]) for response in responses]
-
-async def request_gen_simpleOLD():
-    price_list = [
-        ("treasure undeciphered", map_prices),
-        ("research materials", misc_crafting_prices),
-        ("prevalia coins", misc_hp_prices),
-    ]
-
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-    }
-    cookies = RequestsCookieJar()
-    cookies.set("app", "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S")
-
-    async with aiohttp.ClientSession() as session:
-        tasks = []
-        for searchString, searchPrices in price_list:
-            res = re.search(r"https://outlandmalls\.com/\?item=(\w*)&", searchString)
-            match = res.group(1) if res else None
-            printable_name = match if match else searchString
-            print(f"{printable_name}: start")
-            page_url = searchString if match else "https://outlandmalls.com/?item=" + quote_plus(printable_name) + "&search_category_id=0"
-            tasks.append(fetch(session, page_url, headers, cookies))
-        
-        responses = await asyncio.gather(*tasks)
-        return [(response, searchPrices, page_url, 60, 1, .90) for response, (_, searchPrices) in zip(responses, price_list)]
 
 class AssMonGui:
     def __init__(self, parent):
@@ -2745,7 +2450,6 @@ class AssMonGui:
         self.label3.pack()
 
     def update_booleans(self, bool_values):
-        # Update label text and colors based on status
         self.label1.config(text=f"{self.char1[0]}: {'Running' if bool_values.get('bool1', False) else 'Not Running'}",
                         bg="green" if bool_values.get('bool1', False) else "red")
         self.label2.config(text=f"{self.char2[0]}: {'Running' if bool_values.get('bool2', False) else 'Not Running'}",
@@ -2753,7 +2457,6 @@ class AssMonGui:
         self.label3.config(text=f"{self.char3[0]}: {'Running' if bool_values.get('bool3', False) else 'Not Running'}",
                         bg="green" if bool_values.get('bool3', False) else "red")
 
-        # Update previous states
         self.prev_state1 = bool_values.get('bool1')
         self.prev_state2 = bool_values.get('bool2')
         self.prev_state3 = bool_values.get('bool3')
@@ -2788,13 +2491,13 @@ def start_purchase_script():
     if match_client: #if focus is on client, switch to assistant and set it as target
         original = connect_to_window(active_window._hWnd)
         if not original:
-            print("Something went wrong when selecting original window")
+            print("start_purchase_script 1: Something went wrong when selecting original window")
             return
         extracted_name = match_client.group(1)
         try:
             window = focus_named_assistant(extracted_name)
         except Exception as e:
-            print(f"Purchase Script Error: {e}")
+            print(f"start_purchase_script 22: Error: {e}")
     elif match_assistant: #if focus is on assistant, set assistant as target
         extracted_name = match_assistant.group(1)
         for window in gw.getAllWindows():
@@ -2802,20 +2505,20 @@ def start_purchase_script():
                 original = connect_to_window(window._hWnd)
                 break
         if not original:
-            print("Something went wrong when selecting original window")
+            print("start_purchase_script 3: Something went wrong when selecting original window")
             return
         window = connect_to_window(active_window._hWnd)
     else:
-        print("No match found in the active window's title.")
+        print("start_purchase_script 4: No match found in the active window's title.")
         return
     if not window:
-        print("Error connecting to window")
+        print("start_purchase_script 5: Error connecting to window")
         return False
     tab_control = window.TabControl
     if tab_control.get_selected_tab() != 9:
         tab_control.select("TabControlScripts")
     tree = window.TreeView
-    node = tree.get_item(['aaaaab'])
+    node = tree.get_item(['aaaTempScript'])
     if not node.is_selected():
         node.select()
     try:
@@ -2840,7 +2543,7 @@ def start_purchase_script():
                 time.sleep(.01)
                 original.set_focus()
             else:
-                print('Play button missing!')
+                print('start_purchase_script 6: Play button missing!')
                 return
         else:
             stop_button = window.child_window(title="Scripts", auto_id="subScripts", control_type="System.Windows.Forms.TabPage")\
@@ -2852,17 +2555,15 @@ def start_purchase_script():
                 time.sleep(.01)
                 original.set_focus()
             else:
-                print('Stop button missing!')
+                print('start_purchase_script 7: Stop button missing!')
                 return
     except Exception as e:
-        print(f"error: {e}")
+        print(f"start_purchase_script 8: Error: {e}")
     #win32api.SetCursorPos(mouse_pos)
         
 def append_recall_home_script():
     try:
         current_content = root_ghost.root.clipboard_get()
-
-        #print(current_content)
         append_string = """
 wait 1000
 script 'AliRoom'
@@ -2871,20 +2572,16 @@ script 'AliRoom'
         pyperclip.copy(new_content)
 
     except Exception as e:
-        print(f"Err: {e}")
+        print(f"append_recall_home_script: Error: {e}")
 
-#print(f"Press ctrl+alt+` to find the Client/Assistant window for the active window...")
-keyboard.add_hotkey("ctrl+alt+c", start_purchase_script)
-keyboard.add_hotkey("ctrl+alt+`", switch_focus)
-keyboard.add_hotkey("ctrl+alt+1", lambda: focus_named_assistant('a lost girl'))
-keyboard.add_hotkey("ctrl+alt+2", lambda: focus_named_assistant('Vendor Police'))
-keyboard.add_hotkey("ctrl+alt+3", lambda: focus_named_assistant('Aproctoflecticus'))
-keyboard.add_hotkey("alt+shift+`", lambda: focus_scraper())
 
 root_ghost = False
 def main():
-    root = tk.Tk()
     global root_ghost
+    keyboard.add_hotkey("ctrl+alt+c", start_purchase_script)
+    keyboard.add_hotkey("ctrl+alt+`", switch_focus)
+    keyboard.add_hotkey("alt+shift+`", lambda: focus_scraper())
+    root = tk.Tk()
     root_ghost = AliApp(root)
     root.mainloop()
 

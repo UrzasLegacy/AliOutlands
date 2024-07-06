@@ -305,8 +305,6 @@ def categorize_and_sort_aggregated_items(aggregated_items):
             category_dict["Misc"][misc] = []
             category_dict["Misc"][misc].append((0, data, 0))
 
-
-
     sorted_category_dict = defaultdict(dict)
     for category, _v in categories.items(): 
         descriptions = category_dict.get(category, {}) #category_dict[category]
@@ -546,3 +544,12 @@ def PipedListSplitter(piped_list_string,chunk_size):
     print(f"Chunks: {len(chunk_list)}")
 
     return out_string
+
+
+def save_user_data():
+    import json
+    #example my_vendors = [0x2A2814, 0x2A280D, 0x2A27FA, 0x2A27F3, 0x2A281C, 0x2A2830, 0x2A2835, 0x2A283D]
+    my_vendors = []
+    filename = f"vendor_info.json"
+    with open(filename, "w") as file:
+        json.dump(my_vendors, file, indent=4)

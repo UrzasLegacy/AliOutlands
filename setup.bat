@@ -1,5 +1,12 @@
 @echo off
 
+:: Check if Git is installed
+where git >nul 2>nul
+if %errorlevel% neq 0 (
+    echo Git could not be found. Please install Git.
+    exit /b
+)
+
 :: Check if Python is installed, >nul 2>nul silence error messages
 where python >nul 2>nul
 if %errorlevel% neq 0 (
@@ -7,10 +14,37 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
+:: Set the repository URL here
+set REPO_URL=https://github.com/yourusername/yourrepository.git
 
+:: Set the repository directory to the folder containing the setup.bat
+set REPO_DIR=%~dp0
 
-:: Set up the virtual environment
-python -m venv venv
+:: Check if the repository has already been cloned
+if exist "%REPO_DIR%\.git" (
+    echo Repository already exists. Pulling latest changes.
+    cd "%REPO_DIR%"
+    git pull
+    if %errorlevel% neq 0 (
+        echo Failed to pull the latest changes. Please check your internet connection and repository permissions.
+        exit /b
+    )
+) else (
+    echo Cloning the repository.
+    git clone %REPO_URL% "%REPO_DIR%"
+    if %errorlevel% neq 0 (
+        echo Failed to clone the repository. Please check the repository URL and your internet connection.
+        exit /b
+    )
+)
+
+:: Change to the repository directory
+cd "%REPO_DIR%"
+
+:: Set up the virtual environment if it does not exist
+if not exist "venv\" (
+    python -m venv venv
+)
 
 :: Activate the virtual environment
 call venv\Scripts\activate

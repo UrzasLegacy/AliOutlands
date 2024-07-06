@@ -1,16 +1,7 @@
-import pyperclip
-def append_recall_home_script():
-    try:
-        current_content = pyperclip.paste()
-        print(current_content)
-        append_string = """
-
-    wait 1000
-    script "AliRoom"
-    """
-        new_content = current_content + append_string
-        pyperclip.copy(new_content)
-    except Exception as e:
-        print(f"Err: {e}")
-
-append_recall_home_script()
+def save_user_data():
+    import json
+    my_vendors = [0x2A2814, 0x2A280D, 0x2A27FA, 0x2A27F3, 0x2A281C, 0x2A2830, 0x2A2835, 0x2A283D]
+    filename = f"vendor_info.json"
+    with open(filename, "w") as file:
+        json.dump(my_vendors, file, indent=4)
+save_user_data()
