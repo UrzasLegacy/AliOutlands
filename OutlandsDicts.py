@@ -25,7 +25,7 @@ core_prices = { #exact string MATTERS
     "Fortune Aspect Core": 70000,
     "Gadget Aspect Core": 10000,
     "Harvest Aspect Core": 80000,
-    "Holy Aspect Core": 11000,
+    "Holy Aspect Core": 13000,
     "Lightning Aspect Core": 48000,
     "Lyric Aspect Core": 23000,
     "Madness Aspect Core": 75000,
@@ -81,7 +81,7 @@ distil_prices = {
     "Lightning Aspect Distillation": 9000,
     'Lyric Aspect Distillation': 5000,
     "Madness Aspect Distillation": 11000,
-    'Poison Aspect Distillation': 7000,
+    'Poison Aspect Distillation': 9000,
     'Shadow Aspect Distillation': 17000,
     'Void Aspect Distillation': 8000,
     'War Aspect Distillation': 5000,
@@ -231,7 +231,7 @@ commodity_5000_prices = {
 }
 
 scroll_prices = {
-    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 42000,
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 38000,
     "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 16000,#[:7]
     "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 16000,#[:7]
     "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
@@ -253,14 +253,14 @@ scroll_prices = {
     "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
     "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 35000,
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 28000,
     "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,#[:4]
     "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
     "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
     "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 25000,#[:4]
     "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 50000,
-    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 14000,
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
@@ -348,7 +348,7 @@ link_prices = { #exact chain type string MATTERS
     "Exceptional Quality Chance": [130000,650000,2600000],
     "Effective Camping Skill": [120000,600000,2500000], 
     "Effective Harvest Skill": [160000,650000,2600000],
-    "Effective Arms Lore Skill": [900000,550000,2400000], 
+    "Effective Arms Lore Skill": [90000,550000,2400000], 
     "Chivalry Skill": [130000,600000,2500000], 
     "Necromancy Skill": [170000,670000,2700000], #Follower Damage, Follower Damage Resistance
     "Barding Effect Durations": [90000,550000,2400000], #Bard Reset/Break Ignore Chance
@@ -403,6 +403,7 @@ hue_list = {
     'Shimmer Radiant':       {'hue': 1584, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
     'Shimmer Clover':        {'hue': 1584, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
     'Shimmer Nova':          {'hue': 1584, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
+    'Shimmer Selkie':        {'hue': 1572, 'rare cloth': 22500, 'runebook dye': 300000, 'accessory dye': 50000, 'headwear dye': 150000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 250000, 'facial hair dye': 250000, 'backpack dye': 400000, 'mount gear dye': 400000}, #Shimmer Hex
     'Lustrous Lavender':     {'hue': 4124, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous Lavender
     'Lustrous Carmine':      {'hue': 4125, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous Carmine
     'Lustrous Seagrass':     {'hue': 4126, 'rare cloth': 120000, 'runebook dye': 200000, 'accessory dye': 20000, 'headwear dye': 600000, 'carpet dye': 25000, 'furniture dye': 300000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 100000, 'mount gear dye': 100000}, #Lustrous Seagrass
@@ -456,7 +457,7 @@ hue_list = {
     'Kraul Hive':            {'hue': 2841, 'rare cloth': 4000,  'runebook dye': 15000, 'accessory dye': 1000, 'headwear dye': 20000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 20000, 'backpack dye': 40000, 'mount gear dye': 1000}, #Kraul Hive
     'Netherzone':            {'hue': 1500, 'rare cloth': 80000, 'runebook dye': 200000,  'accessory dye': 30000, 'headwear dye': 480000, 'carpet dye': 50000, 'furniture dye': 200000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 150000, 'mount gear dye': 150000}, #Netherzone
     'Metallic Cherry':       {'hue': 2380, 'rare cloth': 35000, 'runebook dye': 40000, 'accessory dye': 6000, 'headwear dye': 200000, 'carpet dye': 4000, 'furniture dye': 50000, 'hair dye': 60000, 'facial hair dye': 50000, 'backpack dye': 100000, 'mount gear dye': 6000}, #Metallic Cherry
-    'Metallic Orange':       {'hue': 1989, 'rare cloth': 9000, 'runebook dye': 30000, 'accessory dye': 4000, 'headwear dye': 50000, 'carpet dye': 3000, 'furniture dye': 40000, 'hair dye': 55000, 'facial hair dye': 45000, 'backpack dye': 80000, 'mount gear dye': 6000}, #Metallic Orange
+    'Metallic Orange':       {'hue': 1989, 'rare cloth': 9000, 'runebook dye': 50000, 'accessory dye': 4000, 'headwear dye': 50000, 'carpet dye': 3000, 'furniture dye': 40000, 'hair dye': 55000, 'facial hair dye': 45000, 'backpack dye': 80000, 'mount gear dye': 6000}, #Metallic Orange
     'Metallic Amber':        {'hue': 1990, 'rare cloth': 4000,  'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 40000, 'facial hair dye': 30000, 'backpack dye': 50000, 'mount gear dye': 6000}, #Metallic Amber
     'Metallic Lemon-Lime':   {'hue': 2653, 'rare cloth': 4000,  'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 30000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 20000, 'facial hair dye': 25000, 'backpack dye': 45000, 'mount gear dye': 6000}, #Metallic Lemon-Lime
     'Metallic Olive':        {'hue': 2398, 'rare cloth': 3000,  'runebook dye': 20000, 'accessory dye': 1000, 'headwear dye': 18000, 'carpet dye': 1000, 'furniture dye': 20000, 'hair dye': 10000, 'facial hair dye': 10000, 'backpack dye': 50000, 'mount gear dye': 6000}, #Metallic Olive
@@ -519,7 +520,7 @@ misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&
 
 misc_hp_prices = { #exact string matters
     "a skill mastery orb (used to increase a player's total skill cap by 1)": 18000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
-    "plant chemicals": 2750,
+    "plant chemicals": 2500,
     "prevalia coins [blessed]": 17000, #prevalia coins : 5 [blessed]
     "a chromatic core": 75000,
     "chromatic distillation": 10000,
@@ -592,10 +593,10 @@ self_parse_extra_aliases = {
     "lore page /15": 30000,
     "lore page /10": 35000,
     "lustrous totem": 300000,
-    "harvest antiquity": 300000,
-    "crafting antiquity": 300000,
-    "portrait painting antiquity": 300000,
-    "landscape painting antiquity": 300000,
+    "harvest antiquity": 200000,
+    "crafting antiquity": 200000,
+    "portrait painting antiquity": 200000,
+    "landscape painting antiquity": 200000,
     "large painting antiquity": 700000,
     "thief antiquity": 1000000,
     "battle antiquity": 1000000,
@@ -607,8 +608,13 @@ self_parse_extra_aliases = {
     
 }
 
+self_parse_antiquities_prices = {
+    "hourglass table": 700000,
+}
+
+
 my_locations = {
-    # Vendor Police
+    # Alpha
     "N Prevalia Sandbar": (1667,1318, ('Vendor Police',2089,200,10)),
     "N Prev Clearing N": (1592,1388, ('Vendor Police',2089,201,20)),
     "N Prev Clearing E": (1629,1421, ('Vendor Police',2089,202,10)), 
@@ -637,7 +643,7 @@ my_locations = {
     "Far S Anchor's Rest": (3715,872, ('Vendor Police',2089,224,10)),
     "E of GH": (3976,853, ('Vendor Police',2089,225,20)),
 
-    # a lost girl
+    # Bravo
     "N Cambria Gate": (1706,3129, ('a lost girl',2093,200,10)),
     "SE Cambria Gate": (1753,3176, ('a lost girl',2093,201,20)),
     "S Cambria Gate": (1709,3182, ('a lost girl',2093,202,10)),
@@ -666,7 +672,7 @@ my_locations = {
     "TRT N":(1732,2321, ('a lost girl',2093,224,10)),
     "TRT":(1759,2351, ('a lost girl',2093,225,20)),
 
-    # Aproctoflecticus
+    # Charlie
     "AR1": (3946,565, ('Aproctoflecticus',1156,200,10)),
     "AR2": (3947,496, ('Aproctoflecticus',1156,201,20)),
     "AR3": (3961,553, ('Aproctoflecticus',1156,202,10)),
@@ -695,7 +701,7 @@ my_locations = {
     "Tofy's Casino":(3446,178, ('Aproctoflecticus',1156,224,10)),
     "AR19": (4071,600,('Aproctoflecticus',1156,225,20)),
 
-    # Misc 1 1989
+    # Delta
     "N Terran Clearing 2":(905,1387,('Misc1',1989,200,10)),
     "SW Terran Clearing 2":(887,1499,('Misc1',1989,201,20)),
     "Pwnstar":(4218,1090,('Misc1',1989,202,10)),
@@ -724,7 +730,7 @@ my_locations = {
     "Ugly Bridge": (1329,1097,('Misc1',1989,224,10)),
     "SE Terran Clearing": (966,1448,('Misc1',1989,225,20)),
     
-    # Misc 2 2828
+    # Echo
     "W of Prev Gate":(1425,1483,('Misc2',2828,200,10)),
     "Cedar Island Center":(4027,305,('Misc2',2828,201,20)),
     "Cedar Island Mall":(3985,349,('Misc2',2828,202,10)),
@@ -753,7 +759,7 @@ my_locations = {
     "NW of Cambria":(1570,2852,('Misc2',2828,224,10)), #TODO exchange out
     "S Prevalia Beach":(2028,1738,('Misc2',2828,225,20)),
 
-    # Misc 3 2091
+    # Foxtrot
     "Totem Gate E1":(3931,2799,('Misc3',2091,200,10)),
     "Totem Gate NE1":(3942,2758,('Misc3',2091,201,20)),
     "Totem Gate S1":(3912,2821,('Misc3',2091,202,10)),
@@ -776,10 +782,10 @@ my_locations = {
     "N of Fishkill":(4129,2180,('Misc3',2091,218,10)),
     "Totem Gate N1":(3892,2777,('Misc3',2091,219,20)),
     "NE of Ossuary Demon":(1343,2746,('Misc3',2091,220,10)),
-    "placeholder":(0,0,('Misc3',2091,221,20)),
-    "placeholder":(0,0,('Misc3',2091,222,10)),
-    "placeholder":(0,0,('Misc3',2091,223,20)),
-    "placeholder":(0,0,('Misc3',2091,224,10)),
+    "N of Rope Swing":(3940,3411,('Misc3',2091,221,20)),
+    "SW Terran Clearing 2":(877,1500,('Misc3',2091,222,10)),
+    "W of Jungle Junction":(4141,2743,('Misc3',2091,223,20)),
+    "S Prev Xroad E2":(1704,1743,('Misc3',2091,224,10)),
     "placeholder":(0,0,('Misc3',2091,225,20)),
 
     # Wide Reach 1183

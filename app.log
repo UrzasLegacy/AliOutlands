@@ -1,1 +1,315 @@
 2024-07-03 18:49:39 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 19:06:57 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 19:37:26 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 19:44:01 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-03 19:44:03 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-03 19:44:03 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq2u4git62ls5gi1vlo0 HTTP/1.1" 302 0
+2024-07-03 19:44:03 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-03 19:44:03 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-03 19:44:03 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-03 20:03:47 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 20:04:25 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 20:06:01 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-03 20:06:02 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-03 20:06:02 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq2ueqat62ls5gi2evtg HTTP/1.1" 302 0
+2024-07-03 20:06:02 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-03 20:06:02 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-03 20:06:02 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-03 20:10:57 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 20:16:20 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 20:48:39 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 20:54:59 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 21:10:17 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 21:17:37 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 21:38:12 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 22:16:12 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 22:37:44 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 22:54:08 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 23:07:39 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 23:11:16 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-03 23:52:10 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 00:14:31 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 00:36:29 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 00:38:18 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 00:41:10 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 01:10:16 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 01:15:04 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 01:19:13 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 01:20:23 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 01:24:00 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 01:34:21 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 01:42:45 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 01:55:01 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 01:56:15 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 02:01:04 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 04:00:31 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 04:05:04 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-04 04:05:11 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-04 04:05:11 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq35fcat62ls5gid5jj0 HTTP/1.1" 302 0
+2024-07-04 04:05:11 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-04 04:05:11 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-04 04:05:11 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-04 04:08:27 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 04:24:08 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-04 04:24:10 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-04 04:24:11 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq35oait62ls5giddb9g HTTP/1.1" 302 0
+2024-07-04 04:24:11 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-04 04:24:11 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-04 04:24:11 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-04 04:24:36 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 10:56:24 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-04 10:56:25 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-04 10:56:25 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq3bg6at62ls5gilrln0 HTTP/1.1" 302 0
+2024-07-04 10:56:26 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-04 10:56:26 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-04 10:56:26 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-04 11:13:36 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-04 11:13:38 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-04 11:13:38 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq3bo8at62ls5gim5p1g HTTP/1.1" 302 0
+2024-07-04 11:13:38 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-04 11:13:38 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-04 11:13:39 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-04 14:01:46 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 14:14:12 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 14:45:30 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 14:52:19 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 15:10:02 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 15:21:40 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 15:23:22 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 16:03:06 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 16:17:47 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 16:19:44 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 16:23:07 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 16:24:08 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 16:36:42 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-04 16:36:44 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-04 16:36:44 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq3gfmqt62ls5gitqicg HTTP/1.1" 302 0
+2024-07-04 16:36:44 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-04 16:36:44 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-04 16:36:44 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-04 16:42:24 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 16:48:02 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 16:57:11 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 17:11:20 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 17:13:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-04 17:13:57 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-04 17:13:57 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq3h152t62ls5giulujg HTTP/1.1" 302 0
+2024-07-04 17:13:57 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-04 17:13:57 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-04 17:13:57 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-04 17:16:54 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 17:20:58 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 17:25:32 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 17:27:04 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 17:28:10 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 17:30:37 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 17:43:30 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 18:16:26 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 18:18:54 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 19:00:24 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 19:25:26 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 19:27:36 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 19:37:51 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 19:40:02 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 19:43:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-04 19:43:57 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-04 19:43:57 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq3j7fat62ls5gj29900 HTTP/1.1" 302 0
+2024-07-04 19:43:57 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-04 19:43:57 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-04 19:43:57 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-04 20:14:43 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 20:32:35 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 20:46:51 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 20:51:07 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 20:54:13 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 21:06:48 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 21:29:18 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-04 21:29:21 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-04 21:29:21 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq3kos2t62ls5gj4jlhg HTTP/1.1" 302 0
+2024-07-04 21:29:21 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-04 21:29:21 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-04 21:29:21 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-04 21:51:07 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 22:17:47 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 22:29:21 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 22:33:25 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 22:56:07 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 23:17:21 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 23:27:56 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 23:38:58 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 23:43:25 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-04 23:56:44 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 00:02:39 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 00:16:43 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 00:25:46 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 00:35:07 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 00:50:56 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 00:56:32 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 00:57:49 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 01:42:11 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 01:43:56 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 01:45:52 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 01:54:43 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 02:07:44 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 02:49:00 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 03:08:16 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 03:14:12 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 03:27:15 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-05 03:27:17 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-05 03:27:17 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq3q0lat62ls5gjd21n0 HTTP/1.1" 302 0
+2024-07-05 03:27:17 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-05 03:27:18 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-05 03:27:18 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-05 03:30:05 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 13:38:02 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 13:39:22 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 13:40:19 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 13:51:11 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 13:55:17 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 13:56:02 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 14:04:49 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 14:05:36 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 14:12:17 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 14:42:19 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 14:48:48 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 14:50:06 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-05 14:50:08 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-05 14:50:08 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq440o2t62ls5gjpjea0 HTTP/1.1" 302 0
+2024-07-05 14:50:08 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-05 14:50:08 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-05 14:50:09 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-05 14:58:31 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 15:34:47 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 15:41:38 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 15:41:45 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 16:13:00 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 16:55:38 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 17:12:41 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 17:19:25 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-05 17:19:27 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-05 17:19:27 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq466nqt62ls5gjsg5eg HTTP/1.1" 302 0
+2024-07-05 17:19:27 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-05 17:19:27 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-05 17:19:27 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-05 17:36:53 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 18:24:40 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 18:36:28 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 18:36:40 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 18:44:23 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 18:51:19 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 18:55:44 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 19:03:47 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 19:21:35 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 19:28:51 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 19:36:22 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-05 19:36:24 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-05 19:36:25 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq486uat62ls5gjv71jg HTTP/1.1" 302 0
+2024-07-05 19:36:25 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-05 19:36:25 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-05 19:36:25 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-05 19:52:51 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 19:54:08 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 19:57:36 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 20:03:34 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 20:18:36 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 20:28:12 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 20:30:49 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 20:46:28 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 21:03:26 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 21:05:07 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 21:27:49 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 21:34:47 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 21:35:05 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 21:40:32 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 22:09:01 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-05 22:09:03 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-05 22:09:03 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq4aeg2t62ls5gk2opn0 HTTP/1.1" 302 0
+2024-07-05 22:09:03 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-05 22:09:04 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-05 22:09:04 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-05 22:40:00 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 22:47:07 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 23:02:33 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 23:31:45 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 23:34:27 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 23:34:42 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-05 23:37:53 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 00:18:06 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 00:19:07 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-06 00:19:10 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-06 00:19:10 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq4cbfit62ls5gk5v6vg HTTP/1.1" 302 0
+2024-07-06 00:19:10 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-06 00:19:10 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-06 00:19:10 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-06 00:37:50 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 00:59:04 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 01:13:01 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 01:23:00 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 01:30:29 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 02:25:24 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 03:03:22 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 03:22:21 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 03:40:12 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 03:44:26 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 03:51:01 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 03:53:34 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 04:02:19 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 04:45:16 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 04:56:04 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 05:10:13 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-06 05:10:20 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-06 05:10:20 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq4gjuat62ls5gkbhhpg HTTP/1.1" 302 0
+2024-07-06 05:10:20 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-06 05:10:20 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-06 05:10:21 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-06 11:45:15 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-06 11:45:17 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-06 11:45:17 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq4md3it62ls5gkjcakg HTTP/1.1" 302 0
+2024-07-06 11:45:17 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-06 11:45:17 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-06 11:45:17 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-06 11:58:46 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 12:00:04 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 12:01:54 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 12:08:11 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 12:08:26 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 12:11:19 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 12:21:17 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 12:22:04 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 12:24:47 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 12:30:55 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 12:40:39 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 13:00:15 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 13:30:14 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 13:35:33 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-06 13:35:36 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-06 13:35:36 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq4o0qat62ls5gklahj0 HTTP/1.1" 302 0
+2024-07-06 13:35:36 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-06 13:35:36 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-06 13:35:36 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-06 13:52:41 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 13:54:05 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 13:57:53 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 13:58:03 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 13:59:51 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 14:07:08 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 14:09:28 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 14:13:05 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 14:20:42 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 14:22:35 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 14:24:30 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 14:35:16 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 14:54:40 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 14:57:52 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 14:58:11 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 15:04:31 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 15:17:49 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 15:25:40 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-06 15:25:42 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-06 15:25:42 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq4pkdat62ls5gkodmu0 HTTP/1.1" 302 0
+2024-07-06 15:25:42 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-06 15:25:42 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-06 15:25:43 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-06 15:29:27 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 15:33:35 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-06 15:47:30 - asyncio - DEBUG - Using proactor: IocpProactor

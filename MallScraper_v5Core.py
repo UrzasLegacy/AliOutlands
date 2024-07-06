@@ -1,3 +1,5 @@
+version = "5.7"
+
 import os
 import glob
 import requests
@@ -8,27 +10,30 @@ import webbrowser
 import sqlite3
 import threading
 import queue
+import keyboard
+import pywinauto
+#import numpy as np
+#import pyautogui
+import socket
+import aiohttp
+import asyncio
 import tkinter as tk
+
 from tkinter import ttk
 from multiprocessing import Pool, cpu_count
 from bs4 import BeautifulSoup
 from contextlib import contextmanager
 from urllib.parse import quote_plus
 from collections import defaultdict
-import keyboard
-import pywinauto
-import numpy as np
-#import pyautogui
-import socket
 from OutlandsDicts import *
 from OutlandsUtils import *
-import aiohttp
-import asyncio
 from requests.cookies import RequestsCookieJar
+
 
 #TODO Small history stack for clipboard: Ctrl-z to undo script append
 #TODO For image analysis of inventory, instead of screen capture, snip and use last image on clipboard
 #TODO add clothes,boat stuff (crew, upgrades), jugglin torches n shit
+#TODO check if antiquity is registered before buying
 
 for handler in logging.root.handlers[:]:
     logging.root.removeHandler(handler)
@@ -850,7 +855,7 @@ def record_sale(snapshot_time, id, price, description, quantity):
 class AliApp:
     def __init__(self,root):
         self.root = root
-        self.root.title("Ali's OutlandMalls Scraper v4.2")
+        self.root.title(f"Ali's OutlandMalls Scraper v{version}")
         self.root.geometry("1160x870")  # Initial size
         self.root.minsize(1300, 870)  # Minimum size
         #self.root.maxsize(900, 700)  # Maximum size
@@ -2448,6 +2453,12 @@ clearignore
 pushlist "itemDescriptions" "{item_description_compare}"
 
 """
+                    
+##TODO remove superfluous item ids. Only need the ids of items that are searched for in quick scrape
+##TODO OR use item_serial to find item and then getlabel check against the itemDescriptions list to confirm no shenanigans.
+##TODO item id method allows buying things out of order at a location.
+                    
+#TODO fix recurse search to search each time a container is opened
                 scriptString += f"""
 while not dead
     if find {vendor_serial} ground any any 20
