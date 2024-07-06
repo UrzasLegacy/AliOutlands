@@ -3,3 +3,5 @@ venv/
 vendor_info.json
 app.log
 app2.log
+test.py
+test.bat

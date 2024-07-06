@@ -1,4 +1,4 @@
-version = "5.7"
+version = "6.0"
 
 import os
 import glob
@@ -29,8 +29,8 @@ from OutlandsDicts import *
 from OutlandsUtils import *
 from requests.cookies import RequestsCookieJar
 
-outlands_key = "MTcxNzkxMTY0NXxyMy1fUlZXNkswcGRXZEhXNWpZOXdHY1FQMHhSQ1Z4VUp0MnFlNkQxdWlKMnExdUNyRDFtaFBBSmpJNGRZUXZjYkdndFhFNWRFaFZDQXJ0emg3VjJfTllSd2FmZWdXOW1kTEF4MHNsdHJEQUJHYlU9fGerm92O8uhh1zqXUJc5DO5U3HJ2gx6aQKYCEwXjuI9S"
-upload_key = "9ec321b8-6c45-4869-aa01-c15cfc7d38be"
+
+
 #TODO Small history stack for clipboard: Ctrl-z to undo script append
 #TODO For image analysis of inventory, instead of screen capture, snip and use last image on clipboard
 #TODO add clothes,boat stuff (crew, upgrades), jugglin torches n shit
@@ -88,7 +88,7 @@ def multi_parse_wide(in_tuple):
             temp_url = f"{page_url}&page={i}"
         else:
             temp_url = page_url
-        cookie = {"app": outlands_key}
+        cookie = {"app": user_keys["outlands_cookie"]}
         response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
             print(f"multi_parse_wide: Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
@@ -215,7 +215,7 @@ def simple_parse_wide(in_tuple):
             temp_url = f"{page_url}&page={i}"
         else:
             temp_url = page_url
-        cookie = {"app": outlands_key}
+        cookie = {"app": user_keys["outlands_cookie"]}
         response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
             print(f"simple_parse_wide: Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
@@ -453,8 +453,7 @@ def check_accessibility(file_path):
     except Exception as e:
         return False
     
-def load_user_data():
-    filename = f"vendor_info.json"
+def load_user_data(filename):
     if os.path.exists(filename):
         with open(filename, "r") as file:
             return json.load(file)
@@ -464,7 +463,7 @@ def load_user_data():
 
 def parse_log_to_object():
     #my_vendors = [0x2A2814, 0x2A280D, 0x2A27FA, 0x2A27F3, 0x2A281C, 0x2A2830, 0x2A2835, 0x2A283D]
-    my_vendors = load_user_data()
+    my_vendors = load_user_data("vendor_info.json")
     vendors = {}
     current_vendor = None
     latest_log = get_most_recent_log()
@@ -917,7 +916,7 @@ class AliApp:
         # self.radio6.grid(row=4, column=1,sticky='w')
         self.btn_assmon = ttk.Button(self.radio_frame, text="AssMonGUI", command=self.open_assmon)
         self.btn_assmon.grid(row=4, column=0, sticky='ew', padx=10, pady=(15,5), columnspan=2)
-        self.btn_locations = ttk.Button(self.radio_frame, text="Locations", command=self.scrape_vendor_updates)
+        self.btn_locations = ttk.Button(self.radio_frame, text="Hotkeys", command=self.open_hotkey_help)
         self.btn_locations.grid(row=5, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
         self.btn_visit_web = ttk.Button(self.radio_frame, text="Open Website", command=lambda: webbrowser.open("https://outlandmalls.com/"))
         self.btn_visit_web.grid(row=6, column=0, sticky='ew', padx=10, pady=5, columnspan=2)
@@ -1067,7 +1066,7 @@ class AliApp:
         headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
             }
-        cookie = {"app": outlands_key}
+        cookie = {"app": user_keys["outlands_cookie"]}
         
         url = "https://outlandmalls.com/vendors/"
         response = requests.get(url, headers=headers,cookies=cookie)
@@ -1075,7 +1074,7 @@ class AliApp:
             print(f"scrape_vendor_updates: Failed to retrieve the webpage: {url}. Status code: {response.status_code}")
             self.queue_append.put('Vendor Page Failed')
             return
-        self.queue_append.put(f"Scanning Locations")
+        self.queue_append.put(f"Scanning user_keys[")
         soup = BeautifulSoup(response.content, 'lxml')
         if not soup:
             self.queue_append.put('Vendor Page Soup Failed')
@@ -1132,6 +1131,46 @@ class AliApp:
             result = f"{locName}: {scanString}: {x},{y}"
             listbox.insert(tk.END, result)
         self.queue_append.put("Idle")
+
+    def open_hotkey_help(self):
+        help_string = """MallScraper Window:
+    [Enter]:                Search most recent journal log
+
+    [Ctrl + Enter]:         Full scrape of OutlandMalls
+
+    [Ctrl + Alt + Enter]:   Fast scrape of OutlandMalls
+
+    [3]:                    Check all category checkboxes
+
+    [4]:                    Uncheck all category checkboxes
+
+    [F1]:                   Sort list by time:location:ratio
+
+    [Ctrl + F1]:            Delete most recent journal log
+
+    [Left click on list]:   Clear clipboard and append Outlands buy script for that item
+
+    [Right click on list]:  Append Outlands buy script to previous clipboard contents
+
+
+Game/Assistant Window:
+    [Ctrl + Alt + C]:       If game client or assistant window is focused, pastes your clipboard to 
+                            the preset script ("aaaTemptScript") in the assistant and runs it in game.
+                            Do not click your mouse for a short duration as the script switches windows
+
+    [Ctrl + Alt + `]:       If game client window is focused, focuses the assistant for that character and vice versa
+
+    [Alt + Shift + `]:      Focuses scraper window"""
+        new_window = tk.Toplevel(self.root)
+        new_window.wm_attributes("-topmost", 1)
+        new_window.geometry("1024x512")
+        new_window.title("Hotkeys")
+        self.scrollbar = tk.Scrollbar(new_window, orient="vertical")
+        textbox = tk.Text(new_window, yscrollcommand=self.scrollbar.set, width=160, height=50, font=("Consolas", 11))
+        self.scrollbar.config(command=textbox.yview)
+        self.scrollbar.pack(side="right", fill="y")
+        textbox.pack(side="left", fill="both", expand=True)
+        textbox.insert(tk.END, help_string)
 
     def parse_combobox(self):
         option = self.search_combobox_timeframe.get()
@@ -1506,11 +1545,11 @@ endwhile"""
                     print(f"quick_scrape: Pool failed: {e}")
         
         asyncio.run(main())
-        
 
         filt_tmp = [tmp for tmp in temp_list if tmp]
         for temp in filt_tmp:
             self.queue_append.put(temp)
+
         elapsed_time = round(time.time() - start_time, 2)
         self.queue_append.put(f"Finished FAST:{elapsed_time}")
 
@@ -1537,7 +1576,7 @@ endwhile"""
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 }
                 time.sleep(1)
-                cookie = {"app": outlands_key}
+                cookie = {"app": user_keys["outlands_cookie"]}
                 response = requests.get(page_url, headers=headers, cookies=cookie)
 
                 if response.status_code != 200:
@@ -1744,7 +1783,7 @@ endwhile"""
 
     def PostJournalLog(self,event=''):
         url = 'https://outlandmalls.com/uploads'
-        headers = {'Authorization': upload_key}
+        headers = {'Authorization': user_keys["upload_key"]}
         data = {'tz': 'America/New_York'}
         file_path = get_most_recent_log()
         if not file_path:
@@ -2406,7 +2445,7 @@ async def request_gen_simple():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
     cookies = RequestsCookieJar()
-    cookies.set("app", outlands_key)
+    cookies.set("app", user_keys["outlands_cookie"])
 
     async with aiohttp.ClientSession() as session:
         tasks = []
@@ -2575,9 +2614,12 @@ script 'AliRoom'
         print(f"append_recall_home_script: Error: {e}")
 
 
+user_keys = {}
 root_ghost = False
 def main():
+    global user_keys
     global root_ghost
+    user_keys = load_user_data("keys.json")
     keyboard.add_hotkey("ctrl+alt+c", start_purchase_script)
     keyboard.add_hotkey("ctrl+alt+`", switch_focus)
     keyboard.add_hotkey("alt+shift+`", lambda: focus_scraper())
