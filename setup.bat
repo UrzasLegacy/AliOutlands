@@ -1,6 +1,6 @@
 @echo off
 
-:: Check if Git is installed
+:: Check if Git is installed TEST
 where git >nul 2>nul
 if %errorlevel% neq 0 (
     echo Git could not be found. Please install Git.
