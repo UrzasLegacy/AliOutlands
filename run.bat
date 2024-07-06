@@ -14,4 +14,6 @@ call venv\Scripts\activate
 python main.py
 
 :: Keep the command prompt open for error messages
+echo Running...
+echo This window will display debug messages.
 pause

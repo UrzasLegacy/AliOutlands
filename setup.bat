@@ -24,14 +24,14 @@ set REPO_DIR=%~dp0
 if exist "%REPO_DIR%\.git" (
     echo Repository already exists. Pulling latest changes.
     cd "%REPO_DIR%"
-    git pull
+    git pull --ff-only >nul 2>&1
     if %errorlevel% neq 0 (
         echo Failed to pull the latest changes. Please check your internet connection and repository permissions.
         exit /b
     )
 ) else (
     echo Cloning the repository.
-    git clone %REPO_URL% "%REPO_DIR%"
+    git clone %REPO_URL% "%REPO_DIR%" >nul 2>&1
     if %errorlevel% neq 0 (
         echo Failed to clone the repository. Please check the repository URL and your internet connection.
         exit /b
@@ -52,4 +52,7 @@ call venv\Scripts\activate
 :: Install dependencies
 pip install -r requirements.txt
 
-echo Setup complete. Use run.bat to start.
+echo Setup complete!
+echo Use run.bat to start.
+echo Press Enter to close this window.
+pause
