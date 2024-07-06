@@ -1,3 +1,5 @@
 inventory.db
 venv/
 vendor_info.json
+app.log
+app2.log
