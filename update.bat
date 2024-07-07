@@ -50,6 +50,12 @@ if not exist "venv\" (
 :: Activate the virtual environment
 call venv\Scripts\activate
 
+:: Ensure pip and setuptools are installed
+echo Ensuring pip and setuptools are installed...
+python -m ensurepip
+pip install --upgrade pip setuptools
+
+
 :: Install dependencies
 pip install -r requirements.txt
 
