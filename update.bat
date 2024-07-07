@@ -1,6 +1,6 @@
 @echo off
 
-:: Check if Git is installed TEST
+:: Check if Git is installed
 where git >nul 2>nul
 if %errorlevel% neq 0 (
     echo Git could not be found. Please install Git.
@@ -22,7 +22,7 @@ set REPO_DIR=%~dp0
 
 :: Check if the repository has already been cloned
 if exist "%REPO_DIR%\.git" (
-    echo Repository already exists. Resetting and pulling latest changes.
+    echo Repository found. Resetting and pulling latest changes.
     cd "%REPO_DIR%"
     :: Discard local changes and clean untracked files
     git reset --hard >nul 2>&1
@@ -34,12 +34,9 @@ if exist "%REPO_DIR%\.git" (
         exit /b
     )
 ) else (
-    echo Cloning the repository.
-    git clone %REPO_URL% "%REPO_DIR%" >nul 2>&1
-    if %errorlevel% neq 0 (
-        echo Failed to clone the repository. Please check the repository URL and your internet connection.
-        exit /b
-    )
+    echo "Can't find repository files."
+    pause
+    exit /b
 )
 
 :: Change to the repository directory
@@ -57,6 +54,8 @@ call venv\Scripts\activate
 pip install -r requirements.txt
 
 echo Setup complete!
-echo Use run.bat to start.
-echo Press Enter to close this window.
+echo.
+echo Run start.bat as administrator to start the program. You can right click start.bat and create a shortcut and set it to open as admin.
+echo Run update.bat as administrator to reset everything to the latest version on Github whenever I update it and remind you lol.
+echo AFTER READING THE ABOVE:
 pause
