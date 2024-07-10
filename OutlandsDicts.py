@@ -795,9 +795,9 @@ my_locations = {
     # Gulf
     "Mana Isles 2":(3528,3182,('TomeGulf',1779,200,10)),
     "SW Prev Clearing NE 2":(1560,1628,('TomeGulf',1779,201,20)),
-    "placeholder":(0,0,('TomeGulf',1779,202,10)),
-    "placeholder":(0,0,('TomeGulf',1779,203,20)),
-    "placeholder":(0,0,('TomeGulf',1779,204,10)),
+    "Ashenmire SE":(3708,3567,('TomeGulf',1779,202,10)),
+    "Bucktasty":(1766,575,('TomeGulf',1779,203,20)),
+    "Bivouac NE":(3463,3144,('TomeGulf',1779,204,10)),
     "placeholder":(0,0,('TomeGulf',1779,205,20)),
     "placeholder":(0,0,('TomeGulf',1779,206,10)),
     "placeholder":(0,0,('TomeGulf',1779,207,20)),
