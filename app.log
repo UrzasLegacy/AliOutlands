@@ -945,3 +945,5 @@
 2024-07-10 14:36:15 - asyncio - DEBUG - Using proactor: IocpProactor
 2024-07-10 14:50:28 - asyncio - DEBUG - Using proactor: IocpProactor
 2024-07-10 14:57:57 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 15:35:58 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 15:37:28 - asyncio - DEBUG - Using proactor: IocpProactor
