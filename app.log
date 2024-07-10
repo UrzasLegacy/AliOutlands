@@ -949,3 +949,21 @@
 2024-07-10 15:37:28 - asyncio - DEBUG - Using proactor: IocpProactor
 2024-07-10 15:52:56 - asyncio - DEBUG - Using proactor: IocpProactor
 2024-07-10 16:19:25 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 16:53:08 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 16:53:24 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 16:53:41 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 16:57:48 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 17:19:51 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-10 17:19:53 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-10 17:19:53 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq7flu2t62ls5ggd7pg0 HTTP/1.1" 302 0
+2024-07-10 17:19:53 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-10 17:19:54 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-10 17:19:54 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-10 17:23:46 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 17:28:15 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 17:29:26 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 17:37:21 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 17:51:23 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 17:58:38 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 18:00:26 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-10 18:02:58 - asyncio - DEBUG - Using proactor: IocpProactor

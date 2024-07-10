@@ -636,7 +636,7 @@ my_locations = {
     "N Andaria Gate": (2334,591, ('TomeAlpha',2093,217,20)),
     "W Andaria Gate": (2315,639, ('TomeAlpha',2093,218,10)), 
     "Minotaur Island": (3967,1736, ('TomeAlpha',2093,219,20)),
-    "Minotaur Island E": (4067,1766, ('TomeAlpha',2093,220,10)),
+    "Minotaur Island E": (4050,1778, ('TomeAlpha',2093,220,10)),
     "N Terran Clearing": (879,1382, ('TomeAlpha',2093,221,20)),
     "S Terran Clearing": (930,1473, ('TomeAlpha',2093,222,10)),
     "SW Terran Clearing": (896,1525, ('TomeAlpha',2093,223,20)),
