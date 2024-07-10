@@ -786,7 +786,7 @@ my_locations = {
     "SW Terran Clearing 2":(877,1500,('Misc3',2091,222,10)),
     "W of Jungle Junction":(4141,2743,('Misc3',2091,223,20)),
     "S Prev Xroad E2":(1704,1743,('Misc3',2091,224,10)),
-    "placeholder":(0,0,('Misc3',2091,225,20)),
+    "NE Outpost Close 3":(3391,359,('Misc3',2091,225,20)),
 
     # Wide Reach 1183
     "Mana Isles":(3546,3274,('Wide Reach',1183,200,10)),
