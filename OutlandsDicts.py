@@ -6,6 +6,9 @@ import logging
 import json
 # Get the logger for this module
 
+logger = logging.getLogger('OutlandsDicts')
+
+
 def collate_master_price_dict():
     master_dict = {**core_prices,**distil_prices,**map_prices,**ingot_prices,**board_prices,**leather_prices,**commodity_2500_prices,**commodity_5000_prices,**scroll_prices,**link_prices,**misc_crafting_prices,**misc_hp_prices,**misc_lp_prices,**deed_prices}
     return master_dict
@@ -76,7 +79,7 @@ distil_prices = {
     "Frost Aspect Distillation": 7000,
     'Fortune Aspect Distillation': 7000,
     'Gadget Aspect Distillation': 5000,
-    'Harvest Aspect Distillation': 9000,
+    'Harvest Aspect Distillation': 11000,
     'Holy Aspect Distillation': 8000,
     "Lightning Aspect Distillation": 9000,
     'Lyric Aspect Distillation': 5000,
@@ -237,7 +240,7 @@ scroll_prices = {
     "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
     "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
     "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,#[:4]
     "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,#[:4]
     "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 35000,
@@ -528,8 +531,6 @@ misc_hp_prices = { #exact string matters
 
 }
 
-
-
 misc_lp_prices = { #exact string matters
     #"exceedingly potent magic spellbook": 3500,
     #"supremely potent magic spellbook": 13000,
@@ -611,7 +612,6 @@ self_parse_extra_aliases = {
 self_parse_antiquities_prices = {
     "hourglass table": 700000,
 }
-
 
 my_locations = {
     # Alpha
@@ -860,7 +860,6 @@ aspect_hues = {
         "Water": [2592, 1788],
 }
 
-
 scroll_hues = {
     "alchemy": 2291,
     "animal lore": 2479,
@@ -917,7 +916,6 @@ def get_misc_price_list():
         misc_prices[item] = misc_all_prices[item]
 
     return misc_prices
-
 
 
 def calculate_grid_coordinates(start_xy, end_xy, row_col):
@@ -1058,8 +1056,10 @@ createlist "tempItemList"
     pyperclip.copy(out_str)
     return out_str
 
+
 def discount_price_list(price_list:dict,discount_float:float):
     return dict([(item_name, int(float(item_price) * discount_float)) for (item_name, item_price) in price_list.items()])
+
 
 def split_dict_in_half(d):
     items = list(d.items())
@@ -1067,6 +1067,7 @@ def split_dict_in_half(d):
     dict1 = dict(items[:midpoint])
     dict2 = dict(items[midpoint:])
     return dict1, dict2
+
 
 def render_stock_script_simple(item_name, price_per, restock_data,current_inventory_data_dict,discount_float=1.0,alt_vendors=False):
     import random
@@ -1148,6 +1149,7 @@ endif
 '''
             
     return outStr
+
 
 def render_stock_script_complex(item_category,restock_data,current_inventory_data_dict,discount_float=1.0,alt_vendors=False):
     half1_scroll_prices,half2_scroll_prices = split_dict_in_half(scroll_prices)
@@ -1285,6 +1287,7 @@ endif
             
     return outStr
 
+
 def normalize_name(s):
     transformer = {
         'a skill mastery orb': ("a skill mastery orb \(used to increase a player's total skill cap by 1\)",'a skill mastery orb'), #a skill mastery orb (used to increase a player's total skill cap by 1)
@@ -1294,6 +1297,7 @@ def normalize_name(s):
             search_pattern, replace_pattern = re_tuple
             s = re.sub(search_pattern, replace_pattern, s)
     return s
+
 
 def format_with_commas(number_string):
     try:
@@ -1306,8 +1310,8 @@ def format_with_commas(number_string):
     except ValueError:
         return "Invalid input"
 
+
 if __name__ == "__main__":  
-    logger = logging.getLogger('OutlandsDicts')
     discount_float = 1.
     alt_vendors = True
     render_stock_script({},discount_float,alt_vendors)

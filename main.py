@@ -60,6 +60,7 @@ def multi_parse_wide(in_tuple):
     price_depth = in_tuple[1]
     time_frame = in_tuple[2]
     cutoff_threshold = in_tuple[3]
+    outlands_cookie = in_tuple[4]
     corrupted_link_price_threshold = 200000
     steps = {
         "Aspect Core": core_prices,
@@ -88,7 +89,8 @@ def multi_parse_wide(in_tuple):
             temp_url = f"{page_url}&page={i}"
         else:
             temp_url = page_url
-        cookie = {"app": user_keys["outlands_cookie"]}
+        print("mpw:",user_config)
+        cookie = {"app": outlands_cookie}
         response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
             print(f"multi_parse_wide: Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
@@ -215,7 +217,7 @@ def simple_parse_wide(in_tuple):
             temp_url = f"{page_url}&page={i}"
         else:
             temp_url = page_url
-        cookie = {"app": user_keys["outlands_cookie"]}
+        cookie = {"app": user_config["outlands_cookie"]}
         response = requests.get(temp_url, headers=headers, cookies=cookie)
         if response.status_code != 200:
             print(f"simple_parse_wide: Failed to retrieve the webpage: {item}. Status code: {response.status_code}")
@@ -452,18 +454,10 @@ def check_accessibility(file_path):
         return True
     except Exception as e:
         return False
-    
-def load_user_data(filename):
-    if os.path.exists(filename):
-        with open(filename, "r") as file:
-            return json.load(file)
-    return {}
-
-
 
 def parse_log_to_object():
     #my_vendors = [0x2A2814, 0x2A280D, 0x2A27FA, 0x2A27F3, 0x2A281C, 0x2A2830, 0x2A2835, 0x2A283D]
-    my_vendors = load_user_data("vendor_info.json")
+    my_vendors = user_config['vendor_info']
     vendors = {}
     current_vendor = None
     latest_log = get_most_recent_log()
@@ -1066,7 +1060,7 @@ class AliApp:
         headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
             }
-        cookie = {"app": user_keys["outlands_cookie"]}
+        cookie = {"app": user_config["outlands_cookie"]}
         
         url = "https://outlandmalls.com/vendors/"
         response = requests.get(url, headers=headers,cookies=cookie)
@@ -1074,7 +1068,7 @@ class AliApp:
             print(f"scrape_vendor_updates: Failed to retrieve the webpage: {url}. Status code: {response.status_code}")
             self.queue_append.put('Vendor Page Failed')
             return
-        self.queue_append.put(f"Scanning user_keys[")
+        self.queue_append.put(f"Scanning user_config[")
         soup = BeautifulSoup(response.content, 'lxml')
         if not soup:
             self.queue_append.put('Vendor Page Soup Failed')
@@ -1237,12 +1231,6 @@ Game/Assistant Window:
 
 if find {vendor_serial} ground -1 -1 20
 else
-    if findtype "bank deposit safe" ground -1 -1 4 as "safe"
-        getlabel "safe" "label"
-        overhead "label"
-        sysmsg "label"
-    endif
-
     removelist "runetomeList"
     createlist "runetomeList"
     for 3
@@ -1258,7 +1246,11 @@ else
         overhead "NO TOME" 33
         stop
     endif
-
+    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+        getlabel "safe" "label"
+        overhead "label"
+        sysmsg "label"
+    endif
     overhead "recalling to spot {location_name} in {location_character}'s book" 1159
     dclick "myTome"
     waitforgump 167090027 1000
@@ -1335,11 +1327,23 @@ while not dead
                         menu "foundItem" 0
                         waitforgump 4274928655 1000
                         gumpresponse 1
+                        wait 100
+                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                            getlabel "safe" "label"
+                            overhead "label"
+                        endif
+                        wait 100
                     elseif "Price: {total_cost_str} " in "foundItemLabel"
                         sysmsg "opening buy menu" 1159
                         menu "foundItem" 0
                         waitforgump 4274928655 1000
                         gumpresponse 1
+                        wait 100
+                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                            getlabel "safe" "label"
+                            overhead "label"
+                        endif
+                        wait 100
                     else
                         overhead "BEWARE PRICE CHANGE" 33
                         sysmsg "BEWARE PRICE CHANGE" 33
@@ -1410,12 +1414,6 @@ endwhile"""
 
 if find {vendor_serial} ground -1 -1 20
 else
-    if findtype "bank deposit safe" ground -1 -1 4 as "safe"
-        getlabel "safe" "label"
-        overhead "label"
-        sysmsg "label"
-    endif
-
     removelist "runetomeList"
     createlist "runetomeList"
     for 3
@@ -1431,7 +1429,11 @@ else
         overhead "NO TOME" 33
         stop
     endif
-
+    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+        getlabel "safe" "label"
+        overhead "label"
+        sysmsg "label"
+    endif
     overhead "recalling to spot {location_name} in {location_character}'s book" 1159
     dclick "myTome"
     waitforgump 167090027 1000
@@ -1508,11 +1510,23 @@ while not dead
                         menu "foundItem" 0
                         waitforgump 4274928655 1000
                         gumpresponse 1
+                        wait 100
+                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                            getlabel "safe" "label"
+                            overhead "label"
+                        endif
+                        wait 100
                     elseif "Price: {total_cost_str} " in "foundItemLabel"
                         sysmsg "opening buy menu" 1159
                         menu "foundItem" 0
                         waitforgump 4274928655 1000
                         gumpresponse 1
+                        wait 100
+                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                            getlabel "safe" "label"
+                            overhead "label"
+                        endif
+                        wait 100
                     else
                         overhead "BEWARE PRICE CHANGE" 33
                         sysmsg "BEWARE PRICE CHANGE" 33
@@ -1576,7 +1590,7 @@ endwhile"""
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
                 }
                 time.sleep(1)
-                cookie = {"app": user_keys["outlands_cookie"]}
+                cookie = {"app": user_config["outlands_cookie"]}
                 response = requests.get(page_url, headers=headers, cookies=cookie)
 
                 if response.status_code != 200:
@@ -1604,13 +1618,15 @@ endwhile"""
         price_depth = self.search_pricedepth.get()
         seconds_threshold = self.parse_combobox()
         cutoff_threshold = self.cutoff_threshold.get()
+        cookie = user_config["outlands_cookie"]
+        
         tuple_list = []
         for step in steps:
             bool = step[2]
             if not bool:
                 continue
             name = step[0]
-            tuple_list.append((name,price_depth,seconds_threshold,cutoff_threshold))
+            tuple_list.append((name,price_depth,seconds_threshold,cutoff_threshold,cookie))
 
         self.queue_append.put("Searching Wide")
         num_cores = cpu_count()
@@ -1783,7 +1799,7 @@ endwhile"""
 
     def PostJournalLog(self,event=''):
         url = 'https://outlandmalls.com/uploads'
-        headers = {'Authorization': user_keys["upload_key"]}
+        headers = {'Authorization': user_config["upload_key"]}
         data = {'tz': 'America/New_York'}
         file_path = get_most_recent_log()
         if not file_path:
@@ -2169,11 +2185,6 @@ endwhile"""
 if find {vendor_one_serial} ground any any 20
     overhead {vendor_one_name}
 else
-    if findtype "bank deposit safe" ground -1 -1 4 as "safe"
-        getlabel "safe" "label"
-        overhead "label"
-        sysmsg "label"
-    endif
     @setvar! "myTome" 0
     for 3
         if findtype "runetome" backpack {book_hue} as "tome"
@@ -2188,7 +2199,11 @@ else
         overhead "NO TOME" 33
         stop
     endif
-
+    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+        getlabel "safe" "label"
+        overhead "label"
+        sysmsg "label"
+    endif
     overhead "recalling to spot {location} in {location_character}'s book" 1159
     dclick "myTome"
     waitforgump 167090027 1000
@@ -2254,7 +2269,12 @@ while not dead
                     menu "foundItem" 0
                     waitforgump 4274928655 1000
                     gumpresponse 1
-                    wait 250
+                    wait 100
+                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        getlabel "safe" "label"
+                        overhead "label"
+                    endif
+                    wait 100
                 endif
                 @ignore "foundItem"
             endwhile
@@ -2264,7 +2284,12 @@ while not dead
                     menu "foundItem" 0
                     waitforgump 4274928655 1000
                     gumpresponse 1
-                    wait 250
+                    wait 100
+                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        getlabel "safe" "label"
+                        overhead "label"
+                    endif
+                    wait 100
                 endif
                 @ignore "foundItem"
             endwhile
@@ -2274,7 +2299,12 @@ while not dead
                     menu "foundItem" 0
                     waitforgump 4274928655 1000
                     gumpresponse 1
-                    wait 250
+                    wait 100
+                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        getlabel "safe" "label"
+                        overhead "label"
+                    endif
+                    wait 100
                 endif
                 @ignore "foundItem"
             endwhile
@@ -2284,7 +2314,12 @@ while not dead
                     menu "foundItem" 0
                     waitforgump 4274928655 1000
                     gumpresponse 1
-                    wait 250
+                    wait 100
+                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        getlabel "safe" "label"
+                        overhead "label"
+                    endif
+                    wait 100
                 endif
                 @ignore "foundItem"
             endwhile
@@ -2294,7 +2329,12 @@ while not dead
                     menu "foundItem" 0
                     waitforgump 4274928655 1000
                     gumpresponse 1
-                    wait 250
+                    wait 100
+                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        getlabel "safe" "label"
+                        overhead "label"
+                    endif
+                    wait 100
                 endif
                 @ignore "foundItem"
             endwhile
@@ -2304,7 +2344,12 @@ while not dead
                     menu "foundItem" 0
                     waitforgump 4274928655 1000
                     gumpresponse 1
-                    wait 250
+                    wait 100
+                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        getlabel "safe" "label"
+                        overhead "label"
+                    endif
+                    wait 100
                 endif
                 @ignore "foundItem"
             endwhile
@@ -2337,7 +2382,12 @@ while not dead
                         menu "foundItem" 0
                         waitforgump 4274928655 1000
                         gumpresponse 1
-                        wait 250
+                        wait 100
+                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                            getlabel "safe" "label"
+                            overhead "label"
+                        endif
+                        wait 100
                     else
                         @ignore "foundItem"
                     endif
@@ -2348,7 +2398,12 @@ while not dead
                         menu "foundItem" 0
                         waitforgump 4274928655 1000
                         gumpresponse 1
-                        wait 250
+                        wait 100
+                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                            getlabel "safe" "label"
+                            overhead "label"
+                        endif
+                        wait 100
                     endif
                     @ignore "foundItem"
                 endwhile
@@ -2358,7 +2413,12 @@ while not dead
                         menu "foundItem" 0
                         waitforgump 4274928655 1000
                         gumpresponse 1
-                        wait 250
+                        wait 100
+                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                            getlabel "safe" "label"
+                            overhead "label"
+                        endif
+                        wait 100
                     endif
                     @ignore "foundItem"
                 endwhile
@@ -2368,7 +2428,12 @@ while not dead
                         menu "foundItem" 0
                         waitforgump 4274928655 1000
                         gumpresponse 1
-                        wait 250
+                        wait 100
+                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                            getlabel "safe" "label"
+                            overhead "label"
+                        endif
+                        wait 100
                     endif
                     @ignore "foundItem"
                 endwhile
@@ -2378,7 +2443,12 @@ while not dead
                         menu "foundItem" 0
                         waitforgump 4274928655 1000
                         gumpresponse 1
-                        wait 250
+                        wait 100
+                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                            getlabel "safe" "label"
+                            overhead "label"
+                        endif
+                        wait 100
                     endif
                     @ignore "foundItem"
                 endwhile
@@ -2388,7 +2458,12 @@ while not dead
                         menu "foundItem" 0
                         waitforgump 4274928655 1000
                         gumpresponse 1
-                        wait 250
+                        wait 100
+                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                            getlabel "safe" "label"
+                            overhead "label"
+                        endif
+                        wait 100
                     else
                         @ignore "foundItem"
                     endif
@@ -2445,7 +2520,7 @@ async def request_gen_simple():
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
     cookies = RequestsCookieJar()
-    cookies.set("app", user_keys["outlands_cookie"])
+    cookies.set("app", user_config["outlands_cookie"])
 
     async with aiohttp.ClientSession() as session:
         tasks = []
@@ -2614,12 +2689,13 @@ script 'AliRoom'
         print(f"append_recall_home_script: Error: {e}")
 
 
-user_keys = {}
+user_config = {}
 root_ghost = False
 def main():
-    global user_keys
+    global user_config
     global root_ghost
-    user_keys = load_user_data("keys.json")
+    user_config = load_config()
+    print(user_config)
     keyboard.add_hotkey("ctrl+alt+c", start_purchase_script)
     keyboard.add_hotkey("ctrl+alt+`", switch_focus)
     keyboard.add_hotkey("alt+shift+`", lambda: focus_scraper())

@@ -1,12 +1,17 @@
 @setvar! "innkeeperSerial" 0x173
 
 //No Edit
+
 @clearignore
 @setvar! "pass" 0
 if find "innkeeperSerial" ground any any 14
     @setvar! "pass" 1
 endif
-
+if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+    getlabel "safe" "label"
+    overhead "label"
+    sysmsg "label"
+endif
 if "pass" = 1
     overhead "Innkeeper found"
 elseif skill "Chivalry" > 80

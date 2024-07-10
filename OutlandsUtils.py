@@ -8,6 +8,9 @@ import win32api
 import pyperclip
 import json
 from OutlandsDicts import *
+import os
+import sys
+
 
 def alter_hue_dict(self_parse=False, item_type="rare cloth"):
     shoe_list = ['cloth shoes', 'shoes', 'cloth boots', 'cloth thigh boots', 'cloth sandals']
@@ -545,6 +548,47 @@ def PipedListSplitter(piped_list_string,chunk_size):
 
     return out_string
 
+def create_default_config(config_path):
+    default_config = {
+        "outlands_cookie": "value1",
+        "upload_key": "value2",
+        "vendor_info": [0x1,0x2,0x3]
+    }
+    with open(config_path, 'w') as config_file:
+        json.dump(default_config, config_file, indent=4)
+    return default_config
+
+def get_resource_path(relative_path):
+    """ Get the absolute path to a resource, works for dev and for PyInstaller """
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+def write_config(new_config):
+    config_path = get_resource_path('config.json')
+    if not os.path.exists(config_path):
+        print(f"Config file not found at {config_path}. Creating a config file.")
+    try:
+        dump = json.dump(new_config, config_file, indent=4)
+        with open(config_path, 'w') as config_file:
+            dump
+        print(f"Config:\n{dump}")
+        return True
+    except Exception as e:
+        print("write_config Error:", e)
+        return False
+
+def load_config():
+    config_path = get_resource_path('config.json')
+    if not os.path.exists(config_path):
+        print(f"Config file not found at {config_path}. Creating a default config file.")
+        config = create_default_config(config_path)
+    else:
+        with open(config_path, 'r') as config_file:
+            config = json.load(config_file)
+    return config
 
 def save_user_data():
     import json
