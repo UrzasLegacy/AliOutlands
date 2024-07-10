@@ -794,7 +794,7 @@ my_locations = {
 
     # Gulf
     "Mana Isles 2":(3528,3182,('TomeGulf',1779,200,10)),
-    "placeholder":(0,0,('TomeGulf',1779,201,20)),
+    "SW Prev Clearing NE 2":(1560,1628,('TomeGulf',1779,201,20)),
     "placeholder":(0,0,('TomeGulf',1779,202,10)),
     "placeholder":(0,0,('TomeGulf',1779,203,20)),
     "placeholder":(0,0,('TomeGulf',1779,204,10)),
