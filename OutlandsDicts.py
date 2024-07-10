@@ -625,7 +625,7 @@ my_locations = {
     "N Outpost Gate 3": (3001,496, ('a lost girl',2093,207,20)),
     "N Outpost Gate 4": (3061,475, ('a lost girl',2093,208,10)),
     "NW Outpost Gate": (2940,563, ('a lost girl',2093,209,20)),
-    "NE Outpost Close": (3387,377, ('a lost girl',2093,210,10)),
+    "NE Outpost Close": (3390,380, ('a lost girl',2093,210,10)),
     "NE Outpost Close 2":(3364,408, ('a lost girl',2093,211,20)), 
     "NE Outpost Far": (3406,165, ('a lost girl',2093,212,10)),
 
