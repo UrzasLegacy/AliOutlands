@@ -689,7 +689,7 @@ my_locations = {
 
     "S Prev Xroad NW": (1526,1748, ('Vendor Police',2089,213,20)), #1533 1752
     "S Prev Xroad W": (1499,1757, ('Vendor Police',2089,214,10)),
-    "SW Prev Clearing NE": (1536,1623, ('Vendor Police',2089,215,20)),
+    "SW Prev Clearing NE 1": (1532,1639, ('Vendor Police',2089,215,20)),
     "SW Prev Clearing SE": (1547,1653, ('Vendor Police',2089,216,10)),
     "SW Prev Clearing SW": (1510,1657, ('Vendor Police',2089,217,20)),
     "SW Prev Clearing NW": (1473,1580, ('Vendor Police',2089,218,10)),
