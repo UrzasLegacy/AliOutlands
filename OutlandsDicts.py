@@ -615,35 +615,6 @@ self_parse_antiquities_prices = {
 
 my_locations = {
     # Alpha
-    "N Prevalia Sandbar": (1667,1318, ('Vendor Police',2089,200,10)),
-    "N Prev Clearing N": (1592,1388, ('Vendor Police',2089,201,20)),
-    "N Prev Clearing E": (1629,1421, ('Vendor Police',2089,202,10)), 
-    "N Prev Clearing Mid": (1596,1419, ('Vendor Police',2089,203,20)),
-    "N Prev Clearing S": (1571,1439, ('Vendor Police',2089,204,10)),
-    "N Prev Clearing SW": (1554,1439, ('Vendor Police',2089,205,20)),
-    "N Prev Clearing W": (1556,1419, ('Vendor Police',2089,206,10)),
-    "E of Prev": (2036,1463, ('Vendor Police',2089,207,20)),
-    "Khal SE Prev N": (2002,1786, ('Vendor Police',2089,209,10)),
-    "Khal SE Prev S": (1980,1825, ('Vendor Police',2089,209,20)),
-    "S Prev Xroad N": (1569,1729, ('Vendor Police',2089,210,10)),
-    "S Prev Xroad E": (1653,1743, ('Vendor Police',2089,211,20)),
-    "S Prev Xroad S": (1545,1772, ('Vendor Police',2089,212,10)),
-
-    "S Prev Xroad NW": (1526,1748, ('Vendor Police',2089,213,20)), #1533 1752
-    "S Prev Xroad W": (1499,1757, ('Vendor Police',2089,214,10)),
-    "SW Prev Clearing NE": (1536,1623, ('Vendor Police',2089,215,20)),
-    "SW Prev Clearing SE": (1547,1653, ('Vendor Police',2089,216,10)),
-    "SW Prev Clearing SW": (1510,1657, ('Vendor Police',2089,217,20)),
-    "SW Prev Clearing NW": (1473,1580, ('Vendor Police',2089,218,10)),
-    "Prev Gate": (1475,1488, ('Vendor Police',2089,219,20)),
-    "W of SSC": (3267,689,('Vendor Police',2089,220,10)), #!
-    "Far N of Anchor's Rest": (3693,285, ('Vendor Police',2089,221,20)), 
-    "N of Anchor's Rest": (3751,351, ('Vendor Police',2089,222,10)),
-    "S of Anchor's Rest 2": (3752,671, ('Vendor Police',2089,223,20)),
-    "Far S Anchor's Rest": (3715,872, ('Vendor Police',2089,224,10)),
-    "E of GH": (3976,853, ('Vendor Police',2089,225,20)),
-
-    # Bravo
     "N Cambria Gate": (1706,3129, ('a lost girl',2093,200,10)),
     "SE Cambria Gate": (1753,3176, ('a lost girl',2093,201,20)),
     "S Cambria Gate": (1709,3182, ('a lost girl',2093,202,10)),
@@ -671,8 +642,8 @@ my_locations = {
     "SW Terran Clearing": (896,1525, ('a lost girl',2093,223,20)),
     "TRT N":(1732,2321, ('a lost girl',2093,224,10)),
     "TRT":(1759,2351, ('a lost girl',2093,225,20)),
-
-    # Charlie
+    
+    # Bravo
     "AR1": (3946,565, ('Aproctoflecticus',1156,200,10)),
     "AR2": (3947,496, ('Aproctoflecticus',1156,201,20)),
     "AR3": (3961,553, ('Aproctoflecticus',1156,202,10)),
@@ -700,6 +671,35 @@ my_locations = {
     "Far S Prev W":(1765,1740, ('Aproctoflecticus',1156,223,20)),
     "Tofy's Casino":(3446,178, ('Aproctoflecticus',1156,224,10)),
     "AR19": (4071,600,('Aproctoflecticus',1156,225,20)),
+
+    # Charlie
+    "N Prev Sandbar": (1667,1318, ('Vendor Police',2089,200,10)),
+    "N Prev Clearing N": (1592,1388, ('Vendor Police',2089,201,20)),
+    "N Prev Clearing E": (1629,1421, ('Vendor Police',2089,202,10)), 
+    "N Prev Clearing Mid": (1596,1419, ('Vendor Police',2089,203,20)),
+    "N Prev Clearing S": (1571,1439, ('Vendor Police',2089,204,10)),
+    "N Prev Clearing SW": (1554,1439, ('Vendor Police',2089,205,20)),
+    "N Prev Clearing W": (1556,1419, ('Vendor Police',2089,206,10)),
+    "E of Prev": (2036,1463, ('Vendor Police',2089,207,20)),
+    "Khal SE Prev N": (2002,1786, ('Vendor Police',2089,209,10)),
+    "Khal SE Prev S": (1980,1825, ('Vendor Police',2089,209,20)),
+    "S Prev Xroad N": (1569,1729, ('Vendor Police',2089,210,10)),
+    "S Prev Xroad E": (1653,1743, ('Vendor Police',2089,211,20)),
+    "S Prev Xroad S": (1545,1772, ('Vendor Police',2089,212,10)),
+
+    "S Prev Xroad NW": (1526,1748, ('Vendor Police',2089,213,20)), #1533 1752
+    "S Prev Xroad W": (1499,1757, ('Vendor Police',2089,214,10)),
+    "SW Prev Clearing NE": (1536,1623, ('Vendor Police',2089,215,20)),
+    "SW Prev Clearing SE": (1547,1653, ('Vendor Police',2089,216,10)),
+    "SW Prev Clearing SW": (1510,1657, ('Vendor Police',2089,217,20)),
+    "SW Prev Clearing NW": (1473,1580, ('Vendor Police',2089,218,10)),
+    "Prev Gate": (1475,1488, ('Vendor Police',2089,219,20)),
+    "W of SSC": (3267,689,('Vendor Police',2089,220,10)), #!
+    "Far N of Anchor's Rest": (3693,285, ('Vendor Police',2089,221,20)), 
+    "N of Anchor's Rest": (3751,351, ('Vendor Police',2089,222,10)),
+    "S of Anchor's Rest 2": (3752,671, ('Vendor Police',2089,223,20)),
+    "Far S Anchor's Rest": (3715,872, ('Vendor Police',2089,224,10)),
+    "E of GH": (3976,853, ('Vendor Police',2089,225,20)),
 
     # Delta
     "N Terran Clearing 2":(905,1387,('Misc1',1989,200,10)),
