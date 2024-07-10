@@ -783,7 +783,7 @@ my_locations = {
     "Totem Gate N1":(3892,2777,('TomeFoxtrot',2091,219,20)),
     "NE of Ossuary Demon":(1343,2746,('TomeFoxtrot',2091,220,10)),
     "N of Rope Swing":(3940,3411,('TomeFoxtrot',2091,221,20)),
-    "SW Terran Clearing 2":(877,1500,('TomeFoxtrot',2091,222,10)),
+    "SW Terran Clearing 2":(886,1504,('TomeFoxtrot',2091,222,10)),
     "W of Jungle Junction":(4141,2743,('TomeFoxtrot',2091,223,20)),
     "S Prev Xroad E2":(1704,1743,('TomeFoxtrot',2091,224,10)),
     "NE Outpost Close 3":(3391,359,('TomeFoxtrot',2091,225,20)),
