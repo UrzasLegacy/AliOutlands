@@ -10,8 +10,14 @@ logger = logging.getLogger('OutlandsDicts')
 
 
 def collate_master_price_dict():
-    master_dict = {**core_prices,**distil_prices,**map_prices,**ingot_prices,**board_prices,**leather_prices,**commodity_2500_prices,**commodity_5000_prices,**scroll_prices,**link_prices,**misc_crafting_prices,**misc_hp_prices,**misc_lp_prices,**deed_prices}
+    master_dict = collate_price_dicts(core_prices,distil_prices,tmap_prices,rmap_prices,ingot_prices,board_prices,leather_prices,commodity_2500_prices,commodity_5000_prices,scroll_prices,link_prices,misc_crafting_prices,misc_hp_prices,misc_lp_prices,deed_prices)
     return master_dict
+
+def collate_price_dicts(*price_dicts):
+    collated_dict = {}
+    for price_dict in price_dicts:
+        collated_dict.update(price_dict)
+    return collated_dict
 
 core_prices = { #exact string MATTERS
     "Air Aspect Core": 75000,
@@ -114,7 +120,7 @@ phylactery_prices = {
     "water phylactery": 10000,
 }
 
-map_prices = { #exact string MATTERS
+tmap_prices = { #exact string MATTERS
     "plainly drawn treasure map: level 1 (undeciphered)": 9500,
     "expertly drawn treasure map: level 2 (undeciphered)": 19500, #10000
     "adeptly drawn treasure map: level 3 (undeciphered)": 34000, #26000
@@ -123,7 +129,9 @@ map_prices = { #exact string MATTERS
     "ingeniously drawn treasure map: level 6 (undeciphered)": 67000,
     "diabolically drawn treasure map: level 7 (undeciphered)": 80000,
     "legendarily drawn treasure map: level 8 (undeciphered)": 325000,
+}
 
+rmap_prices = { #exact string MATTERS
     "avarscale fishing map (undeciphered)": 13000,
 
     "verewood lumber map (undeciphered)": 15000,
@@ -523,6 +531,8 @@ misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&
 misc_hp_prices = { #exact string matters
     "prevalia coins [blessed]": 17000, #prevalia coins : 5 [blessed]
     "research materials (double-click to research)": 37000,
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": 18000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
+    "plant chemicals": 2500,
 }
 
 misc_lp_prices = { #exact string matters
@@ -531,8 +541,8 @@ misc_lp_prices = { #exact string matters
     "an ankh token": 11000,
     "arcane essence": 37,
     "an emote deed": 200000,
-    "redlightning bottle": 40000,
-    "survival gear": 37000,
+    "redlightning bottle": 30000,
+    "survival gear": 34000,
     "a battle commendation (double-click to consume and receive reward item)": 11000,
     "invulnerability leather cap": 95000,
     "dyeable gilded gold carpet tile": 23000,
@@ -543,8 +553,6 @@ misc_lp_prices = { #exact string matters
     "time dungeon lore page": 80000,
     "a chromatic core": 70000,
     "chromatic distillation": 10000,
-    "plant chemicals": 2500,
-    "a skill mastery orb (used to increase a player's total skill cap by 1)": 18000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
 }
 
 clothing_prices = { #TODO
