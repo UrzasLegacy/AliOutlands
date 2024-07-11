@@ -726,10 +726,10 @@ class AliApp:
         self.root.bind("<Control-Alt-Return>", self.PriorityScrapeOutlandMall)
         self.root.bind("<KeyPress-3>", self.set_all_checkboxes)
         self.root.bind("<KeyPress-4>", self.set_none_checkboxes)
+        self.root.bind("<KeyPress-1>", self.set_hp_variables)
+        self.root.bind("<KeyPress-2>", self.set_lp_variables)
 #        self.root.bind("<Alt-Return>", self.set_hp_variables)
-#        self.root.bind("<KeyPress-1>", self.set_hp_variables)
 #        self.root.bind("<Shift-Return>", self.set_lp_variables) 
-#       self.root.bind("<KeyPress-2>", self.set_lp_variables)
         self.root.bind("<F1>", self.sort_tree_quick) #sort_tree_quick sort_tree_density
         self.root.bind("<Control-F1>", delete_most_recent_log)
         self.root.grid_columnconfigure(0, weight=10)
@@ -991,7 +991,7 @@ class AliApp:
         monitor_thread.start()
 
     def set_hp_variables(self,event=None):
-        self.cutoff_threshold.set(0.95)
+        self.cutoff_threshold.set(0.90)
         self.search_pricedepth.set(1)
         self.search_combobox_timeframe.set("1 Minute")
         self.check_core_var.set(False)
@@ -1001,7 +1001,7 @@ class AliApp:
         self.check_skillscrolls_var.set(False)
         self.check_chainlinks_var.set(False)
         self.check_lp_misc_var.set(False)
-        self.check_hp_misc_var.set(False)
+        self.check_hp_misc_var.set(True)
         self.check_cloth_var.set(False)
         self.check_dye_var.set(False)
         self.check_ingot_var.set(False)
@@ -1009,17 +1009,17 @@ class AliApp:
         self.check_leather_var.set(False)
 
     def set_lp_variables(self,event=None):
-        self.cutoff_threshold.set(0.93)
+        self.cutoff_threshold.set(0.75)
         self.search_pricedepth.set(1)
         self.search_combobox_timeframe.set("5 Minutes")
-        self.check_core_var.set(False)
-        self.check_extract_var.set(False)
-        self.check_distil_var.set(False)
+        self.check_core_var.set(True)
+        self.check_extract_var.set(True)
+        self.check_distil_var.set(True)
         self.check_tmaps_var.set(False)
-        self.check_skillscrolls_var.set(False)
+        self.check_skillscrolls_var.set(True)
         self.check_chainlinks_var.set(True)
         self.check_lp_misc_var.set(True)
-        self.check_hp_misc_var.set(True)
+        self.check_hp_misc_var.set(False)
         self.check_cloth_var.set(True)
         self.check_dye_var.set(True)
         self.check_ingot_var.set(True)
@@ -1181,8 +1181,6 @@ Game/Assistant Window:
     def on_treeview_click(self, event):
         if self.tree.identify_region(event.x, event.y) == "heading":
             return
-        if event.state & 0x0004:  # 0x0004 is the bitmask for the Control key
-            print("Ctrl + Click detected")
         row_id = self.tree.identify_row(event.y)
         col_id = self.tree.identify_column(event.x)
         url = None
