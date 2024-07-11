@@ -1049,3 +1049,23 @@
 2024-07-11 14:30:22 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
 2024-07-11 14:30:22 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
 2024-07-11 14:30:22 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-11 15:26:55 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 15:27:04 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-11 15:27:04 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins+%5Bblessed%5D&search_category_id=0 HTTP/1.1" 200 10446
+2024-07-11 15:27:05 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-11 15:27:05 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials+%28double-click+to+research%29&search_category_id=0 HTTP/1.1" 200 24902
+2024-07-11 15:28:17 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-11 15:28:18 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0 HTTP/1.1" 200 137729
+2024-07-11 15:28:20 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-11 15:28:21 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0&page=1 HTTP/1.1" 200 3854
+2024-07-11 15:28:31 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-11 15:28:32 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0 HTTP/1.1" 200 137856
+2024-07-11 15:28:34 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-11 15:28:34 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0&page=1 HTTP/1.1" 200 3854
+2024-07-11 15:28:46 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-11 15:28:47 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0 HTTP/1.1" 200 137845
+2024-07-11 15:28:49 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-11 15:28:49 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0&page=1 HTTP/1.1" 200 3854
+2024-07-11 15:37:40 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 15:55:14 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 16:10:32 - asyncio - DEBUG - Using proactor: IocpProactor

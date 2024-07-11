@@ -66,7 +66,7 @@ def multi_parse_wide(in_tuple):
         "Aspect Core": core_prices,
         "Aspect Extract": extract_prices,
         "Aspect Distillation": distil_prices,
-        "Undeciphered": map_prices,
+        "Undeciphered": tmap_prices,
         "Skill Mastery Scroll": scroll_prices,
         "Mastery Chain Link": link_prices,
         "Misc Crafting": misc_crafting_prices,
@@ -195,7 +195,7 @@ def simple_parse_wide(in_tuple):
         "Aspect Core": core_prices,
         "Aspect Extract": extract_prices,
         "Aspect Distillation": distil_prices,
-        "Undeciphered": map_prices,
+        "Undeciphered": tmap_prices,
         "Skill Mastery Scroll": scroll_prices,
         "Mastery Chain Link": link_prices,
         "Misc Crafting": misc_crafting_prices,
@@ -1181,6 +1181,8 @@ Game/Assistant Window:
     def on_treeview_click(self, event):
         if self.tree.identify_region(event.x, event.y) == "heading":
             return
+        if event.state & 0x0004:  # 0x0004 is the bitmask for the Control key
+            print("Ctrl + Click detected")
         row_id = self.tree.identify_row(event.y)
         col_id = self.tree.identify_column(event.x)
         url = None
@@ -1609,7 +1611,7 @@ endwhile"""
             ["Aspect Core", core_prices, self.check_core_var.get()],
             #["Aspect Extract", extract_prices, self.check_extract_var.get()],
             #["Aspect Distillation", distil_prices, self.check_distil_var.get()],
-            ["Undeciphered", map_prices, self.check_tmaps_var.get()],
+            ["Undeciphered", tmap_prices, self.check_tmaps_var.get()],
             ["Skill Mastery Scroll", scroll_prices, self.check_skillscrolls_var.get()],
             ["Mastery Chain Link", link_prices, self.check_chainlinks_var.get()],
             ["Misc Crafting", misc_crafting_prices, self.check_hp_misc_var.get()],
@@ -1649,12 +1651,12 @@ endwhile"""
     def search_self_parse_obj(self,parse_obj):
         cutoff_threshold = self.cutoff_threshold.get()
         price_depth = self.search_pricedepth.get()
-        self_parse_extra_misc = self.check_hp_misc_var.get()
+        self_parse_extra_misc = self.check_lp_misc_var.get()
         bools = [
             (self.check_core_var.get(), core_prices),
             (self.check_extract_var.get(), extract_prices),
             (self.check_distil_var.get(), distil_prices),
-            (self.check_tmaps_var.get(), map_prices),
+            (self.check_tmaps_var.get(), tmap_prices),
             (self.check_skillscrolls_var.get(), scroll_prices),
             (self.check_chainlinks_var.get(), link_prices),
             (self.check_cloth_var.get(), 'cloth'),
@@ -1664,6 +1666,7 @@ endwhile"""
             (self_parse_extra_misc, commodity_2500_prices),
             (self_parse_extra_misc, commodity_5000_prices),
             (self_parse_extra_misc, deed_prices),
+            (self_parse_extra_misc, rmap_prices),
             (self.check_lp_misc_var.get(), misc_lp_prices),
             (self.check_hp_misc_var.get(), misc_crafting_prices),
             (self.check_ingot_var.get(), ingot_prices),
@@ -2094,6 +2097,9 @@ endwhile"""
             for col in self.tree["columns"]:
                 row_data[col] = self.tree.set(child, col)
             data.append(row_data)
+        data = [row for row in data if row.get("Price","999/0") != "999/0"]
+        if len(data) == 0:
+            return
         rows_by_location = defaultdict(list)
         items_by_vendor = defaultdict(lambda: defaultdict(str))
         vendors_by_location = defaultdict(lambda: defaultdict(str))
@@ -2157,10 +2163,10 @@ endwhile"""
         #loc_data_sorted = sorted(data_by_location,key=lambda x: (-x[1]["Profit"],x[1]["CTP_Average"],-x[1]["Margin_Average"]))
         loc_data_sorted = sorted(data_by_location,key=lambda x: (x[1]["Time"],-x[1]["Profit"],x[1]["CTP_Average"]))
         loc_sorted = []
-        for loc,data in loc_data_sorted:
+        for loc, data in loc_data_sorted:
             loc_sorted.append(loc)
 
-        loc_id_list = [(self.tree.set(k, 'Location'), self.tree.set(k, 'Ratio'), k) for k in tree_children]
+        loc_id_list = [(self.tree.set(k, 'Location'), self.tree.set(k, 'Ratio'), k) for k in tree_children if self.tree.set(k, "Price") != "999/0"]
         loc_id_list_sorted = sorted(loc_id_list,key=lambda x: (loc_sorted.index(x[0].split("\t")[1]), float(x[1])))
         locationIndex = []
         for index, (l, r, k) in enumerate(loc_id_list_sorted):
@@ -2522,6 +2528,7 @@ async def request_gen_simple():
     cookies = RequestsCookieJar()
     cookies.set("app", user_config["outlands_cookie"])
 
+    quick_prices = collate_price_dicts(core_prices,distil_prices,tmap_prices,scroll_prices,misc_crafting_prices,misc_hp_prices,misc_lp_prices,deed_prices)
     async with aiohttp.ClientSession() as session:
         tasks = []
         for item in string_list:
@@ -2531,7 +2538,7 @@ async def request_gen_simple():
         
         responses = await asyncio.gather(*tasks)
 
-        return [(response["content"], master_prices, response["url"], 60, 1, response["extra_data"]) for response in responses]
+        return [(response["content"], quick_prices, response["url"], 60, 1, response["extra_data"]) for response in responses]
 
 class AssMonGui:
     def __init__(self, parent):
