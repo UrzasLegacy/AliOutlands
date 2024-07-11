@@ -991,14 +991,14 @@ class AliApp:
         monitor_thread.start()
 
     def set_hp_variables(self,event=None):
-        self.cutoff_threshold.set(0.93)
+        self.cutoff_threshold.set(0.95)
         self.search_pricedepth.set(1)
         self.search_combobox_timeframe.set("1 Minute")
-        self.check_core_var.set(True)
+        self.check_core_var.set(False)
         self.check_extract_var.set(False)
         self.check_distil_var.set(False)
         self.check_tmaps_var.set(True)
-        self.check_skillscrolls_var.set(True)
+        self.check_skillscrolls_var.set(False)
         self.check_chainlinks_var.set(False)
         self.check_lp_misc_var.set(False)
         self.check_hp_misc_var.set(False)

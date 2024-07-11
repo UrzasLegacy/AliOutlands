@@ -507,7 +507,6 @@ misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&
     "pristine lumber": 40000, 
     "immaculate stone": 50000,
     "an arcane scroll": 1000,
-    "research materials (double-click to research)": 37000,
     "mastercrafting diagram": 20000,
     "cleansing brew": 1500,
     "amber": 48,
@@ -522,13 +521,8 @@ misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&
 }
 
 misc_hp_prices = { #exact string matters
-    "a skill mastery orb (used to increase a player's total skill cap by 1)": 18000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
-    "plant chemicals": 2500,
     "prevalia coins [blessed]": 17000, #prevalia coins : 5 [blessed]
-    "a chromatic core": 75000,
-    "chromatic distillation": 10000,
-    "time dungeon lore page": 80000,
-
+    "research materials (double-click to research)": 37000,
 }
 
 misc_lp_prices = { #exact string matters
@@ -546,6 +540,11 @@ misc_lp_prices = { #exact string matters
     "bloody skull pile": 400000,
     "a storage shelf": 400000,
     "a repair bench": 475000,
+    "time dungeon lore page": 80000,
+    "a chromatic core": 70000,
+    "chromatic distillation": 10000,
+    "plant chemicals": 2500,
+    "a skill mastery orb (used to increase a player's total skill cap by 1)": 18000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
 }
 
 clothing_prices = { #TODO
