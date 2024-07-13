@@ -23,7 +23,7 @@ core_prices = { #exact string MATTERS
     "Air Aspect Core": 75000,
     "Arcane Aspect Core": 80000,
     "Artisan Aspect Core": 55000,
-    "Blood Aspect Core": 9000,
+    "Blood Aspect Core": 11000,
     "Command Aspect Core": 80000,
     "Death Aspect Core": 12000,
     "Discipline Aspect Core": 8000,
@@ -82,7 +82,7 @@ distil_prices = {
     'Earth Aspect Distillation': 5000,
     'Eldritch Aspect Distillation': 8000,
     'Fire Aspect Distillation': 5000,
-    "Frost Aspect Distillation": 7000,
+    "Frost Aspect Distillation": 8000,
     'Fortune Aspect Distillation': 7000,
     'Gadget Aspect Distillation': 5000,
     'Harvest Aspect Distillation': 11000,
@@ -121,11 +121,11 @@ phylactery_prices = {
 }
 
 tmap_prices = { #exact string MATTERS
-    "plainly drawn treasure map: level 1 (undeciphered)": 9500,
-    "expertly drawn treasure map: level 2 (undeciphered)": 19500, #10000
-    "adeptly drawn treasure map: level 3 (undeciphered)": 34000, #26000
-    "cleverly drawn treasure map: level 4 (undeciphered)": 45000, #35000
-    "deviously drawn treasure map: level 5 (undeciphered)": 54000, #45000
+    "plainly drawn treasure map: level 1 (undeciphered)": 11500,
+    "expertly drawn treasure map: level 2 (undeciphered)": 21500, #10000
+    "adeptly drawn treasure map: level 3 (undeciphered)": 36000, #26000
+    "cleverly drawn treasure map: level 4 (undeciphered)": 49000, #35000
+    "deviously drawn treasure map: level 5 (undeciphered)": 56000, #45000
     "ingeniously drawn treasure map: level 6 (undeciphered)": 67000,
     "diabolically drawn treasure map: level 7 (undeciphered)": 80000,
     "legendarily drawn treasure map: level 8 (undeciphered)": 325000,
@@ -801,8 +801,8 @@ my_locations = {
     "Ashenmire SE":(3708,3567,('TomeGulf',1779,202,10)),
     "Bucktasty":(1766,575,('TomeGulf',1779,203,20)),
     "Bivouac NE":(3463,3144,('TomeGulf',1779,204,10)),
-    "placeholder":(0,0,('TomeGulf',1779,205,20)),
-    "placeholder":(0,0,('TomeGulf',1779,206,10)),
+    "AR20":(3976,573,('TomeGulf',1779,205,20)),
+    "S Prev Xroad E3":(1730,1744,('TomeGulf',1779,206,10)),
     "placeholder":(0,0,('TomeGulf',1779,207,20)),
     "placeholder":(0,0,('TomeGulf',1779,208,10)),
     "placeholder":(0,0,('TomeGulf',1779,209,20)),

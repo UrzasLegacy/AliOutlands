@@ -1069,3 +1069,274 @@
 2024-07-11 15:37:40 - asyncio - DEBUG - Using proactor: IocpProactor
 2024-07-11 15:55:14 - asyncio - DEBUG - Using proactor: IocpProactor
 2024-07-11 16:10:32 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 16:55:46 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 16:57:39 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 17:21:25 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 17:39:50 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 18:08:18 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 18:09:43 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 18:12:41 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 18:16:31 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 18:20:03 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 18:39:17 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 18:44:01 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 19:22:10 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 19:24:07 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 19:32:04 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 19:40:28 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 19:43:24 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 19:55:02 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 19:59:32 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 20:43:59 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 20:55:17 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 21:24:48 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 21:44:33 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 22:05:36 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 22:12:59 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 22:19:03 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 22:31:56 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 22:32:25 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 22:51:53 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 23:04:21 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-11 23:04:24 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-11 23:04:24 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq89qdit62ls5ghe9e7g HTTP/1.1" 302 0
+2024-07-11 23:04:24 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-11 23:04:24 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-11 23:04:24 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-11 23:17:20 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 23:40:59 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 23:46:16 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 23:57:01 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 23:57:59 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-11 23:58:15 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 00:12:49 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 00:21:34 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 00:34:53 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 00:38:34 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 00:48:07 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 01:00:53 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 01:56:48 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 02:13:16 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 02:38:18 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 02:45:33 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 03:00:03 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 03:19:43 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 03:19:45 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-12 03:19:45 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq8di4at62ls5ghk3nr0 HTTP/1.1" 302 0
+2024-07-12 03:19:45 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-12 03:19:46 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-12 03:19:46 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-12 11:03:41 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 11:27:39 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 11:29:56 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 11:58:07 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 12:12:48 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 12:16:40 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 12:19:16 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 12:41:38 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 12:41:47 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 12:46:36 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 12:46:38 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-12 12:46:38 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq8lrr2t62ls5ghusd60 HTTP/1.1" 302 0
+2024-07-12 12:46:38 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-12 12:46:38 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-12 12:46:38 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-12 12:58:28 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 13:05:10 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 13:16:21 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 13:35:57 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 14:22:53 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 14:43:29 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 14:43:31 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-12 14:43:31 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq8nikit62ls5gi12brg HTTP/1.1" 302 0
+2024-07-12 14:43:31 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-12 14:43:31 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-12 14:43:31 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-12 15:46:54 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 15:48:59 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 15:49:01 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-12 15:49:01 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq8ohb2t62ls5gi1nld0 HTTP/1.1" 302 0
+2024-07-12 15:49:01 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-12 15:49:02 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-12 15:49:02 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-12 15:58:18 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 16:39:14 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 16:39:54 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 16:41:46 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 16:42:39 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 16:51:42 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 17:15:53 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 17:25:26 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 17:47:50 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 18:17:06 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 18:18:50 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 18:22:31 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 18:33:39 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 19:28:39 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 19:32:01 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 19:34:31 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 20:02:04 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 20:03:26 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 21:05:11 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 21:16:11 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 21:30:43 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 21:45:57 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 22:05:46 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:05:51 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "POST /uploads HTTP/1.1" 302 0
+2024-07-12 22:05:51 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /uploads/cq8u1uqt62ls5gi8l4rg HTTP/1.1" 302 0
+2024-07-12 22:05:51 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): discord.com:443
+2024-07-12 22:05:51 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /api/oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 302 581
+2024-07-12 22:05:51 - urllib3.connectionpool - DEBUG - https://discord.com:443 "GET /oauth2/authorize?client_id=1070214682213875762&redirect_uri=https%3A%2F%2Foutlandmalls.com%2Fdiscord-redir&response_type=code&scope=identify&prompt=yes HTTP/1.1" 200 None
+2024-07-12 22:10:21 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 22:57:19 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 22:59:39 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:39 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=an+ankh+token&search_category_id=0 HTTP/1.1" 200 4373
+2024-07-12 22:59:40 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:40 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=arcane+essence&search_category_id=0 HTTP/1.1" 200 15561
+2024-07-12 22:59:41 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:42 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=an+emote+deed&search_category_id=0 HTTP/1.1" 200 4902
+2024-07-12 22:59:43 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:43 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=redlightning+bottle&search_category_id=0 HTTP/1.1" 200 12386
+2024-07-12 22:59:44 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:44 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=survival+gear&search_category_id=0 HTTP/1.1" 200 16391
+2024-07-12 22:59:45 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:45 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+battle+commendation+%28double-click+to+consume+and+receive+reward+item%29&search_category_id=0 HTTP/1.1" 200 6175
+2024-07-12 22:59:46 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:47 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=invulnerability+leather+cap&search_category_id=0 HTTP/1.1" 200 5020
+2024-07-12 22:59:48 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:48 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=dyeable+gilded+gold+carpet+tile&search_category_id=0 HTTP/1.1" 200 5593
+2024-07-12 22:59:49 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:49 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Aspect+Triumph&search_category_id=0 HTTP/1.1" 200 4366
+2024-07-12 22:59:50 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:50 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=bloody+skull+pile&search_category_id=0 HTTP/1.1" 200 3859
+2024-07-12 22:59:51 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:51 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+storage+shelf&search_category_id=0 HTTP/1.1" 200 4993
+2024-07-12 22:59:52 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:53 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+repair+bench&search_category_id=0 HTTP/1.1" 200 4648
+2024-07-12 22:59:54 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:54 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=time+dungeon+lore+page&search_category_id=0 HTTP/1.1" 200 6470
+2024-07-12 22:59:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:55 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+chromatic+core&search_category_id=0 HTTP/1.1" 200 18217
+2024-07-12 22:59:56 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:56 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=chromatic+distillation&search_category_id=0 HTTP/1.1" 200 12982
+2024-07-12 22:59:57 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:58 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins+%5Bblessed%5D&search_category_id=0 HTTP/1.1" 200 10827
+2024-07-12 22:59:59 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 22:59:59 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials+%28double-click+to+research%29&search_category_id=0 HTTP/1.1" 200 22378
+2024-07-12 23:00:00 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:00:00 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+skill+mastery+orb+%28used+to+increase+a+player%27s+total+skill+cap+by+1%29&search_category_id=0 HTTP/1.1" 200 18922
+2024-07-12 23:00:01 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:00:01 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=plant+chemicals&search_category_id=0 HTTP/1.1" 200 11920
+2024-07-12 23:00:03 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:00:03 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:00:03 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:00:04 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0 HTTP/1.1" 200 134043
+2024-07-12 23:00:04 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=&search_category_id=21&search_sub_category_id=98 HTTP/1.1" 200 77837
+2024-07-12 23:00:04 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Skill+Mastery+Scroll&search_category_id=0 HTTP/1.1" 200 224091
+2024-07-12 23:00:06 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:00:06 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=&search_category_id=21&search_sub_category_id=98&page=1 HTTP/1.1" 200 3876
+2024-07-12 23:00:06 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:00:07 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0&page=1 HTTP/1.1" 200 3854
+2024-07-12 23:00:08 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:00:08 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Skill+Mastery+Scroll&search_category_id=0&page=1 HTTP/1.1" 200 3854
+2024-07-12 23:03:53 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:03:54 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins+%5Bblessed%5D&search_category_id=0 HTTP/1.1" 200 10841
+2024-07-12 23:03:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:03:55 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials+%28double-click+to+research%29&search_category_id=0 HTTP/1.1" 200 22384
+2024-07-12 23:03:56 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:03:56 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+skill+mastery+orb+%28used+to+increase+a+player%27s+total+skill+cap+by+1%29&search_category_id=0 HTTP/1.1" 200 18985
+2024-07-12 23:03:57 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:03:57 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=plant+chemicals&search_category_id=0 HTTP/1.1" 200 11930
+2024-07-12 23:04:00 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:04:00 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:04:00 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0 HTTP/1.1" 200 133547
+2024-07-12 23:04:00 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=&search_category_id=21&search_sub_category_id=98 HTTP/1.1" 200 77915
+2024-07-12 23:04:02 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:04:02 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=&search_category_id=21&search_sub_category_id=98&page=1 HTTP/1.1" 200 3876
+2024-07-12 23:04:02 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:04:03 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0&page=1 HTTP/1.1" 200 3854
+2024-07-12 23:05:06 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:05:06 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins+%5Bblessed%5D&search_category_id=0 HTTP/1.1" 200 10842
+2024-07-12 23:05:07 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:05:08 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials+%28double-click+to+research%29&search_category_id=0 HTTP/1.1" 200 22382
+2024-07-12 23:05:09 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:05:09 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+skill+mastery+orb+%28used+to+increase+a+player%27s+total+skill+cap+by+1%29&search_category_id=0 HTTP/1.1" 200 18992
+2024-07-12 23:05:10 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:05:10 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=plant+chemicals&search_category_id=0 HTTP/1.1" 200 11936
+2024-07-12 23:05:13 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:05:13 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:05:13 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0 HTTP/1.1" 200 133555
+2024-07-12 23:05:13 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=&search_category_id=21&search_sub_category_id=98 HTTP/1.1" 200 77907
+2024-07-12 23:05:16 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:05:16 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=&search_category_id=21&search_sub_category_id=98&page=1 HTTP/1.1" 200 3876
+2024-07-12 23:05:16 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:05:17 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0&page=1 HTTP/1.1" 200 3854
+2024-07-12 23:05:30 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:05:30 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Skill+Mastery+Scroll&search_category_id=0 HTTP/1.1" 200 224312
+2024-07-12 23:05:33 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:05:34 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Skill+Mastery+Scroll&search_category_id=0&page=1 HTTP/1.1" 200 3854
+2024-07-12 23:06:03 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:21:25 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:24:16 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:27:21 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:30:19 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:30:40 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:30:50 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:30:56 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:32:31 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:32:42 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:33:42 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:34:02 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:37:11 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:11 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=an+ankh+token&search_category_id=0 HTTP/1.1" 200 4373
+2024-07-12 23:37:12 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:12 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=arcane+essence&search_category_id=0 HTTP/1.1" 200 15853
+2024-07-12 23:37:13 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:14 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=an+emote+deed&search_category_id=0 HTTP/1.1" 200 4901
+2024-07-12 23:37:15 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:15 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=redlightning+bottle&search_category_id=0 HTTP/1.1" 200 12437
+2024-07-12 23:37:16 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:16 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=survival+gear&search_category_id=0 HTTP/1.1" 200 16325
+2024-07-12 23:37:17 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:17 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+battle+commendation+%28double-click+to+consume+and+receive+reward+item%29&search_category_id=0 HTTP/1.1" 200 6254
+2024-07-12 23:37:18 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:18 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=invulnerability+leather+cap&search_category_id=0 HTTP/1.1" 200 5022
+2024-07-12 23:37:19 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:19 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=dyeable+gilded+gold+carpet+tile&search_category_id=0 HTTP/1.1" 200 5636
+2024-07-12 23:37:21 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:21 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Aspect+Triumph&search_category_id=0 HTTP/1.1" 200 4573
+2024-07-12 23:37:22 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:22 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=bloody+skull+pile&search_category_id=0 HTTP/1.1" 200 3859
+2024-07-12 23:37:23 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:23 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+storage+shelf&search_category_id=0 HTTP/1.1" 200 4979
+2024-07-12 23:37:24 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:24 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+repair+bench&search_category_id=0 HTTP/1.1" 200 4646
+2024-07-12 23:37:25 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:25 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=time+dungeon+lore+page&search_category_id=0 HTTP/1.1" 200 6453
+2024-07-12 23:37:26 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:27 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+chromatic+core&search_category_id=0 HTTP/1.1" 200 18511
+2024-07-12 23:37:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:37:55 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=chromatic+distillation&search_category_id=0 HTTP/1.1" 200 13167
+2024-07-12 23:37:59 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:38:00 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=prevalia+coins+%5Bblessed%5D&search_category_id=0 HTTP/1.1" 200 10369
+2024-07-12 23:38:23 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:38:23 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=research+materials+%28double-click+to+research%29&search_category_id=0 HTTP/1.1" 200 22620
+2024-07-12 23:38:55 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:38:55 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=a+skill+mastery+orb+%28used+to+increase+a+player%27s+total+skill+cap+by+1%29&search_category_id=0 HTTP/1.1" 200 19412
+2024-07-12 23:39:23 - charset_normalizer - DEBUG - Encoding detection: utf_8 is most likely the one.
+2024-07-12 23:39:32 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:39:32 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=plant+chemicals&search_category_id=0 HTTP/1.1" 200 11796
+2024-07-12 23:39:33 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:39:36 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:39:36 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:39:36 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:39:36 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): outlandmalls.com:443
+2024-07-12 23:39:37 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Undeciphered&search_category_id=0 HTTP/1.1" 200 132638
+2024-07-12 23:39:37 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Skill+Mastery+Scroll&search_category_id=0 HTTP/1.1" 200 222918
+2024-07-12 23:39:37 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Aspect+Core&search_category_id=0 HTTP/1.1" 200 220905
+2024-07-12 23:39:37 - urllib3.connectionpool - DEBUG - https://outlandmalls.com:443 "GET /?item=Mastery+Chain+Link&search_category_id=0 HTTP/1.1" 200 97750
+2024-07-12 23:39:42 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:40:14 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:40:31 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:41:41 - asyncio - DEBUG - Using proactor: IocpProactor
+2024-07-12 23:41:47 - asyncio - DEBUG - Using proactor: IocpProactor
