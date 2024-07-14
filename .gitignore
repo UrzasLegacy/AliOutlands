@@ -1,7 +1,6 @@
 inventory.db
 venv/
 vendor_info.json
-app.log
-app2.log
+*.log
 test.py
 test.bat
