@@ -540,7 +540,7 @@ def PipedListConcatenator(before, after):
 
     return concat_string
 
-def PipedListSplitter(piped_list_string,chunk_size):
+def PipedListSplitter(piped_list_string,chunk_size,alt=False):
     piped_list = piped_list_string.split("|")
     
     chunk_list = []
@@ -554,7 +554,21 @@ def PipedListSplitter(piped_list_string,chunk_size):
                         @ignore foundItem
                     endwhile
 """
-
+    template_string_two = """
+                while findtype $%$% "mainContainer" as "foundItem"
+                    getlabel "foundItem" "desc"
+                    if inlist "itemDescriptions" "desc"
+                        menu "foundItem" 0
+                        waitforgump 4274928655 1000
+                        gumpresponse 1
+                        wait 200
+                    endif
+                    @ignore "foundItem"
+                endwhile"""
+    
+    if alt:
+        template_string = template_string_two
+    
     out_string = ""
     for chunk in chunk_list:
         chunk_string = "|".join(chunk)

@@ -121,8 +121,8 @@ phylactery_prices = {
 }
 
 tmap_prices = { #exact string MATTERS
-    "plainly drawn treasure map: level 1 (undeciphered)": 11500,
-    "expertly drawn treasure map: level 2 (undeciphered)": 21500, #10000
+    "plainly drawn treasure map: level 1 (undeciphered)": 10000,
+    "expertly drawn treasure map: level 2 (undeciphered)": 20000, #10000
     "adeptly drawn treasure map: level 3 (undeciphered)": 36000, #26000
     "cleverly drawn treasure map: level 4 (undeciphered)": 49000, #35000
     "deviously drawn treasure map: level 5 (undeciphered)": 56000, #45000

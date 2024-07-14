@@ -1233,7 +1233,7 @@ else
         overhead "NO TOME" 33
         stop
     endif
-    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
         getlabel "safe" "label"
         overhead "label"
         sysmsg "label"
@@ -1297,7 +1297,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -1312,7 +1312,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -1327,7 +1327,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -1342,7 +1342,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -1357,7 +1357,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -1372,7 +1372,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -1410,7 +1410,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -1426,7 +1426,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -1441,7 +1441,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -1456,7 +1456,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -1471,7 +1471,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -1486,7 +1486,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -1573,7 +1573,7 @@ else
         overhead "NO TOME" 33
         stop
     endif
-    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
         getlabel "safe" "label"
         overhead "label"
         sysmsg "label"
@@ -1655,7 +1655,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -1666,7 +1666,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -1748,7 +1748,7 @@ else
         overhead "NO TOME" 33
         stop
     endif
-    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
         getlabel "safe" "label"
         overhead "label"
         sysmsg "label"
@@ -1830,7 +1830,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -1841,7 +1841,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -2522,7 +2522,7 @@ else
         overhead "NO TOME" 33
         stop
     endif
-    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
         getlabel "safe" "label"
         overhead "label"
         sysmsg "label"
@@ -2593,7 +2593,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -2608,7 +2608,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -2623,7 +2623,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -2638,7 +2638,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -2653,7 +2653,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -2668,7 +2668,7 @@ while not dead
                     waitforgump 4274928655 1000
                     gumpresponse 1
                     wait 100
-                    if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                    if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                         getlabel "safe" "label"
                         overhead "label"
                     endif
@@ -2706,7 +2706,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -2722,7 +2722,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -2737,7 +2737,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -2752,7 +2752,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -2767,7 +2767,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif
@@ -2782,7 +2782,7 @@ while not dead
                         waitforgump 4274928655 1000
                         gumpresponse 1
                         wait 100
-                        if findtype "bank deposit safe" ground -1 -1 20 as "safe"
+                        if findtype "bank deposit safe" ground -1 -1 14 as "safe"
                             getlabel "safe" "label"
                             overhead "label"
                         endif

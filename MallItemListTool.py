@@ -22,10 +22,10 @@ def write_clipboard_to_item_list(filename):
 
 def main():
     #temp = PipedListConcatenator(list1, list2)
-    temp = PipedListDiffer(list1, list2)
+    #temp = PipedListDiffer(list1, list2)
     #temp = PipedListSubtract(list1, list2)
 
-    #splits = PipedListSplitter(list1,250)
+    temp = PipedListSplitter(list2,250)
     pyperclip.copy(temp)
     print(temp)
     #write_clipboard_to_item_list()

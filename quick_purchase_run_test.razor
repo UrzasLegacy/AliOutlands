@@ -1,0 +1,50 @@
+while not dead
+    if find {vendor_serial} ground any any 20
+        overhead "● ▼▼ HERE ▼▼ ●" 88 {vendor_serial}
+
+        if findtype 3701 {vendor_serial} 0 0 0 as "mainBackpack"
+            @setvar! "searching" 1
+            @ignore "mainBackpack"
+            @setvar! "currentContainer" "mainBackpack"
+
+            while "searching" == 1
+                @setvar! "searching" 0
+                dclick "currentContainer"
+                wait "timeout"
+
+                if hidden
+                else
+                    skill "hiding"
+                endif
+
+                while findtype "book|recall rune" "cu rrentContainer" as "decoy"
+                    @ignore "decoy"
+                endwhile 
+
+                while findtype %items% "currentContainer" as "foundItem"
+                    @ignore "foundItem"
+                    getlabel "foundItem" "desc"
+                    if inlist "itemDescriptions" "desc"
+                        menu "foundItem" 0
+                        waitforgump 4274928655 1000
+                        gumpresponse 1
+                        wait 200
+                    endif
+                endwhile
+
+                while "searching" == 0 and findtype %containers% "mainBackpack" as "subContainer"
+                    @ignore "subContainer"
+                    getlabel "subContainer" "desc"
+                    if "Price: Not for sale" in "desc"
+                        @setvar! "currentContainer" "subContainer"
+                        @setvar! "searching" 1
+                        wait 450
+                    endif
+                endwhile
+            endwhile
+            break
+        endif
+    else
+        wait "timeout"
+    endif
+endwhile
