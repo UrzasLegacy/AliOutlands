@@ -98,7 +98,7 @@ def is_junk(item_name,item_quantity):
 def format_ingame_name(name_string, quantity_string):
     if quantity_string != '1':
         if "skill mastery scroll" in name_string:
-            name_string = name_string.replace("(used to increase a player's skill cap for a skill by 1)",f": {quantity_string}")
+            name_string = name_string.replace("(used to increase a player's skill cap for a skill by 1)",f": {quantity_string} (used to increase a player's skill cap for a skill by 1)")
         elif "prevalia coins" in name_string:
             name_string = name_string.replace("[blessed]",f": {quantity_string} [blessed]")
         elif "research materials" in name_string:
@@ -108,6 +108,22 @@ def format_ingame_name(name_string, quantity_string):
         else:
             name_string += f" : {quantity_string}"
     return name_string
+
+# pushlist "itemDescriptions" "Price: 275,000 tailoring skill mastery scroll : 5"
+# pushlist "itemDescriptions" "Price: 4,250,000 research materials : 99"
+# pushlist "itemDescriptions" "Price: 400,000 a skill mastery orb : 20"
+# pushlist "itemDescriptions" "Price: 180,000 prevalia coins : 10"
+
+def format_quick_compare_string(compare_string):
+    if "skill mastery scroll : " in compare_string:
+        compare_string += " (used to increase a player's skill cap for a skill by 1)"
+    elif "prevalia coins : " in compare_string:
+        compare_string += " [blessed]"
+    elif "research materials : " in compare_string:
+        compare_string += " (double-click to research)"
+    elif "a skill mastery orb : " in compare_string:
+        compare_string += " (used to increase a player's total skill cap by 1)"
+    return compare_string
 
 def format_with_commas(number_string):
     try:
