@@ -20,29 +20,29 @@ def collate_price_dicts(*price_dicts):
     return collated_dict
 
 core_prices = { #exact string MATTERS
-    "Air Aspect Core": 75000,
+    "Air Aspect Core": 85000,
     "Arcane Aspect Core": 80000,
     "Artisan Aspect Core": 55000,
-    "Blood Aspect Core": 11000,
+    "Blood Aspect Core": 10000,
     "Command Aspect Core": 80000,
-    "Death Aspect Core": 12000,
-    "Discipline Aspect Core": 8000,
+    "Death Aspect Core": 10000,
+    "Discipline Aspect Core": 7000,
     "Earth Aspect Core": 8000,
-    "Eldritch Aspect Core": 75000,
-    "Fire Aspect Core": 13000,
-    "Frost Aspect Core": 17000,
+    "Eldritch Aspect Core": 70000,
+    "Fire Aspect Core": 15000,
+    "Frost Aspect Core": 14000,
     "Fortune Aspect Core": 70000,
     "Gadget Aspect Core": 10000,
     "Harvest Aspect Core": 80000,
-    "Holy Aspect Core": 13000,
-    "Lightning Aspect Core": 48000,
-    "Lyric Aspect Core": 23000,
+    "Holy Aspect Core": 15000,
+    "Lightning Aspect Core": 43000,
+    "Lyric Aspect Core": 19000,
     "Madness Aspect Core": 75000,
     "Poison Aspect Core": 55000,
     "Shadow Aspect Core": 45000,
-    "Void Aspect Core": 48000,
+    "Void Aspect Core": 55000,
     "War Aspect Core": 7000,
-    "Water Aspect Core": 9000,
+    "Water Aspect Core": 7000,
 }
 
 extract_prices = {
@@ -72,26 +72,26 @@ extract_prices = {
 }
 
 distil_prices = {
-    'Air Aspect Distillation': 8000,
-    "Arcane Aspect Distillation": 11000,
+    'Air Aspect Distillation': 10000,
+    "Arcane Aspect Distillation": 12000,
     'Artisan Aspect Distillation': 5000,
     'Blood Aspect Distillation': 5000,
-    'Command Aspect Distillation': 9000,
+    'Command Aspect Distillation': 8000,
     'Death Aspect Distillation': 5000,
     'Discipline Aspect Distillation': 5000,
     'Earth Aspect Distillation': 5000,
     'Eldritch Aspect Distillation': 8000,
     'Fire Aspect Distillation': 5000,
-    "Frost Aspect Distillation": 8000,
+    "Frost Aspect Distillation": 9000,
     'Fortune Aspect Distillation': 7000,
-    'Gadget Aspect Distillation': 5000,
-    'Harvest Aspect Distillation': 11000,
+    'Gadget Aspect Distillation': 4000,
+    'Harvest Aspect Distillation': 12000,
     'Holy Aspect Distillation': 8000,
-    "Lightning Aspect Distillation": 9000,
+    "Lightning Aspect Distillation": 7000,
     'Lyric Aspect Distillation': 5000,
-    "Madness Aspect Distillation": 11000,
+    "Madness Aspect Distillation": 12000,
     'Poison Aspect Distillation': 9000,
-    'Shadow Aspect Distillation': 17000,
+    'Shadow Aspect Distillation': 15000,
     'Void Aspect Distillation': 8000,
     'War Aspect Distillation': 5000,
     'Water Aspect Distillation': 5000,
@@ -121,13 +121,13 @@ phylactery_prices = {
 }
 
 tmap_prices = { #exact string MATTERS
-    "plainly drawn treasure map: level 1 (undeciphered)": 10000,
+    "plainly drawn treasure map: level 1 (undeciphered)": 9000,
     "expertly drawn treasure map: level 2 (undeciphered)": 20000, #10000
-    "adeptly drawn treasure map: level 3 (undeciphered)": 36000, #26000
+    "adeptly drawn treasure map: level 3 (undeciphered)": 38000, #26000
     "cleverly drawn treasure map: level 4 (undeciphered)": 49000, #35000
-    "deviously drawn treasure map: level 5 (undeciphered)": 56000, #45000
-    "ingeniously drawn treasure map: level 6 (undeciphered)": 67000,
-    "diabolically drawn treasure map: level 7 (undeciphered)": 80000,
+    "deviously drawn treasure map: level 5 (undeciphered)": 60000, #45000
+    "ingeniously drawn treasure map: level 6 (undeciphered)": 70000,
+    "diabolically drawn treasure map: level 7 (undeciphered)": 85000,
     "legendarily drawn treasure map: level 8 (undeciphered)": 325000,
 }
 
@@ -242,39 +242,39 @@ commodity_5000_prices = {
 }
 
 scroll_prices = {
-    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 38000,
-    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 16000,#[:7]
-    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 16000,#[:7]
+    "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 34000,
+    "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,#[:7]
+    "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,#[:7]
     "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 9000,
+    "begging skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "blacksmithy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
     "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,#[:4]
-    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,#[:4]
-    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 35000,
+    "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,#[:4]
+    "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 37000,
     "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
-    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
+    "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
     "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
     "fishing skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "forensic eval skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,#[:4]
-    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 16000,
-    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 50000,
-    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
-    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
+    "herding skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "inscription skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 55000,
+    "item id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
+    "lockpicking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 16000,
     "lumberjacking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
     "mining skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
     "musicianship skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 28000,
+    "necromancy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 22000,
     "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,#[:4]
     "poisoning skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
     "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
     "spirit speak skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 25000,#[:4]
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 23000,#[:4]
     "tailoring skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 50000,
     "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
     "tinkering skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
     "tracking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
-    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 13000,
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
 }
 
 link_prices = { #exact chain type string MATTERS
@@ -368,7 +368,9 @@ link_prices = { #exact chain type string MATTERS
     "Chance on Stealth For 5 Extra Steps": [90000,550000,2600000],
     "Gold/Doubloon Drop Increase": [90000,600000,2400000],
     "Special/Rare Loot Chance": [120000,600000,2500000],
-    "reforging tool": [110000,240000,450000],
+    "bronze mastery chain link reforging tool": 110000,
+    "silver mastery chain link reforging tool": 240000,
+    "gold mastery chain link reforging tool": 450000,
     "corrupted_link_price_threshold": 620000,
 }
 
@@ -423,7 +425,7 @@ hue_list = {
     'Lustrous Star':         {'hue': 4129, 'rare cloth': 400000, 'runebook dye': 800000, 'accessory dye': 80000, 'headwear dye': 2400000, 'carpet dye': 80000, 'furniture dye': 500000, 'hair dye': 2000000, 'facial hair dye': 1700000, 'backpack dye': 2000000, 'mount gear dye': 1500000}, #Lustrous Star
     'Lustrous Dream':        {'hue': 4130, 'rare cloth': 400000, 'runebook dye': 800000, 'accessory dye': 80000, 'headwear dye': 2400000, 'carpet dye': 80000, 'furniture dye': 500000, 'hair dye': 2000000, 'facial hair dye': 1700000, 'backpack dye': 2000000, 'mount gear dye': 1500000}, #Lustrous Dream
     'Lustrous Ecru':         {'hue': 4131, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous Ecru
-    'Lustrous Chartreuse':   {'hue': 4132, 'rare cloth': 400000, 'runebook dye': 800000, 'accessory dye': 80000, 'headwear dye': 2400000, 'carpet dye': 80000, 'furniture dye': 500000, 'hair dye': 2000000, 'facial hair dye': 1700000, 'backpack dye': 2000000, 'mount gear dye': 1500000}, #Lustrous Chartreuse
+    'Lustrous Chartreuse':   {'hue': 4132, 'rare cloth': 200000, 'runebook dye': 800000, 'accessory dye': 80000, 'headwear dye': 1200000, 'carpet dye': 80000, 'furniture dye': 500000, 'hair dye': 2000000, 'facial hair dye': 1700000, 'backpack dye': 2000000, 'mount gear dye': 1500000}, #Lustrous Chartreuse
     'Lustrous Caramel':      {'hue': 4133, 'rare cloth': 120000, 'runebook dye': 200000, 'accessory dye': 20000, 'headwear dye': 600000, 'carpet dye': 25000, 'furniture dye': 300000, 'hair dye': 200000, 'facial hair dye': 150000, 'backpack dye': 100000, 'mount gear dye': 100000}, #Lustrous Caramel
     'Lustrous Steel':        {'hue': 4134, 'rare cloth': 200000, 'runebook dye': 500000, 'accessory dye': 50000, 'headwear dye': 1200000, 'carpet dye': 50000, 'furniture dye': 800000, 'hair dye': 500000, 'facial hair dye': 400000, 'backpack dye': 300000, 'mount gear dye': 300000}, #Lustrous Steel
     'Lustrous Slime':        {'hue': 4135, 'rare cloth': 400000, 'runebook dye': 800000, 'accessory dye': 80000, 'headwear dye': 2400000, 'carpet dye': 80000, 'furniture dye': 500000, 'hair dye': 2000000, 'facial hair dye': 1700000, 'backpack dye': 2000000, 'mount gear dye': 1500000}, #Lustrous Slime
@@ -515,7 +517,7 @@ misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&
     "pristine lumber": 40000, 
     "immaculate stone": 50000,
     "an arcane scroll": 1000,
-    "mastercrafting diagram": 20000,
+    "mastercrafting diagram": 19000,
     "cleansing brew": 1500,
     "amber": 48,
     "amethyst": 60,
@@ -532,7 +534,7 @@ misc_hp_prices = { #exact string matters
     "prevalia coins [blessed]": 17000, #prevalia coins : 5 [blessed]
     "research materials (double-click to research)": 37000,
     "a skill mastery orb (used to increase a player's total skill cap by 1)": 18000, #a skill mastery orb : 3 (used to increase a player's total skill cap by 1)
-    "plant chemicals": 2500,
+    "plant chemicals": 2200,
 }
 
 misc_lp_prices = { #exact string matters
@@ -542,10 +544,11 @@ misc_lp_prices = { #exact string matters
     "arcane essence": 37,
     "an emote deed": 200000,
     "redlightning bottle": 30000,
-    "survival gear": 34000,
+    "survival gear": 32000,
     "a battle commendation (double-click to consume and receive reward item)": 11000,
     "invulnerability leather cap": 95000,
-    "dyeable gilded gold carpet tile": 23000,
+    "dyeable gilded gold carpet tile": 35000,
+    "dyeable rug tile": 15000,
     "Aspect Triumph": 1000000,
     "bloody skull pile": 400000,
     "a storage shelf": 400000,

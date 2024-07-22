@@ -555,7 +555,8 @@ def PipedListSplitter(piped_list_string,chunk_size,alt=False):
                     endwhile
 """
     template_string_two = """
-                while findtype $%$% "mainContainer" as "foundItem"
+                while findtype $%$% "currentContainer" as "foundItem"
+                    @ignore "foundItem"
                     getlabel "foundItem" "desc"
                     if inlist "itemDescriptions" "desc"
                         menu "foundItem" 0
@@ -563,7 +564,6 @@ def PipedListSplitter(piped_list_string,chunk_size,alt=False):
                         gumpresponse 1
                         wait 200
                     endif
-                    @ignore "foundItem"
                 endwhile"""
     
     if alt:
