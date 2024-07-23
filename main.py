@@ -138,7 +138,7 @@ def multi_parse_wide(in_tuple):
             formatted_location_link = f"{location_link_split[0]}?{vendor_serial}?{item_serial}?{item_price}#{location_link_split[1]}"
             quantity_string = quantity_cell.text.strip()
             name_string = name_cell.text.strip()
-            name_check_string = format_ingame_name(name_string, quantity_string)
+            og_name_string = name_string
             try:
                 price_cell_sanitized = re.sub(r"\D",'',price_cell.text)
                 price = float(price_cell_sanitized)
@@ -172,6 +172,7 @@ def multi_parse_wide(in_tuple):
                 total_cost = round(price * int(quantity_string),0)
                 total_profit = round(threshold * int(quantity_string) - total_cost,0)
                 format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
+                name_check_string = format_ingame_name(og_name_string, quantity_string)
                 out_data.append((f"{name_string}",f"{price}/{threshold}",f"{cost_to_price_ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{location_name}",f"{time_string}",f"{formatted_location_link}",f"{format_url}",f"{total_cost}",f"{name_check_string}"))
     if len(out_data) > 0:
         return (out_data,)
@@ -260,7 +261,7 @@ def simple_parse_wide(in_tuple):
             formatted_location_link = f"{location_link_split[0]}?{vendor_serial}?{item_serial}?{item_price}#{location_link_split[1]}"
             quantity_string = quantity_cell.text.strip()
             name_string = name_cell.text.strip()
-            name_check_string = format_ingame_name(name_string, quantity_string)
+            og_name_string = name_string
             try:
                 price_cell_sanitized = re.sub(r"\D",'',price_cell.text)
                 price = float(price_cell_sanitized)
@@ -294,6 +295,7 @@ def simple_parse_wide(in_tuple):
                 total_cost = round(price * int(quantity_string),0)
                 total_profit = round(threshold * int(quantity_string) - total_cost,0)
                 format_url = "https://outlandmalls.com/?item=" + quote_plus(name_string) + "&search_category_id=0"
+                name_check_string = format_ingame_name(og_name_string, quantity_string)
                 out_data.append((f"{name_string}",f"{price}/{threshold}",f"{cost_to_price_ratio}",f"{quantity_string}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{location_name}",f"{time_string}",f"{formatted_location_link}",f"{format_url}",f"{total_cost}",f"{name_check_string}"))
     if len(out_data) > 0:
         return (out_data,)
@@ -460,19 +462,20 @@ def parse_log_to_object():
                     item_id = int(match.group(1))
                     item_price = int(match.group(2).replace(',',""))
                     item_description = match.group(3)
+                    item_quantity_colon = match.group(4) or ""
+                    item_quantity = int(match.group(5) or 1)
+                    item_suffix = match.group(6) or ''
                     if " dye " in item_description and ") (hue" in item_description:
                         item_description = item_description.split(") (hue")[0] + ")"
-                    item_match = f"{item_description}{match.group(4)}" if match.group(4) else item_description
-                    item_quantity = int(match.group(5)) if match.group(5) else 1
-                    item_suffix = match.group(6) if match.group(5) else ''
-                    if(item_suffix):
-                        item_description += item_suffix
+                    item_description_full = f"{item_description}{item_quantity_colon}{item_suffix}"
+
+                    item_description += item_suffix
                     item_unitprice = round(item_price / item_quantity,4)
                     item = {
                         'id': item_id,
                         "price": item_unitprice,
                         "description": item_description,
-                        "full_description": item_match,
+                        "full_description": item_description_full,
                         "quantity": item_quantity,
                         'location': location,
                         'location_name': location_name
@@ -502,21 +505,13 @@ def parse_log_to_object():
             elif "System: Current location is" in line:
                 match = re.search(r'Current location is \((\d+), (\d+)', line)
                 if match:
-                    x1 = match.group(1)
-                    y1 = match.group(2)
+                    x1, y1 = int(match.group(1)), int(match.group(2))
                     location = f"{x1}, {y1}"
-                    check_dist = float('inf')
-                    closest = None
-                    for location_name, tuple_loc in my_locations.items():
-                        x2 = int(tuple_loc[0])
-                        y2 = int(tuple_loc[1])
-                        distance = get_distance(int(x1),int(y1),x2,y2)
-                        if distance < check_dist:
-                            check_dist = distance
-                            closest = location_name
-                    location_name = closest if closest else 'N/A'
+                    closest = min(my_locations.items(), key=lambda loc: get_distance_squared(x1, y1, int(loc[1][0]), int(loc[1][1])), default=('N/A',))[0]
+                    location_name = closest
                 else:
                     location = "0,0"
+                    location_name = "N/A"
         if pass_flag:
             if len(my_vendor_objs):
                 handle_my_vendors(my_vendor_objs)
