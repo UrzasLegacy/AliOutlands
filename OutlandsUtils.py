@@ -114,15 +114,65 @@ def format_ingame_name(name_string, quantity_string):
 # pushlist "itemDescriptions" "Price: 400,000 a skill mastery orb : 20"
 # pushlist "itemDescriptions" "Price: 180,000 prevalia coins : 10"
 
+examples = [
+    "research materials : 6"
+    "research materials (double-click to research)"
+    "Earth Aspect Core"
+    "Command Aspect Core"
+    "discordance skill mastery scroll : 5"
+    "discordance skill mastery scroll : 2"
+    "provocation skill mastery scroll : 5"
+    "provocation skill mastery scroll (used to increase a player's skill cap for a skill by 1)"
+    "stealth skill mastery scroll (used to increase a player's skill cap for a skill by 1)"
+    "taste id skill mastery scroll (used to increase a player's skill cap for a skill by 1)"
+    "herding skill mastery scroll : 4"
+    "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)"
+    "provocation skill mastery scroll : 2"
+    "cartography skill mastery scroll : 3"
+    "peacemaking skill mastery scroll (used to increase a player's skill cap for a skill by 1)"
+    "veterinary skill mastery scroll (used to increase a player's skill cap for a skill by 1)"
+]
+
+examples = [
+    "ID:1769534579 Price: 17,000 prevalia coins [blessed]",
+    "ID:1769534579 Price: 880,000 prevalia coins : 50 [blessed]",
+    "ID:1469029480 Price: 900 accessory dye (hue 1182: wilderness)",
+    "ID:1469029480 Price: 4,500 accessory dye : 5 (hue 1182: wilderness)",
+    "ID:1532022589 Price: 17,500 a skill mastery orb (used to increase a player's total skill cap by 1)",
+    "ID:1532022589 Price: 35,000 a skill mastery orb : 2 (used to increase a player's total skill cap by 1)",
+    "ID:1698619048 Price: 36,000 research materials (double-click to research)",
+    "ID:1450772282 Price: 390,000 research materials : 10 (double-click to research)",
+    "ID:1198225629 Price: 30,000 discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)",
+    "ID:1744247044 Price: 200,000 necromancy skill mastery scroll : 10 (used to increase a player's skill cap for a skill by 1)",
+    "ID:1390830339 Price: 10,000 rare cloth (hue 1182: wilderness)",
+    "ID:1715958157 Price: 48,000 rare cloth : 6 (hue 1484: metallic cerulean)",
+    "ID:1256263556 Price: 999 avarhide",
+    "ID:1703005856 Price: 60,000 avarhide : 100",
+    "ID:1255668748 Price: 4,000 Description: dullwood board dullwood board : 100",
+    "ID:1255668748 Price: 40 Description: dullwood board dullwood board",
+    "ID:1735627865 Price: 7,000 Water Aspect Core",
+    "ID:1735627865 Price: 21,000 Water Aspect Core : 3",
+    "ID:1582266771 Price: 3,900 Earth Aspect Distillation",
+    "ID:1574096687 Price: 7,800 Lyric Aspect Distillation : 2",
+    "ID:1528815584 Price: 160,000 bronze mastery chain link Effective Harvest Skill (+1.00)",
+    "ID:1115799667 Price: 500,000 plainly drawn treasure map: level 1 (undeciphered)",
+]
+
+
 def format_quick_compare_string(compare_string):
-    if "skill mastery scroll : " in compare_string:
-        compare_string += " (used to increase a player's skill cap for a skill by 1)"
-    elif "prevalia coins : " in compare_string:
-        compare_string += " [blessed]"
-    elif "research materials : " in compare_string:
-        compare_string += " (double-click to research)"
-    elif "a skill mastery orb : " in compare_string:
-        compare_string += " (used to increase a player's total skill cap by 1)"
+    transformer = {
+        "skill mastery scroll : ": " (used to increase a player's skill cap for a skill by 1)",
+        "prevalia coins : ": " [blessed]",
+        "research materials : ": " (double-click to research)",
+        "a skill mastery orb : ": " (used to increase a player's total skill cap by 1)",
+    }
+
+    for pattern_search, pattern_to_add in transformer.items():
+        if pattern_search in compare_string:
+            if pattern_to_add not in compare_string:
+                return compare_string + pattern_to_add
+            break
+
     return compare_string
 
 def format_with_commas(number_string):
@@ -540,12 +590,24 @@ def PipedListConcatenator(before, after):
 
     return concat_string
 
-def PipedListSplitter(piped_list_string,chunk_size,alt=False):
+def PipedListPrioritize(piped_list, priority_dict):
+    priority_list = list(priority_dict.values())
+    priority_list_sorted = sorted(priority_list, key=int)
+
+    list_set = set(piped_list.split("|"))
+    priority_set = set(priority_list)
+    dif_set = list_set - priority_set
+
+    sub_list = list(dif_set)
+    sub_list_sorted = sorted(sub_list, key=int)
+
+    sub_string = '|'.join(priority_list_sorted + sub_list_sorted)
+
+    return sub_string
+
+def PipedListSplitter(piped_list_string,chunk_size,template_two=False):
     piped_list = piped_list_string.split("|")
     
-    chunk_list = []
-    for i in range(0, len(piped_list), chunk_size):
-        chunk_list.append(piped_list[i:i + chunk_size])
 
     template_string = """
                     while findtype $%$% "container" as foundItem
@@ -566,9 +628,16 @@ def PipedListSplitter(piped_list_string,chunk_size,alt=False):
                     endif
                 endwhile"""
     
-    if alt:
+    if template_two:
         template_string = template_string_two
     
+    chunk_list = []
+    if chunk_size == 0:
+        chunk_list.append(piped_list)
+    else:
+        for i in range(0, len(piped_list), chunk_size):
+            chunk_list.append(piped_list[i:i + chunk_size])
+
     out_string = ""
     for chunk in chunk_list:
         chunk_string = "|".join(chunk)
