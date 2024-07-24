@@ -10,7 +10,7 @@ import json
 from OutlandsDicts import *
 import os
 import sys
-
+import glob
 
 def alter_hue_dict(self_parse=False, item_type="rare cloth"):
     shoe_list = ['cloth shoes', 'shoes', 'cloth boots', 'cloth thigh boots', 'cloth sandals']
@@ -696,3 +696,40 @@ def save_user_data():
     filename = f"vendor_info.json"
     with open(filename, "w") as file:
         json.dump(my_vendors, file, indent=4)
+
+def get_most_recent_log():
+    def check_accessibility(file_path):
+        try:
+            with open(file_path):
+                pass
+            return True
+        except Exception as e:
+            return False
+    folder_path = "C:\\Program Files (x86)\\Ultima Online Outlands\\ClassicUO\\Data\\Client\\JournalLogs\\"
+    files = [f for f in glob.glob(os.path.join(folder_path, '*.txt')) if os.path.isfile(f)]
+    sorted_files = sorted(files, key=os.path.getmtime, reverse=True)
+    latest_files = sorted_files[:6]
+    accessible_files = [f for f in latest_files if check_accessibility(f)]
+    try:
+        latest_file = max(accessible_files, key=os.path.getmtime)
+    except Exception as e:
+        print(f"get_most_recent_log: Unexpected error when accessing {folder_path}: {str(e)}")
+        latest_file = False
+    return latest_file
+
+def clipboard_runetome_dictionary(filename="runetomes.json", REG_EXP=r"ID:(\d+).*Name:(.+?) a rune tome"):
+    with open(filename) as file:
+        line_list = file.read().strip().split('\n') or []
+
+    tome_dictionary = {match.group(2): match.group(1) for line in line_list if (match := re.search(REG_EXP, line))}
+
+    sorted_tome_dictionary = {
+        k: v for (k, v) in sorted(
+            tome_dictionary.items(), key=lambda x: (x[0].split()[0], int(re.search(r'\d+', x[0]).group()) if re.search(r'\d+', x[0]) else 0)
+            )
+        }
+    
+    pyperclip.copy(json.dumps(sorted_tome_dictionary, indent=2))
+
+if __name__ == "__main__":
+    clipboard_runetome_dictionary()
