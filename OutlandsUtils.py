@@ -27,6 +27,10 @@ def alter_hue_dict(self_parse=False, item_type="rare cloth"):
                 for shoe in shoe_list:
                     new_k = f"{lower} {shoe} (hue {hue_data['hue']})"
                     out_dict[new_k] = shoe_price
+                if hue_data['rare cloth'] > 30000:
+                    shoe_price = hue_data['rare cloth'] * 8
+                new_k = f"headwear dye (hue {hue_data['hue']}: {lower})"
+                out_dict[new_k] = shoe_price
             else:
                 new_k = f"{item_type} (hue {hue_data['hue']}: {lower})"
                 out_dict[new_k] = hue_data[item_type]

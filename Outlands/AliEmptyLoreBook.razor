@@ -1,0 +1,80 @@
+@setvar! "gumpID" 1274830955 
+@setvar! "lorePageBook" 0x43C4D42C
+
+waitforgump "gumpID"
+gumpresponse 3 "gumpID"
+
+for 6
+    waitforgump "gumpID"
+    gumpresponse 10 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 11 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 12 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 13 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 14 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 15 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 16 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 17 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 18 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 19 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 20 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 21 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 22 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 23 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 24 "gumpID"
+
+    waitforgump "gumpID"
+    gumpresponse 5 "gumpID"
+
+    
+    if findtype 27612
+        menu "lorePageBook" 0
+    endif
+    wait 250
+endfor
+
+for 20
+    waitforgump "gumpID"
+    gumpresponse 10 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 11 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 12 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 13 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 14 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 15 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 16 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 17 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 18 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 19 "gumpID"
+    waitforgump "gumpID"
+    gumpresponse 20 "gumpID"
+
+    waitforgump "gumpID"
+    gumpresponse 5 "gumpID"
+    
+    if findtype 27612
+        menu "lorePageBook" 0
+    endif
+    wait 250
+endfor

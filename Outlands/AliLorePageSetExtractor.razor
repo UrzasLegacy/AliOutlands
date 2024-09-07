@@ -1,0 +1,76 @@
+// Lore Page Set Extractor
+@setvar "container" 0x4465D3C6
+@setvar! "sourceLorePageBook" 0x43C4D42C
+@setvar! "destinationLorePageBook" 0x470E1CCB
+
+//increase this if you are having any issues
+@setvar! "latencyMS" 100
+
+
+//no edit
+clearsysmsg
+@clearignore
+
+createtimer "globalCD"
+
+if find "sourceLorePageBook" "container"
+else
+    overhead "Source book not found! Stopping..."
+    stop
+endif
+
+if find "destinationLorePageBook" "container"
+else
+    overhead "Destination book not found! Stopping..."
+    stop
+endif
+
+while findtype 27612 as "lorePage"
+    menu "sourceLorePageBook" 0
+    wait 250
+endwhile
+
+if not gumpexists 1274830955
+    overhead "Open your lore tome to the page you'd like to assemble first" 32
+    stop
+endif
+
+for 29
+    if insysmsg "You do not have any of that particular page"
+        waitforgump 1274830955 50
+        gumpresponse 2 1274830955
+        waitforgump 1274830955 200
+        gumpresponse 5
+        waitforgump 1274830955
+        wait "latencyMS"
+        overhead "Incomplete set, returning pages" 32
+        loop
+    elseif "index" == 0  or "index" == 1 or "index" == 2 or "index" == 3 or "index" == 4 or "index" == 5 or "index" == 6 or "index" == 7 or "index" == 8 or "index" == 9 or "index" == 25 or "index" == 26 or "index" == 27 or "index" == 28
+    elseif "index" == 20 or "index" == 21 or "index" == 22 or "index" == 23 or "index" == 24
+        if ingump "Creatures of" 1274830955
+            gumpresponse "index" 1274830955
+            wait "latencyMS"
+            waitforgump 1274830955 50
+        endif
+    else
+        gumpresponse "index" 1274830955
+        wait "latencyMS"
+        waitforgump 1274830955 50
+    endif
+endfor
+
+if find "destinationLorePageBook" "container"
+    overhead "Storing Page Set" 1159
+    while findtype 27612 as "lorePage"
+        menu "destinationLorePageBook" 0
+        wait 250
+    endwhile
+else
+    waitforgump 1274830955 50
+    overhead "Cant find destination book. Stopping..." 32
+    waitforgump 1274830955 200
+    gumpresponse 2 1274830955
+    stop
+endif
+
+loop

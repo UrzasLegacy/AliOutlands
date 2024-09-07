@@ -1,19 +1,26 @@
 @setvar! "innkeeperSerial" 0x173
-
+@setvar! "stewardSerial" 0x7A9C7
 //No Edit
 
 @clearignore
 @setvar! "pass" 0
+
 if find "innkeeperSerial" ground any any 14
-    @setvar! "pass" 1
+    @setvar! "pass" 5
+elseif find "stewardSerial" ground any any 10
+    @setvar! "pass" 2
 endif
+
 if findtype "bank deposit safe" ground -1 -1 20 as "safe"
     getlabel "safe" "label"
     overhead "label"
     sysmsg "label"
 endif
-if "pass" = 1
+
+if "pass" = 5
     overhead "Innkeeper found"
+elseif "pass" = 2
+    overhead "Steward found"
 elseif skill "Chivalry" > 80
     while not findtype 30528 ground 2091 1 1
         say "[SacredJourney"
@@ -33,7 +40,7 @@ elseif skill "Magery" > 50
         foreach "myBook" in "runebookList"
             getlabel "myBook" desc
             if "runebook: Home" in desc
-                while pass = 0
+                while "pass" = 0
                     hotkey "Recall"
                     wft 5000
                     target "myBook"
@@ -42,7 +49,7 @@ elseif skill "Magery" > 50
                     @clearignore
                     if find "innkeeperSerial"
                         overhead "Innkeeper found" 1159
-                        @setvar! pass 1
+                        @setvar! "pass" 5
                     else
                         overhead "Not near enough to innkeeper, trying again" 1159
                     endif
@@ -77,11 +84,11 @@ if not gumpexists 2393832411
     stop
 elseif ingump "Enter Your Room" 2393832411
     gumpresponse 4 2393832411
-elseif ingump "Rent This Room" 2393832411
-    gumpresponse 5 2393832411
+elseif ingump "Visit Other Rooms" 2393832411
+    gumpresponse "pass" 2393832411
     waitforgump 2393832411 2500
     if not gumpexists 2393832411
-        gumpresponse 5 2393832411
+        gumpresponse "pass" 2393832411
         waitforgump 2393832411 2500
     endif
     gumpresponse 100 2393832411
@@ -98,3 +105,4 @@ endwhile
 overhead "Home sweet home" 1159
 wait 200
 script "AliSort"
+

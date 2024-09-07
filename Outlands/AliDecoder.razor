@@ -1,0 +1,53 @@
+// Research Material Auto Decoder
+
+// Will quickly decode all research materials on your character.
+// Put some research mats in your backpack, set your decode
+// method below, and press play.
+
+//Cartography 2, Detect Hidden 3, Item ID, 4
+@setvar "researchMethod" 3
+@setvar! "delay" 700
+@setvar! "stockContainer" 0x4465D3C6
+@setvar! "lorePageBook" 0x43C4D42C
+createtimer "globalCD"
+
+
+@clearignore
+while findtype 27612 as "lorePage"
+    @ignore "lorePage"
+endwhile
+
+while findtype 24434 as "researchMaterialStock"
+    lift "researchMaterialStock" 100
+    drop backpack -1 -1 -1
+    wait 250
+    while findtype 24434 as "researchMaterial"
+        dclick "researchMaterial"
+        settimer "globalCD" 0
+        waitforgump 709455756 1000
+        gumpresponse "researchMethod"
+        waitforgump 2520345223 1000
+        gumpclose 2520345223
+        if findtype 27612 as "lorePage"
+            getlabel "lorePage" "desc"
+            if " of 15" in "desc"
+                overhead "desc" 32
+            else
+                overhead "desc" 1159
+            endif
+            @ignore "lorePage"
+        endif
+        while timerexists "globalCD" and timer "globalCD" < "delay"
+            wait 50
+        endwhile
+    endwhile
+    if findtype 27612
+        menu "lorePageBook" 0
+    endif
+    wait 250
+endwhile
+if findtype 27612
+    menu "lorePageBook" 0
+endif
+@clearignore
+

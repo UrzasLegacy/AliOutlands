@@ -6,8 +6,19 @@
 
 @setvar! globalTimeout 650
 
+
+#thigh boot 0x1711
+#sandal 0x170D
+#shoe 0x170F
+#boot 0x170B
+##time lore page 0x0A63
+#melloweed leaves 0xC796
+
+
 # ---------------------------------------- #
 # Ignore these things for sorting!
+# The IDs for most blessed things you might keep in your pack are not in any of the findlists so ignored by default.
+# Add anything specific below that you want to avoid putting away into a container.
 
 if findtype "spellbook" self 0 as mySpellBook
     @ignore mySpellBook
@@ -20,12 +31,15 @@ if findtype 3922 self 0 as myDagger
     endif
 endif
 
+
+
+
 # ---------------------------------------- #
 
 
 
-while skill "mining" > 50 and findtype "forge" ground -1 -1 2 and findtype "iron ore" backpack as jore
-        dclick jore
+while skill "mining" > 50 and findtype "forge" ground -1 -1 2 and findtype "iron ore" backpack as "ore"
+        dclick "ore"
         wait 650
 endwhile
 
@@ -141,7 +155,7 @@ endif
 wait 500
 
 #Valuables
-while findtype 4025|4026|25359|37181|22326|51078|15296|45259|29030|2539|3821|5360|16898|576|2472|2475|2594|2744|2750|2760|2771|2778|2799|3648|3649|3650|3651|3708|3712|3827|3836|3838|3839|3842|3843|3985|4248|5359|5981|8826|12686|15297|17087|17686|19717|22244|22336|23996|23997|24343|24434|29025|29036|29832|29833|43166|43179|43206|48405|48407 backpack as item
+while findtype 27612|51094|2659|5899|5903|5901|5905|4025|4026|25359|37181|22326|51078|15296|45259|29030|2539|3821|5360|16898|576|2472|2475|2594|2744|2750|2760|2771|2778|2799|3648|3649|3650|3651|3708|3712|3827|3836|3838|3839|3842|3843|3985|4248|5359|5981|8826|12686|15297|17087|17686|19717|22244|22336|23996|23997|24343|24434|29025|29036|29832|29833|43166|43179|43206|48405|48407 backpack as item
     getlabel item desc
     overhead "Organize {{desc}} to Valuable Items" 53
     lift item 60000

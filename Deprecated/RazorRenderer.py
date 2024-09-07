@@ -29,18 +29,18 @@ def RenderDistilScript():
         pass
 
 def SimpleStocker():
-    item_ID = 3827
-    item_string = 'arcane scroll'
+    item_ID = 16898
+    item_string = 'prevalia coins'
     from_container = 'backpack'
-    to_container = 0x483BE859
-    price = 10000
-    quant = 10
-    total_stacks = 20
+    to_container = 0x4F1C1F98
+    price = 19000
+    quant = 1
+    total_stacks = 25
 
-    start_pos = "X=62, Y=133, Z=0"
-    end_pos = "X=107, Y=143, Z=0"
-    x_offset = 3
-    y_offset = 10
+    start_pos = "X=44, Y=142, Z=0"
+    end_pos = "X=X=164, Y=142, Z=0"
+    x_offset = 5
+    y_offset = 0
 
     start_match = re.search(r"X=(\d+), Y=(\d+), Z=(\d+)",start_pos)
     start_X = int(start_match.group(1)) if start_match else 0
@@ -75,7 +75,7 @@ def SimpleStocker():
         return
 
     #grid = [[None for _ in range(column_count)] for _ in range(row_count)]
-
+    price_str = format_with_commas(price)
     out_str = '''removelist "coordList"
 createlist "coordList"
 
@@ -111,7 +111,7 @@ while findtype {item_ID} {from_container} as "itemToMove"
             promptresponse {price}
             wait 325
             getlabel "itemToMove" "itemDesc"
-            if ": {price}" in "itemDesc"
+            if ": {price_str}" in "itemDesc"
             else
                 lift "itemToMove" {quant}
                 drop backpack 0 0 0
@@ -127,7 +127,16 @@ while findtype {item_ID} {from_container} as "itemToMove"
 endwhile'''
 
     pyperclip.copy(out_str)
-
+def format_with_commas(number_string):
+	try:
+		number = float(number_string)
+		if number.is_integer():
+			formatted_number = "{:,.0f}".format(number)
+		else:
+			formatted_number = "{:,}".format(number)
+		return formatted_number
+	except ValueError:
+		return "Invalid input"
 
 def SkillScrollStocker():
     scrolls = { #exact string MATTERS
@@ -238,7 +247,7 @@ endif
             
 
 def main():
-    SkillScrollStocker()
+    SimpleStocker()
 
 
 main()

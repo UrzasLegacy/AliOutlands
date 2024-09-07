@@ -29,7 +29,7 @@ from OutlandsUtils import *
 from requests.cookies import RequestsCookieJar
 
 
-
+#TODO add hotkey filtering options to config file, i.e. 1 and 2 keys
 #TODO Small history stack for clipboard: Ctrl-z to undo script append
 #TODO For image analysis of inventory, instead of screen capture, snip and use last image on clipboard
 #TODO add clothes,boat stuff (crew, upgrades), jugglin torches n shit
@@ -60,7 +60,6 @@ def multi_parse_wide(in_tuple):
     time_frame = in_tuple[2]
     cutoff_threshold = in_tuple[3]
     outlands_cookie = in_tuple[4]
-    corrupted_link_price_threshold = 200000
     steps = {
         "Aspect Core": core_prices,
         "Aspect Extract": extract_prices,
@@ -153,8 +152,8 @@ def multi_parse_wide(in_tuple):
                     threshold = float(prices_obj.get(chain_name,[0,0,0])[1])
                 elif name_string.startswith('gold mastery chain link'):
                     threshold = float(prices_obj.get(chain_name,[0,0,0])[2])
-                elif name_string.startswith('corrupted mastery chain link'):
-                    threshold = float(corrupted_link_price_threshold)
+                elif name_string.startswith('corrupted mastery chain link') and "[unactivated]" in name_string:
+                    threshold = float(prices_obj.get("corrupted_link_price_threshold",0))
                 else:
                     threshold = 0
             else:
@@ -276,7 +275,7 @@ def simple_parse_wide(in_tuple):
                     threshold = float(prices_obj.get(chain_name,[0,0,0])[1])
                 elif name_string.startswith('gold mastery chain link'):
                     threshold = float(prices_obj.get(chain_name,[0,0,0])[2])
-                elif name_string.startswith('corrupted mastery chain link'):
+                elif name_string.startswith('corrupted mastery chain link') and "[unactivated]" in name_string:
                     threshold = float(corrupted_link_price_threshold)
                 else:
                     threshold = 0
@@ -1748,6 +1747,7 @@ endwhile"""
         self_parse_extra_misc = self.check_lp_misc_var.get()
         bools = [
             (self.check_core_var.get(), core_prices),
+            (self.check_core_var.get(), phylactery_prices),
             (self.check_extract_var.get(), extract_prices),
             (self.check_distil_var.get(), distil_prices),
             (self.check_tmaps_var.get(), tmap_prices),
@@ -1773,7 +1773,7 @@ endwhile"""
                 if prices == 'cloth':
                     self_parse_prices.update(alter_hue_dict(True,'rare cloth'))
                 elif prices == 'dyes':
-                    dye_list = ['accessory dye','runebook dye','headwear dye','carpet dye','furniture dye','hair dye','facial hair dye','backpack dye','mount gear dye']
+                    dye_list = ['accessory dye','runebook dye','carpet dye','furniture dye','hair dye','facial hair dye','backpack dye','mount gear dye']
                     for dye in dye_list:
                         self_parse_prices.update(alter_hue_dict(True,dye))
                 else:
@@ -1792,7 +1792,7 @@ endwhile"""
                 threshold = 0.0
                 name_string = item['description']
                 full_description = item['full_description']
-                price = round(item['price'],4)
+                price = round(item['price'], 4)
                 if 'chain link' in name_string:
                     if name_string.startswith('a '):
                         name_string = name_string[2:]
@@ -1805,10 +1805,8 @@ endwhile"""
                         threshold = float(self_parse_prices.get(chain_name,[0,0,0])[1])
                     elif name_string.startswith('gold mastery chain link'):
                         threshold = float(self_parse_prices.get(chain_name,[0,0,0])[2])
-                    elif name_string.startswith('corrupted mastery chain link'):
+                    elif name_string.startswith('corrupted mastery chain link') and "[unactivated]" in name_string:
                         threshold = float(self_parse_prices.get("corrupted_link_price_threshold",0))
-                    else:
-                        threshold = 0.
                 elif self_parse_extra_misc:
                     if "invulnerability" in name_string:
                         if ("bone" in name_string or "studded" in name_string) and not ("skirt" in name_string or "cap" in name_string or "bustier" in name_string):
@@ -1842,7 +1840,8 @@ endwhile"""
                         elif "battle antiquity" in name_string:
                             threshold = float(self_parse_extra_aliases.get('battle antiquity', 0))
                         elif "ocean antiquity" in name_string:
-                            threshold = float(self_parse_extra_aliases.get('ocean antiquity', 0))
+                            sub_string = name_string.replace(" (ocean antiquity)","")
+                            threshold = float(self_parse_ocean_antiquities_prices.get(sub_string, self_parse_extra_aliases.get('ocean antiquity', 0)))
                         elif "chest antiquity" in name_string:
                             threshold = float(self_parse_extra_aliases.get('chest antiquity', 0))
                     elif 'totem' in name_string and 'lustrous' in name_string:
@@ -2014,11 +2013,11 @@ endwhile"""
                         check_arr.append((stack_size,quantity))
                     result = f"{trunc_name}: {' & '.join(inline_strings)}"
 
-                    if category_name == "Skill Mastery Scrolls" and ((1,2) not in check_arr or (10,2) not in check_arr):
+                    if category_name == "Skill Mastery Scrolls" and ((10,4) not in check_arr or (1,1) not in check_arr):
                         out_str += f"--{result}   \n"
                     elif category_name == "Cores" and ((20,1) not in check_arr or (5,2) not in check_arr or (1,2) not in check_arr): 
                         out_str += f"--{result}   \n"
-                    elif category_name == "Distils" and ((5,2) not in check_arr or (1,2) not in check_arr): 
+                    elif category_name == "Distils" and ((5,4) not in check_arr or (1,1) not in check_arr): 
                         out_str += f"--{result}   \n"
                     elif not only_report_incorrect_inventory:
                         out_str += f"\t{result}\n"
