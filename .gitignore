@@ -4,3 +4,6 @@ vendor_info.json
 *.log
 test.py
 test.bat
+*.pyc
+__pycache__
+*.csv
