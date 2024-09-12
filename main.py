@@ -1968,7 +1968,7 @@ endwhile"""
             return []
         
     def read_db_current_inventory(self,only_report_incorrect_inventory=False):
-        try:
+        try: 
             rows = get_most_recent_inventory_snapshot()
             if not rows:
                 print("read_db_current_inventory: No inventory snapshot available.")
