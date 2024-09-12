@@ -3,7 +3,7 @@
         "Air Aspect Core": 85000,
         "Arcane Aspect Core": 80000,
         "Artisan Aspect Core": 75000,
-        "Blood Aspect Core": 18000,
+        "Blood Aspect Core": 22000,
         "Command Aspect Core": 65000,
         "Death Aspect Core": 10000,
         "Discipline Aspect Core": 8000,
@@ -18,7 +18,7 @@
         "Lightning Aspect Core": 41000,
         "Lyric Aspect Core": 15000,
         "Madness Aspect Core": 80000,
-        "Poison Aspect Core": 72000,
+        "Poison Aspect Core": 80000,
         "Shadow Aspect Core": 60000,
         "Void Aspect Core": 50000,
         "War Aspect Core": 7000,
@@ -80,7 +80,7 @@
     "misc_crafting_prices": {
         "pristine lumber": 40000,
         "immaculate stone": 50000,
-        "an arcane scroll": 1100,
+        "an arcane scroll": 1200,
         "mastercrafting diagram": 20000,
         "cleansing brew": 1500,
         "amber": 48,
@@ -190,7 +190,7 @@
         "corrupted_link_price_threshold": 800000
     },
     "scroll_prices": {
-        "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 60000,
+        "alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 65000,
         "animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
         "animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
         "arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
@@ -199,7 +199,7 @@
         "camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
         "carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
         "cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,
-        "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 35000,
+        "chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 40000,
         "cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
         "detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
         "discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
@@ -978,10 +978,10 @@
             "runebook dye": 800000,
             "accessory dye": 50000,
             "carpet dye": 40000,
-            "furniture dye": 500000,
-            "hair dye": 2000000,
-            "facial hair dye": 1700000,
-            "backpack dye": 2000000,
+            "furniture dye": 400000,
+            "hair dye": 1500000,
+            "facial hair dye": 1300000,
+            "backpack dye": 1100000,
             "mount gear dye": 150000
         },
         "Lustrous Flesh": {
@@ -1454,15 +1454,15 @@
         },
         "Netherzone": {
             "hue": 1500,
-            "rare cloth": 40000,
-            "runebook dye": 200000,
-            "accessory dye": 30000,
-            "carpet dye": 50000,
+            "rare cloth": 30000,
+            "runebook dye": 100000,
+            "accessory dye": 20000,
+            "carpet dye": 30000,
             "furniture dye": 200000,
-            "hair dye": 200000,
-            "facial hair dye": 150000,
-            "backpack dye": 150000,
-            "mount gear dye": 150000
+            "hair dye": 100000,
+            "facial hair dye": 60000,
+            "backpack dye": 100000,
+            "mount gear dye": 100000
         },
         "Metallic Cherry": {
             "hue": 2380,

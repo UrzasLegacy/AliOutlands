@@ -44,7 +44,7 @@ core_prices = { #exact string MATTERS
 	"Air Aspect Core": 85000,
 	"Arcane Aspect Core": 80000,
 	"Artisan Aspect Core": 75000,
-	"Blood Aspect Core": 18000,
+	"Blood Aspect Core": 22000,
 	"Command Aspect Core": 65000,
 	"Death Aspect Core": 10000,
 	"Discipline Aspect Core": 8000,
@@ -59,7 +59,7 @@ core_prices = { #exact string MATTERS
 	"Lightning Aspect Core": 41000,
 	"Lyric Aspect Core": 15000,
 	"Madness Aspect Core": 80000,
-	"Poison Aspect Core": 72000,
+	"Poison Aspect Core": 80000,
 	"Shadow Aspect Core": 60000,
 	"Void Aspect Core": 50000,
 	"War Aspect Core": 7000,
@@ -266,7 +266,7 @@ commodity_5000_prices = {
 }
 
 scroll_prices = {
-	"alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 60000,
+	"alchemy skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 65000,
 	"animal lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,#[:7]
 	"animal taming skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,#[:7]
 	"arms lore skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,
@@ -275,7 +275,7 @@ scroll_prices = {
 	"camping skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 18000,
 	"carpentry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 10000,#[:4]
 	"cartography skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 11000,#[:4]
-	"chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 35000,
+	"chivalry skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 40000,
 	"cooking skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
 	"detect hidden skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 15000,
 	"discordance skill mastery scroll (used to increase a player's skill cap for a skill by 1)": 12000,
@@ -799,7 +799,7 @@ my_locations = {
 	"E Andaria Gate":(2398,648,('TomeEcho',2828,203,20)),
 	"Frost Forest":(3622,447,('TomeEcho',2828,204,10)),
 	"Terran Gate":(885,1573,('TomeEcho',2828,205,20)),
-	"S Prev Xroad Far S":(1531,1833,('TomeEcho',2828,206,10)),
+	"S Prev Xroad Far S":(1536,1820,('TomeEcho',2828,206,10)),
 	"N Prev Sandbar W":(1551,1315,('TomeEcho',2828,207,20)),
 	"NE Cambria Gate":(1746,3139,('TomeEcho',2828,208,10)),
 	"81 Xroad":(1262,1904,('TomeEcho',2828,209,20)),
@@ -1439,19 +1439,20 @@ def pretty_print_prices():
 		f.write(formatted_json_str)
 	return formatted_json_str
 
-def simple_stocker():
-    item_ID = 16898
-    item_string = 'prevalia coins'
-    from_container = 'backpack'
-    to_container = 0x4F1C1F98
-    price = 21000
-    quant = 1
-    total_stacks = 25
+def simple_stocker(
+		item_ID=16898,
+		item_string="prevalia coins",
+		from_container="backpack",
+		to_container=0x41F1C1F98,
+		price=21000,
+		quant=1,
+		total_stacks=25,
+		start_pos="X=44, Y=142, Z=0",
+		end_pos = "X=X=164, Y=142, Z=0",
+    	x_offset = 5,
+    	y_offset = 0
+	):
 
-    start_pos = "X=44, Y=142, Z=0"
-    end_pos = "X=X=164, Y=142, Z=0"
-    x_offset = 5
-    y_offset = 0
 
     start_match = re.search(r"X=(\d+), Y=(\d+), Z=(\d+)",start_pos)
     start_X = int(start_match.group(1)) if start_match else 0
@@ -1482,7 +1483,7 @@ def simple_stocker():
     max_items = row_count * column_count
     print(f"Max Stacks: {max_items}")
     if max_items < total_stacks:
-        print(f"r:{row_count},c:{column_count} < {total_stacks}")
+        print(f"rows:{row_count},columns:{column_count} < total_stacks:{total_stacks}")
         return
 
     #grid = [[None for _ in range(column_count)] for _ in range(row_count)]
@@ -1535,7 +1536,8 @@ while findtype {item_ID} {from_container} as "itemToMove"
         wait 325
         @ignore "itemToMove"
     endif
-endwhile'''
+endwhile
+stop'''
 
     pyperclip.copy(out_str)
 
@@ -1545,6 +1547,19 @@ if __name__ == "__main__":
 	alt_vendors = True
 	render_stock_script({},discount_float,alt_vendors)
 	#simple_stocker()
+	# simple_stocker(
+	# 	item_ID=5356,
+	# 	item_string="legendarily drawn treasure map: level 8 (undeciphered)",
+	# 	from_container="backpack",
+	# 	to_container=0x4F1C1BDE,
+	# 	price=320000,
+	# 	quant=1,
+	# 	total_stacks=27,
+	# 	start_pos="X=44, Y=140, Z=0",
+	# 	end_pos = "X=96, Y=140, Z=0",
+    # 	x_offset = 2,
+    # 	y_offset = 0
+	# )
 	#print(f"Price Multiplier: {discount_float}\nAlternate Vendors: {alt_vendors}")
 	pretty_print_prices()
 
