@@ -42,9 +42,9 @@ def collate_price_dicts(*price_dicts):
 
 core_prices = { #exact string MATTERS
 	"Air Aspect Core": 85000,
-	"Arcane Aspect Core": 80000,
-	"Artisan Aspect Core": 75000,
-	"Blood Aspect Core": 22000,
+	"Arcane Aspect Core": 85000,
+	"Artisan Aspect Core": 80000,
+	"Blood Aspect Core": 27000,
 	"Command Aspect Core": 65000,
 	"Death Aspect Core": 10000,
 	"Discipline Aspect Core": 8000,
@@ -52,18 +52,18 @@ core_prices = { #exact string MATTERS
 	"Eldritch Aspect Core": 75000,
 	"Fire Aspect Core": 14000,
 	"Frost Aspect Core": 13000,
-	"Fortune Aspect Core": 70000,
+	"Fortune Aspect Core": 75000,
 	"Gadget Aspect Core": 14000,
 	"Harvest Aspect Core": 80000,
-	"Holy Aspect Core": 15000,
+	"Holy Aspect Core": 19000,
 	"Lightning Aspect Core": 41000,
 	"Lyric Aspect Core": 15000,
 	"Madness Aspect Core": 80000,
 	"Poison Aspect Core": 80000,
-	"Shadow Aspect Core": 60000,
+	"Shadow Aspect Core": 70000,
 	"Void Aspect Core": 50000,
 	"War Aspect Core": 7000,
-	"Water Aspect Core": 6000,
+	"Water Aspect Core": 7000,
 }
 
 extract_prices = {
@@ -114,8 +114,8 @@ distil_prices = {
 	'Poison Aspect Distillation': 12000,
 	'Shadow Aspect Distillation': 11000,
 	'Void Aspect Distillation': 7000,
-	'War Aspect Distillation': 5000,
-	'Water Aspect Distillation': 5000,
+	'War Aspect Distillation': 9000,
+	'Water Aspect Distillation': 7000,
 }
 
 phylactery_prices = {
@@ -540,7 +540,7 @@ hue_list = {
 misc_crafting_prices = { #https://outlandmalls.com/?item=&search_category_id=21&search_sub_category_id=98
 	"pristine lumber": 40000, 
 	"immaculate stone": 50000,
-	"an arcane scroll": 1200,
+	"an arcane scroll": 1300,
 	"mastercrafting diagram": 20000,
 	"cleansing brew": 1500,
 	"amber": 48,
@@ -641,6 +641,7 @@ self_parse_extra_aliases = {
 	"invulnerability studded": 5000,
 	"invulnerability platemail": 40000,
 	"fortification platemail": 15000,
+	"vanquishing staff": 22000,
 	
 }
 
@@ -673,6 +674,8 @@ self_parse_ocean_antiquities_prices = {
 	"spikefan coral": 100000,
 	"bloodleaf coral": 100000,
 	"stiletto coral": 100000,
+	"brain coral": 100000,
+	"giant greenstalk coral": 100000,
 }
 
 my_locations = {
@@ -1545,21 +1548,37 @@ stop'''
 if __name__ == "__main__":  
 	discount_float = 1.
 	alt_vendors = True
-	render_stock_script({},discount_float,alt_vendors)
-	#simple_stocker()
-	# simple_stocker(
-	# 	item_ID=5356,
-	# 	item_string="legendarily drawn treasure map: level 8 (undeciphered)",
-	# 	from_container="backpack",
-	# 	to_container=0x4F1C1BDE,
-	# 	price=320000,
-	# 	quant=1,
-	# 	total_stacks=27,
-	# 	start_pos="X=44, Y=140, Z=0",
-	# 	end_pos = "X=96, Y=140, Z=0",
-    # 	x_offset = 2,
-    # 	y_offset = 0
-	# )
-	#print(f"Price Multiplier: {discount_float}\nAlternate Vendors: {alt_vendors}")
+	choose = 2
+	if choose == 1:
+		render_stock_script({},discount_float,alt_vendors)
+	else:
+		#simple_stocker() 
+		simple_stocker(
+			item_ID=5356,
+			item_string="legendarily drawn treasure map: level 8 (undeciphered)",
+			from_container="backpack",
+			to_container=0x4F1C1BDE,
+			price=340000,
+			quant=1,
+			total_stacks=27,
+			start_pos="X=44, Y=125, Z=0",
+			end_pos = "X=96, Y=125, Z=0",
+			x_offset = 2,
+			y_offset = 0
+		)
+		# simple_stocker(
+		# 	item_ID=5356,
+		# 	item_string="valewood lumber map",
+		# 	from_container="backpack",
+		# 	to_container=0x4F1C1BDE,
+		# 	price=35000,
+		# 	quant=1,
+		# 	total_stacks=4,
+		# 	start_pos="X=122, Y=82, Z=0",
+		# 	end_pos = "X=150, Y=82, Z=0",
+		# 	x_offset = 2,
+		# 	y_offset = 0
+		# )
+	print(f"Price Multiplier: {discount_float}\nAlternate Vendors: {alt_vendors}")
 	pretty_print_prices()
 

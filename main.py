@@ -435,6 +435,7 @@ def parse_log_to_object():
             elif "…item" in line and current_vendor is not None:
                 if "Not for sale" in line:
                     continue
+                #[09/24/2024 12:14]  [Razor]: …item ID:1838671292 Stack Price: 12,000 each Air Aspect Distillation : 5
                 match = re.search(r'ID:(\d+) Price: ([\d,]+) (.+?)(?:( : (\d+))(.*))?$', line)
                 if match:
                     item_id = int(match.group(1))
@@ -1815,6 +1816,8 @@ endwhile"""
                             threshold = float(self_parse_extra_aliases.get('invulnerability platemail', 0))
                     elif "fortification" in name_string and "platemail" in name_string:
                         threshold = float(self_parse_extra_aliases.get('fortification platemail', 0))
+                    elif "vanquishing " in name_string and " staff" in name_string:
+                        threshold = float(self_parse_extra_aliases.get('vanquishing staff', 0))
                     elif "tome" in name_string and not "summoner's tome" in name_string and not "a rune tome" in name_string:
                         threshold = float(self_parse_extra_aliases.get('tome', 0))
                     elif "mount token" in name_string:

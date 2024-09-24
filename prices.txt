@@ -1,9 +1,9 @@
 {
     "core_prices": {
         "Air Aspect Core": 85000,
-        "Arcane Aspect Core": 80000,
-        "Artisan Aspect Core": 75000,
-        "Blood Aspect Core": 22000,
+        "Arcane Aspect Core": 85000,
+        "Artisan Aspect Core": 80000,
+        "Blood Aspect Core": 27000,
         "Command Aspect Core": 65000,
         "Death Aspect Core": 10000,
         "Discipline Aspect Core": 8000,
@@ -11,18 +11,18 @@
         "Eldritch Aspect Core": 75000,
         "Fire Aspect Core": 14000,
         "Frost Aspect Core": 13000,
-        "Fortune Aspect Core": 70000,
+        "Fortune Aspect Core": 75000,
         "Gadget Aspect Core": 14000,
         "Harvest Aspect Core": 80000,
-        "Holy Aspect Core": 15000,
+        "Holy Aspect Core": 19000,
         "Lightning Aspect Core": 41000,
         "Lyric Aspect Core": 15000,
         "Madness Aspect Core": 80000,
         "Poison Aspect Core": 80000,
-        "Shadow Aspect Core": 60000,
+        "Shadow Aspect Core": 70000,
         "Void Aspect Core": 50000,
         "War Aspect Core": 7000,
-        "Water Aspect Core": 6000
+        "Water Aspect Core": 7000
     },
     "distil_prices": {
         "Air Aspect Distillation": 12000,
@@ -46,8 +46,8 @@
         "Poison Aspect Distillation": 12000,
         "Shadow Aspect Distillation": 11000,
         "Void Aspect Distillation": 7000,
-        "War Aspect Distillation": 5000,
-        "Water Aspect Distillation": 5000
+        "War Aspect Distillation": 9000,
+        "Water Aspect Distillation": 7000
     },
     "deed_prices": {
         "strongbox customization unlock deed [blessed] (used to unlock 'Strongbox' customization)": 2000000,
@@ -80,7 +80,7 @@
     "misc_crafting_prices": {
         "pristine lumber": 40000,
         "immaculate stone": 50000,
-        "an arcane scroll": 1200,
+        "an arcane scroll": 1300,
         "mastercrafting diagram": 20000,
         "cleansing brew": 1500,
         "amber": 48,
