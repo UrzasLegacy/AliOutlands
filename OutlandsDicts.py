@@ -44,7 +44,7 @@ core_prices = { #exact string MATTERS
 	"Air Aspect Core": 85000,
 	"Arcane Aspect Core": 85000,
 	"Artisan Aspect Core": 80000,
-	"Blood Aspect Core": 27000,
+	"Blood Aspect Core": 25000,
 	"Command Aspect Core": 65000,
 	"Death Aspect Core": 10000,
 	"Discipline Aspect Core": 8000,
@@ -53,13 +53,13 @@ core_prices = { #exact string MATTERS
 	"Fire Aspect Core": 14000,
 	"Frost Aspect Core": 13000,
 	"Fortune Aspect Core": 75000,
-	"Gadget Aspect Core": 14000,
-	"Harvest Aspect Core": 80000,
+	"Gadget Aspect Core": 16000,
+	"Harvest Aspect Core": 85000,
 	"Holy Aspect Core": 19000,
 	"Lightning Aspect Core": 41000,
 	"Lyric Aspect Core": 15000,
-	"Madness Aspect Core": 80000,
-	"Poison Aspect Core": 80000,
+	"Madness Aspect Core": 85000,
+	"Poison Aspect Core": 85000,
 	"Shadow Aspect Core": 70000,
 	"Void Aspect Core": 50000,
 	"War Aspect Core": 7000,
@@ -1548,7 +1548,7 @@ stop'''
 if __name__ == "__main__":  
 	discount_float = 1.
 	alt_vendors = True
-	choose = 2
+	choose = 1
 	if choose == 1:
 		render_stock_script({},discount_float,alt_vendors)
 	else:
@@ -1561,8 +1561,8 @@ if __name__ == "__main__":
 			price=340000,
 			quant=1,
 			total_stacks=27,
-			start_pos="X=44, Y=125, Z=0",
-			end_pos = "X=96, Y=125, Z=0",
+			start_pos="X=44, Y=144, Z=0",
+			end_pos = "X=96, Y=144, Z=0",
 			x_offset = 2,
 			y_offset = 0
 		)

@@ -436,8 +436,9 @@ def parse_log_to_object():
                 if "Not for sale" in line:
                     continue
                 #[09/24/2024 12:14]  [Razor]: …item ID:1838671292 Stack Price: 12,000 each Air Aspect Distillation : 5
-                match = re.search(r'ID:(\d+) Price: ([\d,]+) (.+?)(?:( : (\d+))(.*))?$', line)
+                match = re.search(r'ID:(\d+) (?:Stack )?Price: ([\d,]+) (?:each )?(.+?)(?:( : (\d+))(.*))?$', line)
                 if match:
+                    new_stack = " Stack Price: " in line
                     item_id = int(match.group(1))
                     item_price = int(match.group(2).replace(',',""))
                     item_description = match.group(3)
@@ -447,9 +448,8 @@ def parse_log_to_object():
                     if " dye " in item_description and ") (hue" in item_description:
                         item_description = item_description.split(") (hue")[0] + ")"
                     item_description_full = f"{item_description}{item_quantity_colon}{item_suffix}"
-
                     item_description += item_suffix
-                    item_unitprice = round(item_price / item_quantity,4)
+                    item_unitprice = item_price if new_stack else round(item_price / item_quantity,4)
                     item = {
                         'id': item_id,
                         "price": item_unitprice,
@@ -457,7 +457,8 @@ def parse_log_to_object():
                         "full_description": item_description_full,
                         "quantity": item_quantity,
                         'location': location,
-                        'location_name': location_name
+                        'location_name': location_name,
+                        'new_stack': new_stack
                     }
                     pass_flag = True
                     current_vendor["items"].append(item)
@@ -1162,9 +1163,9 @@ Game/Assistant Window:
             item_id = serial_match.group(2) if serial_match else 0
             total_cost = int(float(row[10]))
             total_cost_str = format_with_commas(total_cost)
-            item_description = row[11]
-            item_description_pattern = f"Price: {total_cost_str} {item_description}"
-
+            item_description, new_stack = row[11].split(f"%%%")
+            item_description_pattern = f"Stack Price: {total_cost_str} each {item_description}" if new_stack == "True" else f"Price: {total_cost_str} {item_description}"
+            print(item_description_pattern)
             interface_data.append((location_name, vendor_serial, item_id, item_description_pattern))
         
         squozen_data = self.squeeze_interface_data(interface_data)
@@ -1266,6 +1267,16 @@ while not dead
                         menu "foundItem" 0
                         waitforgump 4274928655 1000
                         gumpresponse 1
+                        if "Stack Price: " in "desc"
+                            @unignore "foundItem"
+                            while find "foundItem" "mainBackpack"
+                                menu "foundItem" 0
+                                waitforgump 4274928655 1000
+                                gumpresponse 1
+                                wait 200
+                            endwhile
+                            @ignore "foundItem"
+                        endif
                         wait 200
                     endif
                 endwhile
@@ -1326,7 +1337,7 @@ endwhile"""
             str_price = format_with_commas(item_price)
             total_cost = int(float(self.tree.item(row_id, "values")[10]))
             total_cost_str = format_with_commas(total_cost)
-            item_description = self.tree.item(row_id, "values")[11]
+            item_description = self.tree.item(row_id, "values")[11].split(f"%%%")[0]
             scriptString = f"""
 
 @setvar! "timeout" 650
@@ -1503,7 +1514,7 @@ endwhile"""
         str_price = format_with_commas(item_price)
         total_cost = int(float(self.tree.item(row_id, "values")[10]))
         total_cost_str = format_with_commas(total_cost)
-        item_description = self.tree.item(row_id, "values")[11]
+        item_description = self.tree.item(row_id, "values")[11].split(f"%%%")[0]
         scriptString = f"""@setvar! "timeout" 650
 @setvar! "myTome" 0
 @clearignore
@@ -1792,8 +1803,10 @@ endwhile"""
             for item in vendor_items:
                 threshold = 0.0
                 name_string = item['description']
+                new_stack = item['new_stack']
+                #full_description = item['full_description'].split(" : ")[0] if new_stack else item['full_description']
                 full_description = item['full_description']
-                price = round(item['price'], 4)
+                price = item['price']
                 if 'chain link' in name_string:
                     if name_string.startswith('a '):
                         name_string = name_string[2:]
@@ -1874,10 +1887,10 @@ endwhile"""
                     format_url = "https://outlandmalls.com/?item=" + quote_plus(web_name) + "&search_category_id=0"
                     location_link = f"https://www.exploreoutlands.com/#pos:{location_coordinates_cleaned},13"
                     location_link_split = location_link.split('#')
-                    total_cost = round(price * quantity_int,0)
+                    total_cost = price if new_stack else round(price * quantity_int,0)
                     total_profit = round(threshold * quantity_int - total_cost,0)
                     formatted_location_link = f"{location_link_split[0]}?{vendor_id}?{item['id']}?{int(price * quantity_int)}#{location_link_split[1]}"
-                    out_data.append((f"{name_string}",f"{int(price)}/{int(threshold)}",f"{cost_to_price_ratio}",f"{quantity_int}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{location_name}",f"{out_string}",f"{formatted_location_link}",f"{format_url}",f"{total_cost}",f"{full_description}"))
+                    out_data.append((f"{name_string}",f"{int(price)}/{int(threshold)}",f"{cost_to_price_ratio}",f"{quantity_int}",f"{total_profit}",f"{vendor_string}",f"{location_coordinates}\t{location_name}",f"{out_string}",f"{formatted_location_link}",f"{format_url}",f"{total_cost}",f"{full_description}%%%{new_stack}"))
         self.queue_append.put(out_data)
 
     def ParseMostRecentJournalLog(self,event=''):
